@@ -31,7 +31,7 @@ const Hero = () => {
                                 rel="noopener noreferrer"
                                 className="underline decoration-border-subtle underline-offset-4 hover:text-primary hover:decoration-accent transition-all"
                             >
-                                X (Twitter)
+                                X
                             </a>
                         </li>
                         <li className="flex items-center space-x-3">

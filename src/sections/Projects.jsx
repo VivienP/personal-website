@@ -37,7 +37,7 @@ const projects = [
     },
     {
         id: 5,
-        title: "PKvitality",
+        title: "Research Intern @ PKvitality",
         description: "Contributed to the R&D of the first non-invasive CGM smartwatch for diabetics.",
         tags: ["MedTech", "R&D"],
         link: "https://www.pkvitality.com/",

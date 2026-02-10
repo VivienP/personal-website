@@ -42,7 +42,7 @@ const Lactate = () => {
                     A proof-of-concept of an enzymatic lactate biosensor for monitoring muscular fatigue in athletes.
                 </p>
                 <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">
-                    <span>I published a master thesis on this work. Read it on</span>
+                    <span>I wrote a research article titled <em>"Exploring Activity-Induced Lactate Pharmacokinetics: Implications for Minimally-Invasive Monitoring"</em> related to this work. Read it on</span>
                     <a
                         href="https://www.researchgate.net/publication/375229419_Exploring_Activity-Induced_Lactate_Pharmacokinetics_Implications_for_Minimally-Invasive_Monitoring"
                         target="_blank"
