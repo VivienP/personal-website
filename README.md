@@ -1,7 +1,5 @@
 # vivienperrelle.com
 
-Personal website of Vivien Perrelle — AI Product & Strategy.
-
-Built with React, Vite, and Tailwind CSS.
+My personal website. 
 
 Last updated: 10/02/2026
