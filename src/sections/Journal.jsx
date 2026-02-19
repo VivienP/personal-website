@@ -2,6 +2,11 @@ import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
 const articles = [
+{
+        date: "2026-02-19",
+        title: "OpenClaw & the Infrastructure of Sovereign Intelligence",
+        slug: "openclaw"
+    },
     {
         date: "2026-02-10",
         title: "Dubai Is Not Just for Influencers Anymore.",

@@ -8,6 +8,7 @@ import ArtSection from './sections/ArtSection';
 import BioWatch from './articles/BioWatch';
 import Lactate from './articles/Lactate';
 import Dubai from './articles/Dubai';
+import OpenClaw from './articles/OpenClaw';
 import SEO from './components/SEO';
 import NotFound from './pages/NotFound';
 
@@ -48,6 +49,7 @@ function App() {
         <Route path="/blog/lactate" element={<Lactate />} />
         <Route path="/art" element={<Art />} />
         <Route path="/blog/dubai" element={<Dubai />} />
+        <Route path="/blog/openclaw" element={<OpenClaw />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
