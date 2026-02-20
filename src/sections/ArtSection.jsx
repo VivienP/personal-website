@@ -8,7 +8,7 @@ const ArtSection = () => {
             <div className="max-w-6xl mx-auto">
                 <div className="space-y-4">
                     <h2 className="text-3xl md:text-4xl text-primary">Art</h2>
-                    <p className="text-lg text-secondary font-light leading-relaxed">
+                    <p className="text-base text-primary leading-relaxed">
                         Beyond technology, I used to draw.
                     </p>
                     <Link
