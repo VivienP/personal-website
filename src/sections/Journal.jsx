@@ -50,11 +50,8 @@ const Journal = () => {
     return (
         <section id="journal" className="py-24 px-6">
             <div className="max-w-6xl mx-auto">
-                <div className="flex items-end justify-between mb-12">
+                <div className="mb-12">
                     <h2 className="text-3xl md:text-4xl text-primary">Journal</h2>
-                    <a href="/blog" className="text-sm border-b border-primary pb-0.5 hover:text-accent hover:border-accent transition-colors">
-                        View all
-                    </a>
                 </div>
 
                 <div className="flex flex-col">
