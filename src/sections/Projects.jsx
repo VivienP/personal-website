@@ -6,7 +6,7 @@ const projects = [
     {
         id: 1,
         title: "Finexov",
-        description: "Built AI agents to streamline complex R&D public funding.",
+        description: "Built AI agents to streamline complex R&D documentation for public funding.",
         tags: ["AI Agents", "FinTech"],
         link: "https://www.finexov.com/",
         github: "#"
@@ -22,7 +22,7 @@ const projects = [
     {
         id: 3,
         title: "Biosensor Research",
-        description: "Master Thesis on embedded healthcare monitoring (ResearchGate).",
+        description: "Master Thesis on embedded healthcare monitoring.",
         tags: ["Research", "HealthTech"],
         link: "/blog/biowatch",
         github: "#"
