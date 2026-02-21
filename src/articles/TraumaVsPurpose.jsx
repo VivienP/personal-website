@@ -59,7 +59,7 @@ const TraumaVsPurpose = () => {
                 <h2 className="text-xl md:text-2xl pt-8 pb-4 font-normal text-primary">The Power of the Dark Engine</h2>
 
                 <p>
-                    Let’s be intellectually honest. The "Trauma-Driven" model works. Some of the greatest companies in history were built by founders running on high-octane, dirty fuel.
+                    Let's be intellectually honest. <strong>The "Trauma-Driven" model works.</strong> Some of the greatest companies in history were built by founders running on high-octane, dirty fuel.
                 </p>
 
                 <ul className="list-disc pl-6 space-y-4 marker:text-secondary">
@@ -89,11 +89,11 @@ const TraumaVsPurpose = () => {
                 </p>
 
                 <p>
-                    The Purpose-Driven Founder.
+                    <strong>The Purpose-Driven Founder.</strong>
                 </p>
 
                 <p>
-                    These leaders are not trying to fill a void in their soul. They are trying to fill a void in the market. They are obsessed with the craft, not the conquest.
+                    These leaders are not trying to fill a void in their soul. They are trying to fill a void in the market. <strong>They are obsessed with the craft rather than the conquest.</strong>
                 </p>
 
                 <ul className="list-disc pl-6 space-y-4 marker:text-secondary">
