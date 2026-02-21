@@ -54,7 +54,7 @@ const ProjectCard = ({ project }) => {
                 <div className="flex justify-between items-start">
                     <h3 className="text-xl text-primary group-hover:text-accent transition-colors">{project.title}</h3>
                     {project.link !== "#" && (
-                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                             {isInternal ? (
                                 <Link to={project.link} className="text-secondary hover:text-primary">
                                     <ExternalLink size={18} />
