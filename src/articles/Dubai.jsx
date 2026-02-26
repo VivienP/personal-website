@@ -36,7 +36,7 @@ const Dubai = () => {
             <header className="mb-12 space-y-6">
                 <span className="font-mono text-sm text-secondary">2026-02-10</span>
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
-                    Dubai Is Not Just for Influencers Anymore.
+                    Dubai Is Not Just for Influencers Anymore
                 </h1>
             </header>
 

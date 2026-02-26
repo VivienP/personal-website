@@ -2,14 +2,14 @@ import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
 const articles = [
-{
+    {
         date: "2026-02-19",
         title: "OpenClaw & the Infrastructure of Sovereign Intelligence",
         slug: "openclaw"
     },
     {
         date: "2026-02-10",
-        title: "Dubai Is Not Just for Influencers Anymore.",
+        title: "Dubai Is Not Just for Influencers Anymore",
         slug: "dubai"
     },
     {
@@ -42,7 +42,7 @@ const JournalItem = ({ article }) => (
                 {article.title}
             </h3>
         </div>
-        <ArrowUpRight size={16} className="text-secondary opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+        <ArrowUpRight size={16} className="text-secondary opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity shrink-0" />
     </Link>
 );
 

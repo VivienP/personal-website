@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Hero from './sections/Hero';
 import Projects from './sections/Projects';
+import AcademicWork from './sections/AcademicWork';
 import Journal from './sections/Journal';
 import TraumaVsPurpose from './articles/TraumaVsPurpose';
 import Art from './pages/Art';
@@ -34,6 +35,7 @@ const Home = () => (
     />
     <Hero />
     <Projects />
+    <AcademicWork />
     <Journal />
     <ArtSection />
   </main>

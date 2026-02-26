@@ -21,8 +21,8 @@ const projects = [
     },
     {
         id: 3,
-        title: "Biosensor Research",
-        description: "Master Thesis on embedded healthcare monitoring.",
+        title: "Wearable Biosensor Research",
+        description: "Built a smartwatch prototype for wearable glucose and lactate enzymatic biosensors.",
         tags: ["Research", "HealthTech"],
         link: "/blog/biowatch",
         github: "#"
@@ -40,7 +40,7 @@ const projects = [
         title: "Research Intern @ PKvitality",
         description: "Contributed to the R&D of the first non-invasive CGM smartwatch for diabetics.",
         tags: ["MedTech", "R&D"],
-        link: "https://www.pkvitality.com/",
+        link: "https://www.youtube.com/watch?v=4zz6rDdbdZY",
         github: "#"
     }
 ];
