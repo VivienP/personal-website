@@ -19,4 +19,8 @@
   #root {
     min-height: 100vh;
   }
+
+  strong {
+    font-weight: 700;
+  }
 }

@@ -124,7 +124,6 @@ const ScienceIsEnteringItsAgenticEra = () => {
                     <p>
                         Things worth doing always take longer than expected. Part of that time is execution; part of it is making sure you are executing on the right thing.
                     </p>
-                    
                 </section>
 
                 <section className="space-y-6">
