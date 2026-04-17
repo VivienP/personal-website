@@ -2,7 +2,7 @@ const SITE_URL = 'https://vivienperrelle.com';
 
 const defaults = {
     title: 'Vivien Perrelle | AI Product & Strategy',
-    description: 'Portfolio of an AI Developer & Entrepreneur exploring Old Money aesthetics in Tech.',
+    description: 'Portfolio of an AI Developer & Entrepreneur exploring the intersection of agentic AI and Pharmaceutical regulations.',
     image: `${SITE_URL}/me.png`,
 };
 

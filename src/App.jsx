@@ -10,6 +10,7 @@ import BioWatch from './articles/BioWatch';
 import Lactate from './articles/Lactate';
 import Dubai from './articles/Dubai';
 import OpenClaw from './articles/OpenClaw';
+import ScienceIsEnteringItsAgenticEra from './articles/ScienceIsEnteringItsAgenticEra';
 import SEO from './components/SEO';
 import NotFound from './pages/NotFound';
 
@@ -52,6 +53,7 @@ function App() {
         <Route path="/art" element={<Art />} />
         <Route path="/blog/dubai" element={<Dubai />} />
         <Route path="/blog/openclaw" element={<OpenClaw />} />
+        <Route path="/blog/science-is-entering-its-agentic-era" element={<ScienceIsEnteringItsAgenticEra />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

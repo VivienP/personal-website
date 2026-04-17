@@ -3,6 +3,11 @@ import { ArrowUpRight } from 'lucide-react';
 
 const articles = [
     {
+        date: "2026-04-17",
+        title: "Science Is Entering Its Agentic Era",
+        slug: "science-is-entering-its-agentic-era"
+    },
+    {
         date: "2026-02-19",
         title: "OpenClaw & the Infrastructure of Sovereign Intelligence",
         slug: "openclaw"
