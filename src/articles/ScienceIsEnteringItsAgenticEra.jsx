@@ -104,21 +104,27 @@ const ScienceIsEnteringItsAgenticEra = () => {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Why I Am Moving in This Direction</h2>
                     <p>
-                        My background is in biosensing, wearable technology, and applied AI. For the past two months, I have been building <a href="https://locuslabhq.com" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">LocusLab</a> — regulatory tooling for biotech submissions, downstream of science, in the compliance layer. It is a real problem worth solving, but it is not where I want to spend the next decade.
+                        My background is biosensing, wearable technology, and applied AI. For the past two months I have been building <a href="https://locuslabhq.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">LocusLab</a> — regulatory verification tooling for biotech submissions. Useful work, but downstream of the actual bottleneck.
                     </p>
                     <p>
-                        I want to work on the upstream bottleneck: the rate at which humanity generates validated knowledge. Building agents that accelerate hypothesis generation, experimental design, and scientific verification is the most direct lever I can think of on that goal.
+                        The bottleneck is the rate at which humanity produces validated knowledge. Agents that generate hypotheses, run experiments, and verify scientific claims act directly on that rate. Nothing else I could build moves the needle as much.
                     </p>
                     <p>
-                        This post is a commitment marker. Over the next weeks, I am:
+                        So that is what I am building.
+                    </p>
+                    <p>
+                        Over the coming weeks:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
-                        <li>Talking to active researchers — PhDs, postdocs, PIs — about their current workflows with and without AI.</li>
-                        <li>Contributing to open-source work in the space, starting with the published systems from FutureHouse and Sakana AI.</li>
-                        <li>Prototyping small, opinionated agents in domains I already know — biosensing, regulated biology, and scientific verification.</li>
+                        <li>Talking to active researchers — PhDs, postdocs, PIs — about where their workflows break with and without AI.</li>
+                        <li>Contributing to the open systems shipping in this space, starting with FutureHouse and Sakana AI.</li>
+                        <li>Shipping small, opinionated agents in domains I already know — biosensing, regulated biology, and scientific verification.</li>
                     </ul>
                     <p>
-                        If you are working on something adjacent, or want to compare notes, I would like to hear from you.
+                        The first is already live: an <a href="https://github.com/VivienP/scientific-claim-verification-engine" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">open-source scientific claim verifier</a> that beats naive Claude by 30 F1 points on SciFact. More coming.
+                    </p>
+                    <p>
+                        If you are working on something adjacent, I want to hear from you.
                     </p>
                 </section>
 
