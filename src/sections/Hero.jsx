@@ -18,7 +18,7 @@ const Hero = () => {
                     {/* Bio / Main Title */}
                     <h1 className="text-base text-primary leading-relaxed">
                         I’m Vivien, Product Designer and 2x startup founder. <br className="hidden md:block" />
-                        Currently exploring AI for Regulated Industries.
+                        Building at the edge of AI, science, and trust.
                     </h1>
 
                     {/* Social Links List */}
@@ -43,6 +43,17 @@ const Hero = () => {
                                 className="underline decoration-border-subtle underline-offset-4 hover:text-primary hover:decoration-accent transition-all"
                             >
                                 LinkedIn
+                            </a>
+                        </li>
+                        <li className="flex items-center space-x-3">
+                            <span className="w-1.5 h-1.5 rounded-full bg-secondary/60"></span>
+                            <a
+                                href="https://github.com/VivienP"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline decoration-border-subtle underline-offset-4 hover:text-primary hover:decoration-accent transition-all"
+                            >
+                                GitHub
                             </a>
                         </li>
                     </ul>

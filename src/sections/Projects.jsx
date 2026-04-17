@@ -4,6 +4,14 @@ import { Link } from 'react-router-dom';
 
 const projects = [
     {
+        id: 0,
+        title: "Locus Lab",
+        description: "Building an AI-powered QC automation tool for pharmaceutical regulatory documents.",
+        tags: ["AI Agents", "RegTech", "MedTech"],
+        link: "https://www.locuslabhq.com/",
+        github: "#"
+    },
+    {
         id: 1,
         title: "Finexov",
         description: "Built AI agents to streamline complex R&D documentation for public funding.",

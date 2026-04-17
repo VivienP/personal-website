@@ -17,7 +17,7 @@ import NotFound from './pages/NotFound';
 const Home = () => (
   <main>
     <SEO
-      title="Vivien Perrelle | AI Product & Strategy"
+      title="Vivien Perrelle | AI Agent Architect"
       description="Product Designer and 2x startup founder exploring AI for Regulated Industries."
       url="/"
       jsonLd={{
