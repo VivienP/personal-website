@@ -119,7 +119,7 @@ const ScienceIsEnteringItsAgenticEra = () => {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">A Note On The Process</h2>
                     <p>
-                        Whenever I catch weak signals that I may be heading in the wrong direction, I have learned not to push through them. I take time to write, to discuss with friends, and to brainstorm with Claude. Putting thoughts on a page forces clarity. Talking to people who know me breaks the echo chamber. Working with an AI that will push back honestly catches the rationalizations I can't catch alone.
+                        Whenever I catch weak signals that I may be heading in the wrong direction, I have learned (the hard way) not to push through them. I take time to write, to discuss with friends, and to brainstorm with Claude. Putting thoughts on a page forces clarity. Talking to people who know me breaks the echo chamber. Working with an AI that will push back honestly catches the rationalizations I can't catch alone.
                     </p>
                     <p>
                         Things worth doing always take longer than expected. Part of that time is execution; part of it is making sure you are executing on the right thing.
