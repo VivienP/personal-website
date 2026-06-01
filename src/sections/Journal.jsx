@@ -3,6 +3,11 @@ import { ArrowUpRight } from 'lucide-react';
 
 const articles = [
     {
+        date: "2026-06-01",
+        title: "AI for Science Is Becoming Infrastructure",
+        slug: "ai-for-science-is-becoming-infrastructure"
+    },
+    {
         date: "2026-04-17",
         title: "Science Is Entering Its Agentic Era",
         slug: "science-is-entering-its-agentic-era"
