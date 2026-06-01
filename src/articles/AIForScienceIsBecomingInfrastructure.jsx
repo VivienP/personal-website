@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import SEO from '../components/SEO';
 
-// Inline citation marker, e.g. [1], linking to the matching reference in the list below.
 const Cite = ({ n }) => (
     <sup>
         <a
@@ -38,7 +37,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "mainEntityOfPage": "https://vivienperrelle.com/blog/ai-for-science-is-becoming-a-systems-problem",
-                    "keywords": "AI, Scientific Research, Drug Discovery, Research Automation, Biotech, Evaluation, Google Co-Scientist, Isomorphic Labs, SoundnessBench, AI research agents, autonomous scientific discovery, AI-first drug design, AI Scientist Sakana AI, evaluation bottleneck"
+                    "keywords": "AI, Scientific Research, Drug Discovery, Research Automation, Biotech, Evaluation, Google Co-Scientist, Isomorphic Labs, SoundnessBench, AI research agents, autonomous scientific discovery, AI-first drug design, AI Scientist Sakana AI, evaluation bottleneck, Eroom's law, feedback loops, cost fidelity"
                 }}
             />
             <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
@@ -74,277 +73,348 @@ const AIForScienceIsBecomingInfrastructure = () => {
 
                 <section className="space-y-6">
                     <p>
-                        A few years ago, "AI for science" mostly meant prediction:
+                        For decades, pharma got better at generating drug candidates.
+                    </p>
+                    <p>
+                        More targets, more compounds, more screening, more automation, more spend. And yet the number of new drugs approved per inflation-adjusted billion dollars of R&D fell for most of that period. In 2012, Jack Scannell and colleagues named this pattern Eroom's law: Moore's law spelled backwards, because it described the opposite of technological progress.<Cite n={1} />
+                    </p>
+                    <p>
+                        The inputs that scaled were ideas.
+                    </p>
+                    <p>
+                        The thing that did not scale was the loop that turns an idea into validated knowledge.
+                    </p>
+                    <p>
+                        That loop is simple to describe — idea, evidence, experiment, interpretation, decision — and hard to execute. A hypothesis has to be grounded in prior evidence. An experiment has to test the right thing. Results have to be interpreted correctly. A decision has to be made under uncertainty. And in biology, every step can be slow, expensive, noisy, or misleading.
+                    </p>
+                    <p>
+                        This is why the latest AI-for-science wave matters. Not because AI suddenly gives science more ideas — ideas were never the bottleneck. Because software is starting to touch more of the loop itself: generating hypotheses, searching evidence, writing code, running computational experiments, designing proteins, simulating biological systems, supporting decisions.
+                    </p>
+                    <p>
+                        But these loops are not equivalent. The key question is not what a system can generate. It is: how does the system find out that it is wrong?
+                    </p>
+                    <p>
+                        That depends on two variables that are easy to confuse. The cost of feedback is how slow, expensive, or operationally difficult it is to get a correction from reality. The fidelity of feedback is how directly that correction reflects the thing you actually care about. The two do not move together — and that gap is the whole story. Some feedback is fast and cheap but only loosely connected to the real question. Other feedback is slow and costly yet far more faithful. The cheaper and less faithful the loop, the easier it is to scale — and the easier it is to fool yourself.
+                    </p>
+                </section>
+
+                <section className="space-y-6">
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Code-closed loops: computational research agents</h2>
+                    <p>
+                        The easiest place to automate science is where the feedback loop is digital.
+                    </p>
+                    <p>
+                        That is why Sakana AI's The AI Scientist<Cite n={4} /><Cite n={5} /> is important. It shows that bounded parts of the computational research workflow can be automated end-to-end:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
-                        <li>Predict the structure of a protein.</li>
-                        <li>Screen a molecule.</li>
-                        <li>Search the literature faster.</li>
-                        <li>Summarize a paper.</li>
+                        <li>ideation;</li>
+                        <li>literature search;</li>
+                        <li>code writing;</li>
+                        <li>experiment execution;</li>
+                        <li>result analysis;</li>
+                        <li>manuscript drafting;</li>
+                        <li>automated review.</li>
                     </ul>
                     <p>
-                        That era is not over. But it is becoming one layer in a much bigger stack.
+                        This is impressive. But it is also the friendliest version of the problem.
                     </p>
                     <p>
-                        The latest wave of announcements around Google Co-Scientist, Isomorphic Labs, Inherent, Perceptic, CellType, BioStack, and autonomous research agents points to a deeper shift:
+                        Computational research has fast feedback, clear metrics, cheap iteration, and reproducible environments. A model can run code, inspect results, change parameters, and try again.
                     </p>
                     <p>
-                        AI is moving from scientific tools to scientific systems. Not just models that answer questions. Systems that generate hypotheses, run computational experiments, simulate biology, structure evidence, and help decide what deserves scarce experimental resources.
+                        The signal is not perfect. Bad benchmarks, leaky evaluations, weak experimental design, and automated paper generation can still create noise. But when the task is well-specified, the loop can close quickly and cheaply.
                     </p>
                     <p>
-                        That distinction matters. Because science does not fail only because we lack ideas. Science fails because the loop between idea, evidence, experiment, interpretation, and decision is slow, fragmented, and hard to trust.
-                    </p>
-                </section>
-
-                <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The first layer: hypothesis engines</h2>
-                    <p>
-                        Google's Co-Scientist<Cite n={1} /> is probably the cleanest signal.
+                        That is why code-closed research is likely to be one of the first areas where autonomous agents produce visible progress.
                     </p>
                     <p>
-                        It is not just a chatbot for researchers. It is a multi-agent system built around the structure of scientific thinking: generate hypotheses, critique them, rank them, evolve them, and refine the best candidates.
-                    </p>
-                    <figure className="my-8 not-prose">
-                        <img
-                            src="/co-scientist.gif"
-                            alt="Animation of the Co-scientist hypothesis selection process: hypotheses are generated, critiqued, ranked, and evolved over successive rounds."
-                            className="w-full h-auto rounded-lg border border-border-subtle"
-                            loading="lazy"
-                        />
-                        <figcaption className="mt-3 text-center text-sm text-secondary italic font-light">
-                            Co-scientist hypothesis selection process
-                        </figcaption>
-                    </figure>
-                    <p>
-                        That is important. For the first time, part of the hypothesis-generation loop is being formalized as software.
+                        It is not because computation is "easy."
                     </p>
                     <p>
-                        The old version of AI for science was mostly answer-oriented: ask a question, get a response. The new version is search-oriented: define a scientific problem, explore the hypothesis space, compare candidates, and propose what might be worth testing.
-                    </p>
-                    <p>
-                        But this is also where the hype needs to be contained. A hypothesis is not valuable because it is novel. It is valuable if it is testable, grounded, and eventually useful.
-                    </p>
-                    <p>
-                        AI can expand the search space almost infinitely. That is powerful. It is also dangerous. More hypotheses can mean faster discovery. It can also mean more noise.
+                        It is because the correction mechanism is close to the model.
                     </p>
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The second layer: computational research agents</h2>
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Literature-closed loops: hypothesis generation</h2>
                     <p>
-                        The next layer is not biology-first. It is computation-first.
+                        Google Co-Scientist<Cite n={2} /><Cite n={3} /> sits one step further away from direct reality.
                     </p>
                     <p>
-                        Systems like The AI Scientist from Sakana AI<Cite n={3} /> and newer autonomous research agents show that parts of the scientific workflow can now be automated end-to-end: ideation, literature search, code writing<Cite n={2} />, experiment execution, result analysis, manuscript drafting, and even automated review.
+                        It is not just a chatbot for researchers. It is a multi-agent system built around structured scientific thinking: generate hypotheses, critique them, rank them, evolve them, and refine the best candidates.
                     </p>
                     <p>
-                        This is impressive. But it is also easier than wet-lab science.
+                        That matters because part of the hypothesis-generation loop is being formalized as software.
                     </p>
                     <p>
-                        Computational research has fast feedback. Clear metrics. Cheap iteration. Reproducible environments. A model can run code, inspect results, change parameters, and try again.
+                        The old version of AI for science was answer-oriented: ask a question, get a response. The new version is search-oriented: define a problem, explore the hypothesis space, compare candidates, and propose what might be worth testing.
                     </p>
                     <p>
-                        Biology is different.
-                    </p>
-                    <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
-                        <li>Cells do not care about your benchmark.</li>
-                        <li>Patients do not return clean error messages.</li>
-                        <li>Experiments are expensive, slow, and full of hidden variables.</li>
-                    </ul>
-                    <p>
-                        So the right conclusion is not: AI is now an autonomous scientist. The right conclusion is: AI is beginning to automate bounded research loops, especially where the feedback is digital.
+                        Inherent<Cite n={9} /> belongs in this same category. Its thesis is more ambitious — systems that help scientists find better questions, not just answer known ones — but it is still about search over possible directions of inquiry.
                     </p>
                     <p>
-                        That is still a big deal. But it is not the same thing as replacing scientific judgment.
+                        This is valuable. But it is not discovery by itself.
+                    </p>
+                    <p>
+                        A hypothesis can be novel, elegant, and plausible while still being wrong. A system that closes mostly against literature can improve the quality of search, but it cannot fully validate the claim.
+                    </p>
+                    <p>
+                        Literature can constrain the hypothesis space.
+                    </p>
+                    <p>
+                        It cannot replace reality.
                     </p>
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The third layer: AI-first drug design</h2>
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Simulation-closed loops: cheap feedback, dangerous fidelity</h2>
                     <p>
-                        Isomorphic Labs represents another layer: therapeutic execution.
+                        Simulation is where the framework becomes more subtle.
                     </p>
                     <p>
-                        Its latest $2.1B Series B<Cite n={4} /> is not just another funding round. It is a signal that AI-first drug design is moving from research story to capital-intensive industrial strategy.
+                        A simulation can look close to software because it is cheap, fast, and computational. But epistemically, it may be far from the biological reality it is supposed to predict.
                     </p>
                     <p>
-                        But here again, precision matters. The value of Isomorphic will not be proven by model performance alone. It will be proven by whether its systems can change the probability, speed, or cost of producing real therapeutic assets.
+                        That is the trap.
+                    </p>
+                    <p>
+                        Cheap feedback is not the same as faithful feedback.
+                    </p>
+                    <p>
+                        CellType<Cite n={11} /> points toward biological foundation models that simulate human biology and help prioritize what to test before expensive experimental or clinical steps. BioStack<Cite n={12} /> points toward post-training environments built from realistic healthcare and drug discovery workflows. Insilico Medicine's longevity foundation model collaboration<Cite n={13} /> points in a similar direction: foundation models moving into aging biology, disease-risk prediction, multimodal clinical data, and preventive medicine.
+                    </p>
+                    <p>
+                        This category is important because better environments can move useful feedback earlier in the research process.
+                    </p>
+                    <p>
+                        But it should not be romanticized.
+                    </p>
+                    <p>
+                        A simulation is useful only if it preserves the causal structure that matters when you intervene. Otherwise, it does not reduce risk. It creates false confidence.
+                    </p>
+                    <p>
+                        In software, a sandbox can be close to the real environment. In biology, the sandbox is usually a proxy. Sometimes a useful proxy. Sometimes a dangerous one.
+                    </p>
+                    <p>
+                        That is why simulation is not simply "between code and biology." It is a separate case: cheap like software, but potentially unfaithful like a weak biological proxy.
+                    </p>
+                    <p>
+                        The strongest AI-for-science systems will not only generate candidates. They will estimate how much trust to place in each environment.
+                    </p>
+                </section>
+
+                <section className="space-y-6">
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Protein- and molecule-closed loops: biological design</h2>
+                    <p>
+                        The next step is where AI moves from predicting biology to designing biological objects.
+                    </p>
+                    <p>
+                        Biohub<Cite n={6} /> is one signal. Its ESM release is positioned as a world model of protein biology: not only a system to predict structures, but a substrate to map, search, and design inside the protein universe.
+                    </p>
+                    <p>
+                        But the broader point is not proteins alone.
+                    </p>
+                    <p>
+                        The same pattern appears in enzyme design, binder design, molecular generation, and lab-in-the-loop drug discovery. AI systems propose candidates, rank them, and decide what should move into experimental validation.
+                    </p>
+                    <p>
+                        This is where the loop starts to become slower and more expensive, but also more meaningful.
+                    </p>
+                    <p>
+                        A generated protein or molecule is not validated because it looks good in latent space. It is validated when it works under biological constraints: binding, stability, expression, specificity, manufacturability, toxicity, and eventually clinical relevance.
+                    </p>
+                    <p>
+                        That is why the term design-make-test matters.
+                    </p>
+                    <p>
+                        Genesis Molecular AI and Incyte<Cite n={8} /> show what this looks like inside pharma: proprietary experimental data feeding foundation models across multiple drug targets, inside a design-make-test loop.
+                    </p>
+                    <p>
+                        Isomorphic Labs<Cite n={7} /> represents the therapeutic execution version of the same shift. Its $2.1B Series B is not just a funding event. It is a signal that AI-first drug design is moving from research story to capital-intensive industrial strategy.
+                    </p>
+                    <p>
+                        The value of AI drug discovery will not be proven by model performance alone.
+                    </p>
+                    <p>
+                        It will be proven by whether AI changes the probability, speed, or cost of producing clinically meaningful assets.
                     </p>
                     <p>
                         Drug discovery is not a Kaggle competition.
                     </p>
-                    <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
-                        <li>The model output is not the product.</li>
-                        <li>The molecule is not even fully the product.</li>
-                        <li>The product is a validated therapeutic program that has passed biology, safety, manufacturing, regulatory, and clinical translation assessments.</li>
-                    </ul>
                     <p>
-                        This is why the category is so hard. And why it is so valuable.
+                        The model output is not the product. The molecule is not even fully the product. The product is a validated therapeutic program that survives biology, safety, manufacturing, regulation, and clinical translation.
                     </p>
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The fourth layer: open-ended discovery</h2>
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Patient-, regulator-, and market-closed loops: therapeutic reality</h2>
                     <p>
-                        Inherent Labs<Cite n={5} /> is interesting for a different reason.
+                        The final validation loop is not computational.
                     </p>
                     <p>
-                        Most AI systems today are built to answer questions. Inherent is betting on systems that help find better questions.
+                        It is clinical, regulatory, and commercial.
                     </p>
                     <p>
-                        That sounds abstract. But it touches one of the deepest problems in science.
+                        This is the part of AI-for-science that funding announcements can obscure. A model can improve molecule design, reduce experimental waste, or prioritize better candidates. But the system is not truly validated until the program survives the realities it claims to improve: animal studies, human trials, safety constraints, manufacturing, regulatory review, reimbursement, and market adoption.
                     </p>
                     <p>
-                        A lot of scientific progress does not come from answering the obvious question faster. It comes from reframing the problem.
-                    </p>
-                    <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
-                        <li>What should we investigate?</li>
-                        <li>Which anomaly matters?</li>
-                        <li>Which experiment would actually change our belief?</li>
-                        <li>Which field is stuck because everyone is optimizing the wrong objective?</li>
-                    </ul>
-                    <p>
-                        If AI can help with that, the opportunity is enormous. But the evaluation problem is brutal. How do you benchmark a system that is supposed to discover questions no one thought to ask?
+                        This is why AI-first therapeutic companies are so capital-intensive.
                     </p>
                     <p>
-                        You can measure answer accuracy. Measuring scientific taste is much harder.
+                        The closer the loop gets to patients, the more expensive the feedback becomes. But the signal also becomes harder to fake.
+                    </p>
+                    <p>
+                        A clinical endpoint is slow, noisy, and expensive. But it is not a proxy in the same way a simulation is.
+                    </p>
+                    <p>
+                        That is why the category is so hard. And why it is so valuable.
                     </p>
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The fifth layer: the pharma operating system</h2>
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Workflow-closed loops: pharma decision intelligence</h2>
                     <p>
-                        Perceptic<Cite n={6} /> points to a more operational layer.
+                        Not every valuable AI system in science will generate hypotheses, molecules, or experiments.
                     </p>
                     <p>
-                        Not "AI that discovers the drug." AI that connects the messy reality around drug development.
+                        Some will connect the decision workflow around them.
                     </p>
                     <p>
-                        Asset scouting. Indication selection. Clinical data analysis. Scientific evaluation. Decision context. Organizational memory.
+                        Perceptic<Cite n={10} /> is best understood this way. Not "AI that discovers the drug," but AI that connects the messy reality around drug development: asset scouting, indication selection, clinical data analysis, scientific evaluation, decision context, and organizational memory.
                     </p>
                     <p>
-                        This may sound less glamorous than molecule generation. It might be more immediately useful. Pharma R&D is not just bottlenecked by scientific imagination. It is bottlenecked by fragmentation.
+                        This may sound less glamorous than molecule generation. It may be more immediately useful.
+                    </p>
+                    <p>
+                        Pharma R&D is not just bottlenecked by scientific imagination. It is bottlenecked by fragmentation:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
-                        <li>Data lives in different systems.</li>
-                        <li>Teams work in silos.</li>
-                        <li>Evidence is scattered across papers, dashboards, trial records, internal reports, and expert judgment.</li>
-                        <li>Billion-dollar decisions are often made by stitching together incomplete context.</li>
+                        <li>data lives in different systems;</li>
+                        <li>teams work in silos;</li>
+                        <li>evidence is scattered across papers, dashboards, trial records, internal reports, and expert judgment;</li>
+                        <li>major decisions are often made by stitching together incomplete context.</li>
                     </ul>
                     <p>
-                        An AI operating system for biopharma is a bet that the next productivity gain comes from connecting the workflow, not only improving a model.
+                        This is not a scientific discovery loop in the narrow sense. It is an organizational decision loop.
                     </p>
                     <p>
-                        That is a very credible bet. Because in regulated, high-stakes industries, the bottleneck is rarely just "generate more."
+                        That distinction matters.
                     </p>
                     <p>
-                        It is: make better decisions with incomplete evidence.
+                        In pharma, the feedback does not close only against biology. It also closes against portfolio strategy, clinical operations, regulatory constraints, partner diligence, and market timing.
+                    </p>
+                    <p>
+                        A pharma operating system is a bet that the next productivity gain comes from connecting the workflow, not only improving a model.
                     </p>
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The sixth layer: biological world models and training environments</h2>
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Cross-cutting constraint: evaluation</h2>
                     <p>
-                        CellType<Cite n={7} /> and BioStack<Cite n={8} /> point to another part of the stack: environments.
+                        Evaluation is not a layer.
                     </p>
                     <p>
-                        CellType's thesis is that foundation models can simulate human biology and help prioritize what to test before moving into expensive experimental or clinical steps.
+                        It cuts across every loop.
                     </p>
                     <p>
-                        BioStack's thesis is that healthcare and drug discovery AI need realistic training environments built from clinical and preclinical workflows.
+                        If AI systems generate more hypotheses, we need to know which ones are sound. If they write more papers, we need to know which claims are supported. If they design more proteins, we need to know whether the design works outside the benchmark. If they run more computational experiments, we need to know whether the setup was meaningful. If they summarize more evidence, we need to know what was missed, distorted, or overclaimed.
                     </p>
                     <p>
-                        Both are early signals of the same thing. AI for biology will not be solved by models alone. It needs environments.
-                    </p>
-                    <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
-                        <li>Better biological data.</li>
-                        <li>Better clinical data.</li>
-                        <li>Better simulation loops.</li>
-                        <li>Better benchmarks.</li>
-                        <li>Better reward functions.</li>
-                        <li>Better links between prediction and outcome.</li>
-                    </ul>
-                    <p>
-                        This is where the analogy with software starts to break. In software, you can build a sandbox. In biology, the sandbox is often a weak proxy for reality.
+                        This is why SoundnessBench<Cite n={15} /> matters.
                     </p>
                     <p>
-                        A biological world model is only useful if it preserves the causal structure that matters when you intervene.
-                    </p>
-                    <p>
-                        Otherwise, it does not reduce risk. It creates false confidence.
-                    </p>
-                </section>
-
-                <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The real bottleneck: evaluation</h2>
-                    <p>
-                        This is the uncomfortable part. The more AI generates, the more evaluation matters.
-                    </p>
-                    <p>
-                        If AI systems generate more hypotheses, we need to know which ones are sound. If they write more papers, we need to know which claims are supported. If they run more computational experiments, we need to know whether the setup was meaningful. If they summarize more evidence, we need to know what was missed, distorted, or overclaimed.
-                    </p>
-                    <p>
-                        This is why recent work like SoundnessBench<Cite n={9} /> matters. It asks a simple but critical question: can AI judge whether a research proposal is scientifically sound?
+                        It asks a simple but critical question: can AI judge whether a research proposal is scientifically sound?
                     </p>
                     <p>
                         The answer is not yet comforting. Current models can look convincing while missing methodological weaknesses. They can reward plausible ideas. They can display optimism bias. They can scale the appearance of rigor without necessarily scaling rigor itself.
                     </p>
                     <p>
-                        That is the core risk of AI for science. Not that it produces nonsense. That would be easy to reject.
+                        RefusalBench<Cite n={14} /> matters from another angle.
                     </p>
                     <p>
-                        The risk is that it produces work that looks scientific enough to pass quickly through overloaded human systems.<Cite n={10} />
+                        As AI systems become orchestration layers for biology, they need to know when to help, when to refuse, and when a legitimate research request is being blocked by a crude safety policy. The failure modes are symmetric:
+                    </p>
+                    <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
+                        <li>too permissive, and we scale dual-use risk;</li>
+                        <li>too restrictive, and we block legitimate research;</li>
+                        <li>too shallow, and we optimize for compliance theater rather than scientific judgment.</li>
+                    </ul>
+                    <p>
+                        This is the core risk of AI for science.
+                    </p>
+                    <p>
+                        Not that it produces nonsense. That would be easy to reject.
+                    </p>
+                    <p>
+                        The risk is that it produces work that looks scientific enough to pass quickly through overloaded human systems.<Cite n={16} />
                     </p>
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The emerging stack</h2>
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The emerging map</h2>
                     <p>
-                        The sector is not converging around one "AI scientist." It is decomposing the research loop into software-addressable layers:
-                    </p>
-                    <ol className="list-decimal pl-6 space-y-2 text-base marker:text-secondary">
-                        <li>Hypothesis generation.</li>
-                        <li>Digital experimentation.</li>
-                        <li>Lab-in-the-loop execution.</li>
-                        <li>Biological simulation.</li>
-                        <li>Data and post-training infrastructure.</li>
-                        <li>Therapeutic development.</li>
-                        <li>R&D decision intelligence.</li>
-                        <li>Cross-cutting evaluation.</li>
-                    </ol>
-                    <p>
-                        The hard question is no longer whether AI can generate scientific work. It is where the loop closes: against code, literature, cells, animals, patients, regulators, or markets.
+                        The sector is not converging around one "AI scientist."
                     </p>
                     <p>
-                        This is not one market. It is the decomposition of the scientific process into software-addressable layers.
+                        It is decomposing the research loop into different kinds of systems, defined by the cost and fidelity of their feedback:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
-                        <li>Some layers will produce spectacular demos.</li>
-                        <li>Some will produce real drugs.</li>
-                        <li>Some will quietly become infrastructure.</li>
-                        <li>Some will fail because they confuse fluency with truth.</li>
+                        <li>code-closed systems for computational experimentation;</li>
+                        <li>literature-closed systems for hypothesis generation;</li>
+                        <li>simulation-closed systems for cheap but potentially low-fidelity prioritization;</li>
+                        <li>protein- and molecule-closed systems for biological design;</li>
+                        <li>patient-, regulator-, and market-closed systems for therapeutic reality;</li>
+                        <li>workflow-closed systems for pharma decision intelligence;</li>
+                        <li>cross-cutting evaluation systems for trust, safety, and scientific rigor.</li>
                     </ul>
+                    <p>
+                        This is not one market. It is the decomposition of the scientific process into software-addressable loops.
+                    </p>
+                    <p>
+                        The hard question is no longer whether AI can generate scientific work. It is where the loop closes, and how much we should trust the feedback: against code, literature, simulations, proteins, cells, animals, patients, regulators, and markets.
+                    </p>
+                    <p>
+                        Cost and fidelity do not move together.
+                    </p>
+                    <p>
+                        That is the whole point.
+                    </p>
+                    <p>
+                        Some loops are cheap and reliable. Some are cheap and misleading. Some are expensive but decisive. Some are expensive and still noisy.
+                    </p>
                     <p>
                         The winners will not be the systems that generate the most ideas. They will be the systems that improve the rate at which good ideas become validated knowledge.
                     </p>
                     <p>
-                        That is the real promise of AI for science. Not infinite generation. Better scientific judgment at scale.
+                        That is the real promise of AI for science.
+                    </p>
+                    <p>
+                        Not infinite generation.
+                    </p>
+                    <p>
+                        Better scientific judgment at scale.
                     </p>
                 </section>
 
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">References</h2>
-                    <ol className="list-decimal pl-6 space-y-2 text-base marker:text-secondary">
-                        <li id="ref-1" className="scroll-mt-24">Google Research — <a href="https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"><em>Accelerating scientific breakthroughs with an AI co-scientist</em></a> — a Gemini-based multi-agent system that generates, debates, and evolves hypotheses (Feb 2025).</li>
-                        <li id="ref-2" className="scroll-mt-24">Google Research — <a href="https://research.google/blog/empirical-research-assistance-era-from-nature-publication-to-catalyzing-computational-discovery/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"><em>Empirical Research Assistance (ERA)</em></a> — AI for expert-level scientific coding and computational discovery (May 2026).</li>
-                        <li id="ref-3" className="scroll-mt-24">Lu, C. <em>et al.</em> — <a href="https://doi.org/10.1038/s41586-026-10265-5" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"><em>Towards end-to-end automation of AI research</em></a> (The AI Scientist), Nature 651, 914–919 (2026).</li>
-                        <li id="ref-4" className="scroll-mt-24">Isomorphic Labs — <a href="https://www.isomorphiclabs.com/articles/isomorphic-labs-announces-series-b-investment-round" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"><em>$2.1B Series B investment round</em></a>, led by Thrive Capital with Alphabet, GV, MGX, Temasek, CapitalG, and the UK Sovereign AI Fund (May 2026).</li>
-                        <li id="ref-5" className="scroll-mt-24">Index Ventures — <a href="https://www.indexventures.com/perspectives/inherent-designing-for-discovery/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"><em>Inherent: designing for discovery</em></a> — the "Faraday" system for open-ended scientific discovery ($50M seed led by Index Ventures and Radical Ventures).</li>
-                        <li id="ref-6" className="scroll-mt-24">Air Street Capital — <a href="https://press.airstreet.com/p/introducing-perceptic" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"><em>Introducing Perceptic</em></a> — the AI operating system for biopharma ($12M seed with Air Street Capital and Accel).</li>
-                        <li id="ref-7" className="scroll-mt-24">Y Combinator — <a href="https://www.ycombinator.com/companies/celltype" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"><em>CellType</em></a> — the agentic drug company using biological foundation models to simulate human biology.</li>
-                        <li id="ref-8" className="scroll-mt-24">Y Combinator — <a href="https://www.ycombinator.com/companies/biostack-platforms" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"><em>BioStack</em></a> — a data engine and post-training environments lab for healthcare and drug discovery AI.</li>
-                        <li id="ref-9" className="scroll-mt-24">Ho, et al. — <a href="https://arxiv.org/abs/2605.30329" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"><em>SoundnessBench: Can Your AI Scientist Really Tell Good Research Ideas from Bad Ones?</em></a> — a benchmark of 1,099 reconstructed ML research proposals for judging soundness.</li>
-                        <li id="ref-10" className="scroll-mt-24">Nature — <a href="https://www.nature.com/articles/d41586-026-01551-3" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"><em>Why AI cannot do good science without humans</em></a>, editorial, Nature 653, 650 (May 2026).</li>
+                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                        <li id="ref-1" className="scroll-mt-24">Scannell, J. W. et al. "Diagnosing the decline in pharmaceutical R&D efficiency." <em>Nature Reviews Drug Discovery</em>, March 2012.</li>
+                        <li id="ref-2" className="scroll-mt-24">Gottweis, J. et al. "Accelerating scientific discovery with Co-Scientist." <em>Nature</em>, May 2026.</li>
+                        <li id="ref-3" className="scroll-mt-24">Google DeepMind. "Co-Scientist: A multi-agent AI partner to accelerate research." May 2026.</li>
+                        <li id="ref-4" className="scroll-mt-24">Lu, C. et al. "Towards end-to-end automation of AI research." <em>Nature</em>, March 2026.</li>
+                        <li id="ref-5" className="scroll-mt-24">Sakana AI. "The AI Scientist: Towards Fully Automated AI Research." 2026.</li>
+                        <li id="ref-6" className="scroll-mt-24">Biohub. "Biohub releases a world model of protein biology." May 2026.</li>
+                        <li id="ref-7" className="scroll-mt-24">Isomorphic Labs. "Isomorphic Labs announces $2.1B Series B investment round." May 2026.</li>
+                        <li id="ref-8" className="scroll-mt-24">Incyte and Genesis Molecular AI. "Incyte and Genesis expand molecular AI collaboration to accelerate drug discovery." May 2026.</li>
+                        <li id="ref-9" className="scroll-mt-24">Index Ventures. "Inherent: Designing for Discovery." May 2026.</li>
+                        <li id="ref-10" className="scroll-mt-24">Air Street Capital. "Introducing Perceptic." May 2026.</li>
+                        <li id="ref-11" className="scroll-mt-24">Y Combinator. "CellType: The agentic drug company." February 2026.</li>
+                        <li id="ref-12" className="scroll-mt-24">Y Combinator. "BioStack Platforms." May 2026.</li>
+                        <li id="ref-13" className="scroll-mt-24">Insilico Medicine and Human Longevity. "Collaboration to co-develop a foundation model for longevity science." May 2026.</li>
+                        <li id="ref-14" className="scroll-mt-24">Weidener, L. et al. "RefusalBench: Why Refusal Rate Misranks Frontier LLMs on Biological Research Prompts." <em>arXiv</em>, May 2026.</li>
+                        <li id="ref-15" className="scroll-mt-24">Ho, S.-T. et al. "SoundnessBench: Can Your AI Scientist Really Tell Good Research Ideas from Bad Ones?" <em>arXiv</em>, May 2026.</li>
+                        <li id="ref-16" className="scroll-mt-24">Nature. "Why AI cannot do good science without humans." Editorial, <em>Nature</em>, May 2026.</li>
                     </ol>
                 </section>
 
