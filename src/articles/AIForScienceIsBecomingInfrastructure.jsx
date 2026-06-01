@@ -83,31 +83,16 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         <li>Summarize a paper.</li>
                     </ul>
                     <p>
-                        That era is not over.
-                    </p>
-                    <p>
-                        But it is becoming one layer in a much bigger stack.
+                        That era is not over. But it is becoming one layer in a much bigger stack.
                     </p>
                     <p>
                         The latest wave of announcements around Google Co-Scientist, Isomorphic Labs, Inherent, Perceptic, CellType, BioStack, and autonomous research agents points to a deeper shift:
                     </p>
                     <p>
-                        AI is moving from scientific tools to scientific systems.
+                        AI is moving from scientific tools to scientific systems. Not just models that answer questions. Systems that generate hypotheses, run computational experiments, simulate biology, structure evidence, and help decide what deserves scarce experimental resources.
                     </p>
                     <p>
-                        Not just models that answer questions.
-                    </p>
-                    <p>
-                        Systems that generate hypotheses, run computational experiments, simulate biology, structure evidence, and help decide what deserves scarce experimental resources.
-                    </p>
-                    <p>
-                        That distinction matters.
-                    </p>
-                    <p>
-                        Because science does not fail only because we lack ideas.
-                    </p>
-                    <p>
-                        Science fails because the loop between idea, evidence, experiment, interpretation, and decision is slow, fragmented, and hard to trust.
+                        That distinction matters. Because science does not fail only because we lack ideas. Science fails because the loop between idea, evidence, experiment, interpretation, and decision is slow, fragmented, and hard to trust.
                     </p>
                 </section>
 
@@ -131,53 +116,29 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         </figcaption>
                     </figure>
                     <p>
-                        That is important.
+                        That is important. For the first time, part of the hypothesis-generation loop is being formalized as software.
                     </p>
                     <p>
-                        For the first time, part of the hypothesis-generation loop is being formalized as software.
+                        The old version of AI for science was mostly answer-oriented: ask a question, get a response. The new version is search-oriented: define a scientific problem, explore the hypothesis space, compare candidates, and propose what might be worth testing.
                     </p>
                     <p>
-                        The old version of AI for science was mostly answer-oriented: ask a question, get a response.
+                        But this is also where the hype needs to be contained. A hypothesis is not valuable because it is novel. It is valuable if it is testable, grounded, and eventually useful.
                     </p>
                     <p>
-                        The new version is search-oriented: define a scientific problem, explore the hypothesis space, compare candidates, and propose what might be worth testing.
-                    </p>
-                    <p>
-                        But this is also where the hype needs to be contained.
-                    </p>
-                    <p>
-                        A hypothesis is not valuable because it is novel.
-                    </p>
-                    <p>
-                        It is valuable if it is testable, grounded, and eventually useful.
-                    </p>
-                    <p>
-                        AI can expand the search space almost infinitely. That is powerful. It is also dangerous.
-                    </p>
-                    <p>
-                        More hypotheses can mean faster discovery.
-                    </p>
-                    <p>
-                        It can also mean more noise.
+                        AI can expand the search space almost infinitely. That is powerful. It is also dangerous. More hypotheses can mean faster discovery. It can also mean more noise.
                     </p>
                 </section>
 
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The second layer: computational research agents</h2>
                     <p>
-                        The next layer is not biology-first.
+                        The next layer is not biology-first. It is computation-first.
                     </p>
                     <p>
-                        It is computation-first.
+                        Systems like The AI Scientist from Sakana AI<Cite n={3} /> and newer autonomous research agents show that parts of the scientific workflow can now be automated end-to-end: ideation, literature search, code writing<Cite n={2} />, experiment execution, result analysis, manuscript drafting, and even automated review.
                     </p>
                     <p>
-                        Systems like The AI Scientist<Cite n={3} /> and newer autonomous research agents show that parts of the scientific workflow can now be automated end-to-end: ideation, literature search, code writing<Cite n={2} />, experiment execution, result analysis, manuscript drafting, and even automated review.
-                    </p>
-                    <p>
-                        This is impressive.
-                    </p>
-                    <p>
-                        But it is also easier than wet-lab science.
+                        This is impressive. But it is also easier than wet-lab science.
                     </p>
                     <p>
                         Computational research has fast feedback. Clear metrics. Cheap iteration. Reproducible environments. A model can run code, inspect results, change parameters, and try again.
@@ -191,16 +152,10 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         <li>Experiments are expensive, slow, and full of hidden variables.</li>
                     </ul>
                     <p>
-                        So the right conclusion is not: AI is now an autonomous scientist.
+                        So the right conclusion is not: AI is now an autonomous scientist. The right conclusion is: AI is beginning to automate bounded research loops, especially where the feedback is digital.
                     </p>
                     <p>
-                        The right conclusion is: AI is beginning to automate bounded research loops, especially where the feedback is digital.
-                    </p>
-                    <p>
-                        That is still a big deal.
-                    </p>
-                    <p>
-                        But it is not the same thing as replacing scientific judgment.
+                        That is still a big deal. But it is not the same thing as replacing scientific judgment.
                     </p>
                 </section>
 
@@ -213,41 +168,31 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         Its latest $2.1B Series B<Cite n={4} /> is not just another funding round. It is a signal that AI-first drug design is moving from research story to capital-intensive industrial strategy.
                     </p>
                     <p>
-                        But here again, precision matters.
-                    </p>
-                    <p>
-                        The value of Isomorphic will not be proven by model performance alone.
-                    </p>
-                    <p>
-                        It will be proven by whether its systems can change the probability, speed, or cost of producing real therapeutic assets.
+                        But here again, precision matters. The value of Isomorphic will not be proven by model performance alone. It will be proven by whether its systems can change the probability, speed, or cost of producing real therapeutic assets.
                     </p>
                     <p>
                         Drug discovery is not a Kaggle competition.
                     </p>
+                    <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
+                        <li>The model output is not the product.</li>
+                        <li>The molecule is not even fully the product.</li>
+                        <li>The product is a validated therapeutic program that has passed biology, safety, manufacturing, regulatory, and clinical translation assessments.</li>
+                    </ul>
                     <p>
-                        The model output is not the product. The molecule is not even fully the product. The product is a validated therapeutic program that survives biology, safety, manufacturing, regulation, and clinical translation.
-                    </p>
-                    <p>
-                        This is why the category is so hard.
-                    </p>
-                    <p>
-                        And why it is so valuable.
+                        This is why the category is so hard. And why it is so valuable.
                     </p>
                 </section>
 
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The fourth layer: open-ended discovery</h2>
                     <p>
-                        Inherent<Cite n={5} /> is interesting for a different reason.
+                        Inherent Labs<Cite n={5} /> is interesting for a different reason.
                     </p>
                     <p>
                         Most AI systems today are built to answer questions. Inherent is betting on systems that help find better questions.
                     </p>
                     <p>
-                        That sounds abstract.
-                    </p>
-                    <p>
-                        But it touches one of the deepest problems in science.
+                        That sounds abstract. But it touches one of the deepest problems in science.
                     </p>
                     <p>
                         A lot of scientific progress does not come from answering the obvious question faster. It comes from reframing the problem.
@@ -259,19 +204,10 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         <li>Which field is stuck because everyone is optimizing the wrong objective?</li>
                     </ul>
                     <p>
-                        If AI can help with that, the opportunity is enormous.
+                        If AI can help with that, the opportunity is enormous. But the evaluation problem is brutal. How do you benchmark a system that is supposed to discover questions no one thought to ask?
                     </p>
                     <p>
-                        But the evaluation problem is brutal.
-                    </p>
-                    <p>
-                        How do you benchmark a system that is supposed to discover questions no one thought to ask?
-                    </p>
-                    <p>
-                        You can measure answer accuracy.
-                    </p>
-                    <p>
-                        Measuring scientific taste is much harder.
+                        You can measure answer accuracy. Measuring scientific taste is much harder.
                     </p>
                 </section>
 
@@ -281,22 +217,13 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         Perceptic<Cite n={6} /> points to a more operational layer.
                     </p>
                     <p>
-                        Not "AI that discovers the drug."
-                    </p>
-                    <p>
-                        AI that connects the messy reality around drug development.
+                        Not "AI that discovers the drug." AI that connects the messy reality around drug development.
                     </p>
                     <p>
                         Asset scouting. Indication selection. Clinical data analysis. Scientific evaluation. Decision context. Organizational memory.
                     </p>
                     <p>
-                        This may sound less glamorous than molecule generation.
-                    </p>
-                    <p>
-                        It might be more immediately useful.
-                    </p>
-                    <p>
-                        Pharma R&D is not just bottlenecked by scientific imagination. It is bottlenecked by fragmentation.
+                        This may sound less glamorous than molecule generation. It might be more immediately useful. Pharma R&D is not just bottlenecked by scientific imagination. It is bottlenecked by fragmentation.
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
                         <li>Data lives in different systems.</li>
@@ -308,10 +235,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         An AI operating system for biopharma is a bet that the next productivity gain comes from connecting the workflow, not only improving a model.
                     </p>
                     <p>
-                        That is a very credible bet.
-                    </p>
-                    <p>
-                        Because in regulated, high-stakes industries, the bottleneck is rarely just "generate more."
+                        That is a very credible bet. Because in regulated, high-stakes industries, the bottleneck is rarely just "generate more."
                     </p>
                     <p>
                         It is: make better decisions with incomplete evidence.
@@ -330,13 +254,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         BioStack's thesis is that healthcare and drug discovery AI need realistic training environments built from clinical and preclinical workflows.
                     </p>
                     <p>
-                        Both are early signals of the same thing.
-                    </p>
-                    <p>
-                        AI for biology will not be solved by models alone.
-                    </p>
-                    <p>
-                        It needs environments.
+                        Both are early signals of the same thing. AI for biology will not be solved by models alone. It needs environments.
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
                         <li>Better biological data.</li>
@@ -347,65 +265,32 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         <li>Better links between prediction and outcome.</li>
                     </ul>
                     <p>
-                        This is where the analogy with software starts to break.
-                    </p>
-                    <p>
-                        In software, you can build a sandbox.
-                    </p>
-                    <p>
-                        In biology, the sandbox is often a weak proxy for reality.
+                        This is where the analogy with software starts to break. In software, you can build a sandbox. In biology, the sandbox is often a weak proxy for reality.
                     </p>
                     <p>
                         A biological world model is only useful if it preserves the causal structure that matters when you intervene.
                     </p>
                     <p>
-                        Otherwise, it does not reduce risk.
-                    </p>
-                    <p>
-                        It creates false confidence.
+                        Otherwise, it does not reduce risk. It creates false confidence.
                     </p>
                 </section>
 
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The real bottleneck: evaluation</h2>
                     <p>
-                        This is the uncomfortable part.
+                        This is the uncomfortable part. The more AI generates, the more evaluation matters.
                     </p>
                     <p>
-                        The more AI generates, the more evaluation matters.
+                        If AI systems generate more hypotheses, we need to know which ones are sound. If they write more papers, we need to know which claims are supported. If they run more computational experiments, we need to know whether the setup was meaningful. If they summarize more evidence, we need to know what was missed, distorted, or overclaimed.
                     </p>
                     <p>
-                        If AI systems generate more hypotheses, we need to know which ones are sound.
+                        This is why recent work like SoundnessBench<Cite n={9} /> matters. It asks a simple but critical question: can AI judge whether a research proposal is scientifically sound?
                     </p>
                     <p>
-                        If they write more papers, we need to know which claims are supported.
+                        The answer is not yet comforting. Current models can look convincing while missing methodological weaknesses. They can reward plausible ideas. They can display optimism bias. They can scale the appearance of rigor without necessarily scaling rigor itself.
                     </p>
                     <p>
-                        If they run more computational experiments, we need to know whether the setup was meaningful.
-                    </p>
-                    <p>
-                        If they summarize more evidence, we need to know what was missed, distorted, or overclaimed.
-                    </p>
-                    <p>
-                        This is why recent work like SoundnessBench<Cite n={9} /> matters.
-                    </p>
-                    <p>
-                        It asks a simple but critical question: can AI judge whether a research proposal is scientifically sound?
-                    </p>
-                    <p>
-                        The answer is not yet comforting.
-                    </p>
-                    <p>
-                        Current models can look convincing while missing methodological weaknesses. They can reward plausible ideas. They can display optimism bias. They can scale the appearance of rigor without necessarily scaling rigor itself.
-                    </p>
-                    <p>
-                        That is the core risk of AI for science.
-                    </p>
-                    <p>
-                        Not that it produces nonsense.
-                    </p>
-                    <p>
-                        That would be easy to reject.
+                        That is the core risk of AI for science. Not that it produces nonsense. That would be easy to reject.
                     </p>
                     <p>
                         The risk is that it produces work that looks scientific enough to pass quickly through overloaded human systems.<Cite n={10} />
@@ -415,23 +300,23 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The emerging stack</h2>
                     <p>
-                        The sector is becoming clearer.
+                        The sector is not converging around one "AI scientist." It is decomposing the research loop into software-addressable layers:
                     </p>
-                    <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
-                        <li>Hypothesis engines.</li>
-                        <li>Computational research agents.</li>
-                        <li>AI-first therapeutic platforms.</li>
-                        <li>Open-ended discovery labs.</li>
-                        <li>Pharma operating systems.</li>
-                        <li>Biological world models.</li>
-                        <li>Training environments.</li>
-                        <li>Evaluation and verification layers.</li>
-                    </ul>
+                    <ol className="list-decimal pl-6 space-y-2 text-base marker:text-secondary">
+                        <li>Hypothesis generation.</li>
+                        <li>Digital experimentation.</li>
+                        <li>Lab-in-the-loop execution.</li>
+                        <li>Biological simulation.</li>
+                        <li>Data and post-training infrastructure.</li>
+                        <li>Therapeutic development.</li>
+                        <li>R&D decision intelligence.</li>
+                        <li>Cross-cutting evaluation.</li>
+                    </ol>
                     <p>
-                        This is not one market.
+                        The hard question is no longer whether AI can generate scientific work. It is where the loop closes: against code, literature, cells, animals, patients, regulators, or markets.
                     </p>
                     <p>
-                        It is the decomposition of the scientific process into software-addressable layers.
+                        This is not one market. It is the decomposition of the scientific process into software-addressable layers.
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
                         <li>Some layers will produce spectacular demos.</li>
@@ -440,19 +325,10 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         <li>Some will fail because they confuse fluency with truth.</li>
                     </ul>
                     <p>
-                        The winners will not simply be the systems that generate the most ideas.
+                        The winners will not be the systems that generate the most ideas. They will be the systems that improve the rate at which good ideas become validated knowledge.
                     </p>
                     <p>
-                        They will be the systems that improve the rate at which good ideas become validated knowledge.
-                    </p>
-                    <p>
-                        That is the real promise of AI for science.
-                    </p>
-                    <p>
-                        Not infinite generation.
-                    </p>
-                    <p>
-                        Better scientific judgment at scale.
+                        That is the real promise of AI for science. Not infinite generation. Better scientific judgment at scale.
                     </p>
                 </section>
 
