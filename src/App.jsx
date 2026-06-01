@@ -17,8 +17,8 @@ import NotFound from './pages/NotFound';
 const Home = () => (
   <main>
     <SEO
-      title="Vivien Perrelle | AI Agent Architect"
-      description="Product Designer and 2x startup founder exploring AI for Regulated Industries."
+      title="Vivien Perrelle | Product Designer & AI Entrepreneur"
+      description="Product designer and startup founder building verification infrastructure for AI-assisted science."
       url="/"
       jsonLd={{
         "@context": "https://schema.org",
@@ -26,7 +26,7 @@ const Home = () => (
         "name": "Vivien Perrelle",
         "url": "https://vivienperrelle.com",
         "jobTitle": "Product Designer & AI Entrepreneur",
-        "description": "Product Designer and 2x startup founder exploring AI for Regulated Industries.",
+        "description": "Product designer and startup founder building verification infrastructure for AI-assisted science.",
         "image": "https://vivienperrelle.com/me.png",
         "sameAs": [
           "https://x.com/PerrelleVivien",
