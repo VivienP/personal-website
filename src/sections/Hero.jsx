@@ -17,8 +17,7 @@ const Hero = () => {
 
                     {/* Bio / Main Title */}
                     <h1 className="text-base text-primary leading-relaxed">
-                        I’m Vivien, Product Designer and 2x startup founder. <br className="hidden md:block" />
-                        Building at the edge of AI, science, and trust.
+                        I’m Vivien, a product designer and startup founder building verification infrastructure for AI-assisted science. <br className="hidden md:block" />
                     </h1>
 
                     {/* Social Links List */}
