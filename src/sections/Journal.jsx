@@ -13,11 +13,6 @@ const articles = [
         slug: "openclaw"
     },
     {
-        date: "2026-02-10",
-        title: "Dubai Is Not Just for Influencers Anymore",
-        slug: "dubai"
-    },
-    {
         date: "2026-02-09",
         title: "Trauma-Driven VS Purpose-Driven Entrepreneurship",
         slug: "trauma-vs-purpose"
