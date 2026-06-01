@@ -24,21 +24,21 @@ const AIForScienceIsBecomingInfrastructure = () => {
     return (
         <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
-                title="AI for Science Is Becoming Infrastructure | Vivien Perrelle"
-                description="AI for science is moving from tools to systems — hypothesis engines, research agents, AI-first drug design, pharma operating systems, biological world models. The real bottleneck is evaluation."
-                url="/blog/ai-for-science-is-becoming-infrastructure"
+                title="AI for Science Is Becoming a Systems Problem | Vivien Perrelle"
+                description="Why AI for science is a systems problem: Google Co-Scientist, Isomorphic Labs' $2.1B raise, and SoundnessBench converge on evaluation as the hard constraint."
+                url="/blog/ai-for-science-is-becoming-a-systems-problem"
                 image="/ai-for-science/cover.jpg"
                 type="article"
-                article={{ publishedTime: '2026-06-01', author: 'Vivien Perrelle', tags: ['AI', 'Scientific Research', 'Drug Discovery', 'Research Automation', 'Biotech', 'Evaluation'] }}
+                article={{ publishedTime: '2026-06-01', author: 'Vivien Perrelle', tags: ['AI', 'Scientific Research', 'Drug Discovery', 'Research Automation', 'Biotech', 'Evaluation', 'Google Co-Scientist', 'Isomorphic Labs', 'SoundnessBench'] }}
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "TechArticle",
-                    "headline": "AI for Science Is Becoming Infrastructure",
+                    "headline": "AI for Science Is Becoming a Systems Problem",
                     "datePublished": "2026-06-01",
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "mainEntityOfPage": "https://vivienperrelle.com/blog/ai-for-science-is-becoming-infrastructure",
-                    "keywords": "AI, Scientific Research, Drug Discovery, Research Automation, Biotech, Evaluation"
+                    "mainEntityOfPage": "https://vivienperrelle.com/blog/ai-for-science-is-becoming-a-systems-problem",
+                    "keywords": "AI, Scientific Research, Drug Discovery, Research Automation, Biotech, Evaluation, Google Co-Scientist, Isomorphic Labs, SoundnessBench, AI research agents, autonomous scientific discovery, AI-first drug design, AI Scientist Sakana AI, evaluation bottleneck"
                 }}
             />
             <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
@@ -51,7 +51,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                     <span className="font-mono text-xs text-secondary tracking-widest uppercase">Journal Entry</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
-                    AI for Science Is Becoming Infrastructure
+                    AI for Science Is Becoming a Systems Problem
                 </h1>
                 <p className="text-xl text-secondary font-light max-w-2xl">
                     The shift from scientific tools to scientific systems — and why evaluation, not generation, is the real bottleneck.

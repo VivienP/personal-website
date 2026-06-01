@@ -4,8 +4,8 @@ import { ArrowUpRight } from 'lucide-react';
 const articles = [
     {
         date: "2026-06-01",
-        title: "AI for Science Is Becoming Infrastructure",
-        slug: "ai-for-science-is-becoming-infrastructure"
+        title: "AI for Science Is Becoming a Systems Problem",
+        slug: "ai-for-science-is-becoming-a-systems-problem"
     },
     {
         date: "2026-04-17",

@@ -53,7 +53,7 @@ function App() {
         <Route path="/art" element={<Art />} />
         <Route path="/blog/openclaw" element={<OpenClaw />} />
         <Route path="/blog/science-is-entering-its-agentic-era" element={<ScienceIsEnteringItsAgenticEra />} />
-        <Route path="/blog/ai-for-science-is-becoming-infrastructure" element={<AIForScienceIsBecomingInfrastructure />} />
+        <Route path="/blog/ai-for-science-is-becoming-a-systems-problem" element={<AIForScienceIsBecomingInfrastructure />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
