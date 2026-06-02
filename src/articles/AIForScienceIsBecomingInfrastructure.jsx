@@ -26,7 +26,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 title="AI for Science Is Becoming a Systems Problem | Vivien Perrelle"
                 description="Why AI for science is a systems problem: Google Co-Scientist, Isomorphic Labs' $2.1B raise, and SoundnessBench converge on evaluation as the hard constraint."
                 url="/blog/ai-for-science-is-becoming-a-systems-problem"
-                image="/ai-for-science/cover.jpg"
+                image="/ai-for-science/loops-cover-small.jpg"
                 type="article"
                 article={{ publishedTime: '2026-06-01', author: 'Vivien Perrelle', tags: ['AI', 'Scientific Research', 'Drug Discovery', 'Research Automation', 'Biotech', 'Evaluation', 'Google Co-Scientist', 'Isomorphic Labs', 'SoundnessBench'] }}
                 jsonLd={{
@@ -62,8 +62,8 @@ const AIForScienceIsBecomingInfrastructure = () => {
 
             <figure className="mb-16 -mx-6 md:mx-0 overflow-hidden md:rounded-lg border-y md:border border-border-subtle">
                 <img
-                    src="/ai-for-science/cover.jpg"
-                    alt="Layers of a luminous glass stack rising above an open book — from the periodic table at the base through molecules, proteins, and networks — representing the emerging stack of AI for science."
+                    src="/ai-for-science/loops-cover-small.jpg"
+                    alt="Abstract visualisation of interconnected research loops — glowing rings and particles in motion — representing the feedback cycles at the core of AI-driven scientific discovery."
                     className="w-full h-auto object-cover"
                     loading="eager"
                 />
@@ -96,6 +96,17 @@ const AIForScienceIsBecomingInfrastructure = () => {
                     <p>
                         That depends on two variables that are easy to confuse. The cost of feedback is how slow, expensive, or operationally difficult it is to get a correction from reality. The fidelity of feedback is how directly that correction reflects the thing you actually care about. The two do not move together — and that gap is the whole story. Some feedback is fast and cheap but only loosely connected to the real question. Other feedback is slow and costly yet far more faithful. The cheaper and less faithful the loop, the easier it is to scale — and the easier it is to fool yourself.
                     </p>
+                    <figure className="my-8 not-prose">
+                        <img
+                            src="/ai-for-science/illustration-blog-science.jpg"
+                            alt="2×2 matrix plotting cost of feedback (cheap to expensive) against fidelity (proxy to faithful): Code sits at cheap + faithful; Literature at cheap + indirect; Simulation at cheap + unfaithful; Wet-lab at costly + decisive; Patients at expensive + faithful."
+                            className="w-full h-auto rounded-lg border border-border-subtle"
+                            loading="lazy"
+                        />
+                        <figcaption className="mt-3 text-center text-sm text-secondary italic font-light">
+                            Cost vs. fidelity of feedback across research loops
+                        </figcaption>
+                    </figure>
                 </section>
 
                 <section className="space-y-6">
@@ -143,6 +154,17 @@ const AIForScienceIsBecomingInfrastructure = () => {
                     <p>
                         It is not just a chatbot for researchers. It is a multi-agent system built around structured scientific thinking: generate hypotheses, critique them, rank them, evolve them, and refine the best candidates.
                     </p>
+                    <figure className="my-8 not-prose">
+                        <img
+                            src="/ai-for-science/co-scientist.gif"
+                            alt="Animation of the Co-Scientist hypothesis selection process: hypotheses are generated, critiqued, ranked, and evolved over successive rounds."
+                            className="w-full h-auto rounded-lg border border-border-subtle"
+                            loading="lazy"
+                        />
+                        <figcaption className="mt-3 text-center text-sm text-secondary italic font-light">
+                            Co-Scientist hypothesis selection process
+                        </figcaption>
+                    </figure>
                     <p>
                         That matters because part of the hypothesis-generation loop is being formalized as software.
                     </p>
