@@ -50,10 +50,10 @@ const AIForScienceIsBecomingInfrastructure = () => {
                     <span className="font-mono text-xs text-secondary tracking-widest uppercase">Journal Entry</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
-                    AI for Science Is Becoming a Systems Problem
+                    AI for Science Is Moving From Prediction to Closed-Loop Research Systems
                 </h1>
                 <p className="text-xl text-secondary font-light max-w-2xl">
-                    The shift from scientific tools to scientific systems — and why evaluation, not generation, is the real bottleneck.
+                    How Does AI-for-Science Find Out It's Wrong?
                 </p>
                 <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">
                     <span>Published on June 1, 2026</span>
