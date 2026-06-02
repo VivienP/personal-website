@@ -23,8 +23,8 @@ const AIForScienceIsBecomingInfrastructure = () => {
     return (
         <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
-                title="AI for Science Is Becoming a Systems Problem | Vivien Perrelle"
-                description="Why AI for science is a systems problem: Google Co-Scientist, Isomorphic Labs' $2.1B raise, and SoundnessBench converge on evaluation as the hard constraint."
+                title="AI for Science Is Moving From Prediction to Closed-Loop Research Systems | Vivien Perrelle"
+                description="How does AI-for-science find out it's wrong? A framework mapping research loops by cost and fidelity of feedback — from code-closed to patient-closed systems."
                 url="/blog/ai-for-science-is-becoming-a-systems-problem"
                 image="/ai-for-science/loops-cover-small.jpg"
                 type="article"
@@ -32,7 +32,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "TechArticle",
-                    "headline": "AI for Science Is Becoming a Systems Problem",
+                    "headline": "AI for Science Is Moving From Prediction to Closed-Loop Research Systems",
                     "datePublished": "2026-06-01",
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
