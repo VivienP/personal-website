@@ -100,7 +100,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         <img
                             src="/ai-for-science/illustration-blog-science.jpg"
                             alt="2×2 matrix plotting cost of feedback (cheap to expensive) against fidelity (proxy to faithful): Code sits at cheap + faithful; Literature at cheap + indirect; Simulation at cheap + unfaithful; Wet-lab at costly + decisive; Patients at expensive + faithful."
-                            className="w-full h-auto rounded-lg border border-border-subtle"
+                            className="h-auto rounded-lg border border-border-subtle mx-auto block max-w-[600px] w-full"
                             loading="lazy"
                         />
                         <figcaption className="mt-3 text-center text-sm text-secondary italic font-light">
@@ -158,7 +158,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         <img
                             src="/ai-for-science/co-scientist.gif"
                             alt="Animation of the Co-Scientist hypothesis selection process: hypotheses are generated, critiqued, ranked, and evolved over successive rounds."
-                            className="w-full h-auto rounded-lg border border-border-subtle"
+                            className="h-auto rounded-lg border border-border-subtle mx-auto block max-w-[800px] w-full"
                             loading="lazy"
                         />
                         <figcaption className="mt-3 text-center text-sm text-secondary italic font-light">
