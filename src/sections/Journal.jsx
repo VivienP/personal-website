@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 const articles = [
     {
         date: "2026-06-01",
-        title: "AI for Science Is Becoming a Systems Problem",
+        title: "AI for Science Is Moving From Prediction to Closed-Loop Research Systems",
         slug: "ai-for-science-is-becoming-a-systems-problem"
     },
     {
