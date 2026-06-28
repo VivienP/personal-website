@@ -25,3 +25,6 @@ desktop.ini
 *.sw?
 src/articles/PharmaDataLayer.jsx
 src/articles/Dubai.jsx
+
+# Local trash (removed files)
+.trash/

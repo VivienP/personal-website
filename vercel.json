@@ -1,4 +1,10 @@
 {
+    "redirects": [
+        { "source": "/blog/biowatch", "destination": "/projects/biowatch", "permanent": true },
+        { "source": "/blog/green-grown", "destination": "/projects/green-grown", "permanent": true },
+        { "source": "/blog/bione", "destination": "/projects/bione", "permanent": true },
+        { "source": "/blog/motion-suit", "destination": "/projects/motion-suit", "permanent": true }
+    ],
     "rewrites": [
         {
             "source": "/(.*)",

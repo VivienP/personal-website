@@ -29,6 +29,7 @@ const Art = () => {
             <div className="w-full aspect-[4/3] md:aspect-[16/10]">
                 <iframe
                     src="https://www.behance.net/embed/project/125683349?ilo0=1"
+                    title="Art & design portfolio on Behance"
                     allowFullScreen
                     loading="lazy"
                     frameBorder="0"
