@@ -89,24 +89,15 @@ const INITIAL_COUNT = 6;
 
 const ProjectCard = ({ project }) => {
     const isInternal = project.link.startsWith('/');
+    const hasLink = project.link !== "#";
 
-    return (
-        <div className="group border border-border-subtle p-6 hover:border-accent transition-colors duration-300 bg-transparent flex flex-col justify-between h-full">
+    const inner = (
+        <>
             <div className="space-y-4">
                 <div className="flex justify-between items-start">
                     <h3 className="text-xl text-primary group-hover:text-accent transition-colors">{project.title}</h3>
-                    {project.link !== "#" && (
-                        <div className="opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                            {isInternal ? (
-                                <Link to={project.link} className="text-secondary hover:text-primary">
-                                    <ExternalLink size={18} />
-                                </Link>
-                            ) : (
-                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary">
-                                    <ExternalLink size={18} />
-                                </a>
-                            )}
-                        </div>
+                    {hasLink && (
+                        <ExternalLink size={18} className="text-secondary group-hover:text-primary transition-colors shrink-0 opacity-100 md:opacity-0 md:group-hover:opacity-100" />
                     )}
                 </div>
 
@@ -122,7 +113,19 @@ const ProjectCard = ({ project }) => {
                     </span>
                 ))}
             </div>
-        </div>
+        </>
+    );
+
+    const className = "group border border-border-subtle p-6 hover:border-accent transition-colors duration-300 bg-transparent flex flex-col justify-between h-full";
+
+    if (!hasLink) {
+        return <div className={className}>{inner}</div>;
+    }
+
+    return isInternal ? (
+        <Link to={project.link} className={`${className} cursor-pointer`}>{inner}</Link>
+    ) : (
+        <a href={project.link} target="_blank" rel="noopener noreferrer" className={`${className} cursor-pointer`}>{inner}</a>
     );
 };
 
