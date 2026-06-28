@@ -1,24 +1,23 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const articles = [
     {
-        date: "2023-08",
-        title: "Exploring Activity-Induced Lactate Pharmacokinetics: Implications for Minimally-Invasive Monitoring",
-        link: "https://www.researchgate.net/publication/375229419_Exploring_Activity-Induced_Lactate_Pharmacokinetics_Implications_for_Minimally-Invasive_Monitoring"
-    },
-    {
         date: "2023-10",
         title: "Smartwatch-Embedded Biosensors For Healthcare Monitoring",
-        link: "https://www.researchgate.net/publication/375227950_Smartwatch-Embedded_Biosensors_For_Healthcare_Monitoring"
+        slug: "smartwatch-embedded-biosensors"
+    },
+    {
+        date: "2023-08",
+        title: "Exploring Activity-Induced Lactate Pharmacokinetics: Implications for Minimally-Invasive Monitoring",
+        slug: "lactate-pharmacokinetics"
     }
 ];
 
 const AcademicWorkItem = ({ article }) => (
-    <a
-        href={article.link}
-        target="_blank"
-        rel="noopener noreferrer"
+    <Link
+        to={`/academic-work/${article.slug}`}
         className="group flex items-center justify-between py-5 px-4 border-b border-border-subtle hover:bg-white/50 transition-colors cursor-pointer"
     >
         <div className="flex flex-col md:flex-row md:items-center md:space-x-12 w-full pr-8">
@@ -28,7 +27,7 @@ const AcademicWorkItem = ({ article }) => (
             </h3>
         </div>
         <ArrowUpRight size={16} className="text-secondary opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity shrink-0" />
-    </a>
+    </Link>
 );
 
 const AcademicWork = () => {

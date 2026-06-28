@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -9,6 +9,14 @@ const projects = [
         description: "Building an AI-powered QC automation tool for pharmaceutical regulatory documents.",
         tags: ["AI Agents", "RegTech", "MedTech"],
         link: "https://www.locuslabhq.com/",
+        github: "#"
+    },
+    {
+        id: 12,
+        title: "Scientific Claim Verifier",
+        description: "Open-source engine that verifies each cited claim in scientific text against its source, with deterministic, reproducible, fully-traceable provenance.",
+        tags: ["Open Source", "AI for Science", "RAG"],
+        link: "/projects/scientific-claim-verifier",
         github: "#"
     },
     {
@@ -24,15 +32,7 @@ const projects = [
         title: "Oseille AI",
         description: "Developed a specialized agent for French business subsidies.",
         tags: ["AI Agents", "SaaS"],
-        link: "https://oseille.ai",
-        github: "#"
-    },
-    {
-        id: 3,
-        title: "Wearable Biosensor Research",
-        description: "Built a smartwatch prototype for wearable glucose and lactate enzymatic biosensors.",
-        tags: ["Research", "HealthTech"],
-        link: "/blog/biowatch",
+        link: "/projects/oseille",
         github: "#"
     },
     {
@@ -48,10 +48,44 @@ const projects = [
         title: "Research Intern @ PKvitality",
         description: "Contributed to the R&D of the first non-invasive CGM smartwatch for diabetics.",
         tags: ["MedTech", "R&D"],
-        link: "https://www.youtube.com/watch?v=4zz6rDdbdZY",
+        link: "/projects/pkvitality",
+        github: "#"
+    },
+    {
+        id: 3,
+        title: "Wearable Biosensor Research",
+        description: "Built a smartwatch prototype for wearable glucose and lactate enzymatic biosensors.",
+        tags: ["Student Project", "Research", "HealthTech"],
+        link: "/projects/biowatch",
+        github: "#"
+    },
+    {
+        id: 6,
+        title: "Green-Grown",
+        description: "Designed, manufactured and crowdfunded a modular wood construction game that shapes a living climbing plant.",
+        tags: ["Student Project", "Product Design", "Marketing"],
+        link: "/projects/green-grown",
+        github: "#"
+    },
+    {
+        id: 7,
+        title: "Bione",
+        description: "Coded an open-source WebGL app that teaches how a microneedle glucose biosensor works through an interactive 3D model.",
+        tags: ["Student Project", "WebGL", "Programming"],
+        link: "/projects/bione",
+        github: "#"
+    },
+    {
+        id: 8,
+        title: "E-Textile Motion Suit",
+        description: "Co-built an easy-to-make e-textile platform whose fabric sensors capture a wearer's movements through stitched stretch, crumple, and inertial sensors.",
+        tags: ["Student Project", "Electronics", "E-Textile"],
+        link: "/projects/motion-suit",
         github: "#"
     }
 ];
+
+const INITIAL_COUNT = 6;
 
 const ProjectCard = ({ project }) => {
     const isInternal = project.link.startsWith('/');
@@ -93,16 +127,32 @@ const ProjectCard = ({ project }) => {
 };
 
 const Projects = () => {
+    const [showAll, setShowAll] = useState(false);
+    const visible = showAll ? projects : projects.slice(0, INITIAL_COUNT);
+    const hasMore = projects.length > INITIAL_COUNT;
+
     return (
         <section id="projects" className="py-24 px-6 border-t border-border-subtle/30">
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-3xl md:text-4xl mb-12 text-primary">Selected Works</h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {projects.map((project) => (
+                    {visible.map((project) => (
                         <ProjectCard key={project.id} project={project} />
                     ))}
                 </div>
+
+                {hasMore && !showAll && (
+                    <div className="mt-12 flex justify-center">
+                        <button
+                            type="button"
+                            onClick={() => setShowAll(true)}
+                            className="px-6 py-2 border border-border-subtle text-sm text-primary hover:border-accent hover:text-accent transition-colors"
+                        >
+                            Load more
+                        </button>
+                    </div>
+                )}
             </div>
         </section>
     );

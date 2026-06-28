@@ -23,14 +23,24 @@ const articles = [
         slug: "trauma-vs-purpose"
     },
     {
-        date: "2023-09-15",
-        title: "BioWatch — A Smartwatch Prototype for Wearable Biosensors",
-        slug: "biowatch"
+        date: "2023-02-24",
+        title: "Is Technology Neutral?",
+        slug: "is-technology-neutral"
     },
     {
-        date: "2023-06-20",
+        date: "2023-02-04",
         title: "How to Build a Lactate Biosensor?",
         slug: "lactate"
+    },
+    {
+        date: "2022-03-10",
+        title: "How to Build a Wearable Glucose Biosensor?",
+        slug: "glucose-biosensor"
+    },
+    {
+        date: "2022-01-20",
+        title: "How to Build a SmartWatch?",
+        slug: "smartwatch"
     }
 ];
 
