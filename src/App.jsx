@@ -29,16 +29,16 @@ import NotFound from './pages/NotFound';
 const Home = () => (
   <main>
     <SEO
-      title="Vivien Perrelle | Product Designer & AI Entrepreneur"
-      description="Product designer and startup founder building verification infrastructure for AI-assisted science."
+      title="Vivien Perrelle | Developer & Startup Founder"
+      description="Developer and startup founder passionate about AI products and science. Currently building verification infrastructure for biology research."
       url="/"
       jsonLd={{
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Vivien Perrelle",
         "url": "https://vivienperrelle.com",
-        "jobTitle": "Product Designer & AI Entrepreneur",
-        "description": "Product designer and startup founder building verification infrastructure for AI-assisted science.",
+        "jobTitle": "Developer & Startup Founder",
+        "description": "Developer and startup founder passionate about AI products and science. Currently building verification infrastructure for biology research.",
         "image": "https://vivienperrelle.com/me.png",
         "sameAs": [
           "https://x.com/PerrelleVivien",

@@ -6,8 +6,8 @@ const DEFAULT_JSON_LD = {
     '@type': 'Person',
     name: 'Vivien Perrelle',
     url: SITE_URL,
-    jobTitle: 'Product Designer & AI Entrepreneur',
-    description: 'Product designer and startup founder building verification infrastructure for AI-assisted science.',
+    jobTitle: 'Developer & Startup Founder',
+    description: 'Developer and startup founder passionate about AI products and science. Currently building verification infrastructure for biology research.',
     image: `${SITE_URL}/me.png`,
     sameAs: [
         'https://x.com/PerrelleVivien',
@@ -16,8 +16,8 @@ const DEFAULT_JSON_LD = {
 };
 
 const defaults = {
-    title: 'Vivien Perrelle | Product Designer & AI Entrepreneur',
-    description: 'Product designer and startup founder building verification infrastructure for AI-assisted science.',
+    title: 'Vivien Perrelle | Developer & Startup Founder',
+    description: 'Developer and startup founder passionate about AI products and science. Currently building verification infrastructure for biology research.',
     image: `${SITE_URL}/me.png`,
 };
 
