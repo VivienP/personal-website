@@ -1,4 +1,5 @@
 import React from 'react';
+import { MapPin } from 'lucide-react';
 
 const Hero = () => {
     return (
@@ -19,6 +20,12 @@ const Hero = () => {
                     <h1 className="text-base text-primary leading-relaxed">
                         I’m Vivien, a developer and startup founder passionate about AI products and science. Currently building verification infrastructure for biology research. <br className="hidden md:block" />
                     </h1>
+
+                    {/* Location */}
+                    <div className="flex items-center space-x-2 text-secondary text-sm md:text-base">
+                        <MapPin size={16} className="text-secondary/70" />
+                        <span>Paris, France</span>
+                    </div>
 
                     {/* Social Links List */}
                     <ul className="space-y-3 text-secondary text-sm md:text-base pl-1">

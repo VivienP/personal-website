@@ -9,6 +9,7 @@ const DEFAULT_JSON_LD = {
     jobTitle: 'Developer & Startup Founder',
     description: 'Developer and startup founder passionate about AI products and science. Currently building verification infrastructure for biology research.',
     image: `${SITE_URL}/me.png`,
+    address: { '@type': 'PostalAddress', addressLocality: 'Paris', addressCountry: 'FR' },
     sameAs: [
         'https://x.com/PerrelleVivien',
         'https://www.linkedin.com/in/vivien-perrelle/',

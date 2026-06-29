@@ -156,7 +156,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                     </p>
                     <figure className="my-8 not-prose">
                         <img
-                            src="/ai-for-science/co-scientist.gif"
+                            src="/ai-for-science/co-scientist.webp"
                             alt="Animation of the Co-Scientist hypothesis selection process: hypotheses are generated, critiqued, ranked, and evolved over successive rounds."
                             className="h-auto rounded-lg border border-border-subtle mx-auto block max-w-[800px] w-full"
                             loading="lazy"
