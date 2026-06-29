@@ -22,7 +22,7 @@ const Ref = ({ n, href }) => (
 // Bordered image with optional caption.
 const Figure = ({ src, alt, caption, className = '' }) => (
     <figure className="space-y-3">
-        <div className={`border border-border-subtle p-2 bg-white ${className}`}>
+        <div className={`border border-border-subtle ${className}`}>
             <img
                 src={src}
                 alt={alt}
@@ -101,7 +101,7 @@ const GlucoseBiosensor = () => {
             </header>
 
             {/* Hero */}
-            <div className="w-full overflow-hidden border border-border-subtle mb-16 bg-white p-4">
+            <div className="w-full overflow-hidden border border-border-subtle mb-16">
                 <img
                     src={`${B}/hero.jpg`}
                     alt="The wearable glucose biosensor patch"
@@ -185,13 +185,13 @@ const GlucoseBiosensor = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                         <div className="space-y-3">
-                            <h3 className="text-lg font-normal text-primary">Three-electrode system</h3>
+                            <h3 className="text-base font-normal text-primary">Three-electrode system</h3>
                             <p>
                                 The ZP glucose biosensor is a three-electrode system: a working electrode (WE), a counter electrode (CE), and a reference electrode (RE). The reference electrode compensates for potential changes caused by large currents through the WE and CE. The ec-Flex has an integrated potentiostat that measures the WE's Open Circuit Potential (OCP)<Ref n="15" href="https://www.sciencedirect.com/topics/chemistry/open-circuit-potential" />.
                             </p>
                         </div>
                         <div className="space-y-3">
-                            <h3 className="text-lg font-normal text-primary">Screen-printed electrodes</h3>
+                            <h3 className="text-base font-normal text-primary">Screen-printed electrodes</h3>
                             <p>
                                 This three-electrode system is screen-printed on a substrate<Ref n="16" href="https://www.zimmerpeacocktech.com/knowledge-base/screen-printed-electrodes-for-biosensing/" /> via thick-film deposition<Ref n="17" href="https://www.youtube.com/watch?v=Sm6sS-yuQgo" />, which makes biosensor production simple, fast, and inexpensive<Ref n="18" href="https://link.springer.com/article/10.1007/s00604-014-1181-1" />. The ZP glucose sensor uses silver/silver chloride for the reference and counter electrodes and platinum for the working electrode<Ref n="19" href="https://www.zimmerpeacocktech.com/products/glucose-sensors/" />.
                             </p>
@@ -200,7 +200,7 @@ const GlucoseBiosensor = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-4">
-                            <h3 className="text-lg font-normal text-primary">Enzyme-based</h3>
+                            <h3 className="text-base font-normal text-primary">Enzyme-based</h3>
                             <p>
                                 An enzyme recognizes and reacts with the target analyte<Ref n="20" href="https://www.azom.com/article.aspx?ArticleID=15019" />. For glucose (C₆H₁₂O₆), that enzyme is glucose oxidase (GOx), immobilized onto the electrochemical interface. It catalyzes glucose oxidation, producing gluconolactone (C₆H₁₀O₆) and hydrogen peroxide (H₂O₂)<Ref n="21" href="https://doi.org/10.1108/sr-01-2019-0017" />. Glucose is then quantified by electrochemically measuring the hydrogen peroxide<Ref n="22" href="https://doi.org/10.3390/s17112620" />. Non-enzymatic biosensors instead use nanomaterials for stability, reproducibility, and simplicity<Ref n="23" href="https://doi.org/10.1016/b978-0-08-102577-2.00007-5" />.
                             </p>
@@ -213,13 +213,13 @@ const GlucoseBiosensor = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                         <div className="space-y-3">
-                            <h3 className="text-lg font-normal text-primary">Amperometry</h3>
+                            <h3 className="text-base font-normal text-primary">Amperometry</h3>
                             <p>
                                 ZP glucose biosensors are amperometric. The amperometric method can selectively distinguish several electroactive species in solution<Ref n="24" href="https://www.sciencedirect.com/topics/chemistry/amperometric-method" /> through a careful choice of applied potential and electrode material. Amperometric biosensors monitor currents — electrons exchanged between a biological system (the sweat) and an electrode.
                             </p>
                         </div>
                         <div className="space-y-3">
-                            <h3 className="text-lg font-normal text-primary">First-generation</h3>
+                            <h3 className="text-base font-normal text-primary">First-generation</h3>
                             <p>
                                 This tutorial targets first-generation glucose biosensors, which measure the concentration of analytes or enzymatic reaction products (H₂O₂ for glucose). Second-generation biosensors use redox mediators, and third-generation ones measure direct electron transfer between the redox-active biomolecule and the electrode surface<Ref n="18" href="https://link.springer.com/article/10.1007/s00604-014-1181-1" />.
                             </p>
@@ -237,7 +237,7 @@ const GlucoseBiosensor = () => {
 
                     {/* 1. Hardware Assembly */}
                     <div className="space-y-8">
-                        <h3 className="text-lg font-normal text-primary">1. Hardware assembly</h3>
+                        <h3 className="text-base font-normal text-primary">1. Hardware assembly</h3>
 
                         {/* 1.1 Battery */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
@@ -276,7 +276,7 @@ const GlucoseBiosensor = () => {
 
                     {/* 2. Data acquisition */}
                     <div className="space-y-6">
-                        <h3 className="text-lg font-normal text-primary">2. Data acquisition</h3>
+                        <h3 className="text-base font-normal text-primary">2. Data acquisition</h3>
                         <p>
                             Download the Biosensor-to-smartwatch wireless communication project ZIP from <a href="https://github.com/DeVinci-Innovation-Center/Biosensor-to-smartwatch_wireless_communication" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">GitHub</a>. Extract it and open the project in your code editor, then import the required Python libraries — the <a href="https://pypi.org/project/bleak/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Bleak library</a> is a GATT client.
                         </p>

@@ -49,7 +49,7 @@ const SmartwatchBiosensorsThesis = () => {
                 </h1>
             </header>
 
-            <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-lg">
+            <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-base">
                 <p>
                     This master's thesis delves into my two-year work on wearable biosensors at the DVIC. It covers the BioWatch development and the design of a microneedle lactate sensor module for the BioWatch. Beyond exploring smartwatches' potential, this thesis advocates a systemic design approach to wearable biomonitoring systems, driven by the triptych: technical performance, user experience, and medical relevance.
                 </p>

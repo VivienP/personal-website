@@ -18,7 +18,7 @@ const Ref = ({ n, href }) => (
 );
 
 const Img = ({ src, alt, className = '' }) => (
-    <div className="border border-border-subtle p-2 bg-white">
+    <div className="border border-border-subtle">
         <img
             src={src}
             alt={alt}
@@ -66,7 +66,7 @@ const BioWatch = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     BioWatch
                 </h1>
-                <p className="text-xl text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-light max-w-2xl">
                     A smartwatch for wearable biosensors.
                 </p>
                 <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">
@@ -84,7 +84,7 @@ const BioWatch = () => {
             </header>
 
             {/* Hero */}
-            <div className="w-full overflow-hidden border border-border-subtle mb-12 bg-white p-4">
+            <div className="w-full overflow-hidden border border-border-subtle mb-12">
                 <img
                     src="/biowatch/biowatch-grand-angle.jpg"
                     alt="BioWatch worn on a wrist"
@@ -100,7 +100,7 @@ const BioWatch = () => {
                         I built the BioWatch during my second year of my master's degree at the De Vinci Innovation Center.
                         My objective was to create a watch from scratch in the continuity of my work on wearable technologies. So the BioWatch is the wearable that allowed me to implement the biosensors I developed during my master's degree.
                     </p>
-                    <p className="text-lg font-normal text-primary">
+                    <p className="text-base font-normal text-primary">
                         Wearable biosensors are becoming increasingly advanced yearly, while smartwatches are increasingly functional. The BioWatch is an open-source prototype smartwatch for the implementation of wearable biosensors. This project is part of the trend of private companies to develop molecular monitoring as a new functionality of smartwatches.
                     </p>
                     <div className="flex pt-2">
@@ -217,7 +217,7 @@ const BioWatch = () => {
                     </div>
                 </section>
 
-                <div className="w-full overflow-hidden border border-border-subtle bg-white p-4">
+                <div className="w-full overflow-hidden border border-border-subtle">
                     <img src="/biowatch/biowatch-viewed-from-above.jpg" alt="BioWatch worn on a wrist, wide angle" loading="lazy" className="w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-700" />
                 </div>
 
@@ -237,7 +237,7 @@ const BioWatch = () => {
 
                 {/* Where it led — PKvitality */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="border border-border-subtle p-2 bg-white">
+                    <div className="border border-border-subtle">
                         <img
                             src="/pkvitality/pkvitality.jpg"
                             alt="Vivien Perrelle in front of the PKvitality stand: Continuous Glucose Monitoring in a Smartwatch"

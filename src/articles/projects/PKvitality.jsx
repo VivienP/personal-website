@@ -40,12 +40,12 @@ const PKvitality = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Research Intern @ PKvitality
                 </h1>
-                <p className="text-xl text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-light max-w-2xl">
                     How a prototype opened the door to building a pandiabetic smartwatch.
                 </p>
             </header>
 
-            <div className="w-full overflow-hidden border border-border-subtle mb-16 bg-white p-2">
+            <div className="w-full overflow-hidden border border-border-subtle mb-16">
                 <img
                     src="/pkvitality/pkvitality.jpg"
                     alt="Vivien Perrelle in front of the PKvitality stand: Continuous Glucose Monitoring in a Smartwatch"
@@ -53,7 +53,7 @@ const PKvitality = () => {
                 />
             </div>
 
-            <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-lg">
+            <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-base">
                 <p>
                     The <Link to="/projects/biowatch" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">BioWatch</Link> prototype I built during my master's is what landed me an internship at <a href="https://www.pkvitality.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">PKvitality</a> — a 50-person startup that raised several million euros to build the first glucose-monitoring smartwatch for diabetics.
                 </p>
@@ -69,15 +69,6 @@ const PKvitality = () => {
                         className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm"
                     >
                         <span>Watch the K'Watch presentation</span>
-                        <ExternalLink size={14} />
-                    </a>
-                    <a
-                        href="https://www.pkvitality.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm"
-                    >
-                        <span>Visit PKvitality</span>
                         <ExternalLink size={14} />
                     </a>
                 </div>

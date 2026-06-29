@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 const Thumb = ({ src, alt }) => (
-    <div className="aspect-square w-full overflow-hidden border border-border-subtle bg-white mb-4">
+    <div className="aspect-square w-full overflow-hidden border border-border-subtle mb-4">
         <img
             src={src}
             alt={alt}

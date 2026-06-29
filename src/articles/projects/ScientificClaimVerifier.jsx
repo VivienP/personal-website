@@ -44,7 +44,7 @@ const ScientificClaimVerifier = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Scientific Claim Verifier
                 </h1>
-                <p className="text-xl text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-light max-w-2xl">
                     An open-source engine that verifies each cited claim in scientific text against its actual source — and returns a grounded verdict with replayable provenance.
                 </p>
                 <div className="pt-2 flex">
@@ -59,7 +59,7 @@ const ScientificClaimVerifier = () => {
 
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Why I built it</h2>
-                    <p className="text-lg">
+                    <p className="text-base">
                         AI now generates hypotheses, molecules, literature reviews, and entire papers far faster than humans can check them. As that volume explodes, the bottleneck shifts from <em>producing</em> scientific content to <em>verifying</em> it. We need a way to confirm that scientific claims actually hold against their sources — and to make that confirmation reproducible and traceable.
                     </p>
                     <p>

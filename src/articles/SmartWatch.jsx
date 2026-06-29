@@ -22,7 +22,7 @@ const Ref = ({ n, href }) => (
 // Bordered image with optional caption.
 const Figure = ({ src, alt, caption, className = '' }) => (
     <figure className="space-y-3">
-        <div className={`border border-border-subtle p-2 bg-white ${className}`}>
+        <div className={`border border-border-subtle ${className}`}>
             <img
                 src={src}
                 alt={alt}
@@ -88,27 +88,27 @@ const SmartWatch = () => {
                 </p>
             </header>
 
-            {/* Hero */}
-            <div className="w-full overflow-hidden border border-border-subtle mb-16 bg-white p-4">
-                <img
-                    src={`${B}/smartwatch-closeup.jpg`}
-                    alt="Close-up of the finished 3D-printed smartwatch"
-                    className="w-full h-auto object-contain"
-                />
-            </div>
-
             <div className="text-primary max-w-none space-y-16 font-light leading-relaxed">
 
-                {/* Lead */}
-                <section className="space-y-6">
-                    <p className="text-lg font-normal text-primary">
-                        Wearable technologies are becoming ever more present in daily life. This tutorial shows how to build a smartwatch: it combines electronics — to program a liquid crystal display — and 3D printing — to make the watch case. It is a hands-on introduction to designing wearable technologies.
-                    </p>
-                    <div className="flex pt-2">
-                        <a href="https://github.com/VivienP/BioWatch/tree/main/smartwatch" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm">
-                            <span>View on GitHub</span>
-                            <ExternalLink size={14} />
-                        </a>
+                {/* Lead — image left, intro right */}
+                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div className="overflow-hidden border border-border-subtle">
+                        <img
+                            src={`${B}/smartwatch-closeup.jpg`}
+                            alt="Close-up of the finished 3D-printed smartwatch"
+                            className="w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-700"
+                        />
+                    </div>
+                    <div className="space-y-6 order-first md:order-last">
+                        <p className="text-base font-normal text-primary">
+                            Wearable technologies are becoming ever more present in daily life. This tutorial shows how to build a smartwatch: it combines electronics — to program a liquid crystal display — and 3D printing — to make the watch case. It is a hands-on introduction to designing wearable technologies.
+                        </p>
+                        <div className="flex pt-2">
+                            <a href="https://github.com/VivienP/BioWatch/tree/main/smartwatch" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm">
+                                <span>View on GitHub</span>
+                                <ExternalLink size={14} />
+                            </a>
+                        </div>
                     </div>
                 </section>
 
@@ -166,7 +166,7 @@ const SmartWatch = () => {
 
                     {/* 1. LCD programming */}
                     <div className="space-y-6">
-                        <h3 className="text-lg font-normal text-primary">1. LCD programming</h3>
+                        <h3 className="text-base font-normal text-primary">1. LCD programming</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                             <p>
                                 The WaveShare 1.28" round LCD module embeds a <span className="font-medium text-primary">GC9A01 driver</span> and supports Raspberry Pi, Arduino, and STM32 boards. It uses the <span className="font-medium text-primary">Serial Peripheral Interface (SPI)</span> — a synchronous serial bus for short-distance communication, mostly in embedded systems. The GC9A01 datasheet is available <a href="https://www.waveshare.com/w/upload/5/5e/GC9A01A.pdf" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">here</a>.
@@ -262,7 +262,7 @@ const SmartWatch = () => {
 
                     {/* 2. Case 3D printing */}
                     <div className="space-y-6">
-                        <h3 className="text-lg font-normal text-primary">2. Case 3D printing</h3>
+                        <h3 className="text-base font-normal text-primary">2. Case 3D printing</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                             <div className="space-y-5">
                                 <p>
@@ -293,7 +293,7 @@ const SmartWatch = () => {
 
                     {/* 3. Smartwatch assembly */}
                     <div className="space-y-5">
-                        <h3 className="text-lg font-normal text-primary">3. Smartwatch assembly</h3>
+                        <h3 className="text-base font-normal text-primary">3. Smartwatch assembly</h3>
                         <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
                             <li>Insert the LCD screen into the enclosure.</li>
                             <li>Plug the electronic cables into the LCD screen (push the connector with a screwdriver if needed).</li>

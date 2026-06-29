@@ -52,7 +52,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     AI for Science Is Moving From Prediction to Closed-Loop Research Systems
                 </h1>
-                <p className="text-xl text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-light max-w-2xl">
                     How Does AI-for-Science Find Out It's Wrong?
                 </p>
                 <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">

@@ -18,7 +18,7 @@ const Ref = ({ n, href }) => (
 );
 
 const Img = ({ src, alt, className = '' }) => (
-    <div className="border border-border-subtle p-2 bg-white">
+    <div className="border border-border-subtle">
         <img
             src={src}
             alt={alt}
@@ -63,7 +63,7 @@ const MotionSuit = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     E-Textile Motion Suit
                 </h1>
-                <p className="text-xl text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-light max-w-2xl">
                     An easy-to-make e-textile platform.
                 </p>
                 <p className="pt-2 text-sm text-secondary/90 italic font-light max-w-2xl">
@@ -89,7 +89,7 @@ const MotionSuit = () => {
 
                 {/* Lead statement */}
                 <section className="space-y-6">
-                    <p className="text-lg font-normal text-primary">
+                    <p className="text-base font-normal text-primary">
                         The E-Textile Motion Suit is an easy-to-make e-textile platform. Fully integrated fabric sensors detect touch, position, and mesh deformation to capture the wearer's movements. Through playful applications, the project aims to make e-textile technology more accessible to non-professionals.
                     </p>
                     <div className="flex pt-2">
@@ -146,7 +146,7 @@ const MotionSuit = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <Img src="/catsuit/overview.jpg" alt="The suit with stretch and crumpling sensors annotated" />
                         <div className="space-y-6 order-first md:order-last">
-                            <h3 className="text-lg font-normal text-primary">Architecture</h3>
+                            <h3 className="text-base font-normal text-primary">Architecture</h3>
                             <p>
                                 Mechanical movement sensors capture the wearer's motion. Three <a href="https://www.wemos.cc/en/latest/d1/d1_mini.html" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">ESP8266 Wemos Lolin D1 mini</a> microcontrollers — left, middle, and right — send this data to a server, which triggers audio-visual feedback whenever new information arrives.
                             </p>
@@ -161,7 +161,7 @@ const MotionSuit = () => {
                     {/* 1. Stretch sensors */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-4">
-                            <h3 className="text-lg font-normal text-primary">1. Stretch sensors</h3>
+                            <h3 className="text-base font-normal text-primary">1. Stretch sensors</h3>
                             <p>
                                 Stretch and crease sensors work alike: both have a resistance that varies with the number of contact points. The sensor is made with a tight zigzag stitch using conductive thread in the bottom spool. Stretching the fabric raises the resistance along the conductive thread<Ref n="4" href="https://doi.org/10.3390/ma12091469" />: the opening mesh breaks the parallel contact points, so the current flows in series rather than in parallel.
                             </p>
@@ -173,7 +173,7 @@ const MotionSuit = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <Img src="/catsuit/crumple-sensor-diagram.jpg" alt="Crumple sensor: circuit diagram and embroidered conductive pattern" />
                         <div className="space-y-4 order-first md:order-last">
-                            <h3 className="text-lg font-normal text-primary">2. Crumple sensors</h3>
+                            <h3 className="text-base font-normal text-primary">2. Crumple sensors</h3>
                             <p>
                                 Here the conductive thread is sewn across an entire surface. When the fabric wrinkles, it folds onto itself and creates contact points that let the current short-circuit the pattern — so the resistance drops accordingly.
                             </p>
@@ -183,7 +183,7 @@ const MotionSuit = () => {
                     {/* 3. LED interfaces */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-4">
-                            <h3 className="text-lg font-normal text-primary">3. LED interfaces</h3>
+                            <h3 className="text-base font-normal text-primary">3. LED interfaces</h3>
                             <p>
                                 The LEDs are off-the-shelf sewable sequins from Adafruit<Ref n="5" href="https://www.adafruit.com/product/1758" />, hand-sewn directly onto the sleeves and hood using the same process as the gyroscopic sensors. For now they are purely aesthetic, but they can easily be driven by the integrated GEMMA microcontrollers<Ref n="6" href="https://www.adafruit.com/product/1222" />.
                             </p>
@@ -195,7 +195,7 @@ const MotionSuit = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <Img src="/catsuit/gyroscopic-sensor.jpg" alt="Wemos microcontroller and accelerometer embroidered onto the sleeve" />
                         <div className="space-y-4 order-first md:order-last">
-                            <h3 className="text-lg font-normal text-primary">4. Gyroscopic sensors</h3>
+                            <h3 className="text-base font-normal text-primary">4. Gyroscopic sensors</h3>
                             <p>
                                 An accelerometer measures linear, non-gravitational acceleration. Three off-the-shelf accelerometers from Adafruit record acceleration and speed in the shoulder and torso area<Ref n="7" href="https://www.adafruit.com/product/1247" />. The connector is hand-sketched, imported into DRAWings as a PNG, then vectorized, rescaled, and turned into an ISO 301 stitch. The sensor is finally embroidered upside-down with that stitch on the outer surface of the sleeve.
                             </p>

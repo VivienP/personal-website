@@ -4,7 +4,7 @@ import { ArrowLeft, ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const Img = ({ src, alt, className = '' }) => (
-    <div className="border border-border-subtle p-2 bg-white">
+    <div className="border border-border-subtle">
         <img
             src={src}
             alt={alt}
@@ -49,7 +49,7 @@ const GreenGrown = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Green-Grown
                 </h1>
-                <p className="text-xl text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-light max-w-2xl">
                     A creative plant-stake construction game.
                 </p>
                 <p className="pt-2 text-sm text-secondary/90 italic font-light max-w-2xl">
@@ -58,7 +58,7 @@ const GreenGrown = () => {
             </header>
 
             {/* Hero */}
-            <div className="w-full overflow-hidden border border-border-subtle mb-8 bg-white p-4">
+            <div className="w-full overflow-hidden border border-border-subtle mb-8">
                 <img
                     src="/green-grown/main.jpg"
                     alt="Green-Grown assembled with a climbing plant"
@@ -99,7 +99,7 @@ const GreenGrown = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-4">
-                            <h3 className="text-lg font-normal text-primary">
+                            <h3 className="text-base font-normal text-primary">
                                 1. Assemble your Green-Grown tree branch by branch.
                             </h3>
                             <p>
@@ -112,7 +112,7 @@ const GreenGrown = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <Img src="/green-grown/6-bis.jpg" alt="Green-Grown placed in a pot with a planted seed" />
                         <div className="space-y-4 order-first md:order-last">
-                            <h3 className="text-lg font-normal text-primary">
+                            <h3 className="text-base font-normal text-primary">
                                 2. Put your Green-Grown in a pot, and plant a seed.
                             </h3>
                             <p>
@@ -128,7 +128,7 @@ const GreenGrown = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-6">
-                            <h3 className="text-lg font-normal text-primary">An organic structure perfect for plant development</h3>
+                            <h3 className="text-base font-normal text-primary">An organic structure perfect for plant development</h3>
                             <p>
                                 More than being made out of wood for an authentic construction game, we decided to go for a completely organic structure like a lacunar tree we iterated countless times. <span className="font-medium text-primary">The porosities that make up the structure are also inspired by nature.</span> They represent the shape of plant cells present in all flora. More than an aesthetic significance, it is mainly this shape that allows plants to grow easily on the structure.
                             </p>
@@ -137,7 +137,7 @@ const GreenGrown = () => {
                     </div>
 
                     <div className="space-y-6">
-                        <h3 className="text-lg font-normal text-primary">Shapes limited by creativity</h3>
+                        <h3 className="text-base font-normal text-primary">Shapes limited by creativity</h3>
                         <p>
                             We wanted an easy-to-use product that is accessible to young children and allows numerous complex shapes in the image of nature. The "L" shaped branches' and the multiple notches allow for countless structure possibilities. <span className="font-medium text-primary">Symmetrical or off-center, vertical or horizontal, orderly or chaotic.</span>
                         </p>
@@ -146,7 +146,7 @@ const GreenGrown = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <Img src="/green-grown/8.jpeg" alt="Different Green-Grown shape possibilities" />
                         <div className="space-y-6 order-first md:order-last">
-                            <h3 className="text-lg font-normal text-primary">A new look at nature</h3>
+                            <h3 className="text-base font-normal text-primary">A new look at nature</h3>
                             <p>
                                 Green-Grown is an educational, fun, and manual game that requires careful assembly. Once built, it is a personal and affective object that makes us aware of <span className="font-medium text-primary">the fragility of nature</span> and the need to take care of it. This atypical decorative object highlights the details of the plant world to draw our gaze to our environment again.
                             </p>

@@ -38,7 +38,7 @@ const Bione = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Bione
                 </h1>
-                <p className="text-xl text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-light max-w-2xl">
                     A 3D interactive app to learn about biosensors.
                 </p>
             </header>
@@ -79,7 +79,7 @@ const Bione = () => {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Code architecture</h2>
                     <figure className="space-y-3">
-                        <div className="w-full overflow-hidden border border-border-subtle bg-white p-4">
+                        <div className="w-full overflow-hidden border border-border-subtle">
                             <img
                                 src="/bione/overview-diagram.jpg"
                                 alt="Visual architecture of the JavaScript code on Cables.gl"

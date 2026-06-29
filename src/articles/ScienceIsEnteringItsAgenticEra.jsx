@@ -39,7 +39,7 @@ const ScienceIsEnteringItsAgenticEra = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Science Is Entering Its Agentic Era
                 </h1>
-                <p className="text-xl text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-light max-w-2xl">
                     How agentic AI is transforming scientific research from assistive tools to autonomous discovery systems.
                 </p>
                 <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">

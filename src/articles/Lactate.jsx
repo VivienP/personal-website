@@ -22,7 +22,7 @@ const Ref = ({ n, href }) => (
 // Bordered image with optional caption.
 const Figure = ({ src, alt, caption, className = '' }) => (
     <figure className="space-y-3">
-        <div className={`border border-border-subtle p-2 bg-white ${className}`}>
+        <div className={`border border-border-subtle ${className}`}>
             <img
                 src={src}
                 alt={alt}
@@ -98,7 +98,7 @@ const Lactate = () => {
                 {/* Lead */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <p className="text-lg font-normal text-primary">
+                        <p className="text-base font-normal text-primary">
                             Biosensors are a new type of sensor that detects specific substances, enabling highly sensitive and selective detection of analytes such as glucose, lactate, and cholesterol. As a promising healthcare technology, they offer real-time, non-invasive monitoring — of blood glucose, for instance — and the resulting wearable data helps health and sports professionals build accurate treatment plans and preventive prescriptions. This tutorial walks through building a proof-of-concept enzymatic lactate biosensor, a promising way to monitor muscle fatigue in athletes.
                         </p>
                         <div className="flex pt-2">
@@ -181,13 +181,13 @@ const Lactate = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                         <div className="space-y-8">
                             <div className="space-y-4">
-                                <h3 className="text-lg font-normal text-primary">Immobilization Matrix</h3>
+                                <h3 className="text-base font-normal text-primary">Immobilization Matrix</h3>
                                 <p>
                                     Functionalizing a biosensor means immobilizing the enzyme on a transducer surface<Ref n="11" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6337536/" />. The four main methods are (1) non-covalent adsorption and deposition, (2) physical entrapment, (3) covalent attachment, and (4) bio-conjugation. This tutorial uses physical entrapment — including the enzyme within a polymer network<Ref n="12" href="https://pubmed.ncbi.nlm.nih.gov/24432134/" />.
                                 </p>
                             </div>
                             <div className="space-y-4">
-                                <h3 className="text-lg font-normal text-primary">Enzyme</h3>
+                                <h3 className="text-base font-normal text-primary">Enzyme</h3>
                                 <p>
                                     The most common recognition elements for L-lactate biosensors are lactate dehydrogenase (LDH) and lactate oxidase (LOx)<Ref n="13" href="https://www.sciencedirect.com/science/article/pii/S2405580815001302" />. The enzyme catalyzes the oxidation of lactate into pyruvate in dissolved oxygen, producing hydrogen peroxide. Being electrochemically active, the hydrogen peroxide can be reduced or oxidized to yield a current proportional to the lactate concentration<Ref n="14" href="https://pubmed.ncbi.nlm.nih.gov/8311937/" />. Both enzymes involve simple reactions and allow for a fairly simple sensor design<Ref n="15" href="https://pubmed.ncbi.nlm.nih.gov/28955805/" />; this tutorial uses LOx for its lower cost.
                                 </p>
@@ -199,7 +199,7 @@ const Lactate = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <Figure src={`${B}/biosensor-principles.gif`} alt="Animated illustration of the biosensor working principle through the skin" />
                         <div className="space-y-4 order-first md:order-last">
-                            <h3 className="text-lg font-normal text-primary">Membrane</h3>
+                            <h3 className="text-base font-normal text-primary">Membrane</h3>
                             <p>The outer selector membrane has two roles:</p>
                             <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
                                 <li>filtering out interferents — biomolecules that could interact with the enzyme and distort the signal;</li>
@@ -218,7 +218,7 @@ const Lactate = () => {
 
                     {/* 1. Functionalization */}
                     <div className="space-y-6">
-                        <h3 className="text-lg font-normal text-primary">1. Biosensor Functionalization</h3>
+                        <h3 className="text-base font-normal text-primary">1. Biosensor Functionalization</h3>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                             <div className="space-y-5">
@@ -266,7 +266,7 @@ const Lactate = () => {
 
                     {/* 2. LMP91000 Programming */}
                     <div className="space-y-6">
-                        <h3 className="text-lg font-normal text-primary">2. LMP91000 Programming</h3>
+                        <h3 className="text-base font-normal text-primary">2. LMP91000 Programming</h3>
                         <p>
                             Electrochemical biosensor tests require a <em>potentiostat</em> — an electronic circuit that applies a potential to a working electrode (WE)<Ref n="23" href="https://www.palmsens.com/knowledgebase-topic/potentiostat/" />. By applying the molecule's oxidation potential (+650 mV for lactate), the enzyme catalyzes its oxidation, producing one or more electrons. The resulting current flows through the WE to the circuitry and a counter electrode (CE), where op-amps amplify it to the microampere range. <em>Chronoamperometry</em> (CA) applies a fixed potential at the WE and measures current over time<Ref n="24" href="https://www.zimmerpeacocktech.com/knowledge-base/faq/electro-analytical-techniques/" />, usually needing about an hour of calibration until the WE–CE potential stabilizes. The current is proportional to the lactate concentration at the WE surface. The LMP91000 is a popular potentiostat board for micro-power electrochemical sensing<Ref n="25" href="https://eu.mouser.com/new/texas-instruments/ti-national-lmp91000/" />.
                         </p>
@@ -314,7 +314,7 @@ const Lactate = () => {
 
                     {/* 3. Experimentation */}
                     <div className="space-y-6">
-                        <h3 className="text-lg font-normal text-primary">3. Experimentation</h3>
+                        <h3 className="text-base font-normal text-primary">3. Experimentation</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                             <div className="space-y-5">
                                 <p><span className="font-medium text-primary">3.1. Connect the electrodes.</span> Connect the functionalized platinum wire to the WE of the LMP91000 with an alligator clip. Cut and connect two more platinum wires to the CE and RE the same way, then check the connections with a voltmeter.</p>
