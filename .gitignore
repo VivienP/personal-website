@@ -28,3 +28,6 @@ src/articles/Dubai.jsx
 
 # Local trash (removed files)
 .trash/
+
+# Unused local asset
+public/ambition.jpg
