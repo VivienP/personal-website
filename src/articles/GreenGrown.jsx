@@ -9,7 +9,7 @@ const Img = ({ src, alt, className = '' }) => (
             src={src}
             alt={alt}
             loading="lazy"
-            className={`w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-700 ${className}`}
+            className={`w-full h-auto object-contain ${className}`}
         />
     </div>
 );

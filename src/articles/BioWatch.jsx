@@ -23,7 +23,7 @@ const Img = ({ src, alt, className = '' }) => (
             src={src}
             alt={alt}
             loading="lazy"
-            className={`w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-700 ${className}`}
+            className={`w-full h-auto object-contain ${className}`}
         />
     </div>
 );
@@ -115,15 +115,12 @@ const BioWatch = () => {
                     </div>
                 </section>
 
-                {/* Introduction — text left, no image (matches capture) */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <Img src="/biowatch/biowatch-viewed-from-above.jpg" alt="BioWatch viewed from above" />
-                    <div className="space-y-6 order-first md:order-last">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Introduction</h2>
-                        <p>
-                            Wearable technology is undergoing constant development, entrenching our daily lives to capture rich contextual information produced for a personalized experience<Ref n="1" href="https://doi.org/10.1016/j.comnet.2021.108074" />. Smartwatches were the first socially accepted wearable devices and are still the most popular. In 2016, smartwatch sales in the wearables market were the second product over intelligent devices, with 50 million units sold. They cover a broad application scope, including connectivity, sports, and health<Ref n="2" href="https://doi.org/10.1016/j.jbi.2016.09.001" />. Human activity detection for well-being applications has become a central stake in the smartwatch and fitness tracker market. Heart rate, temperature, and blood pressure are examples of already monitored physiological data by commercial wearable devices<Ref n="3" href="https://doi.org/10.3390/molecules26030748" />. Wearable biosensor technology has advanced significantly<Ref n="4" href="https://doi.org/10.1038/s41587-019-0045-y" />, but significant obstacles remain to overcome their full integration into our smartwatches regarding new materials, power sources, and communications systems<Ref n="5" href="https://doi.org/10.1016/j.biosx.2022.100153" />.
-                        </p>
-                    </div>
+                {/* Introduction — text only */}
+                <section className="space-y-6">
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Introduction</h2>
+                    <p>
+                        Wearable technology is undergoing constant development, entrenching our daily lives to capture rich contextual information produced for a personalized experience<Ref n="1" href="https://doi.org/10.1016/j.comnet.2021.108074" />. Smartwatches were the first socially accepted wearable devices and are still the most popular. In 2016, smartwatch sales in the wearables market were the second product over intelligent devices, with 50 million units sold. They cover a broad application scope, including connectivity, sports, and health<Ref n="2" href="https://doi.org/10.1016/j.jbi.2016.09.001" />. Human activity detection for well-being applications has become a central stake in the smartwatch and fitness tracker market. Heart rate, temperature, and blood pressure are examples of already monitored physiological data by commercial wearable devices<Ref n="3" href="https://doi.org/10.3390/molecules26030748" />. Wearable biosensor technology has advanced significantly<Ref n="4" href="https://doi.org/10.1038/s41587-019-0045-y" />, but significant obstacles remain to overcome their full integration into our smartwatches regarding new materials, power sources, and communications systems<Ref n="5" href="https://doi.org/10.1016/j.biosx.2022.100153" />.
+                    </p>
                 </section>
 
                 {/* Related Works — text left, image right */}
@@ -217,10 +214,6 @@ const BioWatch = () => {
                     </div>
                 </section>
 
-                <div className="w-full overflow-hidden border border-border-subtle">
-                    <img src="/biowatch/biowatch-viewed-from-above.jpg" alt="BioWatch worn on a wrist, wide angle" loading="lazy" className="w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-700" />
-                </div>
-
                 {/* Software — text left, image right */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
@@ -242,7 +235,7 @@ const BioWatch = () => {
                             src="/pkvitality/pkvitality.jpg"
                             alt="Vivien Perrelle in front of the PKvitality stand: Continuous Glucose Monitoring in a Smartwatch"
                             loading="lazy"
-                            className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                            className="w-full h-auto object-cover"
                         />
                     </div>
                     <div className="space-y-6 order-first md:order-last">

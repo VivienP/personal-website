@@ -143,7 +143,7 @@ const IsTechnologyNeutral = () => {
                             src="/ellul/jacques-ellul.jpg"
                             alt="Jacques Ellul"
                             loading="lazy"
-                            className="w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-700"
+                            className="w-full h-auto object-contain"
                         />
                     </div>
                     <figcaption className="text-sm text-secondary italic text-center">Jacques Ellul.</figcaption>

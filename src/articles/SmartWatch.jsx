@@ -27,7 +27,7 @@ const Figure = ({ src, alt, caption, className = '' }) => (
                 src={src}
                 alt={alt}
                 loading="lazy"
-                className="w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-full h-auto object-contain"
             />
         </div>
         {caption && <figcaption className="text-sm text-secondary italic">{caption}</figcaption>}
@@ -96,7 +96,7 @@ const SmartWatch = () => {
                         <img
                             src={`${B}/smartwatch-closeup.jpg`}
                             alt="Close-up of the finished 3D-printed smartwatch"
-                            className="w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-700"
+                            className="w-full h-auto object-contain"
                         />
                     </div>
                     <div className="space-y-6 order-first md:order-last">

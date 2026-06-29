@@ -84,7 +84,7 @@ const Bione = () => {
                                 src="/bione/overview-diagram.jpg"
                                 alt="Visual architecture of the JavaScript code on Cables.gl"
                                 loading="lazy"
-                                className="w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-700"
+                                className="w-full h-auto object-contain"
                             />
                         </div>
                         <figcaption className="text-sm text-secondary italic">
