@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const projects = [
     {
         id: 0,
-        title: "Locus Lab",
+        title: "LocusLab",
         description: "Building an AI-powered QC automation tool for pharmaceutical regulatory documents.",
-        tags: ["AI Agents", "RegTech", "MedTech"],
+        tags: ["Full-Stack Development", "AI Agents", "RegTech"],
         link: "https://www.locuslabhq.com/",
         github: "#"
     },
@@ -15,7 +15,7 @@ const projects = [
         id: 12,
         title: "Scientific Claim Verifier",
         description: "Open-source engine that verifies each cited claim in scientific text against its source, with deterministic, reproducible, fully-traceable provenance.",
-        tags: ["Open Source", "AI for Science", "RAG"],
+        tags: ["Open Source", "AI for Science"],
         link: "/projects/scientific-claim-verifier",
         github: "#"
     },
@@ -23,7 +23,7 @@ const projects = [
         id: 1,
         title: "Finexov",
         description: "Built AI agents to streamline complex R&D documentation for public funding.",
-        tags: ["Startup", "AI Agents", "FinTech"],
+        tags: ["Full-Stack Development", "AI Agents", "Startup"],
         link: "/projects/finexov",
         github: "#"
     },
@@ -31,7 +31,7 @@ const projects = [
         id: 2,
         title: "Oseille AI",
         description: "Developed a specialized agent for French business subsidies.",
-        tags: ["AI Agents", "SaaS"],
+        tags: ["AI Engineering", "Full-Stack Development", "SaaS"],
         link: "/projects/oseille",
         github: "#"
     },
@@ -39,7 +39,7 @@ const projects = [
         id: 4,
         title: "Freelance developer",
         description: "Providing technical leadership and development for high-growth SMBs.",
-        tags: ["Consulting", "Leadership"],
+        tags: ["Full-Stack Development", "Technical Leadership"],
         link: "https://www.malt.fr/profile/vivienperrelle",
         github: "#"
     },
