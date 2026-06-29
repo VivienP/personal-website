@@ -25,7 +25,7 @@ const BeyondWork = () => {
                         <Thumb src="/other/army.jpg" alt="Vivien Perrelle as an Air Force reservist" />
                         <h3 className="text-xl text-primary mb-2">Engagement</h3>
                         <p className="text-sm text-secondary leading-relaxed">
-                            At 18, I enlisted as a reservist in the French Air Force.
+                            I enlisted as a reservist in the French Air Force at 18.
                         </p>
                     </div>
 
@@ -43,7 +43,7 @@ const BeyondWork = () => {
                         <Thumb src="/other/drawing.webp" alt="Charcoal drawing of an eye and flowing hair" />
                         <h3 className="text-xl text-primary group-hover:text-accent transition-colors mb-2">Art</h3>
                         <p className="text-sm text-secondary leading-relaxed mb-3">
-                            Beyond technology, I used to draw.
+                            I used to draw.
                         </p>
                         <span className="inline-flex items-center space-x-2 text-sm text-primary border-b border-primary pb-0.5 group-hover:text-accent group-hover:border-accent transition-colors">
                             <span>View gallery</span>
