@@ -23,8 +23,8 @@ const projects = [
         id: 1,
         title: "Finexov",
         description: "Built AI agents to streamline complex R&D documentation for public funding.",
-        tags: ["AI Agents", "FinTech"],
-        link: "https://www.finexov.com/",
+        tags: ["Startup", "AI Agents", "FinTech"],
+        link: "/projects/finexov",
         github: "#"
     },
     {

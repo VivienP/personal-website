@@ -18,6 +18,7 @@ import LactatePharmacokinetics from './articles/academic/LactatePharmacokinetics
 import Oseille from './articles/projects/Oseille';
 import ScientificClaimVerifier from './articles/projects/ScientificClaimVerifier';
 import PKvitality from './articles/projects/PKvitality';
+import Finexov from './articles/projects/Finexov';
 import GreenGrown from './articles/GreenGrown';
 import Lactate from './articles/Lactate';
 import OpenClaw from './articles/OpenClaw';
@@ -78,6 +79,7 @@ function App() {
         <Route path="/academic-work/lactate-pharmacokinetics" element={<LactatePharmacokinetics />} />
         <Route path="/projects/oseille" element={<Oseille />} />
         <Route path="/projects/scientific-claim-verifier" element={<ScientificClaimVerifier />} />
+        <Route path="/projects/finexov" element={<Finexov />} />
         <Route path="/blog/lactate" element={<Lactate />} />
         <Route path="/art" element={<Art />} />
         <Route path="/blog/openclaw" element={<OpenClaw />} />
