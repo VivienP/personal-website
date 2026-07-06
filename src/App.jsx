@@ -3,6 +3,8 @@ import Hero from './sections/Hero';
 import Projects from './sections/Projects';
 import AcademicWork from './sections/AcademicWork';
 import Journal from './sections/Journal';
+import Contact from './sections/Contact';
+import Footer from './components/Footer';
 import TraumaVsPurpose from './articles/TraumaVsPurpose';
 import Art from './pages/Art';
 import BeyondWork from './sections/BeyondWork';
@@ -24,22 +26,23 @@ import Lactate from './articles/Lactate';
 import OpenClaw from './articles/OpenClaw';
 import ScienceIsEnteringItsAgenticEra from './articles/ScienceIsEnteringItsAgenticEra';
 import AIForScienceIsBecomingInfrastructure from './articles/AIForScienceIsBecomingInfrastructure';
+import PharmaDataLayer from './articles/PharmaDataLayer';
 import SEO from './components/SEO';
 import NotFound from './pages/NotFound';
 
 const Home = () => (
   <main>
     <SEO
-      title="Vivien Perrelle | Developer & Startup Founder"
-      description="Developer and startup founder passionate about AI products and science. Currently building verification infrastructure for biology research."
+      title="Vivien Perrelle | Founder, AI for Science"
+      description="Founder building verification infrastructure for biology research. Available for selective AI-for-Science freelance work — AI agents, RAG, scientific tooling."
       url="/"
       jsonLd={{
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Vivien Perrelle",
         "url": "https://vivienperrelle.com",
-        "jobTitle": "Developer & Startup Founder",
-        "description": "Developer and startup founder passionate about AI products and science. Currently building verification infrastructure for biology research.",
+        "jobTitle": "Founder, AI for Science",
+        "description": "Founder building verification infrastructure for biology research. Available for selective AI-for-Science freelance work — AI agents, RAG, scientific tooling.",
         "image": "https://vivienperrelle.com/me.png",
         "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" },
         "sameAs": [
@@ -53,6 +56,7 @@ const Home = () => (
     <AcademicWork />
     <Journal />
     <BeyondWork />
+    <Contact />
   </main>
 );
 
@@ -86,8 +90,10 @@ function App() {
         <Route path="/blog/openclaw" element={<OpenClaw />} />
         <Route path="/blog/science-is-entering-its-agentic-era" element={<ScienceIsEnteringItsAgenticEra />} />
         <Route path="/blog/ai-for-science-is-becoming-a-systems-problem" element={<AIForScienceIsBecomingInfrastructure />} />
+        <Route path="/blog/pharma-data-layer" element={<PharmaDataLayer />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

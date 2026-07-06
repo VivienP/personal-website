@@ -13,6 +13,11 @@ const articles = [
         slug: "science-is-entering-its-agentic-era"
     },
     {
+        date: "2026-02-23",
+        title: "It is a Knowledge Infrastructure Problem, Not a Model Problem",
+        slug: "pharma-data-layer"
+    },
+    {
         date: "2026-02-19",
         title: "OpenClaw & the Infrastructure of Sovereign Intelligence",
         slug: "openclaw"

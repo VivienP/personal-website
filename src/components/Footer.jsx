@@ -10,7 +10,7 @@ const Footer = () => {
                 </div>
 
                 <div className="flex items-center space-x-8">
-                    <a href="https://github.com/vperrelle" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors" aria-label="GitHub">
+                    <a href="https://github.com/VivienP" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors" aria-label="GitHub">
                         <Github size={20} />
                     </a>
                     <a href="https://x.com/PerrelleVivien" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors" aria-label="Twitter">

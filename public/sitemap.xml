@@ -67,6 +67,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://vivienperrelle.com/blog/pharma-data-layer</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://vivienperrelle.com/blog/openclaw</loc>
     <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>

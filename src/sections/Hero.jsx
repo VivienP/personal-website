@@ -18,7 +18,7 @@ const Hero = () => {
 
                     {/* Bio / Main Title */}
                     <h1 className="text-base text-primary leading-relaxed">
-                        I’m Vivien, a developer and startup founder passionate about AI products and science. Currently building verification infrastructure for biology research. <br className="hidden md:block" />
+                        I’m Vivien — a founder building verification infrastructure for biology research. I also take on selective freelance work with AI-for-Science teams: AI agents, RAG, and scientific tooling. <br className="hidden md:block" />
                     </h1>
 
                     {/* Location */}
