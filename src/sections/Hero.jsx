@@ -27,43 +27,6 @@ const Hero = () => {
                         <span>Paris, France</span>
                     </div>
 
-                    {/* Social Links List */}
-                    <ul className="space-y-3 text-secondary text-sm md:text-base pl-1">
-                        <li className="flex items-center space-x-3">
-                            <span className="w-1.5 h-1.5 rounded-full bg-secondary/60"></span>
-                            <a
-                                href="https://x.com/PerrelleVivien"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="underline decoration-border-subtle underline-offset-4 hover:text-primary hover:decoration-accent transition-all"
-                            >
-                                X
-                            </a>
-                        </li>
-                        <li className="flex items-center space-x-3">
-                            <span className="w-1.5 h-1.5 rounded-full bg-secondary/60"></span>
-                            <a
-                                href="https://www.linkedin.com/in/vivien-perrelle/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="underline decoration-border-subtle underline-offset-4 hover:text-primary hover:decoration-accent transition-all"
-                            >
-                                LinkedIn
-                            </a>
-                        </li>
-                        <li className="flex items-center space-x-3">
-                            <span className="w-1.5 h-1.5 rounded-full bg-secondary/60"></span>
-                            <a
-                                href="https://github.com/VivienP"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="underline decoration-border-subtle underline-offset-4 hover:text-primary hover:decoration-accent transition-all"
-                            >
-                                GitHub
-                            </a>
-                        </li>
-                    </ul>
-
                 </div>
             </div>
         </section>
