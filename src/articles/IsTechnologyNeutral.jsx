@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import SEO from '../components/SEO';
+import { AUTHOR } from '../components/jsonld';
 
 const IsTechnologyNeutral = () => {
     useEffect(() => {
@@ -19,10 +20,12 @@ const IsTechnologyNeutral = () => {
                 article={{ publishedTime: '2023-02-24', author: 'Vivien Perrelle', tags: ['Philosophy of Technology', 'Ethics', 'Design', 'Ellul'] }}
                 jsonLd={{
                     "@context": "https://schema.org",
-                    "@type": "Article",
+                    "@type": "BlogPosting",
                     "headline": "Is Technology Neutral?",
+                    "description": "Why the neutrality question is poorly framed, and where the value of a technology is actually decided — not in use, but in design.",
                     "datePublished": "2023-02-24",
-                    "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
+                    "dateModified": "2023-02-24",
+                    "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "image": "https://vivienperrelle.com/ellul/jacques-ellul.jpg",
                     "mainEntityOfPage": "https://vivienperrelle.com/blog/is-technology-neutral",
@@ -45,7 +48,7 @@ const IsTechnologyNeutral = () => {
                     Why the question is poorly framed, and where the value of a technology is actually decided.
                 </p>
                 <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">
-                    <span>Published on February 24, 2023</span>
+                    <span>By Vivien Perrelle · February 24, 2023</span>
                 </div>
             </header>
 

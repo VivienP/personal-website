@@ -37,10 +37,10 @@ const projects = [
     },
     {
         id: 4,
-        title: "Freelance developer",
-        description: "Providing technical leadership and development for high-growth SMBs.",
-        tags: ["Full-Stack Development", "Technical Leadership"],
-        link: "https://www.malt.fr/profile/vivienperrelle",
+        title: "Freelance AI Engineer",
+        description: "Freelance AI engineering for biology, techbio, and AI-for-science teams: AI agents, RAG pipelines, evaluation, and scientific data tooling.",
+        tags: ["AI for Science", "AI Agents", "RAG"],
+        link: "/freelance-ai-engineer-biology",
         github: "#"
     },
     {

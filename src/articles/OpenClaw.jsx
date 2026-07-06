@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import SEO from '../components/SEO';
+import { AUTHOR } from '../components/jsonld';
+import AuthorBio from '../components/AuthorBio';
 
 const OpenClaw = () => {
     useEffect(() => {
@@ -18,10 +20,13 @@ const OpenClaw = () => {
                 article={{ publishedTime: '2026-02-20', author: 'Vivien Perrelle' }}
                 jsonLd={{
                     "@context": "https://schema.org",
-                    "@type": "Article",
+                    "@type": "BlogPosting",
                     "headline": "OpenClaw & the Infrastructure of Sovereign Intelligence",
+                    "description": "The Assistant era is over. 2026 is defined by Sovereign Agents—locally hosted, proactive AI entities capable of self-funding and autonomous execution. But without data interoperability and strict security, these agents are a liability, not an asset.",
+                    "image": "https://vivienperrelle.com/me.png",
                     "datePublished": "2026-02-20",
-                    "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
+                    "dateModified": "2026-02-20",
+                    "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "mainEntityOfPage": "https://vivienperrelle.com/blog/openclaw"
                 }}
@@ -32,7 +37,7 @@ const OpenClaw = () => {
             </Link>
 
             <header className="mb-12 space-y-6">
-                <span className="font-mono text-sm text-secondary">2026-02-20</span>
+                <span className="font-mono text-sm text-secondary">By Vivien Perrelle · 2026-02-20</span>
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
                     OpenClaw & the Infrastructure of Sovereign Intelligence.
                 </h1>
@@ -221,6 +226,12 @@ const OpenClaw = () => {
                     It is: <strong>"Is our infrastructure ready to host a peer?"</strong>
                 </p>
             </div>
+
+            <AuthorBio readNext={[
+                { to: '/blog/science-is-entering-its-agentic-era', label: 'Science Is Entering Its Agentic Era' },
+                { to: '/blog/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
+                { to: '/projects/scientific-claim-verifier', label: 'Scientific Claim Verifier — open-source claim-to-source verification (F1 0.92 on SciFact)' },
+            ]} />
         </article>
     );
 };

@@ -1,4 +1,5 @@
-import { readdir, readFile, writeFile, rm } from 'node:fs/promises'
+import { readdir, readFile, writeFile, rm, rename } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -51,6 +52,18 @@ const stripPrerenderArtifacts = () => {
         }
       }
       await walk(root)
+
+      // The /404 route pre-renders to 404/index.html; Vercel only serves a
+      // custom not-found page (with HTTP status 404) from top-level 404.html.
+      const nested404 = join(root, '404', 'index.html')
+      if (existsSync(nested404)) {
+        await rename(nested404, join(root, '404.html'))
+        await rm(join(root, '404'), { recursive: true, force: true })
+      } else {
+        console.warn(
+          '[strip-prerender-artifacts] dist/404/index.html not found — is the /404 route missing from src/routes.jsx? Unmatched URLs will not return a real 404.',
+        )
+      }
     },
   }
 }

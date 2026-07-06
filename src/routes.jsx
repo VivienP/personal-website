@@ -30,7 +30,8 @@ import Lactate from './articles/Lactate';
 import OpenClaw from './articles/OpenClaw';
 import ScienceIsEnteringItsAgenticEra from './articles/ScienceIsEnteringItsAgenticEra';
 import AIForScienceIsBecomingInfrastructure from './articles/AIForScienceIsBecomingInfrastructure';
-import PharmaDataLayer from './articles/PharmaDataLayer';
+import RegulatorsDontAcceptVibes from './articles/RegulatorsDontAcceptVibes';
+import FreelanceAIEngineer from './pages/FreelanceAIEngineer';
 import NotFound from './pages/NotFound';
 
 // Content routes that render a real page. Every one of these is pre-rendered.
@@ -56,13 +57,18 @@ export const routes = [
   { path: '/blog/openclaw', element: <OpenClaw /> },
   { path: '/blog/science-is-entering-its-agentic-era', element: <ScienceIsEnteringItsAgenticEra /> },
   { path: '/blog/ai-for-science-is-becoming-a-systems-problem', element: <AIForScienceIsBecomingInfrastructure /> },
-  { path: '/blog/pharma-data-layer', element: <PharmaDataLayer /> },
+  { path: '/blog/regulators-dont-accept-vibes', element: <RegulatorsDontAcceptVibes /> },
+  { path: '/freelance-ai-engineer-biology', element: <FreelanceAIEngineer /> },
+  // Pre-rendered so the build emits a real 404 page; vite.config.js moves it
+  // to dist/404.html, which Vercel serves with HTTP 404 for unmatched paths.
+  { path: '/404', element: <NotFound /> },
 ];
 
-// Legacy /blog/* project URLs → /projects/* (kept for SEO / old links).
+// Legacy URLs → current ones (kept for SEO / old links).
 // These 301 at the edge (vercel.json) for crawlers; the client-side <Navigate>
 // covers in-app navigation. Not pre-rendered (they only redirect).
 export const legacyRedirects = [
+  { path: '/blog/pharma-data-layer', to: '/blog/regulators-dont-accept-vibes' },
   { path: '/blog/biowatch', to: '/projects/biowatch' },
   { path: '/blog/green-grown', to: '/projects/green-grown' },
   { path: '/blog/bione', to: '/projects/bione' },

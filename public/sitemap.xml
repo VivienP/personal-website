@@ -2,146 +2,106 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://vivienperrelle.com/</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-07-06</lastmod>
+  </url>
+  <url>
+    <loc>https://vivienperrelle.com/freelance-ai-engineer-biology</loc>
+    <lastmod>2026-07-06</lastmod>
   </url>
 
   <!-- Projects -->
   <url>
     <loc>https://vivienperrelle.com/projects/scientific-claim-verifier</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-07-06</lastmod>
   </url>
   <url>
     <loc>https://vivienperrelle.com/projects/finexov</loc>
     <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vivienperrelle.com/projects/oseille</loc>
     <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vivienperrelle.com/projects/pkvitality</loc>
     <lastmod>2023-08-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <!-- Academic work -->
   <url>
     <loc>https://vivienperrelle.com/academic-work</loc>
     <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://vivienperrelle.com/academic-work/smartwatch-embedded-biosensors</loc>
-    <lastmod>2023-10-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-07-06</lastmod>
   </url>
   <url>
     <loc>https://vivienperrelle.com/academic-work/lactate-pharmacokinetics</loc>
-    <lastmod>2023-08-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-07-06</lastmod>
   </url>
 
   <!-- Journal — essays -->
   <url>
     <loc>https://vivienperrelle.com/blog/ai-for-science-is-becoming-a-systems-problem</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-07-06</lastmod>
   </url>
   <url>
     <loc>https://vivienperrelle.com/blog/science-is-entering-its-agentic-era</loc>
-    <lastmod>2026-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-07-06</lastmod>
   </url>
   <url>
-    <loc>https://vivienperrelle.com/blog/pharma-data-layer</loc>
-    <lastmod>2026-02-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://vivienperrelle.com/blog/regulators-dont-accept-vibes</loc>
+    <lastmod>2026-07-06</lastmod>
   </url>
   <url>
     <loc>https://vivienperrelle.com/blog/openclaw</loc>
-    <lastmod>2026-02-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-07-06</lastmod>
   </url>
   <url>
     <loc>https://vivienperrelle.com/blog/trauma-vs-purpose</loc>
-    <lastmod>2026-02-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-07-06</lastmod>
   </url>
   <url>
     <loc>https://vivienperrelle.com/blog/is-technology-neutral</loc>
-    <lastmod>2023-02-24</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-07-06</lastmod>
   </url>
 
   <!-- Journal — tutorials -->
   <url>
     <loc>https://vivienperrelle.com/blog/lactate</loc>
     <lastmod>2023-02-04</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://vivienperrelle.com/blog/glucose-biosensor</loc>
     <lastmod>2022-03-10</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://vivienperrelle.com/blog/smartwatch</loc>
     <lastmod>2022-01-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <!-- Projects with case-study pages -->
   <url>
     <loc>https://vivienperrelle.com/projects/biowatch</loc>
     <lastmod>2023-02-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://vivienperrelle.com/projects/green-grown</loc>
     <lastmod>2022-05-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://vivienperrelle.com/projects/bione</loc>
     <lastmod>2023-01-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://vivienperrelle.com/projects/motion-suit</loc>
     <lastmod>2022-01-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <!-- Other -->
   <url>
     <loc>https://vivienperrelle.com/art</loc>
     <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
 </urlset>

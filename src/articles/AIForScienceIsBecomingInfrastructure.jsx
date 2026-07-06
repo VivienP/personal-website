@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import SEO from '../components/SEO';
+import { AUTHOR } from '../components/jsonld';
+import AuthorBio from '../components/AuthorBio';
 
 const Cite = ({ n }) => (
     <sup>
@@ -31,10 +33,13 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 article={{ publishedTime: '2026-06-01', author: 'Vivien Perrelle', tags: ['AI', 'Scientific Research', 'Drug Discovery', 'Research Automation', 'Biotech', 'Evaluation', 'Google Co-Scientist', 'Isomorphic Labs', 'SoundnessBench'] }}
                 jsonLd={{
                     "@context": "https://schema.org",
-                    "@type": "TechArticle",
+                    "@type": "BlogPosting",
                     "headline": "AI for Science Is Moving From Prediction to Closed-Loop Research Systems",
+                    "description": "How does AI-for-science find out it's wrong? A framework mapping research loops by cost and fidelity of feedback — from code-closed to patient-closed systems.",
+                    "image": "https://vivienperrelle.com/me.png",
                     "datePublished": "2026-06-01",
-                    "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
+                    "dateModified": "2026-06-01",
+                    "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "mainEntityOfPage": "https://vivienperrelle.com/blog/ai-for-science-is-becoming-a-systems-problem",
                     "keywords": "AI, Scientific Research, Drug Discovery, Research Automation, Biotech, Evaluation, Google Co-Scientist, Isomorphic Labs, SoundnessBench, AI research agents, autonomous scientific discovery, AI-first drug design, AI Scientist Sakana AI, evaluation bottleneck, Eroom's law, feedback loops, cost fidelity"
@@ -56,7 +61,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                     How Does AI-for-Science Find Out It's Wrong?
                 </p>
                 <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">
-                    <span>Published on June 1, 2026</span>
+                    <span>By Vivien Perrelle · June 1, 2026</span>
                 </div>
             </header>
 
@@ -339,7 +344,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         It cuts across every loop.
                     </p>
                     <p>
-                        If AI systems generate more hypotheses, we need to know which ones are sound. If they write more papers, we need to know which claims are supported. If they design more proteins, we need to know whether the design works outside the benchmark. If they run more computational experiments, we need to know whether the setup was meaningful. If they summarize more evidence, we need to know what was missed, distorted, or overclaimed.
+                        If AI systems generate more hypotheses, we need to know which ones are sound. If they write more papers, we need to know <Link to="/projects/scientific-claim-verifier" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">which claims are supported</Link>. If they design more proteins, we need to know whether the design works outside the benchmark. If they run more computational experiments, we need to know whether the setup was meaningful. If they summarize more evidence, we need to know what was missed, distorted, or overclaimed.
                     </p>
                     <p>
                         This is why SoundnessBench<Cite n={15} /> matters.
@@ -441,6 +446,12 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 </section>
 
             </div>
+
+            <AuthorBio readNext={[
+                { to: '/blog/science-is-entering-its-agentic-era', label: 'Science Is Entering Its Agentic Era' },
+                { to: '/blog/regulators-dont-accept-vibes', label: "Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing" },
+                { to: '/projects/scientific-claim-verifier', label: 'Scientific Claim Verifier — open-source claim-to-source verification (F1 0.92 on SciFact)' },
+            ]} />
         </article>
     );
 };

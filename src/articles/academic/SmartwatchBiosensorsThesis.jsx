@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import SEO from '../../components/SEO';
+import { AUTHOR } from '../../components/jsonld';
 
 const RESEARCHGATE_URL = 'https://www.researchgate.net/publication/375227950_Smartwatch-Embedded_Biosensors_For_Healthcare_Monitoring';
 
@@ -26,13 +27,13 @@ const SmartwatchBiosensorsThesis = () => {
                     "name": "Smartwatch-Embedded Biosensors For Healthcare Monitoring",
                     "datePublished": "2023-10-01",
                     "inLanguage": "en",
-                    "learningResourceType": "Master's Thesis",
-                    "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
+                    "genre": "Master's Thesis",
+                    "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "abstract": "This master's thesis delves into two years of work on wearable biosensors at the De Vinci Innovation Center. It covers the BioWatch development and the design of a microneedle lactate sensor module for the BioWatch. Beyond exploring smartwatches' potential, this thesis advocates a systemic design approach to wearable biomonitoring systems, driven by the triptych of technical performance, user experience, and medical relevance.",
                     "image": "https://vivienperrelle.com/biowatch/biowatch-grand-angle.jpg",
                     "keywords": "wearable biosensors, smartwatch, healthcare monitoring, microneedle, lactate, BioWatch, biomonitoring",
-                    "url": RESEARCHGATE_URL,
+                    "url": "https://vivienperrelle.com/academic-work/smartwatch-embedded-biosensors",
                     "sameAs": RESEARCHGATE_URL,
                     "mainEntityOfPage": "https://vivienperrelle.com/academic-work/smartwatch-embedded-biosensors"
                 }}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getCalApi } from '@calcom/embed-react';
 import { ArrowUpRight, Mail, Calendar } from 'lucide-react';
 
@@ -9,7 +10,9 @@ const EMAIL_DOMAIN = 'gmail.com';
 
 const CAL_NAMESPACE = 'quick-chat';
 
-const Contact = () => {
+// showServicesLink is off on the freelance landing page, where the "more on
+// how I work" link would point to itself.
+const Contact = ({ showServicesLink = true }) => {
     const [href, setHref] = useState('#');
 
     // Initialise the Cal.com embed once; the modal loads on element click,
@@ -42,9 +45,21 @@ const Contact = () => {
                 <h2 className="text-3xl md:text-4xl text-primary mb-6">Work with me</h2>
 
                 <p className="text-base text-secondary leading-relaxed max-w-2xl mb-10">
-                    Open to selective AI-for-Science engineering work — AI agents, RAG,
-                    verification, and scientific tooling. Building alongside teams pushing
-                    research forward is exactly the kind of work I want.
+                    I take on selective freelance engagements with biology, biotech, and
+                    AI-for-science teams — AI agents, retrieval-augmented generation over
+                    scientific literature, evaluation, and scientific tooling. The same
+                    systems I build for my own verification work at LocusLab.
+                    {showServicesLink && (
+                        <>
+                            {' '}
+                            <Link
+                                to="/freelance-ai-engineer-biology"
+                                className="text-primary border-b border-primary/40 hover:text-accent hover:border-accent transition-colors"
+                            >
+                                More on how I work →
+                            </Link>
+                        </>
+                    )}
                 </p>
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4">

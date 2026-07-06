@@ -1,14 +1,10 @@
 {
+    "trailingSlash": false,
     "redirects": [
+        { "source": "/blog/pharma-data-layer", "destination": "/blog/regulators-dont-accept-vibes", "permanent": true },
         { "source": "/blog/biowatch", "destination": "/projects/biowatch", "permanent": true },
         { "source": "/blog/green-grown", "destination": "/projects/green-grown", "permanent": true },
         { "source": "/blog/bione", "destination": "/projects/bione", "permanent": true },
         { "source": "/blog/motion-suit", "destination": "/projects/motion-suit", "permanent": true }
-    ],
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/index.html"
-        }
     ]
 }

@@ -8,14 +8,14 @@ const articles = [
         slug: "ai-for-science-is-becoming-a-systems-problem"
     },
     {
+        date: "2026-05-11",
+        title: "Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing",
+        slug: "regulators-dont-accept-vibes"
+    },
+    {
         date: "2026-04-17",
         title: "Science Is Entering Its Agentic Era",
         slug: "science-is-entering-its-agentic-era"
-    },
-    {
-        date: "2026-02-23",
-        title: "It is a Knowledge Infrastructure Problem, Not a Model Problem",
-        slug: "pharma-data-layer"
     },
     {
         date: "2026-02-19",

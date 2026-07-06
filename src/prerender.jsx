@@ -26,6 +26,12 @@ import './index.css';
 const HEAD_TAG = /<(title|meta|link)\b[^>]*?>(?:[\s\S]*?<\/\1>)?/gi;
 const TITLE_TEXT = /<title\b[^>]*>([\s\S]*?)<\/title>/i;
 
+// The extracted title text is already React-escaped, and vite-prerender-plugin
+// escapes head.title again on injection — decode once or "&" ships as "&amp;amp;".
+// Single-pass replace so "&amp;lt;" decodes to "&lt;", not all the way to "<".
+const ENTITIES = { '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#39;': "'", '&#x27;': "'" };
+const decodeEntities = (s) => s.replace(/&(?:amp|lt|gt|quot|#39|#x27);/g, (m) => ENTITIES[m]);
+
 export async function prerender({ url }) {
   const rendered = renderToString(
     <StaticRouter location={url}>
@@ -36,7 +42,9 @@ export async function prerender({ url }) {
   // Pull hoisted <title>/<meta>/<link> out of the body...
   const headElements = rendered.match(HEAD_TAG) || [];
   const titleMatch = headElements.find((t) => /^<title/i.test(t));
-  const title = titleMatch ? titleMatch.replace(TITLE_TEXT, '$1').trim() : '';
+  const title = titleMatch
+    ? decodeEntities(titleMatch.replace(TITLE_TEXT, '$1').trim())
+    : '';
 
   // ...and strip them from the HTML so they don't duplicate in <body>.
   const html = rendered.replace(HEAD_TAG, '');

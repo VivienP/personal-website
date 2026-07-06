@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import SEO from '../../components/SEO';
+import { AUTHOR } from '../../components/jsonld';
+import AuthorBio from '../../components/AuthorBio';
 
 const REPO = 'https://github.com/VivienP/scientific-claim-verification-engine';
 
@@ -24,11 +26,13 @@ const ScientificClaimVerifier = () => {
                     "name": "Scientific Claim Verification Engine",
                     "headline": "Scientific Claim Verifier — Deterministic Claim-to-Source Verification",
                     "description": "An open-source Python pipeline that decomposes scientific text into citation-anchored claims, resolves and fetches each cited source, and verifies entailment with full SHA-256 provenance — for reproducible, traceable verification of an AI-saturated scientific literature.",
+                    "image": "https://vivienperrelle.com/me.png",
                     "datePublished": "2026-05-01",
+                    "dateModified": "2026-05-01",
                     "codeRepository": REPO,
                     "programmingLanguage": "Python",
                     "license": "https://www.apache.org/licenses/LICENSE-2.0",
-                    "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
+                    "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "keywords": "scientific claim verification, citation verification, claim-to-source grounding, SciFact, retrieval-augmented verification, RAG, natural language inference, BM25, provenance, reproducibility, audit trail, LLM hallucination detection, Claude, CrossRef, OpenAlex, PubMed, Europe PMC, Unpaywall, MCP server, IMRAD chunking",
                     "url": "https://vivienperrelle.com/projects/scientific-claim-verifier"
@@ -127,6 +131,12 @@ const ScientificClaimVerifier = () => {
                 </footer>
 
             </div>
+
+            <AuthorBio readNext={[
+                { to: '/blog/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
+                { to: '/blog/science-is-entering-its-agentic-era', label: 'Science Is Entering Its Agentic Era' },
+                { to: '/blog/regulators-dont-accept-vibes', label: "Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing" },
+            ]} />
         </article>
     );
 };

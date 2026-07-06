@@ -8,24 +8,12 @@ import SEO from '../components/SEO';
 
 const Home = () => (
   <main>
+    {/* No jsonLd prop: the SEO component serves its Person/Service/WebSite
+        @graph on '/' by default — one source of truth for the entity. */}
     <SEO
-      title="Vivien Perrelle | Founder, AI for Science"
-      description="Founder building verification infrastructure for biology research. Available for selective AI-for-Science freelance work — AI agents, RAG, scientific tooling."
+      title="Vivien Perrelle — AI Engineer & Founder, AI for Biology"
+      description="I help techbio and AI-for-biology teams ship AI agents, RAG pipelines, and scientific tooling. Selective freelance engagements — book an intro call."
       url="/"
-      jsonLd={{
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Vivien Perrelle",
-        "url": "https://vivienperrelle.com",
-        "jobTitle": "Founder, AI for Science",
-        "description": "Founder building verification infrastructure for biology research. Available for selective AI-for-Science freelance work — AI agents, RAG, scientific tooling.",
-        "image": "https://vivienperrelle.com/me.png",
-        "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" },
-        "sameAs": [
-          "https://x.com/PerrelleVivien",
-          "https://www.linkedin.com/in/vivien-perrelle/"
-        ]
-      }}
     />
     <Hero />
     <Projects />

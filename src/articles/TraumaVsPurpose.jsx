@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import SEO from '../components/SEO';
+import { AUTHOR } from '../components/jsonld';
 
 const TraumaVsPurpose = () => {
     useEffect(() => {
@@ -18,10 +19,12 @@ const TraumaVsPurpose = () => {
                 article={{ publishedTime: '2026-02-09', author: 'Vivien Perrelle' }}
                 jsonLd={{
                     "@context": "https://schema.org",
-                    "@type": "Article",
+                    "@type": "BlogPosting",
                     "headline": "Trauma-Driven VS Purpose-Driven Entrepreneurship",
+                    "description": "There is a prevailing narrative in VC: the best founders are broken. But there is a second path — the Purpose-Driven Founder.",
                     "datePublished": "2026-02-09",
-                    "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
+                    "dateModified": "2026-02-09",
+                    "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "image": "https://vivienperrelle.com/me.png",
                     "mainEntityOfPage": "https://vivienperrelle.com/blog/trauma-vs-purpose"
@@ -33,7 +36,7 @@ const TraumaVsPurpose = () => {
             </Link>
 
             <header className="mb-12 space-y-6">
-                <span className="font-mono text-sm text-secondary">2026-02-09</span>
+                <span className="font-mono text-sm text-secondary">By Vivien Perrelle · 2026-02-09</span>
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
                     Trauma-Driven VS Purpose-Driven Entrepreneurship
                 </h1>

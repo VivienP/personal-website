@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import SEO from '../components/SEO';
+import { AUTHOR } from '../components/jsonld';
+import AuthorBio from '../components/AuthorBio';
 
 const ScienceIsEnteringItsAgenticEra = () => {
     useEffect(() => {
@@ -18,10 +20,13 @@ const ScienceIsEnteringItsAgenticEra = () => {
                 article={{ publishedTime: '2026-04-17', author: 'Vivien Perrelle', tags: ['AI', 'Agentic AI', 'Scientific Research', 'Research Automation', 'Biotech'] }}
                 jsonLd={{
                     "@context": "https://schema.org",
-                    "@type": "TechArticle",
+                    "@type": "BlogPosting",
                     "headline": "Science Is Entering Its Agentic Era",
+                    "description": "Exploring how agentic AI is transforming scientific research, from literature review to autonomous hypothesis generation and experimental design.",
+                    "image": "https://vivienperrelle.com/me.png",
                     "datePublished": "2026-04-17",
-                    "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
+                    "dateModified": "2026-04-17",
+                    "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "mainEntityOfPage": "https://vivienperrelle.com/blog/science-is-entering-its-agentic-era",
                     "keywords": "AI, Agentic AI, Scientific Research, Research Automation, Biotech"
@@ -43,7 +48,7 @@ const ScienceIsEnteringItsAgenticEra = () => {
                     How agentic AI is transforming scientific research from assistive tools to autonomous discovery systems.
                 </p>
                 <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">
-                    <span>Published on April 17, 2026</span>
+                    <span>By Vivien Perrelle · April 17, 2026</span>
                 </div>
             </header>
 
@@ -121,7 +126,7 @@ const ScienceIsEnteringItsAgenticEra = () => {
                         <li>Shipping small, opinionated agents in domains I already know — biosensing, regulated biology, and scientific verification.</li>
                     </ul>
                     <p>
-                        The first is already live: an <a href="https://github.com/VivienP/scientific-claim-verification-engine" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">open-source scientific claim verifier</a> that beats naive Claude by 30 F1 points on SciFact. More coming.
+                        The first is already live: an <a href="https://github.com/VivienP/scientific-claim-verification-engine" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">open-source scientific claim verifier</a> that beats naive Claude by 30 F1 points on SciFact — <Link to="/projects/scientific-claim-verifier" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">read the project write-up</Link>. More coming.
                     </p>
                     <p>
                         If you are working on something adjacent, I want to hear from you.
@@ -150,6 +155,12 @@ const ScienceIsEnteringItsAgenticEra = () => {
                 </section>
 
             </div>
+
+            <AuthorBio readNext={[
+                { to: '/blog/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
+                { to: '/blog/regulators-dont-accept-vibes', label: "Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing" },
+                { to: '/projects/scientific-claim-verifier', label: 'Scientific Claim Verifier — open-source claim-to-source verification (F1 0.92 on SciFact)' },
+            ]} />
         </article>
     );
 };
