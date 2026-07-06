@@ -1,13 +1,32 @@
-import React, { useState } from 'react';
-import { ArrowUpRight, Mail } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { getCalApi } from '@calcom/embed-react';
+import { ArrowUpRight, Mail, Calendar } from 'lucide-react';
 
 // Email is assembled at runtime so the raw address never sits in the
 // static HTML as scrapable plain text.
 const EMAIL_USER = 'vivienperrelle';
 const EMAIL_DOMAIN = 'gmail.com';
 
+const CAL_NAMESPACE = 'quick-chat';
+
 const Contact = () => {
     const [href, setHref] = useState('#');
+
+    // Initialise the Cal.com embed once; the modal loads on element click,
+    // so nothing heavy runs for visitors who don't book.
+    useEffect(() => {
+        (async () => {
+            const cal = await getCalApi({ namespace: CAL_NAMESPACE });
+            cal('ui', {
+                hideEventTypeDetails: false,
+                layout: 'month_view',
+                cssVarsPerTheme: {
+                    light: { 'cal-brand': '#1B3022' },
+                    dark: { 'cal-brand': '#1B3022' },
+                },
+            });
+        })();
+    }, []);
 
     // Only wire the real mailto: on user intent, keeping the address out of
     // the rendered markup until it's actually needed.
@@ -29,6 +48,17 @@ const Contact = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                    <button
+                        type="button"
+                        data-cal-namespace={CAL_NAMESPACE}
+                        data-cal-link="vivienperrelle/quick-chat"
+                        data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                        className="group inline-flex items-center justify-center space-x-2 px-6 py-3 border border-accent bg-accent/[0.04] text-sm text-primary hover:bg-accent hover:text-white transition-colors"
+                    >
+                        <Calendar size={16} />
+                        <span>Book a call</span>
+                    </button>
+
                     <a
                         href={href}
                         onMouseEnter={revealEmail}
