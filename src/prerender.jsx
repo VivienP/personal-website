@@ -1,0 +1,57 @@
+// Build-time pre-render entry for vite-prerender-plugin.
+//
+// The plugin calls the exported `prerender({ url })` once per route and injects
+// the returned `html` into the #root node of index.html, writing a real static
+// .html file per URL. Crawlers that don't execute JS then see full content.
+//
+// We render the REAL <App/> inside <StaticRouter>, so every page's own <SEO>
+// component (React 19 native metadata) emits its <title>/<meta>/<link> into the
+// server-rendered output exactly as in the browser. No routing or SEO changes.
+//
+// React 19 hoists those metadata tags into the rendered string. We lift them out
+// of the body and return them via `head` so the plugin places them in <head>
+// (replacing the template's <title> and appending the rest). This keeps <SEO>
+// as the single source of truth for per-route metadata and avoids duplicate
+// tags between <head> and <body>.
+
+import { renderToString } from 'react-dom/server';
+// React Router v7 exports StaticRouter from the core package; react-router-dom
+// no longer has a `/server` subpath.
+import { StaticRouter } from 'react-router';
+import App from './App.jsx';
+import { prerenderRoutes } from './routes';
+import './index.css';
+
+// Metadata tags React 19 hoists during SSR. We relocate these to <head>.
+const HEAD_TAG = /<(title|meta|link)\b[^>]*?>(?:[\s\S]*?<\/\1>)?/gi;
+const TITLE_TEXT = /<title\b[^>]*>([\s\S]*?)<\/title>/i;
+
+export async function prerender({ url }) {
+  const rendered = renderToString(
+    <StaticRouter location={url}>
+      <App />
+    </StaticRouter>,
+  );
+
+  // Pull hoisted <title>/<meta>/<link> out of the body...
+  const headElements = rendered.match(HEAD_TAG) || [];
+  const titleMatch = headElements.find((t) => /^<title/i.test(t));
+  const title = titleMatch ? titleMatch.replace(TITLE_TEXT, '$1').trim() : '';
+
+  // ...and strip them from the HTML so they don't duplicate in <body>.
+  const html = rendered.replace(HEAD_TAG, '');
+
+  // Everything except <title> goes into <head> as raw strings; the plugin's
+  // serializeElement passes strings through unchanged. <title> is handled
+  // separately via head.title so it replaces the template's placeholder title.
+  const elements = new Set(headElements.filter((t) => !/^<title/i.test(t)));
+
+  return {
+    html,
+    head: { title, elements },
+    // Returned from every page, but the plugin de-dupes; emitting the full set
+    // from the first route (/) guarantees all pages are generated even if some
+    // are not reachable via in-page <a> links the crawler would otherwise follow.
+    links: new Set(prerenderRoutes),
+  };
+}
