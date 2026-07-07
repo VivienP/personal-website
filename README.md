@@ -1,3 +1,3 @@
 [vivienperrelle.com](https://vivienperrelle.com/)
 
-Last updated: 10/02/2026
+Last updated: 07/07/2026
