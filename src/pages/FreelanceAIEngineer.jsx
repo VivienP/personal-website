@@ -102,7 +102,11 @@ const FreelanceAIEngineer = () => {
                             <Link to="/academic-work/smartwatch-embedded-biosensors" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
                                 smartwatch with embedded enzymatic biosensors
                             </Link>{' '}
-                            during my MSc in Creative Technologies at the De Vinci Innovation Center.
+                            during my MSc in Creative Technologies at the{' '}
+                            <a href="https://ift.devinci.fr/" target="_blank" rel="noopener noreferrer" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
+                                Institute for Future Technologies
+                            </a>
+                            .
                         </li>
                         <li>
                             Hands-on R&amp;D at{' '}

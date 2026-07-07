@@ -14,7 +14,20 @@ const DEFAULT_JSON_LD = {
             jobTitle: 'Founder & Freelance AI Engineer, AI for Biology',
             description: 'Founder building verification infrastructure for biology research. Freelance AI engineer for biology, TechBio, and AI-for-science teams: AI agents, RAG, scientific tooling.',
             address: { '@type': 'PostalAddress', addressLocality: 'Lyon', addressCountry: 'FR' },
-            alumniOf: { '@type': 'EducationalOrganization', name: 'De Vinci Innovation Center' },
+            alumniOf: [
+                {
+                    '@type': 'CollegeOrUniversity',
+                    name: 'ESILV — École Supérieure d’Ingénieurs Léonard de Vinci',
+                    alternateName: 'ESILV',
+                    url: 'https://www.esilv.fr/',
+                },
+                {
+                    '@type': 'EducationalOrganization',
+                    name: 'Institute for Future Technologies',
+                    alternateName: 'De Vinci Innovation Center',
+                    url: 'https://ift.devinci.fr/',
+                },
+            ],
             knowsAbout: [
                 'AI for science',
                 'AI agents',

@@ -238,7 +238,7 @@ const MotionSuit = () => {
 
                 <footer className="pt-12 border-t border-border-subtle">
                     <p className="text-sm text-secondary">
-                        © Vivien Perrelle — De Vinci Innovation Center, with Marie Julou &amp; Madalina Nicolae.
+                        © Vivien Perrelle — Institute for Future Technologies, with Marie Julou &amp; Madalina Nicolae.
                     </p>
                 </footer>
 

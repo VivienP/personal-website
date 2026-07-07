@@ -35,7 +35,7 @@ const BioWatch = () => {
         <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
                 title="BioWatch: A Smartwatch Prototype for Wearable Biosensors | Vivien Perrelle"
-                description="An open-source prototype smartwatch for the implementation of wearable biosensors, built during a master's degree research project at the De Vinci Innovation Center."
+                description="An open-source prototype smartwatch for the implementation of wearable biosensors, built during a master's degree research project at the Institute for Future Technologies."
                 url="/projects/biowatch"
                 image="/biowatch/biowatch-grand-angle.jpg"
                 type="article"
@@ -95,7 +95,7 @@ const BioWatch = () => {
                 {/* Intro statement */}
                 <section className="space-y-6">
                     <p className="italic text-secondary">
-                        I built the BioWatch during my second year of my master's degree at the De Vinci Innovation Center.
+                        I built the BioWatch during my second year of my master's degree at the <a href="https://ift.devinci.fr/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Institute for Future Technologies</a>.
                         My objective was to create a watch from scratch in the continuity of my work on wearable technologies. So the BioWatch is the wearable that allowed me to implement the biosensors I developed during my master's degree.
                     </p>
                     <p className="text-base font-normal text-primary">
@@ -141,7 +141,7 @@ const BioWatch = () => {
                             <span className="font-medium text-primary">The BioWatch is a smartwatch prototype for developing wearable biosensors and real-time data visualization.</span> This electronic project aims to easily demonstrate proof of concept of smartwatch-integrated or wirelessly connected wearable biosensors. It allows rapid implementation and on-body demonstration of non-invasive (sweat) or minimally invasive (ISF) electrochemical biosensors. Beyond electrochemical sensors, BioWatch's contribution extends to the development and proof of concept of any wearable sensor connected to or implemented in a smartwatch.
                         </p>
                         <p>
-                            The BioWatch is also a learning platform for IoT technology for students at the De Vinci Innovation Center. Master students are working on this project as part of their training to learn by developing new functionalities for the BioWatch.
+                            The BioWatch is also a learning platform for IoT technology for students at the Institute for Future Technologies. Master students are working on this project as part of their training to learn by developing new functionalities for the BioWatch.
                         </p>
                     </div>
                 </section>
@@ -285,7 +285,7 @@ const BioWatch = () => {
 
                 <footer className="pt-12 border-t border-border-subtle">
                     <p className="text-sm text-secondary">
-                        © Vivien Perrelle — De Vinci Innovation Center.
+                        © Vivien Perrelle — Institute for Future Technologies.
                     </p>
                 </footer>
 

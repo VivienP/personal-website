@@ -17,7 +17,7 @@ const SmartwatchBiosensorsThesis = () => {
         <article className="min-h-screen py-24 px-6 max-w-3xl mx-auto animate-in fade-in duration-700">
             <SEO
                 title="Smartwatch-Embedded Biosensors For Healthcare Monitoring | Vivien Perrelle"
-                description="Master's thesis (October 2023) on two years of wearable biosensor research at the DVIC: the BioWatch smartwatch and a microneedle lactate sensor module, advocating a systemic design approach balancing technical performance, user experience, and medical relevance."
+                description="Master's thesis (October 2023) on two years of wearable biosensor research at the Institute for Future Technologies: the BioWatch smartwatch and a microneedle lactate sensor module, advocating a systemic design approach balancing technical performance, user experience, and medical relevance."
                 url="/academic-work/smartwatch-embedded-biosensors"
                 image="/biowatch/biowatch-grand-angle.jpg"
                 type="article"
@@ -32,7 +32,12 @@ const SmartwatchBiosensorsThesis = () => {
                     "genre": "Master's Thesis",
                     "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "abstract": "This master's thesis delves into two years of work on wearable biosensors at the De Vinci Innovation Center. It covers the BioWatch development and the design of a microneedle lactate sensor module for the BioWatch. Beyond exploring smartwatches' potential, this thesis advocates a systemic design approach to wearable biomonitoring systems, driven by the triptych of technical performance, user experience, and medical relevance.",
+                    "sourceOrganization": {
+                        "@type": "CollegeOrUniversity",
+                        "name": "ESILV — École Supérieure d'Ingénieurs Léonard de Vinci",
+                        "url": "https://www.esilv.fr/"
+                    },
+                    "abstract": "This master's thesis delves into two years of work on wearable biosensors at the Institute for Future Technologies. It covers the BioWatch development and the design of a microneedle lactate sensor module for the BioWatch. Beyond exploring smartwatches' potential, this thesis advocates a systemic design approach to wearable biomonitoring systems, driven by the triptych of technical performance, user experience, and medical relevance.",
                     "image": "https://vivienperrelle.com/biowatch/biowatch-grand-angle.jpg",
                     "keywords": "wearable biosensors, smartwatch, healthcare monitoring, microneedle, lactate, BioWatch, biomonitoring",
                     "url": "https://vivienperrelle.com/academic-work/smartwatch-embedded-biosensors",
@@ -59,7 +64,7 @@ const SmartwatchBiosensorsThesis = () => {
 
             <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-base">
                 <p>
-                    This master's thesis delves into my two-year work on wearable biosensors at the DVIC. It covers the BioWatch development and the design of a microneedle lactate sensor module for the BioWatch. Beyond exploring smartwatches' potential, this thesis advocates a systemic design approach to wearable biomonitoring systems, driven by the triptych: technical performance, user experience, and medical relevance.
+                    This master's thesis delves into my two-year work on wearable biosensors at the Institute for Future Technologies, and was submitted for the MSc in Creative Technologies delivered by <a href="https://www.esilv.fr/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">ESILV (École Supérieure d'Ingénieurs Léonard de Vinci)</a>. It covers the BioWatch development and the design of a microneedle lactate sensor module for the BioWatch. Beyond exploring smartwatches' potential, this thesis advocates a systemic design approach to wearable biomonitoring systems, driven by the triptych: technical performance, user experience, and medical relevance.
                 </p>
 
                 <PdfEmbed

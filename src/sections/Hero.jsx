@@ -31,7 +31,7 @@ const Hero = () => {
 
                     {/* Credentials */}
                     <p className="text-base text-primary leading-relaxed">
-                        MSc in Creative Technologies (De Vinci Innovation Center) · ex-R&amp;D at PKvitality ·
+                        MSc in Creative Technologies (Institute for Future Technologies) · ex-R&amp;D at PKvitality ·
                         founder of Finexov and LocusLab · building AI that science can trust.
                     </p>
 

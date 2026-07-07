@@ -406,7 +406,7 @@ const GlucoseBiosensor = () => {
 
                 <footer className="pt-12 border-t border-border-subtle">
                     <p className="text-sm text-secondary">
-                        &copy; Vivien Perrelle &mdash; De Vinci Innovation Center.
+                        &copy; Vivien Perrelle &mdash; Institute for Future Technologies.
                     </p>
                 </footer>
 
