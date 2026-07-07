@@ -3,14 +3,12 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
 
-// Inline reference link rendered as a superscript, pointing to the source.
-const Ref = ({ n, href }) => (
+const Cite = ({ n }) => (
     <sup>
         <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:underline underline-offset-2 ml-0.5"
+            href={`#ref-${n}`}
+            className="text-accent no-underline hover:underline font-mono text-xs align-super"
+            aria-label={`Jump to reference ${n}`}
         >
             [{n}]
         </a>
@@ -106,18 +104,18 @@ const MotionSuit = () => {
                     <div className="space-y-6 order-first md:order-last">
                         <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">What are e-textiles?</h2>
                         <p>
-                            Smart textiles, electronic textiles, or e-textiles are fabrics infused with electronic components and functionality<Ref n="1" href="https://doi.org/10.24867/grid-2018-p1" />. Their main applications are:
+                            Smart textiles, electronic textiles, or e-textiles are fabrics infused with electronic components and functionality<Cite n={1} />. Their main applications are:
                         </p>
                         <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
                             <li><span className="font-medium text-primary">Health and wellness</span> — monitoring vital signs, tracking physical activity, and detecting changes in the body;</li>
                             <li><span className="font-medium text-primary">Sports and fitness</span> — tracking athletes' performance and giving feedback on technique;</li>
-                            <li><span className="font-medium text-primary">Fashion</span> — interactive, responsive clothing for new forms of self-expression and personalization<Ref n="2" href="https://doi.org/10.1063/1.4742728" />.</li>
+                            <li><span className="font-medium text-primary">Fashion</span> — interactive, responsive clothing for new forms of self-expression and personalization<Cite n={2} />.</li>
                         </ul>
                         <p>Three generations of e-textiles have gradually emerged:</p>
                         <ol className="list-decimal pl-6 space-y-2 marker:text-secondary marker:font-mono">
                             <li><span className="font-medium text-primary">Passive e-textiles</span> — simple conductive fabrics enabling basic functions such as sensors and switches.</li>
                             <li><span className="font-medium text-primary">Active e-textiles</span> — fabrics with components like LEDs, batteries, and microcontrollers, used to make garments that light up, change color, or react to their environment.</li>
-                            <li><span className="font-medium text-primary">Functional e-textiles</span> — still in development, capable of advanced functions such as biometric monitoring, energy harvesting, and data communication<Ref n="3" href="https://doi.org/10.3390/s22166055" />.</li>
+                            <li><span className="font-medium text-primary">Functional e-textiles</span> — still in development, capable of advanced functions such as biometric monitoring, energy harvesting, and data communication<Cite n={3} />.</li>
                         </ol>
                         <p>
                             Despite this progress, e-textiles remain hard to reach for non-experts. Cost, comfort, durability, and the lack of learning platforms are still real barriers. Today the most accessible form of non-commercial e-textile lives in the cosplay and DIY community. Through collaboration, education, and standardization, e-textiles could become far more practical for students and beginners.
@@ -163,7 +161,7 @@ const MotionSuit = () => {
                         <div className="space-y-4">
                             <h3 className="text-base font-normal text-primary">1. Stretch sensors</h3>
                             <p>
-                                Stretch and crease sensors work alike: both have a resistance that varies with the number of contact points. The sensor is made with a tight zigzag stitch using conductive thread in the bottom spool. Stretching the fabric raises the resistance along the conductive thread<Ref n="4" href="https://doi.org/10.3390/ma12091469" />: the opening mesh breaks the parallel contact points, so the current flows in series rather than in parallel.
+                                Stretch and crease sensors work alike: both have a resistance that varies with the number of contact points. The sensor is made with a tight zigzag stitch using conductive thread in the bottom spool. Stretching the fabric raises the resistance along the conductive thread<Cite n={4} />: the opening mesh breaks the parallel contact points, so the current flows in series rather than in parallel.
                             </p>
                         </div>
                         <Img src="/catsuit/stretch-sensor-diagram.jpg" alt="Stretch sensor: circuit diagram and embroidered conductive stitch" />
@@ -185,7 +183,7 @@ const MotionSuit = () => {
                         <div className="space-y-4">
                             <h3 className="text-base font-normal text-primary">3. LED interfaces</h3>
                             <p>
-                                The LEDs are off-the-shelf sewable sequins from Adafruit<Ref n="5" href="https://www.adafruit.com/product/1758" />, hand-sewn directly onto the sleeves and hood using the same process as the gyroscopic sensors. For now they are purely aesthetic, but they can easily be driven by the integrated GEMMA microcontrollers<Ref n="6" href="https://www.adafruit.com/product/1222" />.
+                                The LEDs are off-the-shelf sewable sequins from Adafruit<Cite n={5} />, hand-sewn directly onto the sleeves and hood using the same process as the gyroscopic sensors. For now they are purely aesthetic, but they can easily be driven by the integrated GEMMA microcontrollers<Cite n={6} />.
                             </p>
                         </div>
                         <Img src="/catsuit/led-interfaces.jpg" alt="Sewable LED sequins lit on the garment" />
@@ -197,7 +195,7 @@ const MotionSuit = () => {
                         <div className="space-y-4 order-first md:order-last">
                             <h3 className="text-base font-normal text-primary">4. Gyroscopic sensors</h3>
                             <p>
-                                An accelerometer measures linear, non-gravitational acceleration. Three off-the-shelf accelerometers from Adafruit record acceleration and speed in the shoulder and torso area<Ref n="7" href="https://www.adafruit.com/product/1247" />. The connector is hand-sketched, imported into DRAWings as a PNG, then vectorized, rescaled, and turned into an ISO 301 stitch. The sensor is finally embroidered upside-down with that stitch on the outer surface of the sleeve.
+                                An accelerometer measures linear, non-gravitational acceleration. Three off-the-shelf accelerometers from Adafruit record acceleration and speed in the shoulder and torso area<Cite n={7} />. The connector is hand-sketched, imported into DRAWings as a PNG, then vectorized, rescaled, and turned into an ISO 301 stitch. The sensor is finally embroidered upside-down with that stitch on the outer surface of the sleeve.
                             </p>
                         </div>
                     </div>
@@ -205,35 +203,35 @@ const MotionSuit = () => {
 
                 {/* References */}
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">References</h2>
-                    <ol className="list-decimal pl-6 space-y-3 text-sm text-secondary marker:text-secondary marker:font-mono">
-                        <li>
+                    <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
+                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                        <li id="ref-1" className="scroll-mt-24">
                             Končar V. Smart textiles and their applications — visual perceptions. <em>Proceedings of 9th International Symposium on Graphic Engineering and Design</em>. Nov. 2018. doi:{' '}
-                            <a href="https://doi.org/10.24867/grid-2018-p1" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">10.24867/grid-2018-p1</a>
+                            <a href="https://doi.org/10.24867/grid-2018-p1" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">10.24867/grid-2018-p1</a>
                         </li>
-                        <li>
+                        <li id="ref-2" className="scroll-mt-24">
                             Cherenack K, van Pieterson L. Smart textiles: Challenges and opportunities. <em>Journal of Applied Physics</em>. 2012, doi:{' '}
-                            <a href="https://doi.org/10.1063/1.4742728" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">10.1063/1.4742728</a>
+                            <a href="https://doi.org/10.1063/1.4742728" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">10.1063/1.4742728</a>
                         </li>
-                        <li>
+                        <li id="ref-3" className="scroll-mt-24">
                             Ruckdashel RR, Khadse N, Park JH. Smart E-Textiles: Overview of Components and Outlook. <em>Sensors</em>. 2022, doi:{' '}
-                            <a href="https://doi.org/10.3390/s22166055" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">10.3390/s22166055</a>
+                            <a href="https://doi.org/10.3390/s22166055" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">10.3390/s22166055</a>
                         </li>
-                        <li>
+                        <li id="ref-4" className="scroll-mt-24">
                             Tangsirinaruenart O, Stylios G. A Novel Textile Stitch-Based Strain Sensor for Wearable End Users. <em>Materials</em>. 2019, doi:{' '}
-                            <a href="https://doi.org/10.3390/ma12091469" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">10.3390/ma12091469</a>
+                            <a href="https://doi.org/10.3390/ma12091469" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">10.3390/ma12091469</a>
                         </li>
-                        <li>
+                        <li id="ref-5" className="scroll-mt-24">
                             Adafruit. LED Sequins — Warm White.{' '}
-                            <a href="https://www.adafruit.com/product/1758" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">adafruit.com/product/1758</a>
+                            <a href="https://www.adafruit.com/product/1758" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">adafruit.com/product/1758</a>
                         </li>
-                        <li>
+                        <li id="ref-6" className="scroll-mt-24">
                             Adafruit. GEMMA v2 — Miniature wearable electronic platform.{' '}
-                            <a href="https://www.adafruit.com/product/1222" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">adafruit.com/product/1222</a>
+                            <a href="https://www.adafruit.com/product/1222" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">adafruit.com/product/1222</a>
                         </li>
-                        <li>
+                        <li id="ref-7" className="scroll-mt-24">
                             Adafruit. FLORA Accelerometer/Compass Sensor — LSM303.{' '}
-                            <a href="https://www.adafruit.com/product/1247" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">adafruit.com/product/1247</a>
+                            <a href="https://www.adafruit.com/product/1247" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">adafruit.com/product/1247</a>
                         </li>
                     </ol>
                 </section>

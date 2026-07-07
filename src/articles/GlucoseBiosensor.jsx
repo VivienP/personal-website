@@ -5,14 +5,12 @@ import SEO from '../components/SEO';
 
 const B = '/build-glucose-biosensor';
 
-// Inline reference link rendered as a superscript.
-const Ref = ({ n, href }) => (
+const Cite = ({ n }) => (
     <sup>
         <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:underline underline-offset-2 ml-0.5"
+            href={`#ref-${n}`}
+            className="text-accent no-underline hover:underline font-mono text-xs align-super"
+            aria-label={`Jump to reference ${n}`}
         >
             [{n}]
         </a>
@@ -116,13 +114,13 @@ const GlucoseBiosensor = () => {
                     <div className="space-y-6">
                         <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Context</h2>
                         <p>
-                            Global diabetes prevalence was estimated at 9.3% (460 million people) in 2019, and is projected to reach 10.2% (580 million) by 2030<Ref n="1" href="https://www.who.int/health-topics/diabetes" />. Regular blood glucose monitoring is an essential public-health issue for managing diabetes and other glucose-related chronic illnesses. The first <span className="font-medium text-primary">blood glucose meter (BGM)</span> was marketed in the 90s<Ref n="2" href="/blog/lactate" />; BGMs give an accurate instant reading but cannot track glucose continuously to dose insulin at the right time and amount.
+                            Global diabetes prevalence was estimated at 9.3% (460 million people) in 2019, and is projected to reach 10.2% (580 million) by 2030<Cite n={1} />. Regular blood glucose monitoring is an essential public-health issue for managing diabetes and other glucose-related chronic illnesses. The first <span className="font-medium text-primary">blood glucose meter (BGM)</span> was marketed in the 90s<Cite n={2} />; BGMs give an accurate instant reading but cannot track glucose continuously to dose insulin at the right time and amount.
                         </p>
                         <p>
-                            <span className="font-medium text-primary">Continuous Glucose Monitoring (CGM)</span> appeared in the 2000s. Requiring no blood samples, it continuously measures glucose in the interstitial fluid (ISF)<Ref n="3" href="https://journals.sagepub.com/doi/10.1177/1932296818771396" />, from which blood glucose is deduced with a pharmacokinetic delay of a few minutes<Ref n="4" href="https://pubmed.ncbi.nlm.nih.gov/30804536/" />. Most CGMs last 7 to 14 days. The three main ones on the market are the FreeStyle Libre™ from Abbott<Ref n="5" href="https://www.freestyle.abbott/us-en/home.html" />, the CGM System™ from Dexcom<Ref n="6" href="https://www.dexcom.com/g6-cgm-system" />, and the Guardian™ Connect System from Medtronic<Ref n="7" href="https://www.medtronicdiabetes.com/treatments/continuous-glucose-monitoring" />.
+                            <span className="font-medium text-primary">Continuous Glucose Monitoring (CGM)</span> appeared in the 2000s. Requiring no blood samples, it continuously measures glucose in the interstitial fluid (ISF)<Cite n={3} />, from which blood glucose is deduced with a pharmacokinetic delay of a few minutes<Cite n={4} />. Most CGMs last 7 to 14 days. The three main ones on the market are the FreeStyle Libre™ from Abbott<Cite n={5} />, the CGM System™ from Dexcom<Cite n={6} />, and the Guardian™ Connect System from Medtronic<Cite n={7} />.
                         </p>
                         <p>
-                            Despite recent advances, commercial CGMs remain painful<Ref n="8" href="https://pubmed.ncbi.nlm.nih.gov/35062598/" />. Minimally- or non-invasive technologies address this. The under-development K'Watch by PKvitality is a minimally-invasive, watch-based CGM<Ref n="9" href="https://www.pkvitality.com/ktrack-glucose/" /> whose micro-needles measure glucose in the dermal ISF, shallower than the nerve endings. It could become the world's first painless CGM — but no fully non-invasive CGM has been announced for commercialization yet.
+                            Despite recent advances, commercial CGMs remain painful<Cite n={8} />. Minimally- or non-invasive technologies address this. The under-development K'Watch by PKvitality is a minimally-invasive, watch-based CGM<Cite n={9} /> whose micro-needles measure glucose in the dermal ISF, shallower than the nerve endings. It could become the world's first painless CGM — but no fully non-invasive CGM has been announced for commercialization yet.
                         </p>
                     </div>
                     <Figure src={`${B}/kwatch-pkvitality.jpg`} alt="Illustration of the K'Watch from PKvitality" caption="Illustration of the K'Watch from PKvitality." />
@@ -131,10 +129,10 @@ const GlucoseBiosensor = () => {
                 {/* Definitions callouts */}
                 <div className="space-y-4">
                     <Note>
-                        <p>A <span className="font-medium">biosensor</span> is a probe that integrates a biological molecule recognition system with an electronic transducer<Ref n="10" href="https://doi.org/10.1201/9780367810849" />. It produces an electrical signal interpreting a biomarker concentration in a body fluid, and is widely used for medical and lifestyle applications<Ref n="4" href="https://pubmed.ncbi.nlm.nih.gov/30804536/" />.</p>
+                        <p>A <span className="font-medium">biosensor</span> is a probe that integrates a biological molecule recognition system with an electronic transducer<Cite n={10} />. It produces an electrical signal interpreting a biomarker concentration in a body fluid, and is widely used for medical and lifestyle applications<Cite n={4} />.</p>
                     </Note>
                     <Note>
-                        <p>A <span className="font-medium">biomarker</span> is a biological molecule that signals a normal or abnormal process or disease condition<Ref n="11" href="https://www.mdpi.com/1424-8220/20/14/4022" />.</p>
+                        <p>A <span className="font-medium">biomarker</span> is a biological molecule that signals a normal or abnormal process or disease condition<Cite n={11} />.</p>
                     </Note>
                 </div>
 
@@ -144,7 +142,7 @@ const GlucoseBiosensor = () => {
                     <div className="space-y-6 order-first md:order-last">
                         <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Skills &amp; Opportunities</h2>
                         <p>
-                            The first skill is <span className="font-medium text-primary">programming a server-client Bluetooth Low Energy (BLE) communication</span>. BLE has shown strong potential in wearables<Ref n="12" href="https://doi.org/10.1146/annurev-anchem-061318-114910" /> and is, with near-field communication (NFC), the most used technology for wireless transmission of analyzed data<Ref n="13" href="https://doi.org/10.1016/j.sna.2019.07.020" />. A DIY data-visualization display could reuse this communication solution.
+                            The first skill is <span className="font-medium text-primary">programming a server-client Bluetooth Low Energy (BLE) communication</span>. BLE has shown strong potential in wearables<Cite n={12} /> and is, with near-field communication (NFC), the most used technology for wireless transmission of analyzed data<Cite n={13} />. A DIY data-visualization display could reuse this communication solution.
                         </p>
                         <p>
                             The second skill is <span className="font-medium text-primary">electrochemical biosensing with screen-printed electrodes</span>. This tutorial presents a non-invasive way to measure human glucose in real time, introducing the basics, challenges, and opportunities of molecular biosensing. <span className="font-medium text-primary">Building this biosensor is a first experience of electrochemical on-skin biosensing and wearable technologies.</span>
@@ -178,7 +176,7 @@ const GlucoseBiosensor = () => {
                         <div className="space-y-6 order-first md:order-last">
                             <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Analytical chemistry notions</h2>
                             <p>
-                                Zimmer&amp;Peacock develops and manufactures electrochemical biosensors. The ec-Flex is a Bluetooth-enabled wearable biosensor platform<Ref n="14" href="https://www.zimmerpeacocktech.com/products/electrochemical-sensors/wearable-biosensors/" /> that processes and sends the biosensor measurements. The notions below explain how ZP biosensors and the ec-Flex work.
+                                Zimmer&amp;Peacock develops and manufactures electrochemical biosensors. The ec-Flex is a Bluetooth-enabled wearable biosensor platform<Cite n={14} /> that processes and sends the biosensor measurements. The notions below explain how ZP biosensors and the ec-Flex work.
                             </p>
                         </div>
                     </div>
@@ -187,13 +185,13 @@ const GlucoseBiosensor = () => {
                         <div className="space-y-3">
                             <h3 className="text-base font-normal text-primary">Three-electrode system</h3>
                             <p>
-                                The ZP glucose biosensor is a three-electrode system: a working electrode (WE), a counter electrode (CE), and a reference electrode (RE). The reference electrode compensates for potential changes caused by large currents through the WE and CE. The ec-Flex has an integrated potentiostat that measures the WE's Open Circuit Potential (OCP)<Ref n="15" href="https://www.sciencedirect.com/topics/chemistry/open-circuit-potential" />.
+                                The ZP glucose biosensor is a three-electrode system: a working electrode (WE), a counter electrode (CE), and a reference electrode (RE). The reference electrode compensates for potential changes caused by large currents through the WE and CE. The ec-Flex has an integrated potentiostat that measures the WE's Open Circuit Potential (OCP)<Cite n={15} />.
                             </p>
                         </div>
                         <div className="space-y-3">
                             <h3 className="text-base font-normal text-primary">Screen-printed electrodes</h3>
                             <p>
-                                This three-electrode system is screen-printed on a substrate<Ref n="16" href="https://www.zimmerpeacocktech.com/knowledge-base/screen-printed-electrodes-for-biosensing/" /> via thick-film deposition<Ref n="17" href="https://www.youtube.com/watch?v=Sm6sS-yuQgo" />, which makes biosensor production simple, fast, and inexpensive<Ref n="18" href="https://link.springer.com/article/10.1007/s00604-014-1181-1" />. The ZP glucose sensor uses silver/silver chloride for the reference and counter electrodes and platinum for the working electrode<Ref n="19" href="https://www.zimmerpeacocktech.com/products/glucose-sensors/" />.
+                                This three-electrode system is screen-printed on a substrate<Cite n={16} /> via thick-film deposition<Cite n={17} />, which makes biosensor production simple, fast, and inexpensive<Cite n={18} />. The ZP glucose sensor uses silver/silver chloride for the reference and counter electrodes and platinum for the working electrode<Cite n={19} />.
                             </p>
                         </div>
                     </div>
@@ -202,12 +200,12 @@ const GlucoseBiosensor = () => {
                         <div className="space-y-4">
                             <h3 className="text-base font-normal text-primary">Enzyme-based</h3>
                             <p>
-                                An enzyme recognizes and reacts with the target analyte<Ref n="20" href="https://www.azom.com/article.aspx?ArticleID=15019" />. For glucose (C₆H₁₂O₆), that enzyme is glucose oxidase (GOx), immobilized onto the electrochemical interface. It catalyzes glucose oxidation, producing gluconolactone (C₆H₁₀O₆) and hydrogen peroxide (H₂O₂)<Ref n="21" href="https://doi.org/10.1108/sr-01-2019-0017" />. Glucose is then quantified by electrochemically measuring the hydrogen peroxide<Ref n="22" href="https://doi.org/10.3390/s17112620" />. Non-enzymatic biosensors instead use nanomaterials for stability, reproducibility, and simplicity<Ref n="23" href="https://doi.org/10.1016/b978-0-08-102577-2.00007-5" />.
+                                An enzyme recognizes and reacts with the target analyte<Cite n={20} />. For glucose (C₆H₁₂O₆), that enzyme is glucose oxidase (GOx), immobilized onto the electrochemical interface. It catalyzes glucose oxidation, producing gluconolactone (C₆H₁₀O₆) and hydrogen peroxide (H₂O₂)<Cite n={21} />. Glucose is then quantified by electrochemically measuring the hydrogen peroxide<Cite n={22} />. Non-enzymatic biosensors instead use nanomaterials for stability, reproducibility, and simplicity<Cite n={23} />.
                             </p>
                         </div>
                         <div className="space-y-8">
                             <Figure src={`${B}/glucose-oxidation-reactions.png`} alt="Glucose oxidation and hydrogen peroxide oxidation reactions" caption="Glucose oxidation and hydrogen peroxide oxidation reactions." />
-                            <Figure src={`${B}/first-generation-principle.jpg`} alt="Operating principle of an enzyme-based first-generation glucose biosensor" caption={<>Operating principle of an enzyme-based first-generation glucose biosensor. From Rocchitta et al.<Ref n="18" href="https://link.springer.com/article/10.1007/s00604-014-1181-1" /></>} />
+                            <Figure src={`${B}/first-generation-principle.jpg`} alt="Operating principle of an enzyme-based first-generation glucose biosensor" caption={<>Operating principle of an enzyme-based first-generation glucose biosensor. From Rocchitta et al.<Cite n={18} /></>} />
                         </div>
                     </div>
 
@@ -215,13 +213,13 @@ const GlucoseBiosensor = () => {
                         <div className="space-y-3">
                             <h3 className="text-base font-normal text-primary">Amperometry</h3>
                             <p>
-                                ZP glucose biosensors are amperometric. The amperometric method can selectively distinguish several electroactive species in solution<Ref n="24" href="https://www.sciencedirect.com/topics/chemistry/amperometric-method" /> through a careful choice of applied potential and electrode material. Amperometric biosensors monitor currents — electrons exchanged between a biological system (the sweat) and an electrode.
+                                ZP glucose biosensors are amperometric. The amperometric method can selectively distinguish several electroactive species in solution<Cite n={24} /> through a careful choice of applied potential and electrode material. Amperometric biosensors monitor currents — electrons exchanged between a biological system (the sweat) and an electrode.
                             </p>
                         </div>
                         <div className="space-y-3">
                             <h3 className="text-base font-normal text-primary">First-generation</h3>
                             <p>
-                                This tutorial targets first-generation glucose biosensors, which measure the concentration of analytes or enzymatic reaction products (H₂O₂ for glucose). Second-generation biosensors use redox mediators, and third-generation ones measure direct electron transfer between the redox-active biomolecule and the electrode surface<Ref n="18" href="https://link.springer.com/article/10.1007/s00604-014-1181-1" />.
+                                This tutorial targets first-generation glucose biosensors, which measure the concentration of analytes or enzymatic reaction products (H₂O₂ for glucose). Second-generation biosensors use redox mediators, and third-generation ones measure direct electron transfer between the redox-active biomolecule and the electrode surface<Cite n={18} />.
                             </p>
                         </div>
                     </div>
@@ -246,7 +244,7 @@ const GlucoseBiosensor = () => {
                                 <h4 className="font-medium text-primary">1.1. Battery</h4>
                                 <p className="font-medium text-primary">A welding fume extractor, a mask, and thermal protective gloves are highly recommended to weld the battery to the ec-Flex.</p>
                                 <p>
-                                    Zimmer&amp;Peacock batteries use Polymer Matrix Electrolyte (PME) technology<Ref n="25" href="https://www.brightvolt.com/our-technology/" />, which makes them flexible and ultra-thin. The battery has an <span className="font-medium text-primary">8-hour lifetime</span>, assuming a 500 ms transmission interval from the ec-Flex<Ref n="26" href="https://www.zimmerpeacocktech.com/products/electrochemical-sensors/wearable-biosensors/" />.
+                                    Zimmer&amp;Peacock batteries use Polymer Matrix Electrolyte (PME) technology<Cite n={25} />, which makes them flexible and ultra-thin. The battery has an <span className="font-medium text-primary">8-hour lifetime</span>, assuming a 500 ms transmission interval from the ec-Flex<Cite n={26} />.
                                 </p>
                                 <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
                                     <li><span className="font-medium text-primary">Stick electrical tape</span> on the back of the ec-Flex to cover the exposed contacts and avoid short circuits.</li>
@@ -364,7 +362,7 @@ const GlucoseBiosensor = () => {
                             The ongoing GitHub project addresses this last point by redirecting the data to a homemade smartwatch — the <Link to="/blog/smartwatch" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">How to Build a SmartWatch</Link> tutorial explains how to build it.
                         </p>
                         <p>
-                            Wearable devices providing molecular-level information are still in their infancy<Ref n="26" href="https://doi.org/10.1038/s41928-018-0043-y" />. Their potential affordability and accessibility fuel interest in personalized medicine<Ref n="27" href="https://doi.org/10.1039/c7lc00914c" /><Ref n="28" href="https://doi.org/10.1039/C7CS00730B" />. This tutorial aims to make these technologies more accessible and spark interest in their medical and well-being applications. <span className="font-medium text-primary">Wearable biosensing devices are a potential next frontier of wearable technology for fitness and individual and public-health monitoring<Ref n="29" href="https://doi.org/10.1016/j.nantod.2019.100828" />.</span>
+                            Wearable devices providing molecular-level information are still in their infancy<Cite n={26} />. Their potential affordability and accessibility fuel interest in personalized medicine<Cite n={27} /><Cite n={28} />. This tutorial aims to make these technologies more accessible and spark interest in their medical and well-being applications. <span className="font-medium text-primary">Wearable biosensing devices are a potential next frontier of wearable technology for fitness and individual and public-health monitoring<Cite n={29} />.</span>
                         </p>
                     </div>
                     <Figure src={`${B}/watch-on-wrist.jpg`} alt="The finished smartwatch worn on a wrist" />
@@ -372,37 +370,37 @@ const GlucoseBiosensor = () => {
 
                 {/* References */}
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">References</h2>
-                    <ol className="list-decimal pl-6 space-y-3 text-sm text-secondary marker:text-secondary marker:font-mono break-words">
-                        <li>World Health Organization. Diabetes. Accessed Feb. 2023. <a href="https://www.who.int/health-topics/diabetes" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Zafar H, et al. Comprehensive Review on Wearable Sweat-Glucose Sensors for Continuous Glucose Monitoring. <em>Sensors</em>. 2022, 22(2):638.</li>
-                        <li>Biermann E. Discrepancies Between Blood Glucose and Interstitial Glucose. <em>J Diabetes Sci Technol</em>. 2018. doi:10.1177/1932296818771396</li>
-                        <li>Heikenfeld J, et al. Accessing analytes in biofluids for peripheral biochemical monitoring. <em>Nat Biotechnol</em>. 2019. doi:10.1038/s41587-019-0040-3</li>
-                        <li>Continuous Glucose Monitoring System. Abbott FreeStyle. Accessed Jul. 2022. <a href="https://www.freestyle.abbott/us-en/home.html" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Dexcom G6 Continuous Glucose Monitoring System. Dexcom. 2018. <a href="https://www.dexcom.com/g6-cgm-system" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>What Is CGM? Continuous Glucose Monitoring From Medtronic Diabetes. 2010. <a href="https://www.medtronicdiabetes.com/treatments/continuous-glucose-monitoring" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Zafar H, Channa A, Jeoti V, Stojanović GM. Comprehensive Review on Wearable Sweat-Glucose Sensors for Continuous Glucose Monitoring. <em>Sensors (Basel)</em>. 2022, 22(2):638. doi:10.3390/s22020638</li>
-                        <li>K'Watch Glucose. PKVitality. <a href="https://www.pkvitality.com/ktrack-glucose/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Coulet P.R., Blum L.J. <em>Biosensor Principles and Applications</em> (1st ed.). CRC Press. 1991. doi:10.1201/9780367810849</li>
-                        <li>Gajdosova V, et al. Electrochemical Nanobiosensors for Detection of Breast Cancer Biomarkers. <em>Sensors</em>. 2020, 20(14):4022. doi:10.3390/s20144022</li>
-                        <li>Bandodkar AJ, et al. Wearable Sensors for Biochemical Sweat Analysis. <em>Annu Rev Anal Chem</em>. 2019. doi:10.1146/annurev-anchem-061318-114910</li>
-                        <li>Legner C, et al. Sweat sensing in the smart wearables era. <em>Sensors and Actuators A: Physical</em>. 2019. doi:10.1016/j.sna.2019.07.020</li>
-                        <li>Support Library. Zimmer&amp;Peacock. Accessed Dec. 2022. <a href="https://www.zimmerpeacocktech.com/products/electrochemical-sensors/wearable-biosensors/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Open Circuit Potential — an overview. ScienceDirect Topics. <a href="https://www.sciencedirect.com/topics/chemistry/open-circuit-potential" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Screen printed electrodes for biosensing. Zimmer&amp;Peacock. 2023. <a href="https://www.zimmerpeacocktech.com/knowledge-base/screen-printed-electrodes-for-biosensing/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Introduction and review on screen printed electrodes (SPE). Zimmer&amp;Peacock, YouTube. <a href="https://www.youtube.com/watch?v=Sm6sS-yuQgo" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Taleat Z, Khoshroo A, Mazloum-Ardakani M. Screen-printed electrodes for biosensing: a review (2008–2013). <em>Microchimica Acta</em>. 2014. doi:10.1007/s00604-014-1181-1</li>
-                        <li>Zimmer&amp;Peacock. Glucose Sensor. <a href="https://www.zimmerpeacocktech.com/products/glucose-sensors/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Biosensors — Enzymatic Biosensors in Biotechnology. AZoM. 2018. <a href="https://www.azom.com/article.aspx?ArticleID=15019" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Mandpe P, et al. Glucose oxidase-based biosensor for glucose detection from biological fluids. <em>Sensor Review</em>. 2020. doi:10.1108/sr-01-2019-0017</li>
-                        <li>Artigues M, Abellà J, Colominas S. Analytical Parameters of an Amperometric Glucose Biosensor for Fast Analysis in Food Samples. <em>Sensors</em>. 2017. doi:10.3390/s17112620</li>
-                        <li>Revathi C, Rajendra Kumar RT. Enzymatic and Nonenzymatic Electrochemical Biosensors. <em>Fundamentals and Sensing Applications of 2D Materials</em>. 2019. doi:10.1016/b978-0-08-102577-2.00007-5</li>
-                        <li>Amperometric Method — an overview. ScienceDirect Topics. <a href="https://www.sciencedirect.com/topics/chemistry/amperometric-method" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Our Technology. BrightVolt Solid State Batteries. <a href="https://www.brightvolt.com/our-technology/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Bariya M, Nyein HYY, Javey A. Wearable sweat sensors. <em>Nature Electronics</em>. 2018. doi:10.1038/s41928-018-0043-y</li>
-                        <li>Heikenfeld J, et al. Wearable sensors: modalities, challenges, and prospects. <em>Lab on a Chip</em>. 2018. doi:10.1039/c7lc00914c</li>
-                        <li>Yang Y, Gao W. Wearable and flexible electronics for continuous molecular monitoring. <em>Chemical Society Reviews</em>. 2019. doi:10.1039/C7CS00730B</li>
-                        <li>Dervisevic M, et al. Skin in the diagnostics game: Wearable biosensor nano- and microsystems for medical diagnostics. <em>Nano Today</em>. 2020. doi:10.1016/j.nantod.2019.100828</li>
+                    <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
+                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                        <li id="ref-1" className="scroll-mt-24">World Health Organization. Diabetes. Accessed Feb. 2023. <a href="https://www.who.int/health-topics/diabetes" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-2" className="scroll-mt-24">Zafar H, et al. Comprehensive Review on Wearable Sweat-Glucose Sensors for Continuous Glucose Monitoring. <em>Sensors</em>. 2022, 22(2):638.</li>
+                        <li id="ref-3" className="scroll-mt-24">Biermann E. Discrepancies Between Blood Glucose and Interstitial Glucose. <em>J Diabetes Sci Technol</em>. 2018. doi:10.1177/1932296818771396</li>
+                        <li id="ref-4" className="scroll-mt-24">Heikenfeld J, et al. Accessing analytes in biofluids for peripheral biochemical monitoring. <em>Nat Biotechnol</em>. 2019. doi:10.1038/s41587-019-0040-3</li>
+                        <li id="ref-5" className="scroll-mt-24">Continuous Glucose Monitoring System. Abbott FreeStyle. Accessed Jul. 2022. <a href="https://www.freestyle.abbott/us-en/home.html" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-6" className="scroll-mt-24">Dexcom G6 Continuous Glucose Monitoring System. Dexcom. 2018. <a href="https://www.dexcom.com/g6-cgm-system" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-7" className="scroll-mt-24">What Is CGM? Continuous Glucose Monitoring From Medtronic Diabetes. 2010. <a href="https://www.medtronicdiabetes.com/treatments/continuous-glucose-monitoring" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-8" className="scroll-mt-24">Zafar H, Channa A, Jeoti V, Stojanović GM. Comprehensive Review on Wearable Sweat-Glucose Sensors for Continuous Glucose Monitoring. <em>Sensors (Basel)</em>. 2022, 22(2):638. doi:10.3390/s22020638</li>
+                        <li id="ref-9" className="scroll-mt-24">K'Watch Glucose. PKVitality. <a href="https://www.pkvitality.com/ktrack-glucose/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-10" className="scroll-mt-24">Coulet P.R., Blum L.J. <em>Biosensor Principles and Applications</em> (1st ed.). CRC Press. 1991. doi:10.1201/9780367810849</li>
+                        <li id="ref-11" className="scroll-mt-24">Gajdosova V, et al. Electrochemical Nanobiosensors for Detection of Breast Cancer Biomarkers. <em>Sensors</em>. 2020, 20(14):4022. doi:10.3390/s20144022</li>
+                        <li id="ref-12" className="scroll-mt-24">Bandodkar AJ, et al. Wearable Sensors for Biochemical Sweat Analysis. <em>Annu Rev Anal Chem</em>. 2019. doi:10.1146/annurev-anchem-061318-114910</li>
+                        <li id="ref-13" className="scroll-mt-24">Legner C, et al. Sweat sensing in the smart wearables era. <em>Sensors and Actuators A: Physical</em>. 2019. doi:10.1016/j.sna.2019.07.020</li>
+                        <li id="ref-14" className="scroll-mt-24">Support Library. Zimmer&amp;Peacock. Accessed Dec. 2022. <a href="https://www.zimmerpeacocktech.com/products/electrochemical-sensors/wearable-biosensors/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-15" className="scroll-mt-24">Open Circuit Potential — an overview. ScienceDirect Topics. <a href="https://www.sciencedirect.com/topics/chemistry/open-circuit-potential" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-16" className="scroll-mt-24">Screen printed electrodes for biosensing. Zimmer&amp;Peacock. 2023. <a href="https://www.zimmerpeacocktech.com/knowledge-base/screen-printed-electrodes-for-biosensing/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-17" className="scroll-mt-24">Introduction and review on screen printed electrodes (SPE). Zimmer&amp;Peacock, YouTube. <a href="https://www.youtube.com/watch?v=Sm6sS-yuQgo" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-18" className="scroll-mt-24">Taleat Z, Khoshroo A, Mazloum-Ardakani M. Screen-printed electrodes for biosensing: a review (2008–2013). <em>Microchimica Acta</em>. 2014. doi:10.1007/s00604-014-1181-1</li>
+                        <li id="ref-19" className="scroll-mt-24">Zimmer&amp;Peacock. Glucose Sensor. <a href="https://www.zimmerpeacocktech.com/products/glucose-sensors/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-20" className="scroll-mt-24">Biosensors — Enzymatic Biosensors in Biotechnology. AZoM. 2018. <a href="https://www.azom.com/article.aspx?ArticleID=15019" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-21" className="scroll-mt-24">Mandpe P, et al. Glucose oxidase-based biosensor for glucose detection from biological fluids. <em>Sensor Review</em>. 2020. doi:10.1108/sr-01-2019-0017</li>
+                        <li id="ref-22" className="scroll-mt-24">Artigues M, Abellà J, Colominas S. Analytical Parameters of an Amperometric Glucose Biosensor for Fast Analysis in Food Samples. <em>Sensors</em>. 2017. doi:10.3390/s17112620</li>
+                        <li id="ref-23" className="scroll-mt-24">Revathi C, Rajendra Kumar RT. Enzymatic and Nonenzymatic Electrochemical Biosensors. <em>Fundamentals and Sensing Applications of 2D Materials</em>. 2019. doi:10.1016/b978-0-08-102577-2.00007-5</li>
+                        <li id="ref-24" className="scroll-mt-24">Amperometric Method — an overview. ScienceDirect Topics. <a href="https://www.sciencedirect.com/topics/chemistry/amperometric-method" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-25" className="scroll-mt-24">Our Technology. BrightVolt Solid State Batteries. <a href="https://www.brightvolt.com/our-technology/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-26" className="scroll-mt-24">Bariya M, Nyein HYY, Javey A. Wearable sweat sensors. <em>Nature Electronics</em>. 2018. doi:10.1038/s41928-018-0043-y</li>
+                        <li id="ref-27" className="scroll-mt-24">Heikenfeld J, et al. Wearable sensors: modalities, challenges, and prospects. <em>Lab on a Chip</em>. 2018. doi:10.1039/c7lc00914c</li>
+                        <li id="ref-28" className="scroll-mt-24">Yang Y, Gao W. Wearable and flexible electronics for continuous molecular monitoring. <em>Chemical Society Reviews</em>. 2019. doi:10.1039/C7CS00730B</li>
+                        <li id="ref-29" className="scroll-mt-24">Dervisevic M, et al. Skin in the diagnostics game: Wearable biosensor nano- and microsystems for medical diagnostics. <em>Nano Today</em>. 2020. doi:10.1016/j.nantod.2019.100828</li>
                     </ol>
                 </section>
 

@@ -144,14 +144,14 @@ const ScienceIsEnteringItsAgenticEra = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">References</h2>
-                    <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
-                        <li>Lu, C., Lu, C., Lange, R. T., Yamada, Y., Hu, S., Foerster, J., Ha, D. & Clune, J. <em>Towards end-to-end automation of AI research</em>. Nature 651, 914–919 (2026). <a href="https://doi.org/10.1038/s41586-026-10265-5" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">doi:10.1038/s41586-026-10265-5</a></li>
-                        <li>Sakana AI. <em>The AI Scientist</em> — open-source code. <a href="https://github.com/SakanaAI/AI-Scientist" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">github.com/SakanaAI/AI-Scientist</a></li>
-                        <li>FutureHouse. <em>Launching FutureHouse Platform: Superintelligent AI Agents for Scientific Discovery</em> (May 2025).</li>
-                        <li>MIT News. <em>Accelerating scientific discovery with AI</em> (June 2025).</li>
-                        <li>Singularity Hub. <em>What the Rise of AI Scientists May Mean for Human Research</em> (February 2026).</li>
-                    </ul>
+                    <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
+                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                        <li id="ref-1" className="scroll-mt-24">Lu, C., Lu, C., Lange, R. T., Yamada, Y., Hu, S., Foerster, J., Ha, D. & Clune, J. <em>Towards end-to-end automation of AI research</em>. Nature 651, 914–919 (2026). <a href="https://doi.org/10.1038/s41586-026-10265-5" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">doi:10.1038/s41586-026-10265-5</a></li>
+                        <li id="ref-2" className="scroll-mt-24">Sakana AI. <em>The AI Scientist</em> — open-source code. <a href="https://github.com/SakanaAI/AI-Scientist" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">github.com/SakanaAI/AI-Scientist</a></li>
+                        <li id="ref-3" className="scroll-mt-24">FutureHouse. <em>Launching FutureHouse Platform: Superintelligent AI Agents for Scientific Discovery</em> (May 2025).</li>
+                        <li id="ref-4" className="scroll-mt-24">MIT News. <em>Accelerating scientific discovery with AI</em> (June 2025).</li>
+                        <li id="ref-5" className="scroll-mt-24">Singularity Hub. <em>What the Rise of AI Scientists May Mean for Human Research</em> (February 2026).</li>
+                    </ol>
                 </section>
 
             </div>

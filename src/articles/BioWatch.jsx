@@ -3,14 +3,12 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
 
-// Inline reference link rendered as a superscript, pointing to the source DOI.
-const Ref = ({ n, href }) => (
+const Cite = ({ n }) => (
     <sup>
         <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:underline underline-offset-2 ml-0.5"
+            href={`#ref-${n}`}
+            className="text-accent no-underline hover:underline font-mono text-xs align-super"
+            aria-label={`Jump to reference ${n}`}
         >
             [{n}]
         </a>
@@ -119,7 +117,7 @@ const BioWatch = () => {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Introduction</h2>
                     <p>
-                        Wearable technology is undergoing constant development, entrenching our daily lives to capture rich contextual information produced for a personalized experience<Ref n="1" href="https://doi.org/10.1016/j.comnet.2021.108074" />. Smartwatches were the first socially accepted wearable devices and are still the most popular. In 2016, smartwatch sales in the wearables market were the second product over intelligent devices, with 50 million units sold. They cover a broad application scope, including connectivity, sports, and health<Ref n="2" href="https://doi.org/10.1016/j.jbi.2016.09.001" />. Human activity detection for well-being applications has become a central stake in the smartwatch and fitness tracker market. Heart rate, temperature, and blood pressure are examples of already monitored physiological data by commercial wearable devices<Ref n="3" href="https://doi.org/10.3390/molecules26030748" />. Wearable biosensor technology has advanced significantly<Ref n="4" href="https://doi.org/10.1038/s41587-019-0045-y" />, but significant obstacles remain to overcome their full integration into our smartwatches regarding new materials, power sources, and communications systems<Ref n="5" href="https://doi.org/10.1016/j.biosx.2022.100153" />.
+                        Wearable technology is undergoing constant development, entrenching our daily lives to capture rich contextual information produced for a personalized experience<Cite n={1} />. Smartwatches were the first socially accepted wearable devices and are still the most popular. In 2016, smartwatch sales in the wearables market were the second product over intelligent devices, with 50 million units sold. They cover a broad application scope, including connectivity, sports, and health<Cite n={2} />. Human activity detection for well-being applications has become a central stake in the smartwatch and fitness tracker market. Heart rate, temperature, and blood pressure are examples of already monitored physiological data by commercial wearable devices<Cite n={3} />. Wearable biosensor technology has advanced significantly<Cite n={4} />, but significant obstacles remain to overcome their full integration into our smartwatches regarding new materials, power sources, and communications systems<Cite n={5} />.
                     </p>
                 </section>
 
@@ -128,7 +126,7 @@ const BioWatch = () => {
                     <div className="space-y-6">
                         <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Related Works</h2>
                         <p>
-                            Few works on watch-integrated biosensors and multianalyte measurement devices have been recently published. Kim et al. developed in 2018 a wearable and flexible patch that monitors two analytes in two different biofluids: alcohol in sweat and glucose in interstitial fluid (ISF)<Ref n="6" href="https://doi.org/10.1002/advs.201800880" />. In 2022, Wang et al. presented a sweat cortisol sensor with an LCD screen that prints in real-time the measured concentrations<Ref n="7" href="https://doi.org/10.1126/sciadv.abk0967" />. Finally, the French company PKVitality (Paris, France) developed the K'Watch Glucose® and the K'Watch Athlete®, which can respectively monitor glucose and lactate levels thanks to minimally invasive biosensors<Ref n="8" href="https://www.pkvitality.com/" />. Thus microneedles-based biosensors access the interstitial fluid without any sensation of pain or discomfort. The smartwatch tracks the wearer's glucose or lactate level in real-time for seven days before replacing the microneedles module with another one. The wearable seems promising in modularity and compatibility with all minimally-invasive electrochemical biosensors and multi-analyte measurements.
+                            Few works on watch-integrated biosensors and multianalyte measurement devices have been recently published. Kim et al. developed in 2018 a wearable and flexible patch that monitors two analytes in two different biofluids: alcohol in sweat and glucose in interstitial fluid (ISF)<Cite n={6} />. In 2022, Wang et al. presented a sweat cortisol sensor with an LCD screen that prints in real-time the measured concentrations<Cite n={7} />. Finally, the French company PKVitality (Paris, France) developed the K'Watch Glucose® and the K'Watch Athlete®, which can respectively monitor glucose and lactate levels thanks to minimally invasive biosensors<Cite n={8} />. Thus microneedles-based biosensors access the interstitial fluid without any sensation of pain or discomfort. The smartwatch tracks the wearer's glucose or lactate level in real-time for seven days before replacing the microneedles module with another one. The wearable seems promising in modularity and compatibility with all minimally-invasive electrochemical biosensors and multi-analyte measurements.
                         </p>
                     </div>
                     <Img src="/biowatch/biowatch-related-works.jpg" alt="Related works: integrated biosensor devices" />
@@ -248,39 +246,39 @@ const BioWatch = () => {
 
                 {/* References */}
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">References</h2>
-                    <ol className="list-decimal pl-6 space-y-3 text-sm text-secondary marker:text-secondary marker:font-mono">
-                        <li>
+                    <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
+                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                        <li id="ref-1" className="scroll-mt-24">
                             Ometov A., et. al., A Survey on Wearable Technology: History, State-of-the-Art and Current Challenges, <em>Computer Networks</em>, Volume 193, 2021, doi:{' '}
-                            <a href="https://doi.org/10.1016/j.comnet.2021.108074" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">10.1016/j.comnet.2021.108074</a>
+                            <a href="https://doi.org/10.1016/j.comnet.2021.108074" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">10.1016/j.comnet.2021.108074</a>
                         </li>
-                        <li>
+                        <li id="ref-2" className="scroll-mt-24">
                             Reeder B, David A. Health at hand: A systematic review of smart watch uses for health and wellness. <em>J Biomed Inform</em>. 2016, doi:{' '}
-                            <a href="https://doi.org/10.1016/j.jbi.2016.09.001" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">10.1016/j.jbi.2016.09.001</a>
+                            <a href="https://doi.org/10.1016/j.jbi.2016.09.001" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">10.1016/j.jbi.2016.09.001</a>
                         </li>
-                        <li>
+                        <li id="ref-3" className="scroll-mt-24">
                             Sharma A, Badea M, Tiwari S, Marty JL. Wearable Biosensors: An Alternative and Practical Approach in Healthcare and Disease Monitoring. <em>Molecules</em>. Feb. 2021. doi:{' '}
-                            <a href="https://doi.org/10.3390/molecules26030748" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">10.3390/molecules26030748</a>
+                            <a href="https://doi.org/10.3390/molecules26030748" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">10.3390/molecules26030748</a>
                         </li>
-                        <li>
+                        <li id="ref-4" className="scroll-mt-24">
                             Kim J, Campbell AS, de Ávila BE, Wang J. Wearable biosensors for healthcare monitoring. <em>Nat Biotechnol</em>. 2019, doi:{' '}
-                            <a href="https://doi.org/10.1038/s41587-019-0045-y" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">10.1038/s41587-019-0045-y</a>
+                            <a href="https://doi.org/10.1038/s41587-019-0045-y" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">10.1038/s41587-019-0045-y</a>
                         </li>
-                        <li>
+                        <li id="ref-5" className="scroll-mt-24">
                             Verma D., et. al., Internet of things (IoT) in nano-integrated wearable biosensor devices for healthcare applications, Biosensors and Bioelectronics: X, Volume 11, 2022, doi:{' '}
-                            <a href="https://doi.org/10.1016/j.biosx.2022.100153" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">10.1016/j.biosx.2022.100153</a>
+                            <a href="https://doi.org/10.1016/j.biosx.2022.100153" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">10.1016/j.biosx.2022.100153</a>
                         </li>
-                        <li>
+                        <li id="ref-6" className="scroll-mt-24">
                             Kim, J., Sempionatto, J. R., Imani, S., Hartel, M. C., Barfidokht, A., Tang, G., Campbell, A. S., Mercier, P. P., Wang, J., <em>Adv. Sci.</em> 2018, doi:{' '}
-                            <a href="https://doi.org/10.1002/advs.201800880" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">10.1002/advs.201800880</a>
+                            <a href="https://doi.org/10.1002/advs.201800880" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">10.1002/advs.201800880</a>
                         </li>
-                        <li>
+                        <li id="ref-7" className="scroll-mt-24">
                             Wang B, Zhao C, Wang Z, et al. Wearable aptamer-field-effect transistor sensing system for noninvasive cortisol monitoring. <em>Sci Adv</em>. 2022, doi:{' '}
-                            <a href="https://doi.org/10.1126/sciadv.abk0967" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">10.1126/sciadv.abk0967</a>
+                            <a href="https://doi.org/10.1126/sciadv.abk0967" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">10.1126/sciadv.abk0967</a>
                         </li>
-                        <li>
+                        <li id="ref-8" className="scroll-mt-24">
                             PKvitality - Bio-wearables Health &amp; Sport. PKVitality. Accessed March 3, 2023.{' '}
-                            <a href="https://www.pkvitality.com/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">https://www.pkvitality.com/</a>
+                            <a href="https://www.pkvitality.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">https://www.pkvitality.com/</a>
                         </li>
                     </ol>
                 </section>

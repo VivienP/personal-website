@@ -5,14 +5,13 @@ import SEO from '../components/SEO';
 
 const B = '/build-lactate-biosensor';
 
-// Inline reference link rendered as a superscript.
-const Ref = ({ n, href }) => (
+// Inline reference marker rendered as a superscript link.
+const Cite = ({ n }) => (
     <sup>
         <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:underline underline-offset-2 ml-0.5"
+            href={`#ref-${n}`}
+            className="text-accent no-underline hover:underline font-mono text-xs align-super"
+            aria-label={`Jump to reference ${n}`}
         >
             [{n}]
         </a>
@@ -111,7 +110,7 @@ const Lactate = () => {
                     <Figure
                         src={`${B}/microneedles-gold.jpg`}
                         alt="Microneedle array on the skin"
-                        caption={<>Image from<Ref n="1" href="https://www.genengnews.com/news/novel-microneedle-patch-on-the-skin-can-test-for-biomarkers/" /></>}
+                        caption={<>Image from<Cite n={1} /></>}
                     />
                 </section>
 
@@ -121,10 +120,10 @@ const Lactate = () => {
                     <div className="space-y-6 order-first md:order-last">
                         <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Context</h2>
                         <p>
-                            Biosensors are analytical devices that use biological recognition elements to detect and quantify target molecules. The first one was developed in the 1960s by Clark and Lyons, who measured blood glucose for the first time<Ref n="2" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3292132/" />. Since then, biosensors have advanced considerably and spread across healthcare, food safety, environmental monitoring, and drug discovery<Ref n="3" href="https://www.intechopen.com/chapters/76543" />.
+                            Biosensors are analytical devices that use biological recognition elements to detect and quantify target molecules. The first one was developed in the 1960s by Clark and Lyons, who measured blood glucose for the first time<Cite n={2} />. Since then, biosensors have advanced considerably and spread across healthcare, food safety, environmental monitoring, and drug discovery<Cite n={3} />.
                         </p>
                         <p>
-                            After glucose, lactate is the next biomarker likely to be monitored effectively in the coming years. In vivo human studies show clear links between muscle lactate and muscle fatigue<Ref n="4" href="https://link.springer.com/article/10.2165/00007256-200636040-00001" /><Ref n="5" href="https://www.cairn.info/revue-movement-and-sport-sciences-2010-2-page-21.htm" />, and muscle lactate is a well-known marker of exercise-induced fatigue<Ref n="6" href="https://pubmed.ncbi.nlm.nih.gov/23136874/" /><Ref n="7" href="https://www.nature.com/articles/emm2017194" />. Developing non- or minimally-invasive biosensors for continuous lactate monitoring has recently drawn strong interest in wellness and sports<Ref n="8" href="https://www.mdpi.com/1424-8220/22/4/1468" />, since lactate tracking helps athletes tailor their training to their performance<Ref n="9" href="https://pubmed.ncbi.nlm.nih.gov/8883213/" /><Ref n="10" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2769631/" />.
+                            After glucose, lactate is the next biomarker likely to be monitored effectively in the coming years. In vivo human studies show clear links between muscle lactate and muscle fatigue<Cite n={4} /><Cite n={5} />, and muscle lactate is a well-known marker of exercise-induced fatigue<Cite n={6} /><Cite n={7} />. Developing non- or minimally-invasive biosensors for continuous lactate monitoring has recently drawn strong interest in wellness and sports<Cite n={8} />, since lactate tracking helps athletes tailor their training to their performance<Cite n={9} /><Cite n={10} />.
                         </p>
                     </div>
                 </section>
@@ -183,17 +182,17 @@ const Lactate = () => {
                             <div className="space-y-4">
                                 <h3 className="text-base font-normal text-primary">Immobilization Matrix</h3>
                                 <p>
-                                    Functionalizing a biosensor means immobilizing the enzyme on a transducer surface<Ref n="11" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6337536/" />. The four main methods are (1) non-covalent adsorption and deposition, (2) physical entrapment, (3) covalent attachment, and (4) bio-conjugation. This tutorial uses physical entrapment — including the enzyme within a polymer network<Ref n="12" href="https://pubmed.ncbi.nlm.nih.gov/24432134/" />.
+                                    Functionalizing a biosensor means immobilizing the enzyme on a transducer surface<Cite n={11} />. The four main methods are (1) non-covalent adsorption and deposition, (2) physical entrapment, (3) covalent attachment, and (4) bio-conjugation. This tutorial uses physical entrapment — including the enzyme within a polymer network<Cite n={12} />.
                                 </p>
                             </div>
                             <div className="space-y-4">
                                 <h3 className="text-base font-normal text-primary">Enzyme</h3>
                                 <p>
-                                    The most common recognition elements for L-lactate biosensors are lactate dehydrogenase (LDH) and lactate oxidase (LOx)<Ref n="13" href="https://www.sciencedirect.com/science/article/pii/S2405580815001302" />. The enzyme catalyzes the oxidation of lactate into pyruvate in dissolved oxygen, producing hydrogen peroxide. Being electrochemically active, the hydrogen peroxide can be reduced or oxidized to yield a current proportional to the lactate concentration<Ref n="14" href="https://pubmed.ncbi.nlm.nih.gov/8311937/" />. Both enzymes involve simple reactions and allow for a fairly simple sensor design<Ref n="15" href="https://pubmed.ncbi.nlm.nih.gov/28955805/" />; this tutorial uses LOx for its lower cost.
+                                    The most common recognition elements for L-lactate biosensors are lactate dehydrogenase (LDH) and lactate oxidase (LOx)<Cite n={13} />. The enzyme catalyzes the oxidation of lactate into pyruvate in dissolved oxygen, producing hydrogen peroxide. Being electrochemically active, the hydrogen peroxide can be reduced or oxidized to yield a current proportional to the lactate concentration<Cite n={14} />. Both enzymes involve simple reactions and allow for a fairly simple sensor design<Cite n={15} />; this tutorial uses LOx for its lower cost.
                                 </p>
                             </div>
                         </div>
-                        <Figure src={`${B}/immobilization-methods.jpg`} alt="Diagrams of enzyme immobilization methods" caption={<>Some methods used for enzyme immobilization. From<Ref n="12" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3787205/" />.</>} />
+                        <Figure src={`${B}/immobilization-methods.jpg`} alt="Diagrams of enzyme immobilization methods" caption={<>Some methods used for enzyme immobilization. From<Cite n={12} />.</>} />
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -203,7 +202,7 @@ const Lactate = () => {
                             <p>The outer selector membrane has two roles:</p>
                             <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
                                 <li>filtering out interferents — biomolecules that could interact with the enzyme and distort the signal;</li>
-                                <li>regulating the concentration of the target molecule reaching the enzyme, so the biosensor does not run short of oxygen and saturate<Ref n="16" href="https://pubmed.ncbi.nlm.nih.gov/1472593/" />.</li>
+                                <li>regulating the concentration of the target molecule reaching the enzyme, so the biosensor does not run short of oxygen and saturate<Cite n={16} />.</li>
                             </ul>
                             <p>
                                 This tutorial skips membrane design: its two functions are not required for in vitro testing, and the membrane also tends to reduce the biosensor's sensitivity.
@@ -228,9 +227,9 @@ const Lactate = () => {
                                     <ul className="list-disc pl-5 space-y-1">
                                         <li><span className="font-medium">High catalytic activity</span> — it speeds up the chemical reactions.</li>
                                         <li><span className="font-medium">High electrical conductivity.</span></li>
-                                        <li><span className="font-medium">Biocompatibility</span> — non-toxic to living cells, essential for wearables<Ref n="17" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8128108/" />.</li>
+                                        <li><span className="font-medium">Biocompatibility</span> — non-toxic to living cells, essential for wearables<Cite n={17} />.</li>
                                     </ul>
-                                    <p>Other metals used in biosensors include gold, palladium, rhodium, ruthenium, and copper<Ref n="18" href="https://doi.org/10.1016/j.talanta.2006.09.013" />.</p>
+                                    <p>Other metals used in biosensors include gold, palladium, rhodium, ruthenium, and copper<Cite n={18} />.</p>
                                 </Note>
                                 <p><span className="font-medium text-primary">1.2. Prepare the PBS solution.</span> Dilute PBS powder in 1 liter of distilled water and fill a wash bottle with it.</p>
                                 <Note>
@@ -239,7 +238,7 @@ const Lactate = () => {
                             </div>
                             <div className="space-y-8">
                                 <Figure src={`${B}/cleaning-coating-functionalization.jpg`} alt="Cleaning, dip coating and functionalization stages of the platinum wire" />
-                                <Figure src={`${B}/dip-coating-process.jpg`} alt="Stages of the dip coating process" caption={<>Stages of the dip coating process. From<Ref n="22" href="https://www.scientific.net/KEM.333.39" />.</>} />
+                                <Figure src={`${B}/dip-coating-process.jpg`} alt="Stages of the dip coating process" caption={<>Stages of the dip coating process. From<Cite n={22} />.</>} />
                             </div>
                         </div>
 
@@ -250,11 +249,11 @@ const Lactate = () => {
                             </Note>
                             <p><span className="font-medium text-primary">1.4. Prepare the polypyrrole solution.</span> Weigh 0.4 g of PPy powder into a beaker with 20 ml of acetone. Stir for 30 minutes at room temperature until fully dissolved, then add 80 ml of distilled water and stir for 30 more minutes to obtain a homogeneous PPy solution.</p>
                             <Note>
-                                <p>PPy is one of the most widely used conducting polymers for bioanalytical sensors<Ref n="19" href="https://doi.org/10.1016/j.trac.2017.10.009" />.</p>
+                                <p>PPy is one of the most widely used conducting polymers for bioanalytical sensors<Cite n={19} />.</p>
                             </Note>
                             <p><span className="font-medium text-primary">1.5. Dip-coat the platinum wire with PPy.</span> Dip the cleaned wire into the PPy solution and withdraw it slowly at about 2 cm/min for 2 minutes (use a stopwatch and ruler if you have no dip coater, or leave it immersed motionless). Dry the wire at 60&nbsp;°C in an oven for 30 minutes.</p>
                             <Note>
-                                <p>Dip coating immobilizes biomolecules such as enzymes or antibodies onto a surface by immersing a substrate into a coating solution<Ref n="20" href="https://www.researchgate.net/publication/221913481_Sol-gel_technology_in_enzymatic_electrochemical_biosensors_for_clinical_analysis" /><Ref n="21" href="https://www.ossila.com/en-eu/pages/dip-coating" />.</p>
+                                <p>Dip coating immobilizes biomolecules such as enzymes or antibodies onto a surface by immersing a substrate into a coating solution<Cite n={20} /><Cite n={21} />.</p>
                             </Note>
                             <p><span className="font-medium text-primary">1.6. Prepare the functionalization solution.</span> Pour 2 µl of LOx into a 2 ml Eppendorf tube with 2 ml of PBS using a micropipette. Close and shake vigorously to homogenize.</p>
                             <p><span className="font-medium text-primary">1.7. Immobilize lactate oxidase by entrapment.</span> Pour 0.2 ml of the functionalization solution onto the last 2 cm of the PPy-coated wire to immerse it. Leave for 6–12 hours at room temperature; the enzyme becomes entrapped within the PPy layer.</p>
@@ -268,7 +267,7 @@ const Lactate = () => {
                     <div className="space-y-6">
                         <h3 className="text-base font-normal text-primary">2. LMP91000 Programming</h3>
                         <p>
-                            Electrochemical biosensor tests require a <em>potentiostat</em> — an electronic circuit that applies a potential to a working electrode (WE)<Ref n="23" href="https://www.palmsens.com/knowledgebase-topic/potentiostat/" />. By applying the molecule's oxidation potential (+650 mV for lactate), the enzyme catalyzes its oxidation, producing one or more electrons. The resulting current flows through the WE to the circuitry and a counter electrode (CE), where op-amps amplify it to the microampere range. <em>Chronoamperometry</em> (CA) applies a fixed potential at the WE and measures current over time<Ref n="24" href="https://www.zimmerpeacocktech.com/knowledge-base/faq/electro-analytical-techniques/" />, usually needing about an hour of calibration until the WE–CE potential stabilizes. The current is proportional to the lactate concentration at the WE surface. The LMP91000 is a popular potentiostat board for micro-power electrochemical sensing<Ref n="25" href="https://eu.mouser.com/new/texas-instruments/ti-national-lmp91000/" />.
+                            Electrochemical biosensor tests require a <em>potentiostat</em> — an electronic circuit that applies a potential to a working electrode (WE)<Cite n={23} />. By applying the molecule's oxidation potential (+650 mV for lactate), the enzyme catalyzes its oxidation, producing one or more electrons. The resulting current flows through the WE to the circuitry and a counter electrode (CE), where op-amps amplify it to the microampere range. <em>Chronoamperometry</em> (CA) applies a fixed potential at the WE and measures current over time<Cite n={24} />, usually needing about an hour of calibration until the WE–CE potential stabilizes. The current is proportional to the lactate concentration at the WE surface. The LMP91000 is a popular potentiostat board for micro-power electrochemical sensing<Cite n={25} />.
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
@@ -277,7 +276,7 @@ const Lactate = () => {
                                 <p><span className="font-medium text-primary">2.2. Wiring.</span> Connect 3V3, GND, SDA, and CLK between the LMP and the WeMos. Using an alligator clip, connect the LMP's Vout pin to the WeMos's A0 pin.</p>
                                 <p><span className="font-medium text-primary">2.3. Download the code.</span> Get the code from the <a href="https://github.com/DeVinci-Innovation-Center/BioWatch/tree/main/embedded_sensors/lmp91000/software" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">BioWatch GitHub</a>, run the chronoamperometry code, and check with a potentiometer that the board works.</p>
                                 <Note>
-                                    <p>The code runs in three-electrode mode. The gain is set to 128 kΩ, Rload to 10 Ω, and the bias to 20% of Vref<Ref n="26" href="https://www.zimmerpeacocktech.com/knowledge-base/faq/lmp91000/" />.</p>
+                                    <p>The code runs in three-electrode mode. The gain is set to 128 kΩ, Rload to 10 Ω, and the bias to 20% of Vref<Cite n={26} />.</p>
                                 </Note>
                                 <div className="space-y-2">
                                     <div className="overflow-x-auto border border-border-subtle">
@@ -307,7 +306,7 @@ const Lactate = () => {
                             </div>
                             <div className="space-y-8 md:sticky md:top-24">
                                 <Figure src={`${B}/lmp91000-board.jpg`} alt="LMP91000 development board" />
-                                <Figure src={`${B}/lmp91000-scheme.jpg`} alt="Simplified application schematic of the LMP91000" caption={<>Simplified application schematic of the LMP91000. From<Ref n="25" href="https://www.mouser.fr/new/texas-instruments/ti-national-lmp91000/" />.</>} />
+                                <Figure src={`${B}/lmp91000-scheme.jpg`} alt="Simplified application schematic of the LMP91000" caption={<>Simplified application schematic of the LMP91000. From<Cite n={25} />.</>} />
                             </div>
                         </div>
                     </div>
@@ -345,34 +344,34 @@ const Lactate = () => {
 
                 {/* References */}
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">References</h2>
-                    <ol className="list-decimal pl-6 space-y-3 text-sm text-secondary marker:text-secondary marker:font-mono break-words">
-                        <li>Sterling J. Novel Microneedle Patch on the Skin Can Test for Biomarkers. <em>GEN — Genetic Engineering and Biotechnology News</em>. 2021. <a href="https://www.genengnews.com/news/novel-microneedle-patch-on-the-skin-can-test-for-biomarkers/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Yoo EH, Lee SY. Glucose biosensors: an overview of use in clinical practice. <em>Sensors (Basel)</em>. 2010. doi:10.3390/s100504558</li>
-                        <li>Tetyana P, et al. Biosensors: Design, Development and Applications. <em>Nanopores</em>, IntechOpen. 2021. doi:10.5772/intechopen.97576</li>
-                        <li>Cairns SP. Lactic Acid and Exercise Performance. <em>Sports Med</em>. 2006. doi:10.2165/00007256-200636040-00001</li>
-                        <li>Messonnier L, Dubouchaud H. Le lactate : sa cinétique, son métabolisme… <em>Movement &amp; Sport Sciences</em>. 2010.</li>
-                        <li>Finsterer J. Biomarkers of peripheral muscle fatigue during exercise. <em>BMC Musculoskeletal Disorders</em>. 2012. doi:10.1186/1471-2474-13-218</li>
-                        <li>Wan JJ, et al. Muscle fatigue: general understanding and treatment. <em>Exp Mol Med</em>. 2017. doi:10.1038/emm.2017.194</li>
-                        <li>Chien MN, et al. Continuous Lactate Monitoring System Based on Percutaneous Microneedle Array. <em>Sensors</em>. 2022. doi:10.3390/s22041468</li>
-                        <li>Billat LV. Use of blood lactate measurements for prediction of exercise performance. <em>Sports Med</em>. 1996. doi:10.2165/00007256-199622030-00003</li>
-                        <li>Goodwin ML, et al. Blood lactate measurements and analysis during exercise. <em>J Diabetes Sci Technol</em>. 2007. doi:10.1177/193229680700100414</li>
-                        <li>Nguyen HH, et al. Immobilized Enzymes in Biosensor Applications. <em>Materials (Basel)</em>. 2019. doi:10.3390/ma12010121</li>
-                        <li>Homaei AA, et al. Enzyme immobilization: an update. <em>J Chem Biol</em>. 2013. doi:10.1007/s12154-013-0102-9</li>
-                        <li>Rathee K, et al. Biosensors based on electrochemical lactate detection: A comprehensive review. <em>Biochem Biophys Rep</em>. 2016. doi:10.1016/j.bbrep.2015.11.010</li>
-                        <li>Meyerhoff C, et al. On-line continuous monitoring of blood lactate by a wearable enzymatic amperometric sensor. <em>Biosens Bioelectron</em>. 1993. doi:10.1016/0956-5663(93)80025-k</li>
-                        <li>Rathee K, et al. Biosensors based on electrochemical lactate detection: A comprehensive review. <em>Biochem Biophys Rep</em>. 2015. doi:10.1016/j.bbrep.2015.11.010</li>
-                        <li>Davies ML, et al. Polymer membranes in clinical sensor applications. I. <em>Biomaterials</em>. 1992. doi:10.1016/0142-9612(92)90147-g</li>
-                        <li>Yu H, et al. Recent Progress of Platinum Nanoparticle-Based Electrochemistry Biosensors. <em>Front Chem</em>. 2021. doi:10.3389/fchem.2021.677876</li>
-                        <li>Chu X, et al. Amperometric glucose biosensor based on platinum nanoparticles and carbon nanotube electrode. <em>Talanta</em>. 2007. doi:10.1016/j.talanta.2006.09.013</li>
-                        <li>Jain R, Jadon N, Pawaiya A. Polypyrrole based next generation electrochemical sensors and biosensors: A review. <em>TrAC Trends in Analytical Chemistry</em>. 2017. doi:10.1016/j.trac.2017.10.009</li>
-                        <li>Gabriela P, Bizerea O, Vlad-Oros B. Sol-gel technology in enzymatic electrochemical biosensors for clinical analysis. 2011. doi:10.5772/19622</li>
-                        <li>Dip Coating: Practical Guide to Theory and Troubleshooting. <em>Ossila</em>. 2023. <a href="https://www.ossila.com/en-eu/pages/dip-coating" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Sanchez-Herencia AJ. Water Based Colloidal Processing of Ceramic Laminates. <em>Key Engineering Materials</em>. 2007. doi:10.4028/www.scientific.net/kem.333.39</li>
-                        <li>Potentiostat: a simple and short explanation. <em>PalmSens</em>. 2023. <a href="https://www.palmsens.com/knowledgebase-topic/potentiostat/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Electro-analytical techniques. <em>Zimmer and Peacock</em>. 2023. <a href="https://www.zimmerpeacocktech.com/knowledge-base/faq/electro-analytical-techniques/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>Mouser Electronics. Potentiostat AFE configurable LMP91000 TI. 2022. <a href="https://eu.mouser.com/new/texas-instruments/ti-national-lmp91000/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
-                        <li>LMP91000. <em>Zimmer and Peacock</em>. 2023. <a href="https://www.zimmerpeacocktech.com/knowledge-base/faq/lmp91000/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-2">Link</a></li>
+                    <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
+                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                        <li id="ref-1" className="scroll-mt-24">Sterling J. Novel Microneedle Patch on the Skin Can Test for Biomarkers. <em>GEN — Genetic Engineering and Biotechnology News</em>. 2021. <a href="https://www.genengnews.com/news/novel-microneedle-patch-on-the-skin-can-test-for-biomarkers/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-2" className="scroll-mt-24">Yoo EH, Lee SY. Glucose biosensors: an overview of use in clinical practice. <em>Sensors (Basel)</em>. 2010. doi:10.3390/s100504558</li>
+                        <li id="ref-3" className="scroll-mt-24">Tetyana P, et al. Biosensors: Design, Development and Applications. <em>Nanopores</em>, IntechOpen. 2021. doi:10.5772/intechopen.97576</li>
+                        <li id="ref-4" className="scroll-mt-24">Cairns SP. Lactic Acid and Exercise Performance. <em>Sports Med</em>. 2006. doi:10.2165/00007256-200636040-00001</li>
+                        <li id="ref-5" className="scroll-mt-24">Messonnier L, Dubouchaud H. Le lactate : sa cinétique, son métabolisme… <em>Movement &amp; Sport Sciences</em>. 2010.</li>
+                        <li id="ref-6" className="scroll-mt-24">Finsterer J. Biomarkers of peripheral muscle fatigue during exercise. <em>BMC Musculoskeletal Disorders</em>. 2012. doi:10.1186/1471-2474-13-218</li>
+                        <li id="ref-7" className="scroll-mt-24">Wan JJ, et al. Muscle fatigue: general understanding and treatment. <em>Exp Mol Med</em>. 2017. doi:10.1038/emm.2017.194</li>
+                        <li id="ref-8" className="scroll-mt-24">Chien MN, et al. Continuous Lactate Monitoring System Based on Percutaneous Microneedle Array. <em>Sensors</em>. 2022. doi:10.3390/s22041468</li>
+                        <li id="ref-9" className="scroll-mt-24">Billat LV. Use of blood lactate measurements for prediction of exercise performance. <em>Sports Med</em>. 1996. doi:10.2165/00007256-199622030-00003</li>
+                        <li id="ref-10" className="scroll-mt-24">Goodwin ML, et al. Blood lactate measurements and analysis during exercise. <em>J Diabetes Sci Technol</em>. 2007. doi:10.1177/193229680700100414</li>
+                        <li id="ref-11" className="scroll-mt-24">Nguyen HH, et al. Immobilized Enzymes in Biosensor Applications. <em>Materials (Basel)</em>. 2019. doi:10.3390/ma12010121</li>
+                        <li id="ref-12" className="scroll-mt-24">Homaei AA, et al. Enzyme immobilization: an update. <em>J Chem Biol</em>. 2013. doi:10.1007/s12154-013-0102-9</li>
+                        <li id="ref-13" className="scroll-mt-24">Rathee K, et al. Biosensors based on electrochemical lactate detection: A comprehensive review. <em>Biochem Biophys Rep</em>. 2016. doi:10.1016/j.bbrep.2015.11.010</li>
+                        <li id="ref-14" className="scroll-mt-24">Meyerhoff C, et al. On-line continuous monitoring of blood lactate by a wearable enzymatic amperometric sensor. <em>Biosens Bioelectron</em>. 1993. doi:10.1016/0956-5663(93)80025-k</li>
+                        <li id="ref-15" className="scroll-mt-24">Rathee K, et al. Biosensors based on electrochemical lactate detection: A comprehensive review. <em>Biochem Biophys Rep</em>. 2015. doi:10.1016/j.bbrep.2015.11.010</li>
+                        <li id="ref-16" className="scroll-mt-24">Davies ML, et al. Polymer membranes in clinical sensor applications. I. <em>Biomaterials</em>. 1992. doi:10.1016/0142-9612(92)90147-g</li>
+                        <li id="ref-17" className="scroll-mt-24">Yu H, et al. Recent Progress of Platinum Nanoparticle-Based Electrochemistry Biosensors. <em>Front Chem</em>. 2021. doi:10.3389/fchem.2021.677876</li>
+                        <li id="ref-18" className="scroll-mt-24">Chu X, et al. Amperometric glucose biosensor based on platinum nanoparticles and carbon nanotube electrode. <em>Talanta</em>. 2007. doi:10.1016/j.talanta.2006.09.013</li>
+                        <li id="ref-19" className="scroll-mt-24">Jain R, Jadon N, Pawaiya A. Polypyrrole based next generation electrochemical sensors and biosensors: A review. <em>TrAC Trends in Analytical Chemistry</em>. 2017. doi:10.1016/j.trac.2017.10.009</li>
+                        <li id="ref-20" className="scroll-mt-24">Gabriela P, Bizerea O, Vlad-Oros B. Sol-gel technology in enzymatic electrochemical biosensors for clinical analysis. 2011. doi:10.5772/19622</li>
+                        <li id="ref-21" className="scroll-mt-24">Dip Coating: Practical Guide to Theory and Troubleshooting. <em>Ossila</em>. 2023. <a href="https://www.ossila.com/en-eu/pages/dip-coating" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-22" className="scroll-mt-24">Sanchez-Herencia AJ. Water Based Colloidal Processing of Ceramic Laminates. <em>Key Engineering Materials</em>. 2007. doi:10.4028/www.scientific.net/kem.333.39</li>
+                        <li id="ref-23" className="scroll-mt-24">Potentiostat: a simple and short explanation. <em>PalmSens</em>. 2023. <a href="https://www.palmsens.com/knowledgebase-topic/potentiostat/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-24" className="scroll-mt-24">Electro-analytical techniques. <em>Zimmer and Peacock</em>. 2023. <a href="https://www.zimmerpeacocktech.com/knowledge-base/faq/electro-analytical-techniques/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-25" className="scroll-mt-24">Mouser Electronics. Potentiostat AFE configurable LMP91000 TI. 2022. <a href="https://eu.mouser.com/new/texas-instruments/ti-national-lmp91000/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
+                        <li id="ref-26" className="scroll-mt-24">LMP91000. <em>Zimmer and Peacock</em>. 2023. <a href="https://www.zimmerpeacocktech.com/knowledge-base/faq/lmp91000/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
                     </ol>
                 </section>
 

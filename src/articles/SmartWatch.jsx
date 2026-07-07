@@ -5,14 +5,12 @@ import SEO from '../components/SEO';
 
 const B = '/build-smartwatch';
 
-// Inline reference link rendered as a superscript.
-const Ref = ({ n, href }) => (
+const Cite = ({ n }) => (
     <sup>
         <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:underline underline-offset-2 ml-0.5"
+            href={`#ref-${n}`}
+            className="text-accent no-underline hover:underline font-mono text-xs align-super"
+            aria-label={`Jump to reference ${n}`}
         >
             [{n}]
         </a>
@@ -117,10 +115,10 @@ const SmartWatch = () => {
                     <div className="space-y-6">
                         <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Context</h2>
                         <p>
-                            The first liquid crystal display (LCD) was built in 1967 by Lechner et al.<Ref n="1" href="https://doi.org/10.1109/ISSCC.1969.1154684" />, a technology that enables low-power flat-panel displays<Ref n="2" href="https://www.researchgate.net/publication/230823800_Liquid_Crystal_Display_Drivers_-_Techniques_and_Circuits" />. The first LCD-screen watch followed in 1968<Ref n="3" href="https://www.researchgate.net/publication/282650374_The_History_of_LCD_Development" />, and Gordon Moore, co-founder of Intel, contributed greatly to advancing the technology<Ref n="4" href="https://doi.org/10.1057/9781137323385_9" />. LCDs are now found in most screens, including smartwatch displays.
+                            The first liquid crystal display (LCD) was built in 1967 by Lechner et al.<Cite n={1} />, a technology that enables low-power flat-panel displays<Cite n={2} />. The first LCD-screen watch followed in 1968<Cite n={3} />, and Gordon Moore, co-founder of Intel, contributed greatly to advancing the technology<Cite n={4} />. LCDs are now found in most screens, including smartwatch displays.
                         </p>
                         <p>
-                            The Pulsar NL C01, designed in 1982, is considered the first smartwatch — a user-programmable watch<Ref n="5" href="https://doi.org/10.1080/0144929X.2018.1424246" />. Their features have multiplied since, covering connectivity, sports, and health<Ref n="6" href="https://doi.org/10.1007/978-3-030-50502-8" />, and their strong personalization has boosted their popularity<Ref n="7" href="https://doi.org/10.1145/3412841.3442023" />. Smart-wearable shipments reached 270 million units in 2020 and are projected to hit 770 million by 2026<Ref n="8" href="https://www.mordorintelligence.com/industry-reports/smart-wearables-market" />.
+                            The Pulsar NL C01, designed in 1982, is considered the first smartwatch — a user-programmable watch<Cite n={5} />. Their features have multiplied since, covering connectivity, sports, and health<Cite n={6} />, and their strong personalization has boosted their popularity<Cite n={7} />. Smart-wearable shipments reached 270 million units in 2020 and are projected to hit 770 million by 2026<Cite n={8} />.
                         </p>
                         <p>
                             <span className="font-medium text-primary">Technological tools are increasingly within reach of individuals.</span> Prototyping platforms make electronics easy to program, and 3D printing allows tailor-made objects — so non-professionals can now build complex devices such as a smartwatch.
@@ -334,16 +332,16 @@ const SmartWatch = () => {
 
                 {/* References */}
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">References</h2>
-                    <ol className="list-decimal pl-6 space-y-3 text-sm text-secondary marker:text-secondary marker:font-mono break-words">
-                        <li>Lechner B., Marlowe F., Nester E. &amp; Tults J. Liquid crystal matrix displays. <em>IEEE International Solid-State Circuits Conference</em>, 1969, pp. 52–53. doi:10.1109/ISSCC.1969.1154684</li>
-                        <li>Cristaldi D., Pennisi S., Pulvirenti F. <em>Liquid Crystal Display Drivers: Techniques and Circuits</em>. 2009.</li>
-                        <li>Castellano J. <em>The History of LCD Development</em>. 2005.</li>
-                        <li>Sethi A.K. "Chips" and Displays. In: <em>The Business of Electronics</em>, Palgrave Macmillan, 2013. doi:10.1057/9781137323385_9</li>
-                        <li>Dehghani M. Exploring the motivational factors on continuous usage intention of smartwatches among actual users. <em>Behaviour &amp; Information Technology</em>, 2018, 145–158. doi:10.1080/0144929X.2018.1424246</li>
-                        <li>Romanski B., et al. Technology Roadmap: Smartwatches. In: <em>Roadmapping Future: Technologies, Products and Services</em>, 2021, pp. 209–223. doi:10.1007/978-3-030-50502-8</li>
-                        <li>Chen X., et al. A comparative study of smartphone and smartwatch apps. <em>Proceedings of the 36th Annual ACM Symposium on Applied Computing</em>, 2021, 1484–1493. doi:10.1145/3412841.3442023</li>
-                        <li>Mordor Intelligence. <em>Smart Wearable Market — Growth, Trends, Covid-19 Impact, and Forecasts (2022–2027)</em>. 2021.</li>
+                    <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
+                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                        <li id="ref-1" className="scroll-mt-24">Lechner B., Marlowe F., Nester E. &amp; Tults J. Liquid crystal matrix displays. <em>IEEE International Solid-State Circuits Conference</em>, 1969, pp. 52–53. doi:10.1109/ISSCC.1969.1154684</li>
+                        <li id="ref-2" className="scroll-mt-24">Cristaldi D., Pennisi S., Pulvirenti F. <em>Liquid Crystal Display Drivers: Techniques and Circuits</em>. 2009.</li>
+                        <li id="ref-3" className="scroll-mt-24">Castellano J. <em>The History of LCD Development</em>. 2005.</li>
+                        <li id="ref-4" className="scroll-mt-24">Sethi A.K. "Chips" and Displays. In: <em>The Business of Electronics</em>, Palgrave Macmillan, 2013. doi:10.1057/9781137323385_9</li>
+                        <li id="ref-5" className="scroll-mt-24">Dehghani M. Exploring the motivational factors on continuous usage intention of smartwatches among actual users. <em>Behaviour &amp; Information Technology</em>, 2018, 145–158. doi:10.1080/0144929X.2018.1424246</li>
+                        <li id="ref-6" className="scroll-mt-24">Romanski B., et al. Technology Roadmap: Smartwatches. In: <em>Roadmapping Future: Technologies, Products and Services</em>, 2021, pp. 209–223. doi:10.1007/978-3-030-50502-8</li>
+                        <li id="ref-7" className="scroll-mt-24">Chen X., et al. A comparative study of smartphone and smartwatch apps. <em>Proceedings of the 36th Annual ACM Symposium on Applied Computing</em>, 2021, 1484–1493. doi:10.1145/3412841.3442023</li>
+                        <li id="ref-8" className="scroll-mt-24">Mordor Intelligence. <em>Smart Wearable Market — Growth, Trends, Covid-19 Impact, and Forecasts (2022–2027)</em>. 2021.</li>
                     </ol>
                 </section>
 
