@@ -1,7 +1,125 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import SEO from '../components/SEO';
+import { SITE_URL } from '../components/jsonld';
+
+// Display order. `framed` is the photo shown at rest; hovering or tapping a
+// framed piece crossfades to `unframed`; `fullWidth` spans both grid columns.
+// Files live in public/art (must be git-tracked or they 404 in production).
+const ARTWORKS = [
+    {
+        title: 'Ambition',
+        medium: 'Fusain & craie blanche | Charcoal & white chalk',
+        size: '40 × 50 cm',
+        framed: { src: '/art/ambition-framed.webp', width: 1329, height: 1597 },
+        unframed: { src: '/art/ambition.webp', width: 962, height: 1292 },
+    },
+    {
+        title: 'Ragnar Lothbrok',
+        medium: 'Crayon & fusain | Pencil & charcoal',
+        size: '40 × 50 cm',
+        framed: { src: '/art/ragnar-lothbrok-framed.webp', width: 1309, height: 1585 },
+        unframed: { src: '/art/ragnar-lothbrok.webp', width: 1271, height: 1600 },
+    },
+    {
+        title: 'Romane',
+        medium: 'Crayon | Pencil',
+        size: '40 × 60 cm',
+        framed: { src: '/art/romane-framed.webp', width: 1149, height: 1600 },
+        unframed: { src: '/art/romane.webp', width: 1009, height: 1600 },
+    },
+    {
+        title: 'Joel Miller',
+        medium: 'Crayon | Pencil',
+        size: '40 × 60 cm',
+        framed: { src: '/art/joel-miller-framed.webp', width: 1165, height: 1600 },
+        unframed: { src: '/art/joel-miller.webp', width: 1060, height: 1600 },
+    },
+    {
+        title: 'Autre monde | Other world',
+        medium: 'Pastel sec | Soft pastel',
+        size: '50 × 70 cm',
+        framed: null,
+        unframed: { src: '/art/other-world.webp', width: 1600, height: 1153 },
+        fullWidth: true,
+    },
+];
+
+const ART_JSON_LD = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${SITE_URL}/art`,
+    name: 'Art | Vivien Perrelle',
+    url: `${SITE_URL}/art`,
+    inLanguage: 'en',
+    hasPart: ARTWORKS.map((a) => ({
+        '@type': 'VisualArtwork',
+        name: a.title,
+        creator: { '@id': `${SITE_URL}/#person` },
+        artform: 'Drawing',
+        artMedium: a.medium.split(' | ').pop(),
+        image: `${SITE_URL}${(a.framed ?? a.unframed).src}`,
+    })),
+};
+
+const ArtworkCard = ({ artwork, eager }) => {
+    // Touch fallback: tapping toggles what hover does on desktop.
+    const [revealed, setRevealed] = useState(false);
+    const base = artwork.framed ?? artwork.unframed;
+    const swap = artwork.framed && artwork.unframed ? artwork.unframed : null;
+    const details = `${artwork.medium} · ${artwork.size}`;
+
+    return (
+        <figure className={artwork.fullWidth ? 'sm:col-span-2' : undefined}>
+            <div
+                className="relative group"
+                // Touch-only fallback: on hover-capable devices CSS :hover owns
+                // the swap, and a click must not pin `revealed` (a pinned card
+                // shows the unframed drawing at rest and makes hover look dead).
+                onClick={
+                    swap
+                        ? () => {
+                              if (window.matchMedia('(hover: none)').matches) {
+                                  setRevealed((v) => !v);
+                              }
+                          }
+                        : undefined
+                }
+            >
+                <img
+                    src={base.src}
+                    alt={`${artwork.title} · ${details}`}
+                    width={base.width}
+                    height={base.height}
+                    loading={eager ? 'eager' : 'lazy'}
+                    decoding="async"
+                    className={`w-full h-auto transition-opacity duration-500 ${
+                        swap ? (revealed ? 'opacity-0' : 'group-hover:opacity-0') : ''
+                    }`}
+                />
+                {swap && (
+                    <img
+                        src={swap.src}
+                        alt=""
+                        aria-hidden="true"
+                        width={swap.width}
+                        height={swap.height}
+                        loading="lazy"
+                        decoding="async"
+                        className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
+                            revealed ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                        }`}
+                    />
+                )}
+            </div>
+            <figcaption className="mt-4">
+                <h2 className="text-primary font-medium">{artwork.title}</h2>
+                <p className="text-sm text-secondary mt-1">{details}</p>
+            </figcaption>
+        </figure>
+    );
+};
 
 const Art = () => {
     useEffect(() => {
@@ -12,8 +130,9 @@ const Art = () => {
         <div className="min-h-screen py-24 px-6 max-w-6xl mx-auto animate-in fade-in duration-700">
             <SEO
                 title="Art | Vivien Perrelle"
-                description="Paintings and drawings by Vivien Perrelle."
+                description="Charcoal, pencil and soft pastel drawings by Vivien Perrelle."
                 url="/art"
+                jsonLd={ART_JSON_LD}
             />
             <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
@@ -22,21 +141,17 @@ const Art = () => {
 
             <header className="mb-12">
                 <p className="text-lg text-primary">
-                    Here are some of my painting and drawings.
+                    A selection of my drawings in charcoal, pencil and soft pastel.
+                </p>
+                <p className="text-sm text-secondary mt-2">
+                    Hover over a framed piece to see the drawing on its own.
                 </p>
             </header>
 
-            <div className="w-full aspect-[4/3] md:aspect-[16/10]">
-                <iframe
-                    src="https://www.behance.net/embed/project/125683349?ilo0=1"
-                    title="Art & design portfolio on Behance"
-                    allowFullScreen
-                    loading="lazy"
-                    frameBorder="0"
-                    allow="clipboard-write"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    className="w-full h-full border-0"
-                />
+            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-14 items-start">
+                {ARTWORKS.map((artwork, i) => (
+                    <ArtworkCard key={artwork.title} artwork={artwork} eager={i === 0} />
+                ))}
             </div>
         </div>
     );
