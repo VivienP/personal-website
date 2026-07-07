@@ -30,10 +30,9 @@ const Hero = () => {
                     </h1>
 
                     {/* Credentials */}
-                    <p className="text-sm text-secondary leading-relaxed">
+                    <p className="text-base text-primary leading-relaxed">
                         MSc in biosensor research (De Vinci Innovation Center) · ex-R&amp;D at PKvitality ·
-                        founder of LocusLab · author of an open-source scientific claim verifier
-                        (F1 0.92 on SciFact).
+                        founder of Finexov and LocusLab · builder of an open-source scientific claim verifier.
                     </p>
 
                     {/* Location */}
