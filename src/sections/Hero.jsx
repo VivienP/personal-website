@@ -26,7 +26,7 @@ const Hero = () => {
                         >
                             freelance AI engineer for biology
                         </Link>{' '}
-                        and techbio teams: AI agents, RAG, and scientific tooling. <br className="hidden md:block" />
+                        and techbio teams: AI agents, context engineering, and scientific tooling. <br className="hidden md:block" />
                     </h1>
 
                     {/* Credentials */}

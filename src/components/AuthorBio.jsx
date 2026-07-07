@@ -18,7 +18,7 @@ const AuthorBio = ({ readNext = [] }) => (
                 </Link>
                 . He builds LocusLab, verification infrastructure for biology research, and takes on
                 selective freelance engagements with biotech, techbio, and AI-for-science teams:
-                AI agents, RAG, and scientific tooling.{' '}
+                AI agents, context engineering, and scientific tooling.{' '}
                 <a
                     href="https://www.linkedin.com/in/vivien-perrelle/"
                     target="_blank"

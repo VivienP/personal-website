@@ -38,8 +38,8 @@ const projects = [
     {
         id: 4,
         title: "Freelance AI Engineer",
-        description: "Freelance AI engineering for biology, techbio, and AI-for-science teams: AI agents, RAG pipelines, evaluation, and scientific data tooling.",
-        tags: ["AI for Science", "AI Agents", "RAG"],
+        description: "Freelance AI engineering for biology, techbio, and AI-for-science teams: AI agents, context engineering, evaluation, and scientific data tooling.",
+        tags: ["AI for Science", "AI Agents", "Context Engineering"],
         link: "/freelance-ai-engineer-biology",
         github: "#"
     },

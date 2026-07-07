@@ -46,7 +46,7 @@ const Contact = ({ showServicesLink = true }) => {
 
                 <p className="text-base text-secondary leading-relaxed max-w-2xl mb-10">
                     I take on selective freelance engagements with biology, biotech, and
-                    AI-for-science teams — AI agents, retrieval-augmented generation over
+                    AI-for-science teams — AI agents, context engineering over
                     scientific literature, evaluation, and scientific tooling. The same
                     systems I build for my own verification work at LocusLab.
                     {showServicesLink && (
