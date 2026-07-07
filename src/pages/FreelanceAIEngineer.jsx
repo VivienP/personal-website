@@ -139,7 +139,7 @@ const FreelanceAIEngineer = () => {
                     <p>
                         I fit in well with small startup teams. I go all-in on one problem at a time.
                         I work remotely on CET hours, with comfortable overlap for EU and
-                        US-East teams, and I adapt to your team&rsquo;s rhythm. I&rsquo;m also glad to
+                        US-East teams. I&rsquo;m also glad to
                         relocate for long-term missions or roles.
                     </p>
 
