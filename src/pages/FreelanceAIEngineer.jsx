@@ -22,7 +22,7 @@ const FreelanceAIEngineer = () => {
         <main className="min-h-screen animate-in fade-in duration-700">
             <SEO
                 title="Freelance AI Engineer for Biology Teams | Vivien Perrelle"
-                description="Hire a freelance AI engineer for biology — AI agents, RAG over scientific literature, and tooling for techbio and AI-for-science teams. Book an intro call."
+                description="Hire a freelance AI engineer for biology: AI agents, RAG over scientific literature, and tooling for TechBio and AI-for-science teams. Book an intro call."
                 url="/freelance-ai-engineer-biology"
                 jsonLd={{
                     '@context': 'https://schema.org',
@@ -44,62 +44,65 @@ const FreelanceAIEngineer = () => {
                         Freelance AI Engineer for Biology &amp; TechBio Teams
                     </h1>
                     <p className="text-base text-primary leading-relaxed">
-                        I&rsquo;m Vivien Perrelle, a freelance AI engineer for biology based in Paris.
-                        I help biotech, techbio, and AI-for-science companies design and ship AI agents,
-                        RAG pipelines over scientific literature, evaluation harnesses, and scientific
-                        data tooling — with verification and reproducibility built in.
+                        I&rsquo;m Vivien Perrelle, an AI engineer specialized in AI for biology. I want
+                        to work on systems that genuinely move science forward, and I believe the
+                        bottleneck now is trust: AI that is plausible is not enough when the output has
+                        to be correct. So I build the verification and reproducibility layer that
+                        scientific AI needs. I focus on AI agents, context engineering over scientific
+                        data, evaluation harnesses, and claim-to-source verification for research
+                        workflows.
                     </p>
                 </header>
 
                 <div className="prose prose-neutral text-primary max-w-none space-y-5 font-light">
                     <SectionTitle>What I do</SectionTitle>
                     <p>
-                        My work sits where language models meet real scientific workflows — the part
-                        that has to be right, not just plausible:
+                        My work sits where language models meet real scientific workflows, the part
+                        that has to be right rather than just plausible:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-primary">
                         <li>
-                            <strong>AI agents for research workflows</strong> — agents that read, extract,
+                            <strong>AI agents for research workflows</strong>: agents that read, extract,
                             cross-check, and draft over your internal corpus, with humans approving the
                             irreversible steps.
                         </li>
                         <li>
-                            <strong>RAG over scientific literature and internal data</strong> — retrieval
+                            <strong>RAG over scientific literature and internal data</strong>: retrieval
                             pipelines grounded in primary sources, built to cite what they claim.
                         </li>
                         <li>
-                            <strong>Claim-to-source verification</strong> — deterministic checking that every
+                            <strong>Claim-to-source verification</strong>: deterministic checking that every
                             statement in a generated or human document traces back to its evidence.
                         </li>
                         <li>
-                            <strong>Evaluation harnesses</strong> — measurable baselines and regression suites
+                            <strong>Evaluation harnesses</strong>: measurable baselines and regression suites
                             so you know whether the system actually improved.
                         </li>
                         <li>
-                            <strong>Scientific data tooling</strong> — pipelines over CrossRef, OpenAlex,
+                            <strong>Scientific data tooling</strong>: pipelines over CrossRef, OpenAlex,
                             PubMed, and your own datasets.
                         </li>
                     </ul>
 
                     <SectionTitle>Who I work with</SectionTitle>
                     <p>
-                        Mostly seed-to-growth techbio and AI-for-biology startups, and AI-for-science
-                        teams inside larger organisations — usually at the moment a demo has to become
-                        a dependable system. If you&rsquo;re looking for an AI for biology consultant who
-                        writes production code rather than slide decks, that&rsquo;s the gap I fill.
+                        I want to work with seed-to-growth TechBio and AI-for-biology startups, and
+                        AI-for-science teams inside larger organisations, at the moment a demo has to
+                        become a dependable system. That transition is what I&rsquo;m built for: an AI
+                        for biology engineer who writes production code, not slide decks.
                     </p>
 
                     <SectionTitle>Why me</SectionTitle>
                     <p>
-                        I&rsquo;ve worked on both sides of the problem — the biology and the software:
+                        I&rsquo;ve worked on both sides of the problem, the biology and the software:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-primary">
                         <li>
-                            MSc research on{' '}
+                            Built a{' '}
                             <Link to="/academic-work/smartwatch-embedded-biosensors" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
-                                smartwatch-embedded enzymatic biosensors
+                                smartwatch with embedded enzymatic biosensors
                             </Link>{' '}
-                            at the De Vinci Innovation Center.
+                            during my MSc in Creative Technologies at the De Vinci Innovation Center.
                         </li>
                         <li>
                             Hands-on R&amp;D at{' '}
@@ -109,7 +112,7 @@ const FreelanceAIEngineer = () => {
                             , a VC-backed team building a non-invasive CGM smartwatch.
                         </li>
                         <li>
-                            Founder of <a href="https://www.locuslabhq.com/" target="_blank" rel="noopener noreferrer" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">LocusLab</a> —
+                            Founder of <a href="https://www.locuslabhq.com/" target="_blank" rel="noopener noreferrer" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">LocusLab</a>:
                             independent evidence-assurance infrastructure for biology and regulated science.
                         </li>
                         <li>
@@ -120,7 +123,7 @@ const FreelanceAIEngineer = () => {
                             reaching F1 0.92 on SciFact (vs 0.62 naive baseline).
                         </li>
                         <li>
-                            Production AI agents shipped at{' '}
+                            Shipped production AI agents in my own startups,{' '}
                             <Link to="/projects/finexov" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
                                 Finexov
                             </Link>{' '}
@@ -134,11 +137,10 @@ const FreelanceAIEngineer = () => {
 
                     <SectionTitle>How I work</SectionTitle>
                     <p>
-                        Every engagement starts with a scoping call, then a fixed-scope proposal with
-                        explicit deliverables. I keep the number of parallel engagements deliberately
-                        small — the same systems I build for clients power my own verification work,
-                        so I only take on projects I can do well. Remote-first from Paris (CET), with
-                        comfortable overlap for EU and US-East teams.
+                        I fit in well with small startup teams. I go all-in on one problem at a time.
+                        I work remotely on CET hours, with comfortable overlap for EU and
+                        US-East teams, and I adapt to your team&rsquo;s rhythm. I&rsquo;m also glad to
+                        relocate for long-term missions or roles.
                     </p>
 
                     <SectionTitle>Read my thinking</SectionTitle>
@@ -162,25 +164,26 @@ const FreelanceAIEngineer = () => {
 
                     <SectionTitle>Common questions</SectionTitle>
 
-                    <Question>Do you work with early-stage techbio startups?</Question>
+                    <Question>Do you work with early-stage TechBio startups?</Question>
                     <p>
-                        Yes — that&rsquo;s most of my freelance work. Early teams usually need one system
-                        taken from prototype to production, not a permanent hire; a fixed-scope
-                        engagement fits that moment well.
+                        That&rsquo;s exactly the work I&rsquo;m set up for. Early teams usually need one
+                        system taken from prototype to production fast, with verification built in so
+                        it holds up. I can take that on as a defined project, or embed with the team
+                        that owns it.
                     </p>
 
                     <Question>What stack do you work in?</Question>
                     <p>
                         Python (async, FastAPI, Pydantic), the major LLM APIs and agent frameworks,
-                        retrieval infrastructure, and Docker-based deployment — including on-prem and
+                        retrieval infrastructure, and Docker-based deployment, including on-prem and
                         air-gapped environments when the data can&rsquo;t leave your infrastructure.
                     </p>
 
                     <Question>How do engagements start?</Question>
                     <p>
-                        A 30-minute intro call. If the problem is a fit, I send a fixed-scope proposal
-                        within a few days; if it isn&rsquo;t, I&rsquo;ll say so and point you to someone
-                        better placed.
+                        A 30-minute intro call. If the problem is a fit, I send a concrete proposal
+                        within a few days: scope, deliverables, timeline. If it isn&rsquo;t, I&rsquo;ll
+                        say so directly.
                     </p>
                 </div>
             </article>
