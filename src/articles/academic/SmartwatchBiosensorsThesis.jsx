@@ -2,9 +2,11 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import SEO from '../../components/SEO';
+import PdfEmbed from '../../components/PdfEmbed';
 import { AUTHOR } from '../../components/jsonld';
 
 const RESEARCHGATE_URL = 'https://www.researchgate.net/publication/375227950_Smartwatch-Embedded_Biosensors_For_Healthcare_Monitoring';
+const PDF_URL = '/papers/PERRELLE-Embedded-2023.pdf';
 
 const SmartwatchBiosensorsThesis = () => {
     useEffect(() => {
@@ -35,7 +37,12 @@ const SmartwatchBiosensorsThesis = () => {
                     "keywords": "wearable biosensors, smartwatch, healthcare monitoring, microneedle, lactate, BioWatch, biomonitoring",
                     "url": "https://vivienperrelle.com/academic-work/smartwatch-embedded-biosensors",
                     "sameAs": RESEARCHGATE_URL,
-                    "mainEntityOfPage": "https://vivienperrelle.com/academic-work/smartwatch-embedded-biosensors"
+                    "mainEntityOfPage": "https://vivienperrelle.com/academic-work/smartwatch-embedded-biosensors",
+                    "encoding": {
+                        "@type": "MediaObject",
+                        "contentUrl": `https://vivienperrelle.com${PDF_URL}`,
+                        "encodingFormat": "application/pdf"
+                    }
                 }}
             />
             <Link to="/academic-work" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
@@ -54,6 +61,12 @@ const SmartwatchBiosensorsThesis = () => {
                 <p>
                     This master's thesis delves into my two-year work on wearable biosensors at the DVIC. It covers the BioWatch development and the design of a microneedle lactate sensor module for the BioWatch. Beyond exploring smartwatches' potential, this thesis advocates a systemic design approach to wearable biomonitoring systems, driven by the triptych: technical performance, user experience, and medical relevance.
                 </p>
+
+                <PdfEmbed
+                    src={PDF_URL}
+                    poster="/papers/PERRELLE-Embedded-2023-p1.webp"
+                    title="Smartwatch-Embedded Biosensors For Healthcare Monitoring — full thesis (PDF)"
+                />
 
                 <div className="pt-2">
                     <a
