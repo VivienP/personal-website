@@ -139,12 +139,10 @@ const Art = () => {
                 <span>Back</span>
             </Link>
 
-            <header className="mb-12">
-                <p className="text-lg text-primary">
+            <header className="mb-12 space-y-4">
+                <h1 className="text-3xl md:text-4xl text-primary">Art</h1>
+                <p className="text-lg text-secondary font-light max-w-2xl">
                     A selection of my drawings in charcoal, pencil and soft pastel.
-                </p>
-                <p className="text-sm text-secondary mt-2">
-                    Hover over a framed piece to see the drawing on its own.
                 </p>
             </header>
 
