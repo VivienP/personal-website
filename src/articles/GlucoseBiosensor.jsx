@@ -213,7 +213,7 @@ const GlucoseBiosensor = () => {
                         <div className="space-y-3">
                             <h3 className="text-base font-normal text-primary">Amperometry</h3>
                             <p>
-                                ZP glucose biosensors are amperometric. The amperometric method can selectively distinguish several electroactive species in solution<Cite n={24} /> through a careful choice of applied potential and electrode material. Amperometric biosensors monitor currents — electrons exchanged between a biological system (the sweat) and an electrode.
+                                ZP glucose biosensors are amperometric. The amperometric method can selectively distinguish several electroactive species in solution<Cite n={24} /> through a careful choice of applied potential and electrode material. Amperometric biosensors monitor currents: electrons exchanged between a biological system (the sweat) and an electrode.
                             </p>
                         </div>
                         <div className="space-y-3">
@@ -230,7 +230,7 @@ const GlucoseBiosensor = () => {
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Tutorial</h2>
                     <p>This project has two parts: 1. Hardware assembly, and 2. Data acquisition.</p>
                     <Note>
-                        <p>The glucose biosensor and the battery have a short lifetime. If you are unfamiliar with ZP products, it is recommended to start with data acquisition — a low-frequency generator can power the ec-Flex.</p>
+                        <p>The glucose biosensor and the battery have a short lifetime. If you are unfamiliar with ZP products, it is recommended to start with data acquisition: a low-frequency generator can power the ec-Flex.</p>
                     </Note>
 
                     {/* 1. Hardware Assembly */}
@@ -261,7 +261,7 @@ const GlucoseBiosensor = () => {
                                 <h4 className="font-medium text-primary">1.2. Microfluidic patch</h4>
                                 <p>The microfluidic patch ensures dynamic sweat circulation in the SPE sensing area.</p>
                                 <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
-                                    <li>The <span className="font-medium text-primary">first layer</span> is the sweat-collecting reservoir. It firmly fixes the patch to the skin — gently insert the SPE.</li>
+                                    <li>The <span className="font-medium text-primary">first layer</span> is the sweat-collecting reservoir. It firmly fixes the patch to the skin. Gently insert the SPE.</li>
                                     <li>The <span className="font-medium text-primary">second layer</span> is the micro-channels, conducting sweat from the reservoir to the micro-reservoir. Peel it, place it on the first layer, and remove the thin plastic protection.</li>
                                     <li>The <span className="font-medium text-primary">third layer</span> is the micro-reservoir, controlling the sweat sample volume in the sensing area (up to 15 µl). Place it on the second layer.</li>
                                     <li>The <span className="font-medium text-primary">fourth layer</span> is the outlet, helping sweat circulate from the sensing area to outside the patch. Place it on the third layer.</li>
@@ -276,7 +276,7 @@ const GlucoseBiosensor = () => {
                     <div className="space-y-6">
                         <h3 className="text-base font-normal text-primary">2. Data acquisition</h3>
                         <p>
-                            Download the Biosensor-to-smartwatch wireless communication project ZIP from <a href="https://github.com/DeVinci-Innovation-Center/Biosensor-to-smartwatch_wireless_communication" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">GitHub</a>. Extract it and open the project in your code editor, then import the required Python libraries — the <a href="https://pypi.org/project/bleak/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Bleak library</a> is a GATT client.
+                            Download the Biosensor-to-smartwatch wireless communication project ZIP from <a href="https://github.com/DeVinci-Innovation-Center/Biosensor-to-smartwatch_wireless_communication" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">GitHub</a>. Extract it and open the project in your code editor, then import the required Python libraries. The <a href="https://pypi.org/project/bleak/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Bleak library</a> is a GATT client.
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
@@ -285,9 +285,9 @@ const GlucoseBiosensor = () => {
                                 <p>This establishes the Bluetooth client-server connection: the ec-Flex is the server, your device the client.</p>
                                 <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
                                     <li><span className="font-medium text-primary">Enter the MAC address</span> of the ec-Flex on line 13. A packet sniffer like <a href="https://www.microsoft.com/en-us/p/bluetooth-le-explorer/9n0ztkf1qd98" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Bluetooth LE Explorer</a> can recover it.</li>
-                                    <li><span className="font-medium text-primary">Run the code</span> — the services print in the terminal.</li>
+                                    <li><span className="font-medium text-primary">Run the code</span>: the services print in the terminal.</li>
                                     <li><span className="font-medium text-primary">Note the Vendor service</span> (service 3 – 11661) address on line 14.</li>
-                                    <li><span className="font-medium text-primary">Rerun the code</span> — the Vendor service characteristic handles print in the terminal.</li>
+                                    <li><span className="font-medium text-primary">Rerun the code</span>: the Vendor service characteristic handles print in the terminal.</li>
                                     <li><span className="font-medium text-primary">Recover handles</span> 17, 21, 24, 27, 30, 96, and 99.</li>
                                 </ul>
                                 <div className="overflow-x-auto border border-border-subtle">
@@ -314,7 +314,7 @@ const GlucoseBiosensor = () => {
                                 <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
                                     <li>Complete the addresses definition block.</li>
                                     <li>Fill in the access paths of the <code className="font-mono text-xs">database.db</code> and <code className="font-mono text-xs">schema.sql</code> files (comment them out if you do not want to save data).</li>
-                                    <li>Run the code — an ID, a timer, a temperature, and a glucose concentration value print in the terminal.</li>
+                                    <li>Run the code: an ID, a timer, a temperature, and a glucose concentration value print in the terminal.</li>
                                 </ul>
                             </div>
                             <div className="space-y-4">
@@ -359,7 +359,7 @@ const GlucoseBiosensor = () => {
                             <li>The data are only available on the laptop.</li>
                         </ul>
                         <p>
-                            The ongoing GitHub project addresses this last point by redirecting the data to a homemade smartwatch — the <Link to="/blog/smartwatch" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">How to Build a SmartWatch</Link> tutorial explains how to build it.
+                            The ongoing GitHub project addresses this last point by redirecting the data to a homemade smartwatch. The <Link to="/blog/smartwatch" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">How to Build a SmartWatch</Link> tutorial explains how to build it.
                         </p>
                         <p>
                             Wearable devices providing molecular-level information are still in their infancy<Cite n={26} />. Their potential affordability and accessibility fuel interest in personalized medicine<Cite n={27} /><Cite n={28} />. This tutorial aims to make these technologies more accessible and spark interest in their medical and well-being applications. <span className="font-medium text-primary">Wearable biosensing devices are a potential next frontier of wearable technology for fitness and individual and public-health monitoring<Cite n={29} />.</span>

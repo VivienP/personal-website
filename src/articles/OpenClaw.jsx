@@ -14,7 +14,7 @@ const OpenClaw = () => {
         <article className="min-h-screen py-24 px-6 max-w-3xl mx-auto animate-in fade-in duration-700">
             <SEO
                 title="OpenClaw & the Infrastructure of Sovereign Intelligence | Vivien Perrelle"
-                description="The Assistant era is over. 2026 is defined by Sovereign Agents—locally hosted, proactive AI entities capable of self-funding and autonomous execution. But without data interoperability and strict security, these agents are a liability, not an asset."
+                description="The Assistant era is over. 2026 is defined by Sovereign Agents: locally hosted, proactive AI entities capable of self-funding and autonomous execution. But without data interoperability and strict security, these agents are a liability, not an asset."
                 url="/blog/openclaw"
                 type="article"
                 article={{ publishedTime: '2026-02-20', author: 'Vivien Perrelle' }}
@@ -22,7 +22,7 @@ const OpenClaw = () => {
                     "@context": "https://schema.org",
                     "@type": "BlogPosting",
                     "headline": "OpenClaw & the Infrastructure of Sovereign Intelligence",
-                    "description": "The Assistant era is over. 2026 is defined by Sovereign Agents—locally hosted, proactive AI entities capable of self-funding and autonomous execution. But without data interoperability and strict security, these agents are a liability, not an asset.",
+                    "description": "The Assistant era is over. 2026 is defined by Sovereign Agents: locally hosted, proactive AI entities capable of self-funding and autonomous execution. But without data interoperability and strict security, these agents are a liability, not an asset.",
                     "image": "https://vivienperrelle.com/me.png",
                     "datePublished": "2026-02-20",
                     "dateModified": "2026-02-20",
@@ -45,7 +45,7 @@ const OpenClaw = () => {
 
             <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-8 font-light">
                 <p className="text-secondary italic">
-                    <strong>TL;DR:</strong> The "Assistant" era is over. 2026 is defined by <strong>Sovereign Agents</strong>—locally hosted, proactive AI entities capable of self-funding and autonomous execution. For companies, this means a shift from chatbots to "Agentic Layers" that orchestrate workflows. But the bottleneck remains infrastructure. Without data interoperability and strict security, these agents are a liability, not an asset.
+                    <strong>TL;DR:</strong> The "Assistant" era is over. 2026 is defined by <strong>Sovereign Agents</strong>: locally hosted, proactive AI entities capable of self-funding and autonomous execution. For companies, this means a shift from chatbots to "Agentic Layers" that orchestrate workflows. But the bottleneck remains infrastructure. Without data interoperability and strict security, these agents are a liability, not an asset.
                 </p>
 
                 <p>
@@ -57,7 +57,7 @@ const OpenClaw = () => {
                 </p>
 
                 <p>
-                    The viral explosion of OpenClaw—hitting 100k GitHub stars faster than almost any framework in history—marks a definitive end to the "Assistant" era. We've moved past LLMs as sophisticated search engines.
+                    The viral explosion of OpenClaw (hitting 100k GitHub stars faster than almost any framework in history) marks a definitive end to the "Assistant" era. We've moved past LLMs as sophisticated search engines.
                 </p>
 
                 <p>
@@ -83,7 +83,7 @@ const OpenClaw = () => {
                 </p>
 
                 <p>
-                    OpenClaw runs on <strong>your hardware</strong>. It operates via a "Heartbeat" daemon—waking up at set intervals, evaluating its task list, and following up on projects while you sleep. It transitions AI from <em>reactive</em> to <em>proactive</em>.
+                    OpenClaw runs on <strong>your hardware</strong>. It operates via a "Heartbeat" daemon: waking up at set intervals, evaluating its task list, and following up on projects while you sleep. It transitions AI from <em>reactive</em> to <em>proactive</em>.
                 </p>
 
                 <p>
@@ -131,7 +131,7 @@ const OpenClaw = () => {
                 </p>
 
                 <p>
-                    True impact lives in the industries where the stakes are existential and the regulation is absolute — and so are the challenges.
+                    True impact lives in the industries where the stakes are existential and the regulation is absolute. So are the challenges.
                 </p>
 
                 <p>
@@ -143,7 +143,7 @@ const OpenClaw = () => {
                 </p>
 
                 <p>
-                    Proprietary molecule data cannot touch a third-party cloud — that's the <strong>Local-First imperative</strong>. A failed execution mid-trial isn't a bug to patch later — that's why <strong>Rust-based sandboxing is non-negotiable</strong>. And running simulations at scale — genomic screening, compound docking, toxicity modeling — burns compute at a rate no fixed cloud contract can efficiently absorb. That's where x402 changes the equation: instead of a bloated AWS commitment, the agent pays for exactly the GPU milliseconds it consumes, in real time, in USDC. No waste. No overage.
+                    Proprietary molecule data cannot touch a third-party cloud. That's the <strong>Local-First imperative</strong>. A failed execution mid-trial isn't a bug to patch later. That's why <strong>Rust-based sandboxing is non-negotiable</strong>. And running simulations at scale (genomic screening, compound docking, toxicity modeling) burns compute at a rate no fixed cloud contract can efficiently absorb. That's where x402 changes the equation: instead of a bloated AWS commitment, the agent pays for exactly the GPU milliseconds it consumes, in real time, in USDC. No waste. No overage.
                 </p>
 
                 <p>
@@ -191,7 +191,7 @@ const OpenClaw = () => {
                 </p>
 
                 <p>
-                    As agents get more powerful, their failures get <em>weird</em>. The industry calls it the <strong>"Guacamole Problem"</strong>—when an agent becomes so fixated on a trivial sub-task (like ordering catering) that it completely ignores its primary research directive.
+                    As agents get more powerful, their failures get <em>weird</em>. The industry calls it the <strong>"Guacamole Problem"</strong>: when an agent becomes so fixated on a trivial sub-task (like ordering catering) that it completely ignores its primary research directive.
                 </p>
 
                 <p>

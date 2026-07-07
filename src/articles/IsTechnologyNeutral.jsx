@@ -13,7 +13,7 @@ const IsTechnologyNeutral = () => {
         <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
                 title="Is Technology Neutral? | Vivien Perrelle"
-                description="Why the neutrality question is poorly framed, and where the value of a technology is actually decided — not in use, but in design."
+                description="Why the neutrality question is poorly framed, and where the value of a technology is actually decided: not in use, but in design."
                 url="/blog/is-technology-neutral"
                 image="/ellul/jacques-ellul.jpg"
                 type="article"
@@ -22,7 +22,7 @@ const IsTechnologyNeutral = () => {
                     "@context": "https://schema.org",
                     "@type": "BlogPosting",
                     "headline": "Is Technology Neutral?",
-                    "description": "Why the neutrality question is poorly framed, and where the value of a technology is actually decided — not in use, but in design.",
+                    "description": "Why the neutrality question is poorly framed, and where the value of a technology is actually decided: not in use, but in design.",
                     "datePublished": "2023-02-24",
                     "dateModified": "2023-02-24",
                     "author": AUTHOR,

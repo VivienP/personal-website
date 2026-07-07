@@ -99,7 +99,7 @@ const SmartWatch = () => {
                     </div>
                     <div className="space-y-6 order-first md:order-last">
                         <p className="text-base font-normal text-primary">
-                            Wearable technologies are becoming ever more present in daily life. This tutorial shows how to build a smartwatch: it combines electronics — to program a liquid crystal display — and 3D printing — to make the watch case. It is a hands-on introduction to designing wearable technologies.
+                            Wearable technologies are becoming ever more present in daily life. This tutorial shows how to build a smartwatch: it combines electronics (to program a liquid crystal display) and 3D printing (to make the watch case). It is a hands-on introduction to designing wearable technologies.
                         </p>
                         <div className="flex pt-2">
                             <a href="https://github.com/VivienP/BioWatch/tree/main/smartwatch" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm">
@@ -121,7 +121,7 @@ const SmartWatch = () => {
                             The Pulsar NL C01, designed in 1982, is considered the first smartwatch — a user-programmable watch<Cite n={5} />. Their features have multiplied since, covering connectivity, sports, and health<Cite n={6} />, and their strong personalization has boosted their popularity<Cite n={7} />. Smart-wearable shipments reached 270 million units in 2020 and are projected to hit 770 million by 2026<Cite n={8} />.
                         </p>
                         <p>
-                            <span className="font-medium text-primary">Technological tools are increasingly within reach of individuals.</span> Prototyping platforms make electronics easy to program, and 3D printing allows tailor-made objects — so non-professionals can now build complex devices such as a smartwatch.
+                            <span className="font-medium text-primary">Technological tools are increasingly within reach of individuals.</span> Prototyping platforms make electronics easy to program, and 3D printing allows tailor-made objects, so non-professionals can now build complex devices such as a smartwatch.
                         </p>
                     </div>
                     <Figure src={`${B}/market-share.jpg`} alt="Smartwatch market share pie chart, 2020" caption="Smartwatch market share, Global, 2020. Source: Forbes." />
@@ -133,7 +133,7 @@ const SmartWatch = () => {
                     <div className="space-y-6 order-first md:order-last">
                         <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Skills &amp; Opportunities</h2>
                         <p>
-                            The first skill is <span className="font-medium text-primary">programming LCD screens</span> — which lets you print images, videos, GIFs, and data. The second is <span className="font-medium text-primary">slicing 3D models</span>, the step that precedes any 3D print and lets you produce any object, such as a watch case. Building this smartwatch is a first approach to wearable technologies.
+                            The first skill is <span className="font-medium text-primary">programming LCD screens</span>, which lets you print images, videos, GIFs, and data. The second is <span className="font-medium text-primary">slicing 3D models</span>, the step that precedes any 3D print and lets you produce any object, such as a watch case. Building this smartwatch is a first approach to wearable technologies.
                         </p>
                         <Figure src={`${B}/worn-closeup.jpg`} alt="Close-up of the smartwatch on the wrist" />
                     </div>
@@ -276,7 +276,7 @@ const SmartWatch = () => {
                                 <p><span className="font-medium text-primary">Set the filament and printer.</span> Here, PLA plastic and an Original Prusa MINI.</p>
                                 <p><span className="font-medium text-primary">Choose supports everywhere.</span></p>
                                 <Note><p><span className="font-medium">Supports</span> hold up certain parts of the piece during printing, depending on its geometry.</p></Note>
-                                <p><span className="font-medium text-primary">Slice the piece</span> — one slice per layer.</p>
+                                <p><span className="font-medium text-primary">Slice the piece</span>: one slice per layer.</p>
                                 <p><span className="font-medium text-primary">Generate the G-code.</span></p>
                                 <Note><p><span className="font-medium">G-code</span> is the programming language for Computer Numerical Control (CNC); it defines the movements the machine performs.</p></Note>
                                 <p><span className="font-medium text-primary">Save the G-code</span> on a flash drive (some printers read USB keys, others SD cards), plug it into the printer, and print the case.</p>
@@ -324,7 +324,7 @@ const SmartWatch = () => {
                     <div className="space-y-6">
                         <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Conclusion</h2>
                         <p>
-                            This tutorial builds a first smartwatch from scratch as simply as possible, making smartwatch design widely accessible — a first wearable-technology experience for beginners and seasoned makers alike. It has limits, though: the watch does not keep time, and the device is not truly wearable. The <a href="https://open-smartwatch.github.io/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Open Smartwatch Project</a> overcomes these with hardware modules (including the GC9A01), 3D-printable cases, and a custom operating system — though it requires solid electronics and programming knowledge.
+                            This tutorial builds a first smartwatch from scratch as simply as possible, making smartwatch design widely accessible, a first wearable-technology experience for beginners and seasoned makers alike. It has limits, though: the watch does not keep time, and the device is not truly wearable. The <a href="https://open-smartwatch.github.io/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Open Smartwatch Project</a> overcomes these with hardware modules (including the GC9A01), 3D-printable cases, and a custom operating system — though it requires solid electronics and programming knowledge.
                         </p>
                     </div>
                     <Figure src={`${B}/watch-black.jpg`} alt="The finished black smartwatch" />

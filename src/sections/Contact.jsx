@@ -45,8 +45,8 @@ const Contact = ({ showServicesLink = true }) => {
                 <h2 className="text-3xl md:text-4xl text-primary mb-6">Work with me</h2>
 
                 <p className="text-base text-secondary leading-relaxed max-w-2xl mb-10">
-                    I take on selective freelance engagements with biology, biotech, and
-                    AI-for-science teams — AI agents, context engineering over
+                    I take on selective freelance engagements with biology, BioTech, and
+                    AI-for-science teams: AI agents, context engineering over
                     scientific literature, evaluation, and scientific tooling. The same
                     systems I build for my own verification work at LocusLab.
                     {showServicesLink && (

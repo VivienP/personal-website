@@ -6,7 +6,7 @@ const projects = [
     {
         id: 0,
         title: "LocusLab",
-        description: "Building independent evidence-assurance infrastructure for biology and regulated science — the first commercial layer of a broader verification thesis for AI-driven research.",
+        description: "Building independent evidence-assurance infrastructure for biology and regulated science, the first commercial layer of a broader verification thesis for AI-driven research.",
         tags: ["AI for Science", "Verification", "Founder"],
         link: "https://www.locuslabhq.com/",
         github: "#"
@@ -14,7 +14,7 @@ const projects = [
     {
         id: 12,
         title: "Scientific Claim Verifier",
-        description: "Open-source engine that verifies each cited claim in scientific text against its source, with deterministic, fully-traceable provenance — F1 0.92 on SciFact (vs 0.62 naive baseline).",
+        description: "Open-source engine that verifies each cited claim in scientific text against its source, with deterministic, fully-traceable provenance: F1 0.92 on SciFact (vs 0.62 naive baseline).",
         tags: ["Open Source", "AI for Science", "Python"],
         link: "/projects/scientific-claim-verifier",
         github: "#"
@@ -38,7 +38,7 @@ const projects = [
     {
         id: 4,
         title: "Freelance AI Engineer",
-        description: "Freelance AI engineering for biology, techbio, and AI-for-science teams: AI agents, context engineering, evaluation, and scientific data tooling.",
+        description: "Freelance AI engineering for biology, TechBio, and AI-for-science teams: AI agents, context engineering, evaluation, and scientific data tooling.",
         tags: ["AI for Science", "AI Agents", "Context Engineering"],
         link: "/freelance-ai-engineer-biology",
         github: "#"
@@ -54,7 +54,7 @@ const projects = [
     {
         id: 3,
         title: "Wearable Biosensor Research",
-        description: "Built a working smartwatch prototype for wearable glucose and lactate enzymatic biosensors from scratch — the project that earned the PKvitality R&D role.",
+        description: "Built a working smartwatch prototype for wearable glucose and lactate enzymatic biosensors from scratch, the project that earned the PKvitality R&D role.",
         tags: ["Research", "Biosensors", "HealthTech"],
         link: "/projects/biowatch",
         github: "#"

@@ -34,7 +34,7 @@ const BioWatch = () => {
     return (
         <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
-                title="BioWatch — A Smartwatch Prototype for Wearable Biosensors | Vivien Perrelle"
+                title="BioWatch: A Smartwatch Prototype for Wearable Biosensors | Vivien Perrelle"
                 description="An open-source prototype smartwatch for the implementation of wearable biosensors, built during a master's degree research project at the De Vinci Innovation Center."
                 url="/projects/biowatch"
                 image="/biowatch/biowatch-grand-angle.jpg"
@@ -43,7 +43,7 @@ const BioWatch = () => {
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "TechArticle",
-                    "headline": "BioWatch — A Smartwatch Prototype for Wearable Biosensors",
+                    "headline": "BioWatch: A Smartwatch Prototype for Wearable Biosensors",
                     "datePublished": "2023-02-01",
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },

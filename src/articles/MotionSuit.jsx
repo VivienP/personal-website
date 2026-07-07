@@ -34,7 +34,7 @@ const MotionSuit = () => {
     return (
         <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
-                title="E-Textile Motion Suit — An Easy-to-Make E-Textile Platform | Vivien Perrelle"
+                title="E-Textile Motion Suit: An Easy-to-Make E-Textile Platform | Vivien Perrelle"
                 description="An open-source, easy-to-make e-textile platform whose fully integrated fabric sensors detect touch, position, and deformation to capture a wearer's movements."
                 url="/projects/motion-suit"
                 image="/catsuit/overview.jpg"
@@ -43,7 +43,7 @@ const MotionSuit = () => {
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "TechArticle",
-                    "headline": "E-Textile Motion Suit — An Easy-to-Make E-Textile Platform",
+                    "headline": "E-Textile Motion Suit: An Easy-to-Make E-Textile Platform",
                     "datePublished": "2022-01-01",
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
@@ -107,15 +107,15 @@ const MotionSuit = () => {
                             Smart textiles, electronic textiles, or e-textiles are fabrics infused with electronic components and functionality<Cite n={1} />. Their main applications are:
                         </p>
                         <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
-                            <li><span className="font-medium text-primary">Health and wellness</span> — monitoring vital signs, tracking physical activity, and detecting changes in the body;</li>
-                            <li><span className="font-medium text-primary">Sports and fitness</span> — tracking athletes' performance and giving feedback on technique;</li>
-                            <li><span className="font-medium text-primary">Fashion</span> — interactive, responsive clothing for new forms of self-expression and personalization<Cite n={2} />.</li>
+                            <li><span className="font-medium text-primary">Health and wellness</span>: monitoring vital signs, tracking physical activity, and detecting changes in the body;</li>
+                            <li><span className="font-medium text-primary">Sports and fitness</span>: tracking athletes' performance and giving feedback on technique;</li>
+                            <li><span className="font-medium text-primary">Fashion</span>: interactive, responsive clothing for new forms of self-expression and personalization<Cite n={2} />.</li>
                         </ul>
                         <p>Three generations of e-textiles have gradually emerged:</p>
                         <ol className="list-decimal pl-6 space-y-2 marker:text-secondary marker:font-mono">
-                            <li><span className="font-medium text-primary">Passive e-textiles</span> — simple conductive fabrics enabling basic functions such as sensors and switches.</li>
-                            <li><span className="font-medium text-primary">Active e-textiles</span> — fabrics with components like LEDs, batteries, and microcontrollers, used to make garments that light up, change color, or react to their environment.</li>
-                            <li><span className="font-medium text-primary">Functional e-textiles</span> — still in development, capable of advanced functions such as biometric monitoring, energy harvesting, and data communication<Cite n={3} />.</li>
+                            <li><span className="font-medium text-primary">Passive e-textiles</span>: simple conductive fabrics enabling basic functions such as sensors and switches.</li>
+                            <li><span className="font-medium text-primary">Active e-textiles</span>: fabrics with components like LEDs, batteries, and microcontrollers, used to make garments that light up, change color, or react to their environment.</li>
+                            <li><span className="font-medium text-primary">Functional e-textiles</span>: still in development, capable of advanced functions such as biometric monitoring, energy harvesting, and data communication<Cite n={3} />.</li>
                         </ol>
                         <p>
                             Despite this progress, e-textiles remain hard to reach for non-experts. Cost, comfort, durability, and the lack of learning platforms are still real barriers. Today the most accessible form of non-commercial e-textile lives in the cosplay and DIY community. Through collaboration, education, and standardization, e-textiles could become far more practical for students and beginners.
@@ -146,7 +146,7 @@ const MotionSuit = () => {
                         <div className="space-y-6 order-first md:order-last">
                             <h3 className="text-base font-normal text-primary">Architecture</h3>
                             <p>
-                                Mechanical movement sensors capture the wearer's motion. Three <a href="https://www.wemos.cc/en/latest/d1/d1_mini.html" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">ESP8266 Wemos Lolin D1 mini</a> microcontrollers — left, middle, and right — send this data to a server, which triggers audio-visual feedback whenever new information arrives.
+                                Mechanical movement sensors capture the wearer's motion. Three <a href="https://www.wemos.cc/en/latest/d1/d1_mini.html" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">ESP8266 Wemos Lolin D1 mini</a> microcontrollers (left, middle, and right) send this data to a server, which triggers audio-visual feedback whenever new information arrives.
                             </p>
                             <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
                                 <li>Two <span className="font-medium text-primary">stretch sensors</span> on the right and left elbows sense the fabric stretching as the elbow bends.</li>
@@ -173,7 +173,7 @@ const MotionSuit = () => {
                         <div className="space-y-4 order-first md:order-last">
                             <h3 className="text-base font-normal text-primary">2. Crumple sensors</h3>
                             <p>
-                                Here the conductive thread is sewn across an entire surface. When the fabric wrinkles, it folds onto itself and creates contact points that let the current short-circuit the pattern — so the resistance drops accordingly.
+                                Here the conductive thread is sewn across an entire surface. When the fabric wrinkles, it folds onto itself and creates contact points that let the current short-circuit the pattern, so the resistance drops accordingly.
                             </p>
                         </div>
                     </div>

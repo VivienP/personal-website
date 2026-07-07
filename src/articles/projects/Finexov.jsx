@@ -11,7 +11,7 @@ const Finexov = () => {
     return (
         <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
-                title="Finexov — An AI Platform for Public Funding Applications | Vivien Perrelle"
+                title="Finexov: An AI Platform for Public Funding Applications | Vivien Perrelle"
                 description="Finexov, my first startup: an AI platform that generates public-funding applications for French startups and scale-ups. Sold to innovation-funding consultancies, with €30K in sales and partnerships with the two largest French firms in the sector."
                 url="/projects/finexov"
                 type="article"
@@ -20,7 +20,7 @@ const Finexov = () => {
                     "@context": "https://schema.org",
                     "@type": "CreativeWork",
                     "name": "Finexov",
-                    "headline": "Finexov — An AI Platform for Public Funding Applications",
+                    "headline": "Finexov: An AI Platform for Public Funding Applications",
                     "datePublished": "2024-06-01",
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
@@ -57,7 +57,7 @@ const Finexov = () => {
                 <section className="space-y-4">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">What I did</h2>
                     <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
-                        <li>Led end-to-end sales — cold calling and emailing, LinkedIn inbound/outbound (100K views/month), product demos, and closing initial deals with key clients in the innovation-funding sector.</li>
+                        <li>Led end-to-end sales: cold calling and emailing, LinkedIn inbound/outbound (100K views/month), product demos, and closing initial deals with key clients in the innovation-funding sector.</li>
                         <li>Built a minimum viable product for an AI-powered funding-application platform.</li>
                     </ul>
                 </section>

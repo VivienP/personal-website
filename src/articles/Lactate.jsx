@@ -98,7 +98,7 @@ const Lactate = () => {
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
                         <p className="text-base font-normal text-primary">
-                            Biosensors are a new type of sensor that detects specific substances, enabling highly sensitive and selective detection of analytes such as glucose, lactate, and cholesterol. As a promising healthcare technology, they offer real-time, non-invasive monitoring — of blood glucose, for instance — and the resulting wearable data helps health and sports professionals build accurate treatment plans and preventive prescriptions. This tutorial walks through building a proof-of-concept enzymatic lactate biosensor, a promising way to monitor muscle fatigue in athletes.
+                            Biosensors are a new type of sensor that detects specific substances, enabling highly sensitive and selective detection of analytes such as glucose, lactate, and cholesterol. As a promising healthcare technology, they offer real-time, non-invasive monitoring (of blood glucose, for instance) and the resulting wearable data helps health and sports professionals build accurate treatment plans and preventive prescriptions. This tutorial walks through building a proof-of-concept enzymatic lactate biosensor, a promising way to monitor muscle fatigue in athletes.
                         </p>
                         <div className="flex pt-2">
                             <a href="https://github.com/DeVinci-Innovation-Center/BioWatch" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm">
@@ -136,7 +136,7 @@ const Lactate = () => {
                             Biosensing research is multidisciplinary, spanning chemistry, biology, and engineering. This tutorial teaches two main skills.
                         </p>
                         <p>
-                            The first is <span className="font-medium text-primary">electrochemistry</span> — the study of the relationship between electricity and chemical reactions. The goal here is to measure an electrical signal that mirrors a chemical reaction, while picking up general lab techniques along the way.
+                            The first is <span className="font-medium text-primary">electrochemistry</span>, the study of the relationship between electricity and chemical reactions. The goal here is to measure an electrical signal that mirrors a chemical reaction, while picking up general lab techniques along the way.
                         </p>
                         <p>
                             The second is <span className="font-medium text-primary">electronic programming</span>. The tutorial uses a programmable analog front-end (AFE) board, the LMP91000, which provides a complete signal path between a sensor and a microcontroller and outputs a voltage proportional to the cell current — a first hands-on approach to an engineering development board.
@@ -157,7 +157,7 @@ const Lactate = () => {
                             <li>An <a href="https://www.mouser.fr/ProductDetail/595-LMP91000EVMNPB" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">LMP91000 AFE from Texas Instruments</a></li>
                             <li>Lactate Oxidase (LOx)</li>
                             <li><a href="https://www.sigmaaldrich.com/FR/fr/substance/polypyrrole1234530604810" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">PolyPyrrol (PPy)</a></li>
-                            <li>Sodium Dodecyl Sulfate (SDS) — optional</li>
+                            <li>Sodium Dodecyl Sulfate (SDS), optional</li>
                             <li>A coil of pure platinum wire</li>
                             <li>Lactic acid solution</li>
                             <li>Phosphate Buffer Saline (PBS)</li>
@@ -182,7 +182,7 @@ const Lactate = () => {
                             <div className="space-y-4">
                                 <h3 className="text-base font-normal text-primary">Immobilization Matrix</h3>
                                 <p>
-                                    Functionalizing a biosensor means immobilizing the enzyme on a transducer surface<Cite n={11} />. The four main methods are (1) non-covalent adsorption and deposition, (2) physical entrapment, (3) covalent attachment, and (4) bio-conjugation. This tutorial uses physical entrapment — including the enzyme within a polymer network<Cite n={12} />.
+                                    Functionalizing a biosensor means immobilizing the enzyme on a transducer surface<Cite n={11} />. The four main methods are (1) non-covalent adsorption and deposition, (2) physical entrapment, (3) covalent attachment, and (4) bio-conjugation. This tutorial uses physical entrapment, including the enzyme within a polymer network<Cite n={12} />.
                                 </p>
                             </div>
                             <div className="space-y-4">
@@ -201,7 +201,7 @@ const Lactate = () => {
                             <h3 className="text-base font-normal text-primary">Membrane</h3>
                             <p>The outer selector membrane has two roles:</p>
                             <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
-                                <li>filtering out interferents — biomolecules that could interact with the enzyme and distort the signal;</li>
+                                <li>filtering out interferents, biomolecules that could interact with the enzyme and distort the signal;</li>
                                 <li>regulating the concentration of the target molecule reaching the enzyme, so the biosensor does not run short of oxygen and saturate<Cite n={16} />.</li>
                             </ul>
                             <p>
@@ -225,9 +225,9 @@ const Lactate = () => {
                                 <Note>
                                     <p>Platinum is widely used in biosensors for its properties:</p>
                                     <ul className="list-disc pl-5 space-y-1">
-                                        <li><span className="font-medium">High catalytic activity</span> — it speeds up the chemical reactions.</li>
+                                        <li><span className="font-medium">High catalytic activity</span>: it speeds up the chemical reactions.</li>
                                         <li><span className="font-medium">High electrical conductivity.</span></li>
-                                        <li><span className="font-medium">Biocompatibility</span> — non-toxic to living cells, essential for wearables<Cite n={17} />.</li>
+                                        <li><span className="font-medium">Biocompatibility</span>: non-toxic to living cells, essential for wearables<Cite n={17} />.</li>
                                     </ul>
                                     <p>Other metals used in biosensors include gold, palladium, rhodium, ruthenium, and copper<Cite n={18} />.</p>
                                 </Note>

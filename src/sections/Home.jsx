@@ -11,8 +11,8 @@ const Home = () => (
     {/* No jsonLd prop: the SEO component serves its Person/Service/WebSite
         @graph on '/' by default — one source of truth for the entity. */}
     <SEO
-      title="Vivien Perrelle — AI Engineer & Founder, AI for Biology"
-      description="I help techbio and AI-for-biology teams ship AI agents, RAG pipelines, and scientific tooling. Selective freelance engagements — book an intro call."
+      title="Vivien Perrelle | AI Engineer & Founder, AI for Biology"
+      description="I help TechBio and AI-for-biology teams ship AI agents, RAG pipelines, and scientific tooling. Selective freelance engagements. Book an intro call."
       url="/"
     />
     <Hero />

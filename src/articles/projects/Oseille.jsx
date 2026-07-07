@@ -11,7 +11,7 @@ const Oseille = () => {
     return (
         <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
-                title="Oseille AI — An Agent for French Innovation Subsidies | Vivien Perrelle"
+                title="Oseille AI: An Agent for French Innovation Subsidies | Vivien Perrelle"
                 description="Oseille AI, a project launched during my time at Finexov, is a specialized agent on Bpifrance innovation subsidies. Through LinkedIn content it helped around ten startups navigate French public funding."
                 url="/projects/oseille"
                 image="/oseille/oseille-ai-white-preview.jpg"
@@ -21,7 +21,7 @@ const Oseille = () => {
                     "@context": "https://schema.org",
                     "@type": "CreativeWork",
                     "name": "Oseille AI",
-                    "headline": "Oseille AI — An Agent for French Innovation Subsidies",
+                    "headline": "Oseille AI: An Agent for French Innovation Subsidies",
                     "datePublished": "2024-01-01",
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
@@ -56,10 +56,10 @@ const Oseille = () => {
 
             <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-base">
                 <p>
-                    I launched Oseille AI during my time at Finexov, the consultancy where I built AI agents to streamline R&D documentation for public funding. The idea was simple: turn the dense, ever-changing world of <span className="font-medium text-primary">Bpifrance innovation subsidies</span> into something a founder could actually navigate. Oseille AI is a specialized agent that answers questions about French innovation grants — eligibility, deadlines, the right scheme for a given stage — in plain language.
+                    I launched Oseille AI during my time at Finexov, the consultancy where I built AI agents to streamline R&D documentation for public funding. The idea was simple: turn the dense, ever-changing world of <span className="font-medium text-primary">Bpifrance innovation subsidies</span> into something a founder could actually navigate. Oseille AI is a specialized agent that answers questions about French innovation grants (eligibility, deadlines, the right scheme for a given stage) in plain language.
                 </p>
                 <p>
-                    Rather than a pure product play, I used it as a way to help founders directly. Through <span className="font-medium text-primary">LinkedIn content</span> built around the agent, I ended up guiding around ten startups through their public-funding decisions — which grants to target, how to frame their R&D, and where the common mistakes hide.
+                    Rather than a pure product play, I used it as a way to help founders directly. Through <span className="font-medium text-primary">LinkedIn content</span> built around the agent, I ended up guiding around ten startups through their public-funding decisions: which grants to target, how to frame their R&D, and where the common mistakes hide.
                 </p>
                 <p>
                     Along the way I also launched <span className="font-medium text-primary">boursefrenchtech.fr</span>, a companion resource on the French Tech grant. It is no longer maintained today, but it was part of the same effort: making opaque public funding legible to the people it is meant to serve.

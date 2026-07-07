@@ -12,8 +12,8 @@ const DEFAULT_JSON_LD = {
             url: SITE_URL,
             image: `${SITE_URL}/me.png`,
             jobTitle: 'Founder & Freelance AI Engineer, AI for Biology',
-            description: 'Founder building verification infrastructure for biology research. Freelance AI engineer for biology, techbio, and AI-for-science teams — AI agents, RAG, scientific tooling.',
-            address: { '@type': 'PostalAddress', addressLocality: 'Paris', addressCountry: 'FR' },
+            description: 'Founder building verification infrastructure for biology research. Freelance AI engineer for biology, TechBio, and AI-for-science teams: AI agents, RAG, scientific tooling.',
+            address: { '@type': 'PostalAddress', addressLocality: 'Lyon', addressCountry: 'FR' },
             alumniOf: { '@type': 'EducationalOrganization', name: 'De Vinci Innovation Center' },
             knowsAbout: [
                 'AI for science',
@@ -30,13 +30,13 @@ const DEFAULT_JSON_LD = {
                 {
                     '@type': 'Occupation',
                     name: 'Founder',
-                    description: 'Founder of LocusLab — verification infrastructure for biology research.',
+                    description: 'Founder of LocusLab, verification infrastructure for biology research.',
                 },
                 {
                     '@type': 'Occupation',
                     name: 'Freelance AI Engineer',
-                    description: 'Freelance AI engineering for biology, techbio, and AI-for-science teams.',
-                    occupationLocation: { '@type': 'City', name: 'Paris' },
+                    description: 'Freelance AI engineering for biology, TechBio, and AI-for-science teams.',
+                    occupationLocation: { '@type': 'City', name: 'Lyon' },
                 },
             ],
             sameAs: [
@@ -59,8 +59,8 @@ const DEFAULT_JSON_LD = {
 };
 
 const defaults = {
-    title: 'Vivien Perrelle — AI Engineer & Founder, AI for Biology',
-    description: 'I help techbio and AI-for-biology teams ship AI agents, RAG pipelines, and scientific tooling. Selective freelance engagements — book an intro call.',
+    title: 'Vivien Perrelle | AI Engineer & Founder, AI for Biology',
+    description: 'I help TechBio and AI-for-biology teams ship AI agents, RAG pipelines, and scientific tooling. Selective freelance engagements. Book an intro call.',
     image: `${SITE_URL}/me.png`,
 };
 

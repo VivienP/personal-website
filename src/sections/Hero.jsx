@@ -26,19 +26,19 @@ const Hero = () => {
                         >
                             freelance AI engineer for biology
                         </Link>{' '}
-                        and techbio teams: AI agents, context engineering, and scientific tooling. <br className="hidden md:block" />
+                        and TechBio teams: AI agents, context engineering, and scientific tooling. <br className="hidden md:block" />
                     </h1>
 
                     {/* Credentials */}
                     <p className="text-base text-primary leading-relaxed">
-                        MSc in biosensor research (De Vinci Innovation Center) · ex-R&amp;D at PKvitality ·
-                        founder of Finexov and LocusLab · builder of an open-source scientific claim verifier.
+                        MSc in Creative Technologies (De Vinci Innovation Center) · ex-R&amp;D at PKvitality ·
+                        founder of Finexov and LocusLab · building AI that science can trust.
                     </p>
 
                     {/* Location */}
                     <div className="flex items-center space-x-2 text-secondary text-sm md:text-base">
                         <MapPin size={16} className="text-secondary/70" />
-                        <span>Paris, France</span>
+                        <span>Lyon, France</span>
                     </div>
 
                 </div>

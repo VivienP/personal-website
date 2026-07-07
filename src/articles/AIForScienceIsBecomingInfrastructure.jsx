@@ -26,23 +26,23 @@ const AIForScienceIsBecomingInfrastructure = () => {
         <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
                 title="AI for Science Is Moving From Prediction to Closed-Loop Research Systems | Vivien Perrelle"
-                description="How does AI-for-science find out it's wrong? A framework mapping research loops by cost and fidelity of feedback — from code-closed to patient-closed systems."
+                description="How does AI-for-science find out it's wrong? A framework mapping research loops by cost and fidelity of feedback, from code-closed to patient-closed systems."
                 url="/blog/ai-for-science-is-becoming-a-systems-problem"
                 image="/ai-for-science/loops-cover-small.jpg"
                 type="article"
-                article={{ publishedTime: '2026-06-01', author: 'Vivien Perrelle', tags: ['AI', 'Scientific Research', 'Drug Discovery', 'Research Automation', 'Biotech', 'Evaluation', 'Google Co-Scientist', 'Isomorphic Labs', 'SoundnessBench'] }}
+                article={{ publishedTime: '2026-06-01', author: 'Vivien Perrelle', tags: ['AI', 'Scientific Research', 'Drug Discovery', 'Research Automation', 'BioTech', 'Evaluation', 'Google Co-Scientist', 'Isomorphic Labs', 'SoundnessBench'] }}
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "BlogPosting",
                     "headline": "AI for Science Is Moving From Prediction to Closed-Loop Research Systems",
-                    "description": "How does AI-for-science find out it's wrong? A framework mapping research loops by cost and fidelity of feedback — from code-closed to patient-closed systems.",
+                    "description": "How does AI-for-science find out it's wrong? A framework mapping research loops by cost and fidelity of feedback, from code-closed to patient-closed systems.",
                     "image": "https://vivienperrelle.com/me.png",
                     "datePublished": "2026-06-01",
                     "dateModified": "2026-06-01",
                     "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "mainEntityOfPage": "https://vivienperrelle.com/blog/ai-for-science-is-becoming-a-systems-problem",
-                    "keywords": "AI, Scientific Research, Drug Discovery, Research Automation, Biotech, Evaluation, Google Co-Scientist, Isomorphic Labs, SoundnessBench, AI research agents, autonomous scientific discovery, AI-first drug design, AI Scientist Sakana AI, evaluation bottleneck, Eroom's law, feedback loops, cost fidelity"
+                    "keywords": "AI, Scientific Research, Drug Discovery, Research Automation, BioTech, Evaluation, Google Co-Scientist, Isomorphic Labs, SoundnessBench, AI research agents, autonomous scientific discovery, AI-first drug design, AI Scientist Sakana AI, evaluation bottleneck, Eroom's law, feedback loops, cost fidelity"
                 }}
             />
             <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
@@ -90,16 +90,16 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         The thing that did not scale was the loop that turns an idea into validated knowledge.
                     </p>
                     <p>
-                        That loop is simple to describe — idea, evidence, experiment, interpretation, decision — and hard to execute. A hypothesis has to be grounded in prior evidence. An experiment has to test the right thing. Results have to be interpreted correctly. A decision has to be made under uncertainty. And in biology, every step can be slow, expensive, noisy, or misleading.
+                        That loop is simple to describe (idea, evidence, experiment, interpretation, decision) and hard to execute. A hypothesis has to be grounded in prior evidence. An experiment has to test the right thing. Results have to be interpreted correctly. A decision has to be made under uncertainty. And in biology, every step can be slow, expensive, noisy, or misleading.
                     </p>
                     <p>
-                        This is why the latest AI-for-science wave matters. Not because AI suddenly gives science more ideas — ideas were never the bottleneck. Because software is starting to touch more of the loop itself: generating hypotheses, searching evidence, writing code, running computational experiments, designing proteins, simulating biological systems, supporting decisions.
+                        This is why the latest AI-for-science wave matters. Not because AI suddenly gives science more ideas: ideas were never the bottleneck. Because software is starting to touch more of the loop itself: generating hypotheses, searching evidence, writing code, running computational experiments, designing proteins, simulating biological systems, supporting decisions.
                     </p>
                     <p>
                         But these loops are not equivalent. The key question is not what a system can generate. It is: how does the system find out that it is wrong?
                     </p>
                     <p>
-                        That depends on two variables that are easy to confuse. The cost of feedback is how slow, expensive, or operationally difficult it is to get a correction from reality. The fidelity of feedback is how directly that correction reflects the thing you actually care about. The two do not move together — and that gap is the whole story. Some feedback is fast and cheap but only loosely connected to the real question. Other feedback is slow and costly yet far more faithful. The cheaper and less faithful the loop, the easier it is to scale — and the easier it is to fool yourself.
+                        That depends on two variables that are easy to confuse. The cost of feedback is how slow, expensive, or operationally difficult it is to get a correction from reality. The fidelity of feedback is how directly that correction reflects the thing you actually care about. The two do not move together, and that gap is the whole story. Some feedback is fast and cheap but only loosely connected to the real question. Other feedback is slow and costly yet far more faithful. The cheaper and less faithful the loop, the easier it is to scale — and the easier it is to fool yourself.
                     </p>
                     <figure className="my-8 not-prose">
                         <img
@@ -177,7 +177,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                         The old version of AI for science was answer-oriented: ask a question, get a response. The new version is search-oriented: define a problem, explore the hypothesis space, compare candidates, and propose what might be worth testing.
                     </p>
                     <p>
-                        Inherent<Cite n={9} /> belongs in this same category. Its thesis is more ambitious — systems that help scientists find better questions, not just answer known ones — but it is still about search over possible directions of inquiry.
+                        Inherent<Cite n={9} /> belongs in this same category. Its thesis is more ambitious: systems that help scientists find better questions, not just answer known ones. But it is still about search over possible directions of inquiry.
                     </p>
                     <p>
                         This is valuable. But it is not discovery by itself.

@@ -11,7 +11,7 @@ const Bione = () => {
     return (
         <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
-                title="Bione — A 3D Interactive App to Learn About Biosensors | Vivien Perrelle"
+                title="Bione: A 3D Interactive App to Learn About Biosensors | Vivien Perrelle"
                 description="An open-source WebGL app built on Cables.gl that illustrates a microneedle glucose biosensor in 3D, making biosensing concepts accessible and easy to assimilate."
                 url="/projects/bione"
                 image="/bione/overview-diagram.jpg"
@@ -20,7 +20,7 @@ const Bione = () => {
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "TechArticle",
-                    "headline": "Bione — A 3D Interactive App to Learn About Biosensors",
+                    "headline": "Bione: A 3D Interactive App to Learn About Biosensors",
                     "datePublished": "2023-01-01",
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
@@ -47,7 +47,7 @@ const Bione = () => {
             <div className="w-full aspect-video border border-border-subtle mb-16 bg-black">
                 <iframe
                     src="https://www.youtube.com/embed/ddxQ8p3oF04"
-                    title="Bione — interactive 3D biosensor app"
+                    title="Bione: interactive 3D biosensor app"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     loading="lazy"
@@ -95,7 +95,7 @@ const Bione = () => {
 
                 <footer className="pt-12 border-t border-border-subtle">
                     <p className="text-sm text-secondary">
-                        © Vivien Perrelle — Open-source WebGL project.
+                        © Vivien Perrelle. Open-source WebGL project.
                     </p>
                 </footer>
 

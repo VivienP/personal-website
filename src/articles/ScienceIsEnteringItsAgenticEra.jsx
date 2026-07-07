@@ -17,7 +17,7 @@ const ScienceIsEnteringItsAgenticEra = () => {
                 description="Exploring how agentic AI is transforming scientific research, from literature review to autonomous hypothesis generation and experimental design."
                 url="/blog/science-is-entering-its-agentic-era"
                 type="article"
-                article={{ publishedTime: '2026-04-17', author: 'Vivien Perrelle', tags: ['AI', 'Agentic AI', 'Scientific Research', 'Research Automation', 'Biotech'] }}
+                article={{ publishedTime: '2026-04-17', author: 'Vivien Perrelle', tags: ['AI', 'Agentic AI', 'Scientific Research', 'Research Automation', 'BioTech'] }}
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "BlogPosting",
@@ -29,7 +29,7 @@ const ScienceIsEnteringItsAgenticEra = () => {
                     "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "mainEntityOfPage": "https://vivienperrelle.com/blog/science-is-entering-its-agentic-era",
-                    "keywords": "AI, Agentic AI, Scientific Research, Research Automation, Biotech"
+                    "keywords": "AI, Agentic AI, Scientific Research, Research Automation, BioTech"
                 }}
             />
             <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
@@ -56,13 +56,13 @@ const ScienceIsEnteringItsAgenticEra = () => {
 
                 <section className="space-y-6">
                     <p>
-                        Science has always been bottlenecked by human time. PubMed holds more than 38 million papers. ClinicalTrials.gov registers more than 500,000 trials. The combinatorial space of chemistry and biology exceeds what any individual researcher — or any team — can navigate in a lifetime. This has been the quiet ceiling on scientific velocity for decades.
+                        Science has always been bottlenecked by human time. PubMed holds more than 38 million papers. ClinicalTrials.gov registers more than 500,000 trials. The combinatorial space of chemistry and biology exceeds what any individual researcher, or any team, can navigate in a lifetime. This has been the quiet ceiling on scientific velocity for decades.
                     </p>
                     <p>
                         Large language models cracked a first layer of that ceiling in 2023. Tools like Consensus, Elicit, and Scite turned static literature into conversational knowledge. Useful, but incremental: they summarized what was already known.
                     </p>
                     <p>
-                        What is happening now is different in kind. We are moving from assistive AI that helps humans read faster, to agentic AI that conducts research autonomously — formulating hypotheses, designing experiments, executing code, reading full-text papers through tools, and writing manuscripts. The loop is starting to close.
+                        What is happening now is different in kind. We are moving from assistive AI that helps humans read faster, to agentic AI that conducts research autonomously: formulating hypotheses, designing experiments, executing code, reading full-text papers through tools, and writing manuscripts. The loop is starting to close.
                     </p>
                 </section>
 
@@ -72,13 +72,13 @@ const ScienceIsEnteringItsAgenticEra = () => {
                         A few facts worth noting:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
-                        <li>FutureHouse, the AI-for-science lab co-founded by Sam Rodriques and Andrew White, launched its public platform on May 1, 2025, with five specialized agents — Crow, Falcon, Owl, Phoenix, and Finch — each built for a distinct stage of the research process. A commercial spinoff, Edison Scientific, followed in November 2025.</li>
-                        <li>In May 2025, FutureHouse demonstrated a multi-agent workflow that identified a novel therapeutic candidate for dry age-related macular degeneration — a leading cause of irreversible blindness.</li>
-                        <li>Sakana AI's <a href="https://github.com/SakanaAI/AI-Scientist" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"><em>AI Scientist</em></a> autonomously generates research ideas, writes code, runs experiments via agentic tree search, produces full manuscripts, and performs its own peer review. In its template-free mode, the system submitted three papers to an ICLR 2025 workshop — one would have been accepted had it not been withdrawn per protocol. The paper's scientific quality improves predictably with both compute budget and base model capability — the exact scaling dynamic that turns early demos into massively-adopted tools.</li>
+                        <li>FutureHouse, the AI-for-science lab co-founded by Sam Rodriques and Andrew White, launched its public platform on May 1, 2025, with five specialized agents (Crow, Falcon, Owl, Phoenix, and Finch), each built for a distinct stage of the research process. A commercial spinoff, Edison Scientific, followed in November 2025.</li>
+                        <li>In May 2025, FutureHouse demonstrated a multi-agent workflow that identified a novel therapeutic candidate for dry age-related macular degeneration, a leading cause of irreversible blindness.</li>
+                        <li>Sakana AI's <a href="https://github.com/SakanaAI/AI-Scientist" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"><em>AI Scientist</em></a> autonomously generates research ideas, writes code, runs experiments via agentic tree search, produces full manuscripts, and performs its own peer review. In its template-free mode, the system submitted three papers to an ICLR 2025 workshop. One would have been accepted had it not been withdrawn per protocol. The paper's scientific quality improves predictably with both compute budget and base model capability: the exact scaling dynamic that turns early demos into massively-adopted tools.</li>
                         <li>Argonne, Oak Ridge, and Lawrence Berkeley National Laboratories now operate autonomous, AI-driven materials laboratories.</li>
                     </ul>
                     <p>
-                        None of this is finished work. These agents still hallucinate citations and miss methodological subtleties. But machine learning follows a consistent pattern: once a capability starts to work — even poorly — scale and better base models tend to push it past human performance faster than most people expect.
+                        None of this is finished work. These agents still hallucinate citations and miss methodological subtleties. But machine learning follows a consistent pattern: once a capability starts to work (even poorly), scale and better base models tend to push it past human performance faster than most people expect.
                     </p>
                 </section>
 
@@ -96,20 +96,20 @@ const ScienceIsEnteringItsAgenticEra = () => {
                         <li><strong>Integration.</strong> Dry-lab and wet-lab loops begin to close, with agents triggering real experiments, reading real results, and updating their own models.</li>
                     </ol>
                     <p>
-                        The AI Scientist makes these dynamics tangible. A single run — about fifteen hours and twenty dollars of compute — covers ideation, implementation, experimentation, and write-up. Its template-free mode surfaces research directions a human researcher might never prioritize. And its agentic tree search closes the loop entirely in silico: generating code, executing it, debugging failures, plotting results, and iterating — no human in the loop until the manuscript exists.
+                        The AI Scientist makes these dynamics tangible. A single run (about fifteen hours and twenty dollars of compute) covers ideation, implementation, experimentation, and write-up. Its template-free mode surfaces research directions a human researcher might never prioritize. And its agentic tree search closes the loop entirely in silico: generating code, executing it, debugging failures, plotting results, and iterating — no human in the loop until the manuscript exists.
                     </p>
                     <p>
-                        By 2030, AI agents will run fully autonomous loops of scientific knowledge production — from hypothesis to manuscript — with human or robotic intervention only where real-world experiments require it.
+                        By 2030, AI agents will run fully autonomous loops of scientific knowledge production, from hypothesis to manuscript, with human or robotic intervention only where real-world experiments require it.
                     </p>
                     <p>
-                        The risks are real — AI slop, reproducibility crises, misuse. But the counterfactual is not a pristine slow science; it is the current system, which already produces an overwhelming and partly unreliable literature. Agents that verify, cross-check, and stress-test other agents' output will matter as much as agents that generate.
+                        The risks are real: AI slop, reproducibility crises, misuse. But the counterfactual is not a pristine slow science; it is the current system, which already produces an overwhelming and partly unreliable literature. Agents that verify, cross-check, and stress-test other agents' output will matter as much as agents that generate.
                     </p>
                 </section>
 
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Why I Am Moving in This Direction</h2>
                     <p>
-                        My background is biosensing, wearable technology, and applied AI. For the past two months I have been building <a href="https://locuslabhq.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">LocusLab</a> — regulatory verification tooling for biotech submissions. Useful work, but downstream of the actual bottleneck.
+                        My background is biosensing, wearable technology, and applied AI. For the past two months I have been building <a href="https://locuslabhq.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">LocusLab</a>, regulatory verification tooling for BioTech submissions. Useful work, but downstream of the actual bottleneck.
                     </p>
                     <p>
                         The bottleneck is the rate at which humanity produces validated knowledge. Agents that generate hypotheses, run experiments, and verify scientific claims act directly on that rate. Nothing else I could build moves the needle as much.
@@ -121,12 +121,12 @@ const ScienceIsEnteringItsAgenticEra = () => {
                         Over the coming weeks:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
-                        <li>Talking to active researchers — PhDs, postdocs, PIs — about where their workflows break with and without AI.</li>
+                        <li>Talking to active researchers (PhDs, postdocs, PIs) about where their workflows break with and without AI.</li>
                         <li>Contributing to the open systems shipping in this space, starting with FutureHouse and Sakana AI.</li>
-                        <li>Shipping small, opinionated agents in domains I already know — biosensing, regulated biology, and scientific verification.</li>
+                        <li>Shipping small, opinionated agents in domains I already know: biosensing, regulated biology, and scientific verification.</li>
                     </ul>
                     <p>
-                        The first is already live: an <a href="https://github.com/VivienP/scientific-claim-verification-engine" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">open-source scientific claim verifier</a> that beats naive Claude by 30 F1 points on SciFact — <Link to="/projects/scientific-claim-verifier" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">read the project write-up</Link>. More coming.
+                        The first is already live: an <a href="https://github.com/VivienP/scientific-claim-verification-engine" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">open-source scientific claim verifier</a> that beats naive Claude by 30 F1 points on SciFact (<Link to="/projects/scientific-claim-verifier" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">read the project write-up</Link>). More coming.
                     </p>
                     <p>
                         If you are working on something adjacent, I want to hear from you.

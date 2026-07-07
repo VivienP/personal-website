@@ -22,7 +22,7 @@ const GreenGrown = () => {
     return (
         <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
-                title="Green-Grown — A Creative Plant-Stake Construction Game | Vivien Perrelle"
+                title="Green-Grown: A Creative Plant-Stake Construction Game | Vivien Perrelle"
                 description="A modular, wood-based construction game that lets a climbing plant grow into a unique living shape. Designed, manufactured, and crowdfunded on Kickstarter."
                 url="/projects/green-grown"
                 image="/green-grown/main.jpg"
@@ -31,7 +31,7 @@ const GreenGrown = () => {
                 jsonLd={{
                     "@context": "https://schema.org",
                     "@type": "TechArticle",
-                    "headline": "Green-Grown — A Creative Plant-Stake Construction Game",
+                    "headline": "Green-Grown: A Creative Plant-Stake Construction Game",
                     "datePublished": "2022-05-01",
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
@@ -70,7 +70,7 @@ const GreenGrown = () => {
             <div className="w-full aspect-video border border-border-subtle mb-16 bg-black">
                 <iframe
                     src="https://www.youtube.com/embed/MrNn01fSzkw"
-                    title="Green-Grown — Kickstarter campaign video"
+                    title="Green-Grown: Kickstarter campaign video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     loading="lazy"
@@ -163,7 +163,7 @@ const GreenGrown = () => {
 
                 <footer className="pt-12 border-t border-border-subtle">
                     <p className="text-sm text-secondary">
-                        © Vivien Perrelle — Kickstarter project.
+                        © Vivien Perrelle. Kickstarter project.
                     </p>
                 </footer>
 

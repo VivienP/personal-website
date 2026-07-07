@@ -13,7 +13,7 @@ const TraumaVsPurpose = () => {
         <article className="min-h-screen py-24 px-6 max-w-3xl mx-auto animate-in fade-in duration-700">
             <SEO
                 title="Trauma-Driven VS Purpose-Driven Entrepreneurship | Vivien Perrelle"
-                description="There is a prevailing narrative in VC: the best founders are broken. But there is a second path — the Purpose-Driven Founder."
+                description="There is a prevailing narrative in VC: the best founders are broken. But there is a second path: the Purpose-Driven Founder."
                 url="/blog/trauma-vs-purpose"
                 type="article"
                 article={{ publishedTime: '2026-02-09', author: 'Vivien Perrelle' }}
@@ -21,7 +21,7 @@ const TraumaVsPurpose = () => {
                     "@context": "https://schema.org",
                     "@type": "BlogPosting",
                     "headline": "Trauma-Driven VS Purpose-Driven Entrepreneurship",
-                    "description": "There is a prevailing narrative in VC: the best founders are broken. But there is a second path — the Purpose-Driven Founder.",
+                    "description": "There is a prevailing narrative in VC: the best founders are broken. But there is a second path: the Purpose-Driven Founder.",
                     "datePublished": "2026-02-09",
                     "dateModified": "2026-02-09",
                     "author": AUTHOR,

@@ -15,7 +15,7 @@ const ScientificClaimVerifier = () => {
     return (
         <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
-                title="Scientific Claim Verifier — Deterministic Claim-to-Source Verification | Vivien Perrelle"
+                title="Scientific Claim Verifier: Deterministic Claim-to-Source Verification | Vivien Perrelle"
                 description="An open-source Python engine that verifies each cited claim in scientific text against its actual source and returns a grounded verdict with full, replayable provenance. Built for an AI-saturated literature that needs verification, reproducibility, and traceability."
                 url="/projects/scientific-claim-verifier"
                 type="article"
@@ -24,8 +24,8 @@ const ScientificClaimVerifier = () => {
                     "@context": "https://schema.org",
                     "@type": "SoftwareSourceCode",
                     "name": "Scientific Claim Verification Engine",
-                    "headline": "Scientific Claim Verifier — Deterministic Claim-to-Source Verification",
-                    "description": "An open-source Python pipeline that decomposes scientific text into citation-anchored claims, resolves and fetches each cited source, and verifies entailment with full SHA-256 provenance — for reproducible, traceable verification of an AI-saturated scientific literature.",
+                    "headline": "Scientific Claim Verifier: Deterministic Claim-to-Source Verification",
+                    "description": "An open-source Python pipeline that decomposes scientific text into citation-anchored claims, resolves and fetches each cited source, and verifies entailment with full SHA-256 provenance. Built for reproducible, traceable verification of an AI-saturated scientific literature.",
                     "image": "https://vivienperrelle.com/me.png",
                     "datePublished": "2026-05-01",
                     "dateModified": "2026-05-01",
@@ -49,7 +49,7 @@ const ScientificClaimVerifier = () => {
                     Scientific Claim Verifier
                 </h1>
                 <p className="text-lg text-secondary font-light max-w-2xl">
-                    An open-source engine that verifies each cited claim in scientific text against its actual source — and returns a grounded verdict with replayable provenance.
+                    An open-source engine that verifies each cited claim in scientific text against its actual source and returns a grounded verdict with replayable provenance.
                 </p>
                 <div className="pt-2 flex">
                     <a href={REPO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm">
@@ -85,9 +85,9 @@ const ScientificClaimVerifier = () => {
                         <li>Enrich metadata (PubMed, Europe PMC open-access discovery).</li>
                         <li>Fetch full text (OA URL, PMC, Europe PMC, Unpaywall PDF).</li>
                         <li>Chunk and BM25-select passages (deterministic IMRAD sectioning, token-budgeted).</li>
-                        <li>Verify — a router selects one of five modes by retrieval depth.</li>
-                        <li>Audit-trail fallback — surface the searched passages when no quote is found.</li>
-                        <li>Deterministic numeric checks (OR/CI consistency, p-value/CI null-crossing — pure Python).</li>
+                        <li>Verify: a router selects one of five modes by retrieval depth.</li>
+                        <li>Audit-trail fallback: surface the searched passages when no quote is found.</li>
+                        <li>Deterministic numeric checks in pure Python (OR/CI consistency, p-value/CI null-crossing).</li>
                         <li>Emit <code className="font-mono text-sm">report.json</code> + <code className="font-mono text-sm">provenance.jsonl</code>.</li>
                     </ol>
                 </section>
@@ -95,7 +95,7 @@ const ScientificClaimVerifier = () => {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Results</h2>
                     <p>
-                        On the <strong>SciFact</strong> dev set, the verifier reaches an <strong>F1 of 0.92</strong> on oracle inputs (3-class), against <strong>0.62</strong> for a naive direct-LLM baseline committed in the repo — roughly a 30-point gap on this verifier-only setup. A regression guard fails the build if SciFact F1 drops more than 1% below the committed baseline.
+                        On the <strong>SciFact</strong> dev set, the verifier reaches an <strong>F1 of 0.92</strong> on oracle inputs (3-class), against <strong>0.62</strong> for a naive direct-LLM baseline committed in the repo: roughly a 30-point gap on this verifier-only setup. A regression guard fails the build if SciFact F1 drops more than 1% below the committed baseline.
                     </p>
                     <p className="text-sm text-secondary italic">
                         Benchmark numbers are author-reported, self-run, and committed to the repository. The SciFact figure is verifier-only (oracle inputs), not the full extract-and-resolve pipeline.

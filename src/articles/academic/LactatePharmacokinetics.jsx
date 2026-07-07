@@ -15,7 +15,7 @@ const LactatePharmacokinetics = () => {
         <article className="min-h-screen py-24 px-6 max-w-3xl mx-auto animate-in fade-in duration-700">
             <SEO
                 title="Exploring Activity-Induced Lactate Pharmacokinetics: Implications for Minimally-Invasive Monitoring | Vivien Perrelle"
-                description="Literature review (August 2023) written during an internship at PKvitality on the parameters influencing lactate diffusion and the clinical value of dermal interstitial fluid (ISF) lactate as a muscle-fatigue biomarker — a pharmacological guide for developers of lactate microneedle biosensors."
+                description="Literature review (August 2023) written during an internship at PKvitality on the parameters influencing lactate diffusion and the clinical value of dermal interstitial fluid (ISF) lactate as a muscle-fatigue biomarker. A pharmacological guide for developers of lactate microneedle biosensors."
                 url="/academic-work/lactate-pharmacokinetics"
                 image="/build-lactate-biosensor/microneedles-gold.jpg"
                 type="article"
@@ -30,7 +30,7 @@ const LactatePharmacokinetics = () => {
                     "genre": "Literature Review",
                     "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "abstract": "Faced with the lack of research on dermal interstitial fluid (ISF) lactate concentrations, this article — written during an internship at PKvitality — investigates the main parameters influencing lactate diffusion and, therefore, the clinical value of dermal ISF lactate as a muscle-fatigue biomarker. It serves as a pharmacological guide summarizing the literature for developers of lactate microneedle biosensors.",
+                    "abstract": "Faced with the lack of research on dermal interstitial fluid (ISF) lactate concentrations, this article (written during an internship at PKvitality) investigates the main parameters influencing lactate diffusion and, therefore, the clinical value of dermal ISF lactate as a muscle-fatigue biomarker. It serves as a pharmacological guide summarizing the literature for developers of lactate microneedle biosensors.",
                     "image": "https://vivienperrelle.com/build-lactate-biosensor/microneedles-gold.jpg",
                     "keywords": "lactate, pharmacokinetics, interstitial fluid, ISF, microneedle biosensors, muscle fatigue, minimally-invasive monitoring",
                     "url": "https://vivienperrelle.com/academic-work/lactate-pharmacokinetics",

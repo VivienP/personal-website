@@ -11,7 +11,7 @@ const PKvitality = () => {
     return (
         <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
-                title="Research Intern @ PKvitality — Building a Pandiabetic Smartwatch | Vivien Perrelle"
+                title="Research Intern @ PKvitality: Building a Pandiabetic Smartwatch | Vivien Perrelle"
                 description="How the BioWatch prototype landed me an R&D internship at PKvitality, a 50-person startup that raised several million euros to build the first glucose-monitoring smartwatch for diabetics."
                 url="/projects/pkvitality"
                 image="/pkvitality/pkvitality.jpg"
@@ -21,7 +21,7 @@ const PKvitality = () => {
                     "@context": "https://schema.org",
                     "@type": "CreativeWork",
                     "name": "Research Intern @ PKvitality",
-                    "headline": "Research Intern @ PKvitality — Building a Pandiabetic Smartwatch",
+                    "headline": "Research Intern @ PKvitality: Building a Pandiabetic Smartwatch",
                     "datePublished": "2023-08-01",
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
@@ -55,7 +55,7 @@ const PKvitality = () => {
 
             <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-base">
                 <p>
-                    The <Link to="/projects/biowatch" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">BioWatch</Link> prototype I built during my master's is what landed me an internship at <a href="https://www.pkvitality.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">PKvitality</a> — a 50-person startup that raised several million euros to build the first glucose-monitoring smartwatch for diabetics.
+                    The <Link to="/projects/biowatch" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">BioWatch</Link> prototype I built during my master's is what landed me an internship at <a href="https://www.pkvitality.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">PKvitality</a>, a 50-person startup that raised several million euros to build the first glucose-monitoring smartwatch for diabetics.
                 </p>
                 <p>
                     I joined their R&amp;D team as a research assistant, working on the same minimally-invasive biosensing technology the BioWatch had let me prototype: micro-needles that read glucose in the dermal interstitial fluid, painlessly and continuously. It was the moment a student project turned into hands-on work on a product heading to market.
