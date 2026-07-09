@@ -60,7 +60,7 @@ const Oseille = () => {
 
             <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-base">
                 <p>
-                    ("Oseille" is French slang for "money.")
+                    <em>"Oseille" is French slang for "money."</em>
                 </p>
                 <p>
                     I launched Oseille AI during my time at Finexov, the consultancy where I built AI agents to streamline R&D documentation for public funding. The idea was simple: turn the dense, ever-changing world of <span className="font-medium text-primary">Bpifrance innovation subsidies</span> into something a founder could actually navigate. Oseille AI is a specialized agent that answers questions about French innovation grants (eligibility, deadlines, the right scheme for a given stage) in plain language.
