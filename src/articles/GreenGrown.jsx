@@ -57,15 +57,6 @@ const GreenGrown = () => {
                 </p>
             </header>
 
-            {/* Hero */}
-            <div className="w-full overflow-hidden border border-border-subtle mb-8">
-                <img
-                    src="/green-grown/main.jpg"
-                    alt="Green-Grown assembled with a climbing plant"
-                    className="w-full h-auto object-contain"
-                />
-            </div>
-
             {/* YouTube — full width */}
             <div className="w-full aspect-video border border-border-subtle mb-16 bg-black">
                 <iframe

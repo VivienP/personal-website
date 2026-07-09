@@ -27,6 +27,7 @@ const Oseille = () => {
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "image": "https://vivienperrelle.com/oseille/oseille-ai-white-preview.jpg",
                     "url": "https://oseille.ai",
+                    "video": "https://youtu.be/oBq7539YXvo",
                     "mainEntityOfPage": "https://vivienperrelle.com/projects/oseille"
                 }}
             />
@@ -45,12 +46,15 @@ const Oseille = () => {
                 </p>
             </header>
 
-            {/* Platform screenshot */}
-            <div className="w-full overflow-hidden border border-border-subtle mb-16">
-                <img
-                    src="/oseille/oseille-preview.avif"
-                    alt="The Oseille AI platform interface"
-                    className="w-full h-auto object-contain"
+            <div className="w-full overflow-hidden border border-border-subtle mb-16 bg-black aspect-video">
+                <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/oBq7539YXvo"
+                    title="Oseille AI demo"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
                 />
             </div>
 

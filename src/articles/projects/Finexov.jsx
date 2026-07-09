@@ -25,6 +25,7 @@ const Finexov = () => {
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "url": "https://finexov.webflow.io/",
+                    "video": "https://youtu.be/BzDTlKmcfMw",
                     "mainEntityOfPage": "https://vivienperrelle.com/projects/finexov"
                 }}
             />
@@ -48,6 +49,18 @@ const Finexov = () => {
                     </a>
                 </div>
             </header>
+
+            <div className="w-full overflow-hidden border border-border-subtle mb-16 bg-black aspect-video">
+                <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/BzDTlKmcfMw"
+                    title="Finexov demo"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                />
+            </div>
 
             <div className="text-primary max-w-none space-y-10 font-light leading-relaxed">
                 <p className="text-base">

@@ -22,6 +22,7 @@ import AcademicWorkPage from './pages/AcademicWork';
 import SmartwatchBiosensorsThesis from './articles/academic/SmartwatchBiosensorsThesis';
 import LactatePharmacokinetics from './articles/academic/LactatePharmacokinetics';
 import Oseille from './articles/projects/Oseille';
+import MistralAIHackathon from './articles/projects/MistralAIHackathon';
 import ScientificClaimVerifier from './articles/projects/ScientificClaimVerifier';
 import PKvitality from './articles/projects/PKvitality';
 import Finexov from './articles/projects/Finexov';
@@ -53,6 +54,7 @@ export const routes = [
   { path: '/projects/scientific-claim-verifier', element: <ScientificClaimVerifier /> },
   { path: '/projects/finexov', element: <Finexov /> },
   { path: '/blog/lactate', element: <Lactate /> },
+  { path: '/projects/mistral-ai-hackathon', element: <MistralAIHackathon /> },
   { path: '/art', element: <Art /> },
   { path: '/blog/openclaw', element: <OpenClaw /> },
   { path: '/blog/science-is-entering-its-agentic-era', element: <ScienceIsEnteringItsAgenticEra /> },

@@ -36,6 +36,14 @@ const projects = [
         github: "#"
     },
     {
+        id: 13,
+        title: "Mistral AI MCP Hackathon",
+        description: "Contributed to an MCP server that helps companies find relevant European funding calls directly from Le Chat.",
+        tags: ["Hackathon", "MCP", "Mistral AI"],
+        link: "/projects/mistral-ai-hackathon",
+        github: "#"
+    },
+    {
         id: 4,
         title: "Freelance AI Engineer",
         description: "Freelance AI engineering for biology, TechBio, and AI-for-science teams: AI agents, context engineering, evaluation, and scientific data tooling.",
