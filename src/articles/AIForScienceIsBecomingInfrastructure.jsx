@@ -29,6 +29,8 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 description="How does AI-for-science find out it's wrong? A framework mapping research loops by cost and fidelity of feedback, from code-closed to patient-closed systems."
                 url="/blog/ai-for-science-is-becoming-a-systems-problem"
                 image="/ai-for-science/loops-cover-small.jpg"
+                imageWidth={1920}
+                imageHeight={1080}
                 type="article"
                 article={{ publishedTime: '2026-06-01', author: 'Vivien Perrelle', tags: ['AI', 'Scientific Research', 'Drug Discovery', 'Research Automation', 'BioTech', 'Evaluation', 'Google Co-Scientist', 'Isomorphic Labs', 'SoundnessBench'] }}
                 jsonLd={{

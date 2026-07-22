@@ -1,4 +1,5 @@
 import { SITE_URL, FREELANCE_SERVICE_JSON_LD } from './jsonld';
+import { resolveOpenGraphImage } from './seoMeta';
 
 const TWITTER_HANDLE = '@PerrelleVivien';
 
@@ -81,6 +82,8 @@ const SEO = ({
     title,
     description,
     image,
+    imageWidth,
+    imageHeight,
     url,
     type = 'website',
     article = null,
@@ -88,10 +91,11 @@ const SEO = ({
     jsonLd = null,
     locale = 'en_US',
 }) => {
+    const openGraphImage = resolveOpenGraphImage({ image, imageWidth, imageHeight });
     const seo = {
         title: title || defaults.title,
         description: description || defaults.description,
-        image: image?.startsWith('http') ? image : `${SITE_URL}${image || '/me.png'}`,
+        image: openGraphImage.src,
         url: url ? `${SITE_URL}${url}` : SITE_URL,
     };
 
@@ -105,14 +109,13 @@ const SEO = ({
             {/* A canonical alongside noindex sends contradictory signals — omit it. */}
             {!noindex && <link rel="canonical" href={seo.url} />}
 
-            {/* Open Graph. me.png really is 300x300; declare honest dimensions
-                and a square summary card until a true 1200x630 asset exists. */}
+            {/* Open Graph */}
             <meta property="og:type" content={type} />
             <meta property="og:title" content={seo.title} />
             <meta property="og:description" content={seo.description} />
             <meta property="og:image" content={seo.image} />
-            <meta property="og:image:width" content="300" />
-            <meta property="og:image:height" content="300" />
+            {openGraphImage.width && <meta property="og:image:width" content={openGraphImage.width} />}
+            {openGraphImage.height && <meta property="og:image:height" content={openGraphImage.height} />}
             <meta property="og:url" content={seo.url} />
             <meta property="og:site_name" content="Vivien Perrelle" />
             <meta property="og:locale" content={locale} />

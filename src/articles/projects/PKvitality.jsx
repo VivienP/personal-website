@@ -15,6 +15,8 @@ const PKvitality = () => {
                 description="How the BioWatch prototype landed me an R&D internship at PKvitality, a 50-person startup that raised several million euros to build the first glucose-monitoring smartwatch for diabetics."
                 url="/projects/pkvitality"
                 image="/pkvitality/pkvitality.jpg"
+                imageWidth={782}
+                imageHeight={782}
                 type="article"
                 article={{ publishedTime: '2023-08-01', author: 'Vivien Perrelle', tags: ['PKvitality', 'Continuous Glucose Monitoring', 'Wearable Biosensors', 'R&D', 'Internship'] }}
                 jsonLd={{

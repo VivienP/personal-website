@@ -2,11 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getCalApi } from '@calcom/embed-react';
 import { ArrowUpRight, Mail, Calendar } from 'lucide-react';
-
-// Email is assembled at runtime so the raw address never sits in the
-// static HTML as scrapable plain text.
-const EMAIL_USER = 'vivienperrelle';
-const EMAIL_DOMAIN = 'gmail.com';
+import { prepareEmailLink } from '../utils/email';
 
 const CAL_NAMESPACE = 'quick-chat';
 
@@ -33,9 +29,10 @@ const Contact = ({ showServicesLink = true }) => {
 
     // Only wire the real mailto: on user intent, keeping the address out of
     // the rendered markup until it's actually needed.
-    const revealEmail = () => {
+    const revealEmail = (event) => {
+        const nextHref = prepareEmailLink(event?.currentTarget);
         if (href === '#') {
-            setHref(`mailto:${EMAIL_USER}@${EMAIL_DOMAIN}`);
+            setHref(nextHref);
         }
     };
 

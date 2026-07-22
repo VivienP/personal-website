@@ -38,6 +38,8 @@ const MotionSuit = () => {
                 description="An open-source, easy-to-make e-textile platform whose fully integrated fabric sensors detect touch, position, and deformation to capture a wearer's movements."
                 url="/projects/motion-suit"
                 image="/catsuit/overview.jpg"
+                imageWidth={1024}
+                imageHeight={682}
                 type="article"
                 article={{ publishedTime: '2022-01-01', author: 'Vivien Perrelle' }}
                 jsonLd={{

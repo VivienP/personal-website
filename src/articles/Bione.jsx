@@ -15,6 +15,8 @@ const Bione = () => {
                 description="An open-source WebGL app built on Cables.gl that illustrates a microneedle glucose biosensor in 3D, making biosensing concepts accessible and easy to assimilate."
                 url="/projects/bione"
                 image="/bione/overview-diagram.jpg"
+                imageWidth={1200}
+                imageHeight={903}
                 type="article"
                 article={{ publishedTime: '2023-01-01', author: 'Vivien Perrelle' }}
                 jsonLd={{

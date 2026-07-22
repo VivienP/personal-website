@@ -39,7 +39,7 @@ const AcademicWorkPage = () => {
     }, []);
 
     return (
-        <div className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
+        <main className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
                 title="Academic Work | Vivien Perrelle"
                 description="Academic publications by Vivien Perrelle on wearable biosensors: a master's thesis on smartwatch-embedded biosensors for healthcare monitoring, and a literature review on activity-induced lactate pharmacokinetics for minimally-invasive monitoring."
@@ -88,7 +88,7 @@ const AcademicWorkPage = () => {
                     <WorkItem key={work.slug} work={work} />
                 ))}
             </div>
-        </div>
+        </main>
     );
 };
 

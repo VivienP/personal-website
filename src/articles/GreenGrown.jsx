@@ -26,6 +26,8 @@ const GreenGrown = () => {
                 description="A modular, wood-based construction game that lets a climbing plant grow into a unique living shape. Designed, manufactured, and crowdfunded on Kickstarter."
                 url="/projects/green-grown"
                 image="/green-grown/main.jpg"
+                imageWidth={1080}
+                imageHeight={608}
                 type="article"
                 article={{ publishedTime: '2022-05-01', author: 'Vivien Perrelle' }}
                 jsonLd={{

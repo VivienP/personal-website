@@ -20,6 +20,8 @@ const SmartwatchBiosensorsThesis = () => {
                 description="Master's thesis (October 2023) on two years of wearable biosensor research at the Institute for Future Technologies: the BioWatch smartwatch and a microneedle lactate sensor module, advocating a systemic design approach balancing technical performance, user experience, and medical relevance."
                 url="/academic-work/smartwatch-embedded-biosensors"
                 image="/biowatch/biowatch-grand-angle.jpg"
+                imageWidth={1920}
+                imageHeight={774}
                 type="article"
                 article={{ publishedTime: '2023-10-01', author: 'Vivien Perrelle', tags: ['Wearable Biosensors', 'Smartwatch', 'Healthcare Monitoring', 'Microneedle', 'Lactate', 'Master Thesis'] }}
                 jsonLd={{

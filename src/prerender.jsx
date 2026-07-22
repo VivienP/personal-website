@@ -19,7 +19,7 @@ import { renderToString } from 'react-dom/server';
 // no longer has a `/server` subpath.
 import { StaticRouter } from 'react-router';
 import App from './App.jsx';
-import { prerenderRoutes } from './routes';
+import { loadPrerenderRoute, prerenderRoutes } from './routes';
 import './index.css';
 
 // Metadata tags React 19 hoists during SSR. We relocate these to <head>.
@@ -33,9 +33,10 @@ const ENTITIES = { '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#39;
 const decodeEntities = (s) => s.replace(/&(?:amp|lt|gt|quot|#39|#x27);/g, (m) => ENTITIES[m]);
 
 export async function prerender({ url }) {
+  const route = await loadPrerenderRoute(url);
   const rendered = renderToString(
     <StaticRouter location={url}>
-      <App />
+      <App routeEntries={[route]} redirectEntries={[]} fallbackElement={route.element} />
     </StaticRouter>,
   );
 

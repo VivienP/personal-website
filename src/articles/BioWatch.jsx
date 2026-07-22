@@ -38,6 +38,8 @@ const BioWatch = () => {
                 description="An open-source prototype smartwatch for the implementation of wearable biosensors, built during a master's degree research project at the Institute for Future Technologies."
                 url="/projects/biowatch"
                 image="/biowatch/biowatch-grand-angle.jpg"
+                imageWidth={1920}
+                imageHeight={774}
                 type="article"
                 article={{ publishedTime: '2023-02-01', author: 'Vivien Perrelle' }}
                 jsonLd={{

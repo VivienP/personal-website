@@ -15,6 +15,8 @@ const Oseille = () => {
                 description="Oseille AI, a project launched during my time at Finexov, is a specialized agent on Bpifrance innovation subsidies. Through LinkedIn content it helped around ten startups navigate French public funding."
                 url="/projects/oseille"
                 image="/oseille/oseille-ai-white-preview.jpg"
+                imageWidth={1476}
+                imageHeight={984}
                 type="article"
                 article={{ publishedTime: '2024-01-01', author: 'Vivien Perrelle', tags: ['AI Agents', 'Public Funding', 'Bpifrance', 'Startups', 'SaaS'] }}
                 jsonLd={{

@@ -10,8 +10,10 @@
 // where prerendering and the 404 move happen) has finished, so exiting here
 // is safe and cannot truncate the output.
 import { build } from 'vite';
+import { assertSitemapCurrent } from './sitemap.mjs';
 
 try {
+    await assertSitemapCurrent();
     await build();
     process.exit(0);
 } catch (err) {

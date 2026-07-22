@@ -16,6 +16,8 @@ const IsTechnologyNeutral = () => {
                 description="Why the neutrality question is poorly framed, and where the value of a technology is actually decided: not in use, but in design."
                 url="/blog/is-technology-neutral"
                 image="/ellul/jacques-ellul.jpg"
+                imageWidth={350}
+                imageHeight={350}
                 type="article"
                 article={{ publishedTime: '2023-02-24', author: 'Vivien Perrelle', tags: ['Philosophy of Technology', 'Ethics', 'Design', 'Ellul'] }}
                 jsonLd={{

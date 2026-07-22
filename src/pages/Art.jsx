@@ -69,50 +69,58 @@ const ArtworkCard = ({ artwork, eager }) => {
     const base = artwork.framed ?? artwork.unframed;
     const swap = artwork.framed && artwork.unframed ? artwork.unframed : null;
     const details = `${artwork.medium} · ${artwork.size}`;
+    const media = (
+        <>
+            <img
+                src={base.src}
+                alt={`${artwork.title} · ${details}`}
+                width={base.width}
+                height={base.height}
+                loading={eager ? 'eager' : 'lazy'}
+                decoding="async"
+                className={`w-full h-auto transition-opacity duration-500 ${
+                    swap ? (revealed ? 'opacity-0' : 'group-hover:opacity-0') : ''
+                }`}
+            />
+            {swap && (
+                <img
+                    src={swap.src}
+                    alt=""
+                    aria-hidden="true"
+                    width={swap.width}
+                    height={swap.height}
+                    loading="lazy"
+                    decoding="async"
+                    className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
+                        revealed ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                    }`}
+                />
+            )}
+        </>
+    );
+
+    const toggleReveal = (event) => {
+        const isKeyboardActivation = event.detail === 0;
+        if (isKeyboardActivation || window.matchMedia('(hover: none)').matches) {
+            setRevealed((value) => !value);
+        }
+    };
 
     return (
         <figure className={artwork.fullWidth ? 'sm:col-span-2' : undefined}>
-            <div
-                className="relative group"
-                // Touch-only fallback: on hover-capable devices CSS :hover owns
-                // the swap, and a click must not pin `revealed` (a pinned card
-                // shows the unframed drawing at rest and makes hover look dead).
-                onClick={
-                    swap
-                        ? () => {
-                              if (window.matchMedia('(hover: none)').matches) {
-                                  setRevealed((v) => !v);
-                              }
-                          }
-                        : undefined
-                }
-            >
-                <img
-                    src={base.src}
-                    alt={`${artwork.title} · ${details}`}
-                    width={base.width}
-                    height={base.height}
-                    loading={eager ? 'eager' : 'lazy'}
-                    decoding="async"
-                    className={`w-full h-auto transition-opacity duration-500 ${
-                        swap ? (revealed ? 'opacity-0' : 'group-hover:opacity-0') : ''
-                    }`}
-                />
-                {swap && (
-                    <img
-                        src={swap.src}
-                        alt=""
-                        aria-hidden="true"
-                        width={swap.width}
-                        height={swap.height}
-                        loading="lazy"
-                        decoding="async"
-                        className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
-                            revealed ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                        }`}
-                    />
-                )}
-            </div>
+            {swap ? (
+                <button
+                    type="button"
+                    className="relative group block w-full border-0 bg-transparent p-0 text-left"
+                    onClick={toggleReveal}
+                    aria-pressed={revealed}
+                    aria-label={`${revealed ? 'Show framed' : 'Show unframed'} ${artwork.title}`}
+                >
+                    {media}
+                </button>
+            ) : (
+                <div className="relative group">{media}</div>
+            )}
             <figcaption className="mt-4">
                 <h2 className="text-primary font-medium">{artwork.title}</h2>
                 <p className="text-sm text-secondary mt-1">{details}</p>
@@ -127,7 +135,7 @@ const Art = () => {
     }, []);
 
     return (
-        <div className="min-h-screen py-24 px-6 max-w-6xl mx-auto animate-in fade-in duration-700">
+        <main className="min-h-screen py-24 px-6 max-w-6xl mx-auto animate-in fade-in duration-700">
             <SEO
                 title="Art | Vivien Perrelle"
                 description="Charcoal, pencil and soft pastel drawings by Vivien Perrelle."
@@ -151,7 +159,7 @@ const Art = () => {
                     <ArtworkCard key={artwork.title} artwork={artwork} eager={i === 0} />
                 ))}
             </div>
-        </div>
+        </main>
     );
 };
 

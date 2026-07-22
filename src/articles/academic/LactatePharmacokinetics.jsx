@@ -20,6 +20,8 @@ const LactatePharmacokinetics = () => {
                 description="Literature review (August 2023) written during an internship at PKvitality on the parameters influencing lactate diffusion and the clinical value of dermal interstitial fluid (ISF) lactate as a muscle-fatigue biomarker. A pharmacological guide for developers of lactate microneedle biosensors."
                 url="/academic-work/lactate-pharmacokinetics"
                 image="/build-lactate-biosensor/microneedles-gold.jpg"
+                imageWidth={720}
+                imageHeight={480}
                 type="article"
                 article={{ publishedTime: '2023-08-01', author: 'Vivien Perrelle', tags: ['Lactate', 'Pharmacokinetics', 'Interstitial Fluid', 'Microneedle Biosensors', 'Muscle Fatigue', 'Minimally-Invasive Monitoring'] }}
                 jsonLd={{
