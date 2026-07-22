@@ -47,7 +47,7 @@ test('route table uses dynamic loaders and exposes a prerender resolver', () => 
 test('committed sitemap is generated from the route manifest', async () => {
     const { renderSitemap } = await optionalImport('../scripts/sitemap.mjs');
     assert.equal(typeof renderSitemap, 'function', 'sitemap generator is not implemented');
-    assert.equal(read('public/sitemap.xml'), `${renderSitemap()}\n`);
+    assert.equal(read('public/sitemap.xml').replaceAll('\r\n', '\n'), `${renderSitemap()}\n`);
 });
 
 test('collection pages expose main landmarks and keyboard gallery controls', () => {
