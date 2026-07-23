@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1420" role="img" aria-labelledby="title desc">
+  <title id="title">Same candidates, different experimental plates</title>
+  <desc id="desc">Five static strategies select three variants from the same candidate universe. Filled nodes enter the plate, outlined nodes do not, and dashed halos indicate higher ESM masking dispersion.</desc>
+  <rect width="600" height="1420" fill="#FDFBF7"/>
+
+  <style>
+    text{font-family:Inter,Arial,sans-serif}
+    .key{font-size:22px;font-weight:600;fill:#1A1A1A}
+    .label{font-size:14px;font-weight:400;fill:#5A5A5A}
+    .center{text-anchor:middle}
+    .node-label{font-size:14px;font-weight:600;fill:#5A5A5A;text-anchor:middle;dominant-baseline:middle}
+    .selected-label{font-size:14px;font-weight:600;fill:#FDFBF7;text-anchor:middle;dominant-baseline:middle}
+    .separator{stroke:#E5E0D8;stroke-width:1.5}
+    .edge{fill:none;stroke:#E5E0D8;stroke-width:2;stroke-linecap:round}
+    .node{fill:#FDFBF7;stroke:#5A5A5A;stroke-width:2}
+    .selected{fill:#1B3022;stroke:#1B3022;stroke-width:2}
+    .halo{fill:none;stroke:#1B3022;stroke-width:2;stroke-dasharray:5 5}
+    .arrow{fill:none;stroke:#5A5A5A;stroke-width:2;stroke-linecap:round}
+    .plate-shell{fill:none;stroke:#E5E0D8;stroke-width:1.5}
+    .well{fill:#FDFBF7;stroke:#5A5A5A;stroke-width:1.5}
+    .well-selected{fill:#1B3022;stroke:#1B3022;stroke-width:1.5}
+  </style>
+
+  <defs>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="#5A5A5A" stroke-width="1.5"/>
+    </marker>
+    <g id="candidate-graph">
+      <path class="edge" d="M10 150L45 90 M80 150L45 90 M10 150L80 90 M150 150L80 90 M80 150L115 90 M150 150L115 90 M45 90L80 25 M80 90L80 25 M115 90L80 25"/>
+      <circle class="node" cx="10" cy="150" r="14"/><text class="node-label" x="10" y="150">A</text>
+      <circle class="node" cx="80" cy="150" r="14"/><text class="node-label" x="80" y="150">B</text>
+      <circle class="node" cx="150" cy="150" r="14"/><text class="node-label" x="150" y="150">C</text>
+      <circle class="node" cx="45" cy="90" r="14"/><text class="node-label" x="45" y="90">AB</text>
+      <circle class="node" cx="80" cy="90" r="14"/><text class="node-label" x="80" y="90">AC</text>
+      <circle class="node" cx="115" cy="90" r="14"/><text class="node-label" x="115" y="90">BC</text>
+      <circle class="node" cx="80" cy="25" r="16"/><text class="node-label" x="80" y="25">ABC</text>
+    </g>
+  </defs>
+
+  <text x="40" y="48" class="key">Five allocation strategies</text>
+
+  <g transform="translate(0 90)" data-strategy="random" data-selected-count="3" aria-label="Random uniform selection">
+    <text x="42" y="42" class="key">Random</text>
+    <text x="42" y="70" class="label">uniform</text>
+    <g transform="translate(185 18)">
+      <use href="#candidate-graph"/>
+      <circle class="selected" cx="10" cy="150" r="14"/><text class="selected-label" x="10" y="150">A</text>
+      <circle class="selected" cx="80" cy="90" r="14"/><text class="selected-label" x="80" y="90">AC</text>
+      <circle class="selected" cx="80" cy="25" r="16"/><text class="selected-label" x="80" y="25">ABC</text>
+    </g>
+    <path d="M360 110H400" class="arrow" marker-end="url(#arrowhead)"/>
+    <g class="plate" transform="translate(420 62)" aria-label="Selected set A, AC, ABC">
+      <rect width="138" height="96" rx="12" class="plate-shell"/>
+      <circle cx="28" cy="48" r="14" class="well-selected"/><text x="28" y="48" class="selected-label">A</text>
+      <circle cx="55" cy="48" r="14" class="well-selected"/><text x="55" y="48" class="selected-label">AC</text>
+      <circle cx="88" cy="48" r="14" class="well-selected"/><text x="88" y="48" class="selected-label">ABC</text>
+      <circle cx="116" cy="48" r="14" class="well"/>
+    </g>
+  </g>
+  <line x1="40" y1="310" x2="560" y2="310" class="separator"/>
+
+  <g transform="translate(0 325)" data-strategy="fitness" data-selected-count="3" aria-label="Fitness selection by predicted fitness">
+    <text x="42" y="42" class="key">Fitness</text>
+    <text x="42" y="70" class="label">predicted fitness</text>
+    <g transform="translate(185 18)">
+      <use href="#candidate-graph"/>
+      <circle class="selected" cx="45" cy="90" r="14"/><text class="selected-label" x="45" y="90">AB</text>
+      <circle class="selected" cx="115" cy="90" r="14"/><text class="selected-label" x="115" y="90">BC</text>
+      <circle class="selected" cx="80" cy="25" r="16"/><text class="selected-label" x="80" y="25">ABC</text>
+    </g>
+    <path d="M360 110H400" class="arrow" marker-end="url(#arrowhead)"/>
+    <g class="plate" transform="translate(420 62)" aria-label="Selected set AB, BC, ABC">
+      <rect width="138" height="96" rx="12" class="plate-shell"/>
+      <circle cx="28" cy="48" r="14" class="well-selected"/><text x="28" y="48" class="selected-label">AB</text>
+      <circle cx="58" cy="48" r="14" class="well-selected"/><text x="58" y="48" class="selected-label">BC</text>
+      <circle cx="91" cy="48" r="14" class="well-selected"/><text x="91" y="48" class="selected-label">ABC</text>
+      <circle cx="119" cy="48" r="14" class="well"/>
+    </g>
+  </g>
+  <line x1="40" y1="545" x2="560" y2="545" class="separator"/>
+
+  <g transform="translate(0 560)" data-strategy="loop-count" data-selected-count="3" aria-label="Loop-count selection by interaction coverage">
+    <text x="42" y="42" class="key">Loop-count</text>
+    <text x="42" y="70" class="label">interaction coverage</text>
+    <g transform="translate(185 18)">
+      <use href="#candidate-graph"/>
+      <circle class="selected" cx="10" cy="150" r="14"/><text class="selected-label" x="10" y="150">A</text>
+      <circle class="selected" cx="80" cy="150" r="14"/><text class="selected-label" x="80" y="150">B</text>
+      <circle class="selected" cx="150" cy="150" r="14"/><text class="selected-label" x="150" y="150">C</text>
+    </g>
+    <path d="M360 110H400" class="arrow" marker-end="url(#arrowhead)"/>
+    <g class="plate" transform="translate(420 62)" aria-label="Selected set A, B, C">
+      <rect width="138" height="96" rx="12" class="plate-shell"/>
+      <circle cx="28" cy="48" r="14" class="well-selected"/><text x="28" y="48" class="selected-label">A</text>
+      <circle cx="58" cy="48" r="14" class="well-selected"/><text x="58" y="48" class="selected-label">B</text>
+      <circle cx="88" cy="48" r="14" class="well-selected"/><text x="88" y="48" class="selected-label">C</text>
+      <circle cx="118" cy="48" r="14" class="well"/>
+    </g>
+  </g>
+  <line x1="40" y1="780" x2="560" y2="780" class="separator"/>
+
+  <g transform="translate(0 795)" data-strategy="dispersion-weighted" data-selected-count="3" aria-label="Dispersion-weighted selection by ESM masking dispersion">
+    <text x="42" y="42" class="key">Dispersion-weighted</text>
+    <text x="42" y="70" class="label">masking dispersion</text>
+    <g transform="translate(185 18)">
+      <use href="#candidate-graph"/>
+      <circle class="halo" cx="80" cy="25" r="26"/>
+      <circle class="halo" cx="80" cy="90" r="23"/>
+      <circle class="halo" cx="80" cy="150" r="25"/>
+      <circle class="selected" cx="80" cy="25" r="16"/><text class="selected-label" x="80" y="25">ABC</text>
+      <circle class="selected" cx="80" cy="90" r="14"/><text class="selected-label" x="80" y="90">AC</text>
+      <circle class="selected" cx="80" cy="150" r="14"/><text class="selected-label" x="80" y="150">B</text>
+    </g>
+    <path d="M360 110H400" class="arrow" marker-end="url(#arrowhead)"/>
+    <g class="plate" transform="translate(420 62)" aria-label="Selected set ABC, AC, B">
+      <rect width="138" height="96" rx="12" class="plate-shell"/>
+      <circle cx="28" cy="48" r="14" class="well-selected"/><text x="28" y="48" class="selected-label">ABC</text>
+      <circle cx="61" cy="48" r="14" class="well-selected"/><text x="61" y="48" class="selected-label">AC</text>
+      <circle cx="91" cy="48" r="14" class="well-selected"/><text x="91" y="48" class="selected-label">B</text>
+      <circle cx="119" cy="48" r="14" class="well"/>
+    </g>
+  </g>
+  <line x1="40" y1="1015" x2="560" y2="1015" class="separator"/>
+
+  <g transform="translate(0 1030)" data-strategy="practice" data-selected-count="3" aria-label="Practice selection from beneficial singles to combinations">
+    <text x="42" y="42" class="key">Practice</text>
+    <text x="42" y="70" class="label">singles → combinations</text>
+    <g transform="translate(185 18)">
+      <use href="#candidate-graph"/>
+      <path d="M10 150L45 90L80 150" fill="none" stroke="#1B3022" stroke-width="2"/>
+      <circle class="selected" cx="10" cy="150" r="14"/><text class="selected-label" x="10" y="150">A</text>
+      <circle class="selected" cx="80" cy="150" r="14"/><text class="selected-label" x="80" y="150">B</text>
+      <circle class="selected" cx="45" cy="90" r="14"/><text class="selected-label" x="45" y="90">AB</text>
+    </g>
+    <path d="M360 110H400" class="arrow" marker-end="url(#arrowhead)"/>
+    <g class="plate" transform="translate(420 62)" aria-label="Selected set A, B, AB">
+      <rect width="138" height="96" rx="12" class="plate-shell"/>
+      <circle cx="28" cy="48" r="14" class="well-selected"/><text x="28" y="48" class="selected-label">A</text>
+      <circle cx="58" cy="48" r="14" class="well-selected"/><text x="58" y="48" class="selected-label">B</text>
+      <circle cx="88" cy="48" r="14" class="well-selected"/><text x="88" y="48" class="selected-label">AB</text>
+      <circle cx="118" cy="48" r="14" class="well"/>
+    </g>
+  </g>
+
+  <line x1="40" y1="1260" x2="560" y2="1260" class="separator"/>
+  <g aria-label="Figure legend">
+    <circle cx="55" cy="1302" r="12" class="node"/><text x="78" y="1307" class="label">Node = candidate variant</text>
+    <circle cx="300" cy="1302" r="12" class="selected"/><text x="323" y="1307" class="label">Filled = selected for measurement</text>
+    <circle cx="55" cy="1350" r="12" class="node"/><text x="78" y="1355" class="label">Outline = not selected</text>
+    <circle cx="300" cy="1350" r="12" class="node"/><circle cx="300" cy="1350" r="20" class="halo"/><text x="328" y="1355" class="label">Dashed halo = high masking dispersion</text>
+    <text x="300" y="1396" class="label center">B = fixed experimental budget</text>
+  </g>
+</svg>

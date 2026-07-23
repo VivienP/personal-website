@@ -3,6 +3,11 @@ import { ArrowUpRight } from 'lucide-react';
 
 const articles = [
     {
+        date: "2026-07-23",
+        title: "Measure for Information, Not for Fitness: Designing Protein Experiments to Reveal Epistasis",
+        slug: "designing-protein-experiments-for-epistasis"
+    },
+    {
         date: "2026-06-01",
         title: "AI for Science Is Moving From Prediction to Closed-Loop Research Systems",
         slug: "ai-for-science-is-becoming-a-systems-problem"

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1210" role="img" aria-labelledby="title desc">
+  <title id="title">What masking dispersion adds to the V1 score</title>
+  <desc id="desc">The V1 ablation compares loop count alone with the same score multiplied by ESM masking dispersion. Within each mutation order the loop-count candidates are tied, while dispersion can reorder them. Current evidence does not establish an additional benefit from the dispersion term.</desc>
+  <rect width="600" height="1210" fill="#FDFBF7"/>
+
+  <style>
+    text{font-family:Inter,Arial,sans-serif}
+    .key{font-size:22px;font-weight:600;fill:#1A1A1A}
+    .label{font-size:14px;font-weight:400;fill:#5A5A5A}
+    .strong{font-size:14px;font-weight:600;fill:#1B3022}
+    .center{text-anchor:middle}
+    .end{text-anchor:end}
+    .node-label{font-size:14px;font-weight:600;fill:#5A5A5A;text-anchor:middle;dominant-baseline:middle}
+    .selected-label{font-size:14px;font-weight:600;fill:#FDFBF7;text-anchor:middle;dominant-baseline:middle}
+    .divider{stroke:#E5E0D8;stroke-width:1.5}
+    .node{fill:#FDFBF7;stroke:#5A5A5A;stroke-width:2}
+    .selected{fill:#1B3022;stroke:#1B3022;stroke-width:2}
+    .halo{fill:none;stroke:#1B3022;stroke-width:2;stroke-dasharray:5 5}
+    .plate-shell{fill:none;stroke:#E5E0D8;stroke-width:1.5}
+    .well{fill:#FDFBF7;stroke:#5A5A5A;stroke-width:1.5}
+    .well-selected{fill:#1B3022;stroke:#1B3022;stroke-width:1.5}
+  </style>
+
+  <text x="40" y="48" class="key">Loop count with or without masking dispersion</text>
+
+  <g data-method="loop-count" data-candidate-set="A,B,C,D,AB,AC,BD,CD,ABC,ABD,BCD" data-selected-count="3" aria-label="Loop-count baseline">
+    <text x="300" y="105" class="key center">Loop-count baseline</text>
+    <text x="300" y="142" class="key center">score(v) = n(v)</text>
+
+    <text x="55" y="210" class="strong">Singles</text>
+    <text x="545" y="210" class="label end">singles: 1140</text>
+    <circle cx="190" cy="205" r="16" class="selected"/><text x="190" y="205" class="selected-label">A</text>
+    <circle cx="255" cy="205" r="16" class="selected"/><text x="255" y="205" class="selected-label">B</text>
+    <circle cx="320" cy="205" r="16" class="selected"/><text x="320" y="205" class="selected-label">C</text>
+    <circle cx="385" cy="205" r="16" class="node"/><text x="385" y="205" class="node-label">D</text>
+
+    <text x="55" y="275" class="strong">Doubles</text>
+    <text x="545" y="275" class="label end">doubles: 39</text>
+    <circle cx="190" cy="270" r="16" class="node"/><text x="190" y="270" class="node-label">AB</text>
+    <circle cx="255" cy="270" r="16" class="node"/><text x="255" y="270" class="node-label">AC</text>
+    <circle cx="320" cy="270" r="16" class="node"/><text x="320" y="270" class="node-label">BD</text>
+    <circle cx="385" cy="270" r="16" class="node"/><text x="385" y="270" class="node-label">CD</text>
+
+    <text x="55" y="340" class="strong">Triples</text>
+    <text x="545" y="340" class="label end">triples: 1</text>
+    <circle cx="215" cy="335" r="18" class="node"/><text x="215" y="335" class="node-label">ABC</text>
+    <circle cx="290" cy="335" r="18" class="node"/><text x="290" y="335" class="node-label">ABD</text>
+    <circle cx="365" cy="335" r="18" class="node"/><text x="365" y="335" class="node-label">BCD</text>
+
+    <text x="300" y="385" class="label center">tied within mutation order</text>
+    <g class="plate" transform="translate(190 410)" aria-label="Illustrative selected set A, B, C">
+      <rect width="220" height="68" rx="12" class="plate-shell"/>
+      <circle cx="46" cy="34" r="15" class="well-selected"/><text x="46" y="34" class="selected-label">A</text>
+      <circle cx="88" cy="34" r="15" class="well-selected"/><text x="88" y="34" class="selected-label">B</text>
+      <circle cx="130" cy="34" r="15" class="well-selected"/><text x="130" y="34" class="selected-label">C</text>
+      <circle cx="174" cy="34" r="15" class="well"/>
+    </g>
+  </g>
+
+  <line x1="40" y1="515" x2="560" y2="515" class="divider"/>
+  <circle cx="300" cy="550" r="24" fill="none" stroke="#E5E0D8" stroke-width="1.5"/>
+  <path d="M290 550H310 M300 540V560" fill="none" stroke="#1B3022" stroke-width="2" stroke-linecap="round"/>
+  <text x="300" y="596" class="label center">add masking dispersion</text>
+
+  <g data-method="dispersion-weighted" data-candidate-set="A,B,C,D,AB,AC,BD,CD,ABC,ABD,BCD" data-selected-count="3" aria-label="Dispersion-weighted score">
+    <text x="300" y="650" class="key center">Dispersion-weighted</text>
+    <text x="300" y="687" class="key center">score(v) = n(v) × τ²(v)</text>
+
+    <text x="55" y="755" class="strong">Singles</text>
+    <circle cx="190" cy="750" r="23" class="halo"/><circle cx="190" cy="750" r="16" class="selected"/><text x="190" y="750" class="selected-label">A</text>
+    <circle cx="255" cy="750" r="27" class="halo"/><circle cx="255" cy="750" r="16" class="selected"/><text x="255" y="750" class="selected-label">B</text>
+    <circle cx="320" cy="750" r="20" class="halo"/><circle cx="320" cy="750" r="16" class="node"/><text x="320" y="750" class="node-label">C</text>
+    <circle cx="385" cy="750" r="31" class="halo"/><circle cx="385" cy="750" r="16" class="selected"/><text x="385" y="750" class="selected-label">D</text>
+
+    <text x="55" y="825" class="strong">Doubles</text>
+    <circle cx="190" cy="820" r="22" class="halo"/><circle cx="190" cy="820" r="16" class="node"/><text x="190" y="820" class="node-label">AB</text>
+    <circle cx="255" cy="820" r="28" class="halo"/><circle cx="255" cy="820" r="16" class="node"/><text x="255" y="820" class="node-label">AC</text>
+    <circle cx="320" cy="820" r="20" class="halo"/><circle cx="320" cy="820" r="16" class="node"/><text x="320" y="820" class="node-label">BD</text>
+    <circle cx="385" cy="820" r="25" class="halo"/><circle cx="385" cy="820" r="16" class="node"/><text x="385" y="820" class="node-label">CD</text>
+
+    <text x="55" y="895" class="strong">Triples</text>
+    <circle cx="215" cy="890" r="28" class="halo"/><circle cx="215" cy="890" r="18" class="node"/><text x="215" y="890" class="node-label">ABC</text>
+    <circle cx="290" cy="890" r="23" class="halo"/><circle cx="290" cy="890" r="18" class="node"/><text x="290" y="890" class="node-label">ABD</text>
+    <circle cx="365" cy="890" r="31" class="halo"/><circle cx="365" cy="890" r="18" class="node"/><text x="365" y="890" class="node-label">BCD</text>
+
+    <text x="300" y="940" class="label center">reordered within mutation order</text>
+    <g class="plate" transform="translate(190 965)" aria-label="Illustrative selected set D, B, A">
+      <rect width="220" height="68" rx="12" class="plate-shell"/>
+      <circle cx="46" cy="34" r="15" class="well-selected"/><text x="46" y="34" class="selected-label">D</text>
+      <circle cx="88" cy="34" r="15" class="well-selected"/><text x="88" y="34" class="selected-label">B</text>
+      <circle cx="130" cy="34" r="15" class="well-selected"/><text x="130" y="34" class="selected-label">A</text>
+      <circle cx="174" cy="34" r="15" class="well"/>
+    </g>
+  </g>
+
+  <line x1="40" y1="1070" x2="560" y2="1070" class="divider"/>
+  <g aria-label="Figure legend">
+    <circle cx="55" cy="1115" r="12" class="node"/><text x="80" y="1120" class="label">node = candidate variant</text>
+    <circle cx="300" cy="1115" r="12" class="selected"/><text x="323" y="1120" class="label">filled node = selected for measurement</text>
+    <circle cx="55" cy="1170" r="12" class="node"/><circle cx="55" cy="1170" r="20" class="halo"/><text x="82" y="1175" class="label">dashed halo = masking dispersion</text>
+    <text x="323" y="1175" class="label">B = fixed budget</text>
+  </g>
+</svg>

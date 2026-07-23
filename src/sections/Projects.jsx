@@ -12,6 +12,14 @@ const projects = [
         github: "#"
     },
     {
+        id: 14,
+        title: "epibudget",
+        description: "Built an open-source experimental-design tool that chooses protein variants by the interaction structure they expose under a fixed lab budget.",
+        tags: ["Open Source", "Protein Engineering", "Experimental Design"],
+        link: "/projects/epibudget",
+        github: "https://github.com/VivienP/epistasis-budget"
+    },
+    {
         id: 12,
         title: "Scientific Claim Verifier",
         description: "Open-source engine that verifies each cited claim in scientific text against its source, with deterministic, fully-traceable provenance: F1 0.92 on SciFact (vs 0.62 naive baseline).",

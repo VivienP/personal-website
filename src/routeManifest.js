@@ -1,5 +1,7 @@
 export const routeDefinitions = [
     { path: '/', lastmod: '2026-07-09', load: () => import('./sections/Home.jsx') },
+    { path: '/projects/epibudget', lastmod: '2026-07-23', load: () => import('./articles/projects/Epibudget.jsx') },
+    { path: '/blog/designing-protein-experiments-for-epistasis', lastmod: '2026-07-23', load: () => import('./articles/WhatShouldWeMeasureNext.jsx') },
     { path: '/blog/trauma-vs-purpose', lastmod: '2026-07-07', load: () => import('./articles/TraumaVsPurpose.jsx') },
     { path: '/projects/biowatch', lastmod: '2026-07-07', load: () => import('./articles/BioWatch.jsx') },
     { path: '/projects/green-grown', lastmod: '2026-07-09', load: () => import('./articles/GreenGrown.jsx') },

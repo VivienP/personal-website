@@ -5,6 +5,19 @@ import { test } from 'node:test';
 
 const read = (file) => readFileSync(new URL(`../${file}`, import.meta.url), 'utf8');
 const optionalImport = async (path) => import(path).catch(() => ({}));
+const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+const readLossyWebpDimensions = (file) => {
+    const body = readFileSync(new URL(`../${file}`, import.meta.url));
+    assert.equal(body.subarray(0, 4).toString(), 'RIFF');
+    assert.equal(body.subarray(8, 12).toString(), 'WEBP');
+    const frameMarker = body.indexOf(Buffer.from([0x9d, 0x01, 0x2a]));
+    assert.ok(frameMarker >= 0, `${file} has no VP8 frame marker`);
+    return {
+        width: body.readUInt16LE(frameMarker + 3) & 0x3fff,
+        height: body.readUInt16LE(frameMarker + 5) & 0x3fff,
+    };
+};
 
 test('email link is exposed synchronously on the activated anchor', async () => {
     const { prepareEmailLink } = await optionalImport('../src/utils/email.js');
@@ -94,6 +107,258 @@ test('direct build and router dependencies meet audited safe minimums', () => {
 test('package exposes the regression suite', () => {
     const packageJson = JSON.parse(read('package.json'));
     assert.equal(packageJson.scripts.test, 'node --test');
+});
+
+test('epibudget pages and figures are present', () => {
+    const requiredFiles = [
+        'src/articles/projects/Epibudget.jsx',
+        'src/articles/WhatShouldWeMeasureNext.jsx',
+        'public/epibudget/workflow.webp',
+        'public/epibudget/trpb-pairwise-map-recovery.png',
+        'public/epibudget/epistasis-loops.svg',
+        'public/epibudget/allocation-strategies.svg',
+        'public/epibudget/downstream-label-boundary.svg',
+        'public/epibudget/structure-vs-dispersion.svg',
+    ];
+
+    for (const file of requiredFiles) {
+        assert.equal(existsSync(new URL(`../${file}`, import.meta.url)), true, `${file} is missing`);
+    }
+});
+
+test('epibudget routes and homepage entries have flagship placement', () => {
+    const manifest = read('src/routeManifest.js');
+    assert.match(manifest, /path: '\/projects\/epibudget'.*Epibudget\.jsx/);
+    assert.match(manifest, /path: '\/blog\/designing-protein-experiments-for-epistasis'.*WhatShouldWeMeasureNext\.jsx/);
+
+    const projects = read('src/sections/Projects.jsx');
+    const locus = projects.indexOf('title: "LocusLab"');
+    const epibudget = projects.indexOf('title: "epibudget"');
+    const verifier = projects.indexOf('title: "Scientific Claim Verifier"');
+    assert.ok(locus !== -1 && epibudget > locus && epibudget < verifier, 'epibudget is not the second project');
+
+    const journal = read('src/sections/Journal.jsx');
+    assert.ok(
+        journal.indexOf('title: "Measure for Information, Not for Fitness: Designing Protein Experiments to Reveal Epistasis"') <
+            journal.indexOf('title: "AI for Science Is Moving From Prediction to Closed-Loop Research Systems"'),
+        'epibudget article is not the newest Journal entry',
+    );
+});
+
+test('epibudget content is reciprocal, current with the tracked evidence, and uses the site palette', () => {
+    assert.equal(
+        existsSync(new URL('../src/articles/epibudget-blog-draft.md', import.meta.url)),
+        false,
+        'converted Markdown draft should not remain in production source',
+    );
+
+    const project = read('src/articles/projects/Epibudget.jsx');
+    const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
+    assert.match(project, /View on GitHub/);
+    assert.match(project, /Read the research story/);
+    assert.match(project, /\/blog\/designing-protein-experiments-for-epistasis/);
+    assert.match(article, /\/projects\/epibudget/);
+    assert.doesNotMatch(article, /Illustration [1-5]|codex-inline-vis/);
+
+    for (const source of [article, project]) {
+        for (const boundary of [
+            /TrpB.*info.*fitness.*random/is,
+            /loop-count.*20\/20 partitions.*GB1.*TrpB/is,
+            /masking dispersion.*not support/is,
+            /GB1 map-recovery.*inconclusive_zero_gpu/is,
+            /provisional/i,
+            /871 imputed fitness values/i,
+        ]) {
+            assert.match(source, boundary);
+        }
+
+        assert.doesNotMatch(source, /confirmatory downstream benchmark has not yet been run/i);
+        assert.doesNotMatch(source, /TrpB scientific comparison is not interpretable/i);
+        assert.doesNotMatch(source, /No comparative selection result is currently decision-eligible/i);
+    }
+
+    const allowedColors = new Set(['#FDFBF7', '#1A1A1A', '#5A5A5A', '#E5E0D8', '#1B3022']);
+    for (const name of ['epistasis-loops.svg', 'allocation-strategies.svg', 'downstream-label-boundary.svg', 'structure-vs-dispersion.svg']) {
+        const colors = read(`public/epibudget/${name}`).match(/#[0-9A-Fa-f]{6}/g) ?? [];
+        assert.ok(colors.length > 0, `${name} has no explicit palette`);
+        assert.deepEqual([...new Set(colors)].filter((color) => !allowedColors.has(color)), [], `${name} introduces a new color`);
+    }
+});
+
+test('epibudget article keeps a restrained scientific voice', () => {
+    const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
+    const firstPersonPronouns = article.match(/\bI\b/g) ?? [];
+    const emDashes = article.match(/—/g) ?? [];
+
+    assert.ok(firstPersonPronouns.length <= 3, `article contains ${firstPersonPronouns.length} first-person pronouns`);
+    assert.ok(emDashes.length <= 4, `article contains ${emDashes.length} em dashes`);
+    assert.doesNotMatch(article, /The question changed/);
+    assert.match(article, /Implications for experimental design/);
+});
+
+test('epibudget article uses the established Journal typography and spacing classes', () => {
+    const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
+
+    assert.match(article, /<article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">/);
+    assert.match(article, /<header className="mb-12 space-y-4">/);
+    assert.match(article, /<div className="flex items-center space-x-3 mb-2">\s*<span className="font-mono text-xs text-secondary tracking-widest uppercase">Journal Entry · AI for Science<\/span>\s*<\/div>/);
+    assert.match(article, /<h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">/);
+    assert.match(article, /<p className="text-lg text-secondary font-light max-w-2xl">/);
+    assert.match(article, /<div className="pt-2 flex items-center space-x-2 text-sm text-secondary\/80 italic font-light">\s*<span>By Vivien Perrelle · July 23, 2026<\/span>\s*<\/div>/);
+    assert.match(article, /<div className="prose prose-neutral prose-lg text-primary max-w-none space-y-12 font-light">/);
+    assert.equal((article.match(/<h3 className="text-base font-normal text-primary">/g) ?? []).length, 2);
+    assert.match(article, /<ol className="list-decimal pl-6 space-y-2 text-base marker:text-secondary">/);
+    assert.doesNotMatch(article, /prose prose-neutral prose-lg[^"\n]*leading-relaxed/);
+});
+
+test('allocation figure compares five equal-budget selections with minimal labels', () => {
+    const figure = read('public/epibudget/allocation-strategies.svg');
+
+    for (const requiredCopy of [
+        'Five allocation strategies',
+        'Random',
+        'uniform',
+        'Fitness',
+        'predicted fitness',
+        'Loop-count',
+        'interaction coverage',
+        'Dispersion-weighted',
+        'masking dispersion',
+        'Practice',
+        'singles → combinations',
+        'Node = candidate variant',
+        'Filled = selected for measurement',
+        'Outline = not selected',
+        'Dashed halo = high masking dispersion',
+        'B = fixed experimental budget',
+    ]) {
+        assert.match(figure, new RegExp(escapeRegex(requiredCopy)));
+    }
+
+    assert.equal((figure.match(/data-selected-count="3"/g) ?? []).length, 5);
+    assert.equal((figure.match(/href="#candidate-graph"/g) ?? []).length, 5);
+    assert.equal((figure.match(/class="plate"/g) ?? []).length, 5);
+    assert.match(figure, /<circle cx="300" cy="1302" r="12" class="selected"\/><text x="323" y="1307" class="label">Filled = selected for measurement<\/text>/);
+    assert.match(figure, /<circle cx="300" cy="1350" r="12" class="node"\/><circle cx="300" cy="1350" r="20" class="halo"\/><text x="328" y="1355" class="label">Dashed halo = high masking dispersion<\/text>/);
+    assert.doesNotMatch(figure, /Each strategy selects|Samples candidates|Prioritizes|Experimental plate · B fixed/);
+    assert.doesNotMatch(figure, /<polygon|fill="#000000"|fill="black"/i);
+});
+
+test('epistasis figure defines WT-referenced pairwise and third-order measurement loops', () => {
+    const figure = read('public/epibudget/epistasis-loops.svg');
+
+    for (const requiredCopy of [
+        'Closed measurement loops',
+        'Pairwise',
+        'Third-order',
+        'AB alone: insufficient',
+        'ABC alone: insufficient',
+        'dark filled node = measured variant',
+        'dashed outline = focal target',
+        'dark edge = closed loop',
+        'light edge = related',
+    ]) {
+        assert.match(figure, new RegExp(escapeRegex(requiredCopy)));
+    }
+
+    for (const variant of ['A', 'B', 'C', 'AB', 'AC', 'BC', 'ABC']) {
+        assert.match(figure, new RegExp(`>${variant}<`));
+    }
+    assert.doesNotMatch(figure, /ε\(|with Δ\(WT\)|Pairwise epistasis compares|A combination measured in isolation/);
+});
+
+test('V1 ablation figure states the score comparison and current provisional evidence', () => {
+    const figure = read('public/epibudget/structure-vs-dispersion.svg');
+
+    for (const requiredCopy of [
+        'Loop count with or without masking dispersion',
+        'Loop-count baseline',
+        'Dispersion-weighted',
+        'score(v) = n(v)',
+        'score(v) = n(v) × τ²(v)',
+        'singles: 1140',
+        'doubles: 39',
+        'triples: 1',
+        'node = candidate variant',
+        'dashed halo = masking dispersion',
+        'filled node = selected for measurement',
+    ]) {
+        assert.match(figure, new RegExp(escapeRegex(requiredCopy)));
+    }
+
+    assert.equal((figure.match(/data-candidate-set="A,B,C,D,AB,AC,BD,CD,ABC,ABD,BCD"/g) ?? []).length, 2);
+    assert.equal((figure.match(/data-selected-count="3"/g) ?? []).length, 2);
+    assert.equal((figure.match(/class="plate"/g) ?? []).length, 2);
+    assert.doesNotMatch(figure, /Current evidence status|inconclusive_zero_gpu|not a calibrated posterior variance|All comparative results remain provisional/i);
+});
+
+test('epibudget workflow metadata matches the optimized image dimensions', () => {
+    assert.deepEqual(readLossyWebpDimensions('public/epibudget/workflow.webp'), { width: 2048, height: 900 });
+
+    for (const file of ['src/articles/projects/Epibudget.jsx', 'src/articles/WhatShouldWeMeasureNext.jsx']) {
+        const source = read(file);
+        assert.match(source, /imageWidth=\{2048\}/);
+        assert.match(source, /imageHeight=\{900\}/);
+        assert.match(source, /width="2048"/);
+        assert.match(source, /height="900"/);
+    }
+});
+
+test('editorial figure captions follow images and use the approved copy', () => {
+    const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
+    const expectedCaptions = [
+        ['1', 'From target protein to experimental plate', 'epibudget scores complete variants, maps their interaction structure, and converts a fixed experimental budget into a ranked measurement plate.'],
+        ['2', 'Interaction coefficients are defined by closed measurement loops', 'Pairwise and third-order coefficients are defined relative to WT-referenced families of measurements. An isolated combination cannot determine its own epistatic effect.'],
+        ['3', 'Same candidates, different experimental plates', 'Five static strategies select the same number of variants from a shared candidate universe. Only the selection criterion changes which variants enter the plate.'],
+        ['4', 'Label boundaries in downstream evaluation', 'Measured fitness is revealed only after selection, while held-out ESM features remain excluded from the fixed downstream learner.'],
+        ['5', 'What masking dispersion adds to the V1 score', 'The ablation compares loop count alone with loop count weighted by ESM masking dispersion. Current evidence does not establish an additional benefit from the dispersion term.'],
+    ];
+
+    for (const [number, title, description] of expectedCaptions) {
+        assert.match(article, new RegExp(`number="${number}"`));
+        assert.match(article, new RegExp(`title="${escapeRegex(title)}"`));
+        assert.match(article, new RegExp(`description="${escapeRegex(description)}"`));
+    }
+
+    assert.match(article, /<a[\s\S]*?href=\{src\}[\s\S]*?<img[\s\S]*?<\/a>\s*<figcaption/);
+    assert.match(article, /Figure n°\{number\}: \{title\}/);
+    assert.match(article, /<span>Description:<\/span> \{description\}/);
+    assert.match(article, /<figcaption className=\{`[^`]*text-base leading-relaxed[^`]*`\}>/);
+    assert.doesNotMatch(article, /<figcaption className=\{`[^`]*text-lg[^`]*`\}>/);
+    assert.doesNotMatch(article, /mobileScrollable|min-w-\[760px\]|Swipe horizontally/);
+});
+
+test('epibudget SVGs share a responsive two-size editorial system', () => {
+    for (const name of ['epistasis-loops.svg', 'allocation-strategies.svg', 'downstream-label-boundary.svg', 'structure-vs-dispersion.svg']) {
+        const figure = read(`public/epibudget/${name}`);
+        const root = figure.match(/<svg\b[^>]*>/)?.[0] ?? '';
+        const sizes = [...new Set([...figure.matchAll(/font-size:\s*(\d+px)/g)].map((match) => match[1]))].sort();
+
+        assert.match(root, /viewBox="[^"]+"/);
+        assert.doesNotMatch(root, /\s(?:width|height)="/);
+        assert.match(figure, /font-family:Inter,Arial,sans-serif/);
+        assert.deepEqual(sizes, ['14px', '22px'], `${name} does not use exactly the shared two-size scale`);
+        assert.doesNotMatch(figure, /class="subtitle"|class="footer"/);
+    }
+});
+
+test('article figures use bounded widths and keep the narrow downstream diagram compact', () => {
+    const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
+
+    assert.match(article, /className=\{`block mx-auto \$\{maxWidthClass\}`\}/);
+    assert.match(article, /src="\/epibudget\/epistasis-loops\.svg"[\s\S]*?maxWidthClass="max-w-\[600px\]"/);
+    assert.match(article, /src="\/epibudget\/allocation-strategies\.svg"[\s\S]*?maxWidthClass="max-w-\[600px\]"/);
+    assert.match(article, /src="\/epibudget\/downstream-label-boundary\.svg"[\s\S]*?maxWidthClass="max-w-md"/);
+    assert.match(article, /src="\/epibudget\/structure-vs-dispersion\.svg"[\s\S]*?maxWidthClass="max-w-\[600px\]"/);
+});
+
+test('Figure 5 legend has two spacious rows without right or vertical clipping', () => {
+    const figure = read('public/epibudget/structure-vs-dispersion.svg');
+
+    assert.match(figure, /viewBox="0 0 600 1210"/);
+    assert.match(figure, /filled node = selected for measurement<\/text>/);
+    assert.match(figure, /<circle cx="55" cy="1170" r="20" class="halo"\/>/);
+    assert.match(figure, /<text x="323" y="1175" class="label">B = fixed budget<\/text>/);
 });
 
 test('production output is route-split and contains no prerender client edge', () => {
