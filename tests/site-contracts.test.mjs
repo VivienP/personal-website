@@ -164,7 +164,7 @@ test('epibudget content is reciprocal, current with the tracked evidence, and us
         for (const boundary of [
             /TrpB.*info.*fitness.*random/is,
             /20\/20[\s\S]*partitions[\s\S]*GB1[\s\S]*TrpB/i,
-            /masking dispersion.*not support/is,
+            /masking(?:-| )dispersion.*(?:not support|no contribution claim)/is,
             /provisional/i,
             /871.*imputed.*fitness\s+values/is,
         ]) {
@@ -176,7 +176,7 @@ test('epibudget content is reciprocal, current with the tracked evidence, and us
         assert.doesNotMatch(source, /No comparative selection result is currently decision-eligible/i);
     }
 
-    assert.match(project, /GB1 map-recovery.*inconclusive_zero_gpu/is);
+    assert.match(project, /GB1 map[- ]recovery.*inconclusive_zero_gpu/is);
     assert.match(article, /On GB1.*map-recovery.*remains\s+inconclusive/is);
     assert.doesNotMatch(article, /inconclusive_zero_gpu/);
 

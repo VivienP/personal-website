@@ -57,7 +57,7 @@ const Epibudget = () => {
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">Open Source · AI for Science · Experimental Design</span>
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">epibudget</h1>
                 <p className="text-lg text-secondary font-light max-w-2xl">
-                    A Python tool for choosing protein variants that expose mutation interactions when every experimental measurement has to earn its place.
+                    A Python CLI for ranking protein variants that expose mutation interactions under a fixed experimental budget.
                 </p>
                 <div className="pt-2 flex flex-wrap gap-3">
                     <a href={REPO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm">
@@ -74,58 +74,71 @@ const Epibudget = () => {
             <figure className="mb-16 -mx-6 md:mx-0 overflow-hidden md:rounded-lg border-y md:border border-border-subtle bg-cream">
                 <img
                     src="/epibudget/workflow.webp"
-                    alt="epibudget workflow: score complete protein variants jointly, build an epistasis graph, and return a ranked experimental shortlist"
+                    alt="epibudget workflow from a target sequence and candidate positions through conjoint ESM-2 scoring and an epistasis factor graph to a ranked experimental shortlist"
                     width="2048"
                     height="900"
                     className="w-full h-auto"
                 />
                 <figcaption className="px-5 py-3 text-sm text-secondary border-t border-border-subtle">
-                    epibudget ranks a shortlist of <em>B</em> variants by the interaction structure their measurements would expose.
+                    Given a budget <code>B</code>, epibudget ranks variants by the interaction loops their measurement would brace.
                 </figcaption>
             </figure>
 
             <div className="text-primary max-w-none space-y-12 font-light leading-relaxed">
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The problem</h2>
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The scientific problem</h2>
                     <p>
-                        A protein language model can rank thousands of mutations before a lab measures one. But the variants it calls fittest are not the measurements that reveal how mutations interact. Under a plate budget of 48, 96, or 192 wells, that gap decides whether an experiment returns a cluster of predicted winners or a dataset that constrains an epistasis map.
+                        A protein language model can rank thousands of variants before any wet-lab measurement. Yet the variants with the highest predicted fitness are not necessarily those that best reveal interactions among mutations. Under a budget of <code>48</code>, <code>96</code>, or <code>192</code> wells, that distinction determines whether an experiment concentrates on predicted winners or samples variants that constrain an epistasis map.
                     </p>
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">What I built</h2>
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Method</h2>
+                    <p>
+                        <code>epibudget</code> selects measurements; it is neither a fitness optimizer nor an epistasis-inference package. Given a wild-type sequence, candidate positions, a budget <code>B</code>, and an ESM-2 checkpoint, it returns an ordered list of <code>B</code> single-, double-, and triple-mutant variants.
+                    </p>
                     <ul className="list-disc pl-6 space-y-3 marker:text-secondary">
-                        <li><strong>Conjoint ESM-2 scoring</strong> applies every mutation before reading conditional scores, preserving context-dependent interaction signal.</li>
-                        <li><strong>An interaction graph</strong> represents the pairwise and third-order loops that candidate measurements help close.</li>
-                        <li><strong>A label-blind allocator</strong> ranks variants by loop count before any measured fitness enters the pipeline.</li>
+                        <li><strong>Conjoint ESM-2 scoring</strong> applies every mutation in a variant before computing conditional scores, preserving context-dependent interaction signal.</li>
+                        <li><strong>Factor-graph construction</strong> represents WT-referenced pairwise and third-order inclusion–exclusion loops.</li>
+                        <li><strong>Label-blind allocation</strong> ranks candidates before measured fitness enters the pipeline: <code>structural</code> uses loop coverage alone, whereas <code>info</code> weights that coverage by ESM masking dispersion.</li>
                     </ul>
                     <p>
-                        Loop count, predicted fitness, and ESM masking dispersion stay separate strategies, so each contribution can be tested on its own. In the historical code and artifacts, the loop-count baseline is named <code>structural</code>; the label points at interaction structure, not protein 3D structure.
+                        Loop coverage, masking dispersion, and predicted fitness remain separable signals, allowing their contributions to be evaluated independently. In the historical code and artifacts, <code>structural</code> denotes interaction structure, not protein tertiary structure.
                     </p>
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Current evidence boundary</h2>
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Validation design</h2>
                     <p>
-                        On TrpB, <code>info</code> beats fitness and random for pairwise map recovery. The loop-count baseline overtakes <code>info</code> at budgets 96 and 192, though not at 48, so the result does not support an added benefit from ESM masking dispersion.
+                        Selection remains label-blind: measured fitness is revealed only after the selected identities are fixed. The registered benchmark compares five methods—<code>info</code>, <code>fitness</code>, <code>random</code>, <code>practice</code>, and <code>structural</code>—at budgets <code>48</code>, <code>96</code>, and <code>192</code> on GB1 and TrpB.
                     </p>
                     <p>
-                        In the registered downstream benchmark, loop-count selection beats fitness-greedy in 20/20 partitions on both GB1 and TrpB. The masking-dispersion gate does not pass on either landscape.
+                        Map recovery reports pairwise and third-order correlations separately. A separate downstream benchmark fits the same pairwise-ridge learner to each selected plate and evaluates held-out double and triple mutants.
+                    </p>
+                </section>
+
+                <section className="space-y-6">
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Current findings</h2>
+                    <p>
+                        On TrpB, <code>info</code> outperforms <code>fitness</code> and <code>random</code> for pairwise map recovery. However, <code>structural</code> outperforms <code>info</code> at budgets <code>96</code> and <code>192</code>, though not at <code>48</code>; the masking-dispersion weight therefore earns no contribution claim.
                     </p>
                     <p>
-                        All comparative results remain provisional. GB1 map-recovery remains <code>inconclusive_zero_gpu</code>, and the TrpB source mirror contains 871 imputed fitness values that are not identified row by row. No claim is made beyond these landscapes and the fixed downstream learner.
+                        In the registered downstream benchmark, <code>structural</code> outperforms <code>fitness</code> in 20/20 partitions on both GB1 and TrpB. The <code>info</code>-versus-<code>structural</code> gate does not pass on either landscape.
+                    </p>
+                </section>
+
+                <section className="space-y-6">
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Limitations and status</h2>
+                    <p>
+                        All comparative results remain provisional. GB1 map recovery remains <code>inconclusive_zero_gpu</code> with <code>public_claim_eligible=false</code>, and the TrpB source mirror contains <code>871</code> imputed fitness values that are not identified row by row. No general claim is made beyond these two landscapes and the fixed downstream learner.
                     </p>
                 </section>
 
                 <div className="pt-2 flex flex-wrap gap-3">
                     <Link to={ARTICLE} className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm">
-                        <span>Read the full experiment</span>
+                        <span>Read the full scientific analysis</span>
                         <ArrowRight size={14} />
                     </Link>
-                    <a href={`${REPO}/blob/main/docs/VALIDATION.md`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm">
-                        <span>Inspect the validation protocol</span>
-                        <ExternalLink size={14} />
-                    </a>
                 </div>
             </div>
         </article>
