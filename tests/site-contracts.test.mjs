@@ -163,11 +163,10 @@ test('epibudget content is reciprocal, current with the tracked evidence, and us
     for (const source of [article, project]) {
         for (const boundary of [
             /TrpB.*info.*fitness.*random/is,
-            /loop-count.*20\/20 partitions.*GB1.*TrpB/is,
+            /20\/20[\s\S]*partitions[\s\S]*GB1[\s\S]*TrpB/i,
             /masking dispersion.*not support/is,
-            /GB1 map-recovery.*inconclusive_zero_gpu/is,
             /provisional/i,
-            /871 imputed fitness values/i,
+            /871.*imputed.*fitness\s+values/is,
         ]) {
             assert.match(source, boundary);
         }
@@ -176,6 +175,10 @@ test('epibudget content is reciprocal, current with the tracked evidence, and us
         assert.doesNotMatch(source, /TrpB scientific comparison is not interpretable/i);
         assert.doesNotMatch(source, /No comparative selection result is currently decision-eligible/i);
     }
+
+    assert.match(project, /GB1 map-recovery.*inconclusive_zero_gpu/is);
+    assert.match(article, /On GB1.*map-recovery.*remains\s+inconclusive/is);
+    assert.doesNotMatch(article, /inconclusive_zero_gpu/);
 
     const allowedColors = new Set(['#FDFBF7', '#1A1A1A', '#5A5A5A', '#E5E0D8', '#1B3022']);
     for (const name of ['epistasis-loops.svg', 'allocation-strategies.svg', 'downstream-label-boundary.svg', 'structure-vs-dispersion.svg']) {
@@ -206,9 +209,56 @@ test('epibudget article uses the established Journal typography and spacing clas
     assert.match(article, /<p className="text-lg text-secondary font-light max-w-2xl">/);
     assert.match(article, /<div className="pt-2 flex items-center space-x-2 text-sm text-secondary\/80 italic font-light">\s*<span>By Vivien Perrelle · July 23, 2026<\/span>\s*<\/div>/);
     assert.match(article, /<div className="prose prose-neutral prose-lg text-primary max-w-none space-y-12 font-light">/);
-    assert.equal((article.match(/<h3 className="text-base font-normal text-primary">/g) ?? []).length, 2);
     assert.match(article, /<ol className="list-decimal pl-6 space-y-2 text-base marker:text-secondary">/);
     assert.doesNotMatch(article, /prose prose-neutral prose-lg[^"\n]*leading-relaxed/);
+});
+
+test('epibudget article opens with Terminology, Introduction, then the epistasis section', () => {
+    const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
+    const headingClass = 'text-2xl font-normal text-primary pb-2 border-b border-border-subtle';
+    const terminology = `<h2 className="${headingClass}">Terminology</h2>`;
+    const introduction = `<h2 className="${headingClass}">Introduction</h2>`;
+    const epistasis = `<h2 className="${headingClass}">Epistasis makes prediction a relational problem</h2>`;
+
+    assert.ok(article.indexOf(terminology) >= 0);
+    assert.ok(article.indexOf(introduction) > article.indexOf(terminology));
+    assert.ok(article.indexOf(epistasis) > article.indexOf(introduction));
+    assert.doesNotMatch(article, /<p className="mb-3 font-semibold text-primary">Terminology<\/p>/);
+});
+
+test('epibudget article introduces the requested scientific vocabulary before using specialist terms', () => {
+    const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
+    const compact = article.replace(/\s+/g, ' ');
+
+    assert.doesNotMatch(article, /The project started from a hypothesis about ESM masking dispersion/);
+    assert.match(compact, /Terminology.*Variant:.*Site:.*Experimental plate:.*budget <code>B<\/code>.*Label:.*Protein landscape:/);
+
+    for (const requiredCopy of [
+        'A and B are abstract labels for mutations at two selected positions in the protein sequence',
+        'Δ(v) is the measured effect of variant v relative to the reference construct',
+        'is not a biological feedback loop',
+        'Each site can contain any of the 20 standard amino acids',
+        '<code>76</code> singles, <code>2,166</code> doubles, and <code>27,436</code> triples',
+        'much as a text model learns which words are plausible from the surrounding sentence',
+        'Conjoint scoring means that all mutations in a candidate are inserted into the sequence before any of them is scored',
+        'measures sensitivity to artificial context perturbation; it is not calibrated predictive uncertainty',
+        'a static ranking, not a sequential Bayesian design',
+        'Tied candidates may therefore be selected according to enumeration order unless ties are broken explicitly',
+        'A seeded tie reanalysis randomizes tied candidates while recording the random seed',
+        'A registered gate is a success criterion specified before inspection of the final results',
+        'public mirror does not identify them row by row',
+        'it ranks the complete candidate pool once',
+        'update its beliefs and uncertainty estimates for the remaining variants',
+        'Calibrated predictive error:',
+        'Experimental value:',
+    ]) {
+        assert.match(compact, new RegExp(escapeRegex(requiredCopy)));
+    }
+
+    assert.match(article, /alt="Reference-centered pairwise and third-order measurement loops showing that AB and ABC require their complete lower-order measurement families"/);
+    assert.match(article, /description="Pairwise and third-order coefficients are calculated from complete families of measurements centered on the reference construct\. An isolated combination cannot determine its own epistatic effect\."/);
+    assert.match(compact, /V1 selection score\(v\) = n\(v\) × τ²\(v\)/);
+    assert.doesNotMatch(article, /inconclusive_zero_gpu|correlated posterior/);
 });
 
 test('allocation figure compares five equal-budget selections with minimal labels', () => {
@@ -222,7 +272,6 @@ test('allocation figure compares five equal-budget selections with minimal label
         'predicted fitness',
         'Loop-count',
         'interaction coverage',
-        'Dispersion-weighted',
         'masking dispersion',
         'Practice',
         'singles → combinations',
@@ -240,6 +289,11 @@ test('allocation figure compares five equal-budget selections with minimal label
     assert.equal((figure.match(/class="plate"/g) ?? []).length, 5);
     assert.match(figure, /<circle cx="300" cy="1302" r="12" class="selected"\/><text x="323" y="1307" class="label">Filled = selected for measurement<\/text>/);
     assert.match(figure, /<circle cx="300" cy="1350" r="12" class="node"\/><circle cx="300" cy="1350" r="20" class="halo"\/><text x="328" y="1355" class="label">Dashed halo = high masking dispersion<\/text>/);
+    assert.match(
+        figure,
+        /<text x="42" y="34" class="key"><tspan x="42" y="34">Dispersion-<\/tspan><tspan x="42" dy="26">weighted<\/tspan><\/text>/,
+    );
+    assert.doesNotMatch(figure, /<text x="42" y="42" class="key">Dispersion-weighted<\/text>/);
     assert.doesNotMatch(figure, /Each strategy selects|Samples candidates|Prioritizes|Experimental plate · B fixed/);
     assert.doesNotMatch(figure, /<polygon|fill="#000000"|fill="black"/i);
 });
@@ -267,7 +321,7 @@ test('epistasis figure defines WT-referenced pairwise and third-order measuremen
     assert.doesNotMatch(figure, /ε\(|with Δ\(WT\)|Pairwise epistasis compares|A combination measured in isolation/);
 });
 
-test('V1 ablation figure states the score comparison and current provisional evidence', () => {
+test('v1 ablation figure states the score comparison and current provisional evidence', () => {
     const figure = read('public/epibudget/structure-vs-dispersion.svg');
 
     for (const requiredCopy of [
@@ -308,10 +362,9 @@ test('editorial figure captions follow images and use the approved copy', () => 
     const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
     const expectedCaptions = [
         ['1', 'From target protein to experimental plate', 'epibudget scores complete variants, maps their interaction structure, and converts a fixed experimental budget into a ranked measurement plate.'],
-        ['2', 'Interaction coefficients are defined by closed measurement loops', 'Pairwise and third-order coefficients are defined relative to WT-referenced families of measurements. An isolated combination cannot determine its own epistatic effect.'],
+        ['2', 'Interaction coefficients are defined by closed measurement loops', 'Pairwise and third-order coefficients are calculated from complete families of measurements centered on the reference construct. An isolated combination cannot determine its own epistatic effect.'],
         ['3', 'Same candidates, different experimental plates', 'Five static strategies select the same number of variants from a shared candidate universe. Only the selection criterion changes which variants enter the plate.'],
-        ['4', 'Label boundaries in downstream evaluation', 'Measured fitness is revealed only after selection, while held-out ESM features remain excluded from the fixed downstream learner.'],
-        ['5', 'What masking dispersion adds to the V1 score', 'The ablation compares loop count alone with loop count weighted by ESM masking dispersion. Current evidence does not establish an additional benefit from the dispersion term.'],
+        ['4', 'What masking dispersion adds to the v1 score', 'The ablation compares loop count alone with loop count weighted by ESM masking dispersion. Current evidence does not establish an additional benefit from the dispersion term.'],
     ];
 
     for (const [number, title, description] of expectedCaptions) {
@@ -342,17 +395,16 @@ test('epibudget SVGs share a responsive two-size editorial system', () => {
     }
 });
 
-test('article figures use bounded widths and keep the narrow downstream diagram compact', () => {
+test('article figures use bounded editorial widths', () => {
     const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
 
     assert.match(article, /className=\{`block mx-auto \$\{maxWidthClass\}`\}/);
     assert.match(article, /src="\/epibudget\/epistasis-loops\.svg"[\s\S]*?maxWidthClass="max-w-\[600px\]"/);
     assert.match(article, /src="\/epibudget\/allocation-strategies\.svg"[\s\S]*?maxWidthClass="max-w-\[600px\]"/);
-    assert.match(article, /src="\/epibudget\/downstream-label-boundary\.svg"[\s\S]*?maxWidthClass="max-w-md"/);
     assert.match(article, /src="\/epibudget\/structure-vs-dispersion\.svg"[\s\S]*?maxWidthClass="max-w-\[600px\]"/);
 });
 
-test('Figure 5 legend has two spacious rows without right or vertical clipping', () => {
+test('Figure 4 legend has two spacious rows without right or vertical clipping', () => {
     const figure = read('public/epibudget/structure-vs-dispersion.svg');
 
     assert.match(figure, /viewBox="0 0 600 1210"/);

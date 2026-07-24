@@ -16,7 +16,7 @@ const Epibudget = () => {
         <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
             <SEO
                 title="epibudget: Experimental Design for Protein Epistasis | Vivien Perrelle"
-                description="An open-source Python tool that spends a fixed experimental budget on protein variants that expose interaction structure—not only variants predicted to be fit."
+                description="An open-source Python tool that spends a fixed experimental budget on the protein variants that expose interaction structure, not only the ones predicted to be fit."
                 url="/projects/epibudget"
                 image="/epibudget/workflow.webp"
                 imageWidth={2048}
@@ -88,7 +88,7 @@ const Epibudget = () => {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The problem</h2>
                     <p>
-                        Protein language models can rank thousands of mutations before a lab measures one. But selecting the variants predicted to be fittest is not the same as selecting the measurements that reveal how mutations interact. Under a plate budget of 48, 96, or 192 wells, that distinction determines whether the experiment produces a cluster of predicted winners or a dataset that constrains an epistasis map.
+                        A protein language model can rank thousands of mutations before a lab measures one. But the variants it calls fittest are not the measurements that reveal how mutations interact. Under a plate budget of 48, 96, or 192 wells, that gap decides whether an experiment returns a cluster of predicted winners or a dataset that constrains an epistasis map.
                     </p>
                 </section>
 
@@ -100,14 +100,14 @@ const Epibudget = () => {
                         <li><strong>A label-blind allocator</strong> ranks variants by loop count before any measured fitness enters the pipeline.</li>
                     </ul>
                     <p>
-                        The implementation keeps loop count, predicted fitness, and ESM masking dispersion as separate strategies so that each contribution can be tested directly. In the historical code and artifacts, the loop-count baseline is named <code>structural</code>; it does not use protein 3D structure.
+                        Loop count, predicted fitness, and ESM masking dispersion stay separate strategies, so each contribution can be tested on its own. In the historical code and artifacts, the loop-count baseline is named <code>structural</code>; the label points at interaction structure, not protein 3D structure.
                     </p>
                 </section>
 
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Current evidence boundary</h2>
                     <p>
-                        On TrpB, <code>info</code> beats fitness and random for pairwise map recovery. The loop-count baseline exceeds <code>info</code> at budgets 96 and 192, but not at 48, so the result does not support an added benefit from ESM masking dispersion.
+                        On TrpB, <code>info</code> beats fitness and random for pairwise map recovery. The loop-count baseline overtakes <code>info</code> at budgets 96 and 192, though not at 48, so the result does not support an added benefit from ESM masking dispersion.
                     </p>
                     <p>
                         In the registered downstream benchmark, loop-count selection beats fitness-greedy in 20/20 partitions on both GB1 and TrpB. The masking-dispersion gate does not pass on either landscape.
