@@ -155,6 +155,22 @@ test('each page has exactly one h1 and at most one main landmark', () => {
     // ArticleLayout fixes that in phase 2, at which point this tightens to `=== 1`.
 });
 
+test('an inline SVG title is an accessible name, not the document title', () => {
+    // prerender.jsx lifts React-hoisted <title>/<meta>/<link> out of the rendered body.
+    // <title> is also a legitimate SVG child, so without masking the SVG subtrees an
+    // inline figure loses its accessible name — and one rendered before <SEO> would
+    // take over the page's document title.
+    const article = pages.find((p) => p.route === '/blog/designing-protein-experiments-for-epistasis');
+
+    assert.match(article.html, /<svg[^>]*role="img"[^>]*aria-labelledby=/);
+    assert.match(article.html, /<title id="[^"]*">Loop-count selection at a fixed budget of 3<\/title>/);
+
+    for (const { route, html } of pages) {
+        const head = html.replace(/<!--[\s\S]*?-->/g, '').slice(0, html.indexOf('</head>'));
+        assert.equal((head.match(/<title>/g) ?? []).length, 1, `${route} does not have exactly one document title`);
+    }
+});
+
 test('the main content of an article is present without JavaScript', () => {
     const article = pages.find((p) => p.route === '/blog/designing-protein-experiments-for-epistasis');
     assert.ok(article, 'flagship article was not prerendered');

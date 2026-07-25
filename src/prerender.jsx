@@ -26,6 +26,20 @@ import './index.css';
 const HEAD_TAG = /<(title|meta|link)\b[^>]*?>(?:[\s\S]*?<\/\1>)?/gi;
 const TITLE_TEXT = /<title\b[^>]*>([\s\S]*?)<\/title>/i;
 
+// <title> is also a legitimate SVG child: it is the accessible name of an inline
+// figure. Without masking, HEAD_TAG strips those out of the body — and an inline
+// SVG rendered before <SEO> would silently become the page's document title.
+// React itself does not hoist them (it tracks the SVG namespace); only this
+// string-level pass needs to be told. Assumes no nested <svg>, which the flat
+// icon and figure markup on this site satisfies.
+const SVG_BLOCK = /<svg\b[\s\S]*?<\/svg>/gi;
+
+const maskSvgSubtrees = (html) => {
+  const blocks = [];
+  const masked = html.replace(SVG_BLOCK, (block) => `<!--svg:${blocks.push(block) - 1}-->`);
+  return [masked, (s) => s.replace(/<!--svg:(\d+)-->/g, (_, index) => blocks[Number(index)])];
+};
+
 // The extracted title text is already React-escaped, and vite-prerender-plugin
 // escapes head.title again on injection — decode once or "&" ships as "&amp;amp;".
 // Single-pass replace so "&amp;lt;" decodes to "&lt;", not all the way to "<".
@@ -40,15 +54,16 @@ export async function prerender({ url }) {
     </StaticRouter>,
   );
 
-  // Pull hoisted <title>/<meta>/<link> out of the body...
-  const headElements = rendered.match(HEAD_TAG) || [];
+  // Pull hoisted <title>/<meta>/<link> out of the body, ignoring SVG subtrees...
+  const [body, restoreSvg] = maskSvgSubtrees(rendered);
+  const headElements = body.match(HEAD_TAG) || [];
   const titleMatch = headElements.find((t) => /^<title/i.test(t));
   const title = titleMatch
     ? decodeEntities(titleMatch.replace(TITLE_TEXT, '$1').trim())
     : '';
 
   // ...and strip them from the HTML so they don't duplicate in <body>.
-  const html = rendered.replace(HEAD_TAG, '');
+  const html = restoreSvg(body.replace(HEAD_TAG, ''));
 
   // Everything except <title> goes into <head> as raw strings; the plugin's
   // serializeElement passes strings through unchanged. <title> is handled

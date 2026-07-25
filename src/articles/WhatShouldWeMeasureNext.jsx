@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import { AUTHOR } from '../components/jsonld';
 import AuthorBio from '../components/AuthorBio';
+import AllocationStrategiesDiagram from '../components/epibudget/AllocationStrategiesDiagram';
 
 const REPO = 'https://github.com/VivienP/epistasis-budget';
 
@@ -285,11 +286,8 @@ const WhatShouldWeMeasureNext = () => {
                         the score of related variants, even when they may provide partly redundant information. The method is therefore
                         a static ranking, not a sequential Bayesian design that updates after observing experimental results.
                     </p>
-                    <Figure
+                    <AllocationStrategiesDiagram
                         src="/epibudget/allocation-strategies.svg"
-                        alt="Five static selection strategies choosing the same fixed number of variants from one candidate interaction graph and transferring them to different experimental plates"
-                        width="600"
-                        height="1420"
                         maxWidthClass="max-w-[600px]"
                         number="3"
                         title="Same candidates, different experimental plates"
