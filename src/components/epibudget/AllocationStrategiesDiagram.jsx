@@ -85,7 +85,11 @@ const PALETTE = {
 };
 
 const nodeById = Object.fromEntries(NODES.map((node) => [node.id, node]));
-const WELL_X = [30, 62, 94, 122];
+
+// 32 units apart, so the widest pair of neighbours (r 16 next to r 14) still clears
+// by 2. ABC can land in any of the three filled positions depending on the strategy.
+const WELL_X = [26, 58, 90, 122];
+const PLATE_WIDTH = 148;
 
 // Server snapshot false, client snapshot true: the subscription never fires, so this
 // flips exactly once, at hydration. Cheaper and more honest than a setState effect,
@@ -135,13 +139,17 @@ const CandidateGraph = ({ selection }) => (
 
 const Plate = ({ selection }) => (
     <g transform="translate(420 78)">
-        <rect width="138" height="96" rx="12" fill="none" stroke={PALETTE.border} strokeWidth="1.5" />
+        <rect width={PLATE_WIDTH} height="96" rx="12" fill="none" stroke={PALETTE.border} strokeWidth="1.5" />
         {WELL_X.map((cx, index) => {
             const variant = selection[index];
+            // Reuse the graph's radii: the three-letter label is 30 units wide and
+            // overflows the 28-unit well the shorter labels sit in, which is exactly
+            // why ABC is already drawn larger in the candidate graph.
+            const r = nodeById[variant]?.r ?? 14;
             return (
                 <g key={cx}>
                     <circle
-                        cx={cx} cy="48" r="14"
+                        cx={cx} cy="48" r={r}
                         fill={variant ? PALETTE.accent : PALETTE.cream}
                         stroke={variant ? PALETTE.accent : PALETTE.secondary}
                         strokeWidth="1.5"
@@ -229,36 +237,19 @@ const AllocationStrategiesDiagram = ({ src, maxWidthClass = 'max-w-full', number
                 </div>
             </div>
 
-            {/* Text equivalent for a complex image, server-rendered so it stands on its
-                own when the controls are unavailable. */}
-            <details className="mt-4">
-                <summary className="cursor-pointer text-sm text-secondary hover:text-accent">
-                    All five strategies at a glance
-                </summary>
-                <div>
-                    <dl className="mt-3 space-y-2 text-sm">
-                        {STRATEGIES.map((strategy) => (
-                            <div key={strategy.key} className="flex flex-wrap gap-x-2">
-                                <dt className="font-mono text-xs text-secondary min-w-44">
-                                    {strategy.label} · {strategy.criterion}
-                                </dt>
-                                <dd className="text-primary">{strategy.selection.join(', ')}</dd>
-                            </div>
-                        ))}
-                    </dl>
-                    <p className="mt-3 text-sm text-secondary">
-                        Every strategy selects {BUDGET} variants from the same candidate universe of A, B, C, AB, AC, BC and ABC.{' '}
-                        <a
-                            href={src}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"
-                        >
-                            Open the full static comparison
-                        </a>
-                    </p>
-                </div>
-            </details>
+            {/* The static SVG carries all five strategies at once and is the fallback
+                whenever the controls are unavailable, so no in-page duplicate is needed. */}
+            <p className="mt-4 text-sm text-secondary">
+                Every strategy selects {BUDGET} variants from the same candidate universe of A, B, C, AB, AC, BC and ABC.{' '}
+                <a
+                    href={src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"
+                >
+                    Open the full static comparison
+                </a>
+            </p>
 
             <figcaption className="mt-4 space-y-1 text-base leading-relaxed text-primary">
                 <p className="font-semibold">Figure n°{number}: {title}</p>

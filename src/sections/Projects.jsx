@@ -168,9 +168,11 @@ const Projects = () => {
 
                 {rest.length > 0 && (
                     <details className="group/more mt-12">
-                        <summary className="mx-auto w-fit cursor-pointer list-none px-6 py-2 border border-border-subtle text-sm text-primary hover:border-accent hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
-                            <span className="group-open/more:hidden">Load more</span>
-                            <span className="hidden group-open/more:inline">Show less</span>
+                        {/* group-open/more:hidden removes the control once it has been used, so
+                            expanding is one-way. Pure CSS: no collapse path to get wrong, and it
+                            still works with JavaScript off. */}
+                        <summary className="mx-auto w-fit cursor-pointer list-none px-6 py-2 border border-border-subtle text-sm text-primary hover:border-accent hover:text-accent transition-colors group-open/more:hidden [&::-webkit-details-marker]:hidden">
+                            Load more
                         </summary>
 
                         {/* Plain wrapper, no display utility. Chromium collapses via
