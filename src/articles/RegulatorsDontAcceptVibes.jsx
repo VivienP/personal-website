@@ -105,15 +105,9 @@ const RegulatorsDontAcceptVibes = () => {
                     Regulated document generation actually breaks in two distinct places:
                 </p>
 
-                <ul className="list-none space-y-4 pl-0">
-                    <li className="flex items-start gap-4">
-                        <span className="text-accent mt-1">•</span>
-                        <span><strong>Upstream: unstructured inputs.</strong> Feed a model a messy PDF, a semi-structured CSR, or statistical output with inconsistent formatting, and it has no structural grounding. It infers relationships, and when inference fails, it fabricates. Cleaner structure reduces the error rate.</span>
-                    </li>
-                    <li className="flex items-start gap-4">
-                        <span className="text-accent mt-1">•</span>
-                        <span><strong>Downstream: unverified outputs.</strong> Reduces, not eliminates. A model can hallucinate on perfectly structured data. Which means no amount of preprocessing makes an output submission-ready on its own. Every claim in the document must be checked against its source, by a layer independent of the one that generated it. A generator cannot be its own auditor.</span>
-                    </li>
+                <ul className="list-disc pl-6 space-y-4 marker:text-accent">
+                    <li><strong>Upstream: unstructured inputs.</strong> Feed a model a messy PDF, a semi-structured CSR, or statistical output with inconsistent formatting, and it has no structural grounding. It infers relationships, and when inference fails, it fabricates. Cleaner structure reduces the error rate.</li>
+                    <li><strong>Downstream: unverified outputs.</strong> Reduces, not eliminates. A model can hallucinate on perfectly structured data. Which means no amount of preprocessing makes an output submission-ready on its own. Every claim in the document must be checked against its source, by a layer independent of the one that generated it. A generator cannot be its own auditor.</li>
                 </ul>
 
                 <p>
@@ -126,15 +120,9 @@ const RegulatorsDontAcceptVibes = () => {
                     What a submission-grade pipeline actually looks like:
                 </p>
 
-                <ul className="list-none space-y-4 pl-0">
-                    <li className="flex items-start gap-4">
-                        <span className="text-accent mt-1">•</span>
-                        <span><strong>A standardization layer before the model.</strong> Structured extraction into validated, machine-readable schemas. FAIR data principles as a hard technical requirement, not an academic ideal. Inconsistencies caught at the data layer, where they are cheap.</span>
-                    </li>
-                    <li className="flex items-start gap-4">
-                        <span className="text-accent mt-1">•</span>
-                        <span><strong>A verification layer after the model.</strong> Claim-level traceability from generated text back to source tables. Independent checks that fail loudly instead of shipping quietly. An audit trail a reviewer, human or regulatory, can actually inspect.</span>
-                    </li>
+                <ul className="list-disc pl-6 space-y-4 marker:text-accent">
+                    <li><strong>A standardization layer before the model.</strong> Structured extraction into validated, machine-readable schemas. FAIR data principles as a hard technical requirement, not an academic ideal. Inconsistencies caught at the data layer, where they are cheap.</li>
+                    <li><strong>A verification layer after the model.</strong> Claim-level traceability from generated text back to source tables. Independent checks that fail loudly instead of shipping quietly. An audit trail a reviewer, human or regulatory, can actually inspect.</li>
                 </ul>
 
                 <p>

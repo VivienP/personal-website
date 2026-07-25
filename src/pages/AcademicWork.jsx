@@ -25,11 +25,12 @@ const WorkItem = ({ work }) => (
     >
         <div className="flex flex-col md:flex-row md:items-baseline md:space-x-12 w-full pr-8">
             <span className="font-mono text-xs text-secondary w-40 shrink-0">{work.date} · {work.type}</span>
-            <h3 className="text-base text-primary group-hover:text-accent transition-colors flex-1 mt-1 md:mt-0">
+            {/* h2, not h3: this list sits directly under the page h1 and an h3 skips a level. */}
+            <h2 className="text-base font-normal text-primary group-hover:text-accent transition-colors flex-1 mt-1 md:mt-0">
                 {work.title}
-            </h3>
+            </h2>
         </div>
-        <ArrowUpRight size={16} className="text-secondary opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity shrink-0" />
+        <ArrowUpRight size={16} className="text-secondary opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 transition-opacity shrink-0" />
     </Link>
 );
 

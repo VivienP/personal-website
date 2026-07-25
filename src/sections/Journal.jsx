@@ -67,7 +67,7 @@ const JournalItem = ({ article }) => (
                 {article.title}
             </h3>
         </div>
-        <ArrowUpRight size={16} className="text-secondary opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity shrink-0" />
+        <ArrowUpRight size={16} className="text-secondary opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 transition-opacity shrink-0" />
     </Link>
 );
 
