@@ -57,6 +57,16 @@ test('route table uses dynamic loaders and exposes a prerender resolver', () => 
     assert.match(read('src/prerender.jsx'), /await loadPrerenderRoute\(url\)/);
 });
 
+test('client entry creates a dev root and hydrates prerendered pages', () => {
+    const source = read('src/main.jsx');
+
+    assert.match(source, /import \{ createRoot, hydrateRoot \} from 'react-dom\/client'/);
+    assert.match(
+        source,
+        /if \(rootElement\.hasChildNodes\(\)\) \{\s*hydrateRoot\(rootElement, app\)\s*\} else \{\s*createRoot\(rootElement\)\.render\(app\)\s*\}/,
+    );
+});
+
 test('committed sitemap is generated from the route manifest', async () => {
     const { renderSitemap } = await optionalImport('../scripts/sitemap.mjs');
     assert.equal(typeof renderSitemap, 'function', 'sitemap generator is not implemented');

@@ -7,8 +7,38 @@
   --color-border-subtle: #E5E0D8;
   --color-accent: #1B3022;
 
+  /* Border for elements whose boundary carries the affordance (buttons, cards).
+     3.55:1 on --color-cream, versus 1.27:1 for --color-border-subtle, which
+     stays reserved for decorative hairlines and list separators. */
+  --color-border-strong: #8A857B;
+
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
+  /* Named so the 14 font-mono usages stop falling through to Tailwind's
+     default stack. Deliberately a system stack: no third webfont request. */
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Type scale. Replaces the ad-hoc text-3xl/md:text-4xl pairs repeated across
+     sections, and the 12 distinct h2 class strings found in the articles. */
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.5;
+  --text-meta: 0.875rem;
+  --text-meta--line-height: 1.5;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.75;
+  --text-body-lg: 1.1875rem;
+  --text-body-lg--line-height: 1.7;
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.3;
+  --text-h2: 1.625rem;
+  --text-h2--line-height: 1.25;
+  --text-h1: 2.5rem;
+  --text-h1--line-height: 1.1;
+
+  /* Measure. --container-prose is the single value to change if ~85 characters
+     turns out to read too wide; figures are allowed to break out to the wider one. */
+  --container-prose: 48rem;
+  --container-figure: 56rem;
 }
 
 @layer base {
@@ -22,5 +52,23 @@
 
   strong {
     font-weight: 700;
+  }
+
+  /* The UA outline already satisfies 2.4.7, but it has no guaranteed contrast
+     against the cream background. One rule, every focusable element.
+
+     The colour is pinned globally rather than set inside :focus-visible because
+     Tailwind 4's `transition-colors` transitions outline-color: on the elements
+     using it the ring would animate from currentColor and settle on the text
+     colour instead of the accent. Focus then only toggles width and style, which
+     that utility does not touch. */
+  * {
+    outline-color: var(--color-accent);
+  }
+
+  :focus-visible {
+    outline-width: 2px;
+    outline-style: solid;
+    outline-offset: 2px;
   }
 }

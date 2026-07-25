@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getCalApi } from '@calcom/embed-react';
 import { ArrowUpRight, Mail, Calendar } from 'lucide-react';
-import { prepareEmailLink } from '../utils/email';
+import { EMAIL_HREF } from '../utils/email';
 
 const CAL_NAMESPACE = 'quick-chat';
 
 // showServicesLink is off on the freelance landing page, where the "more on
 // how I work" link would point to itself.
 const Contact = ({ showServicesLink = true }) => {
-    const [href, setHref] = useState('#');
-
     // Initialise the Cal.com embed once; the modal loads on element click,
     // so nothing heavy runs for visitors who don't book.
     useEffect(() => {
@@ -26,15 +24,6 @@ const Contact = ({ showServicesLink = true }) => {
             });
         })();
     }, []);
-
-    // Only wire the real mailto: on user intent, keeping the address out of
-    // the rendered markup until it's actually needed.
-    const revealEmail = (event) => {
-        const nextHref = prepareEmailLink(event?.currentTarget);
-        if (href === '#') {
-            setHref(nextHref);
-        }
-    };
 
     return (
         <section id="contact" className="py-24 px-6 border-t border-border-subtle/30">
@@ -72,10 +61,7 @@ const Contact = ({ showServicesLink = true }) => {
                     </button>
 
                     <a
-                        href={href}
-                        onMouseEnter={revealEmail}
-                        onFocus={revealEmail}
-                        onClick={revealEmail}
+                        href={EMAIL_HREF}
                         className="group inline-flex items-center justify-center space-x-2 px-6 py-3 border border-border-subtle text-sm text-primary hover:border-accent hover:text-accent transition-colors"
                     >
                         <Mail size={16} />

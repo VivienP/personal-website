@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
+import ScrollToTop from './components/layout/ScrollToTop';
 import {
   routes,
   legacyRedirects,
@@ -15,6 +16,7 @@ function App({
 }) {
   return (
     <div className="min-h-screen bg-cream selection:bg-accent selection:text-white">
+      <ScrollToTop />
       <Suspense fallback={null}>
         <Routes>
           {routeEntries.map(({ path, element }) => (

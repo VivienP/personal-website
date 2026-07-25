@@ -6,6 +6,7 @@ const NotFound = () => (
         <SEO
             title="Page Not Found | Vivien Perrelle"
             description="The page you are looking for does not exist."
+            url="/404"
             noindex={true}
         />
         <h1 className="text-6xl font-serif italic text-primary mb-4">404</h1>

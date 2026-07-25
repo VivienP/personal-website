@@ -99,7 +99,14 @@ const SEO = ({
         url: url ? `${SITE_URL}${url}` : SITE_URL,
     };
 
-    const effectiveJsonLd = jsonLd ?? (url === '/' || !url ? DEFAULT_JSON_LD : null);
+    // Only the homepage carries the Person/Service/WebSite @graph. Falling back to
+    // it when `url` is merely absent made /404 declare the site's entity too, and
+    // pointed its og:url at the homepage.
+    const effectiveJsonLd = jsonLd ?? (url === '/' ? DEFAULT_JSON_LD : null);
+
+    if (import.meta.env.DEV && !url) {
+        console.warn('[SEO] missing `url` prop: canonical and og:url will fall back to the site root.');
+    }
 
     return (
         <>

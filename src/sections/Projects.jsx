@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -113,7 +113,7 @@ const ProjectCard = ({ project }) => {
                 <div className="flex justify-between items-start">
                     <h3 className="text-xl text-primary group-hover:text-accent transition-colors">{project.title}</h3>
                     {hasLink && (
-                        <ExternalLink size={18} className="text-secondary group-hover:text-primary transition-colors shrink-0 opacity-100 md:opacity-0 md:group-hover:opacity-100" />
+                        <ExternalLink size={18} className="text-secondary group-hover:text-primary transition-colors shrink-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" />
                     )}
                 </div>
 
@@ -145,32 +145,48 @@ const ProjectCard = ({ project }) => {
     );
 };
 
+const GRID = 'grid grid-cols-1 md:grid-cols-2 gap-8';
+
+// <details> rather than useState: React state would keep the extra cards out of
+// the prerendered HTML entirely, which left /projects/green-grown, /projects/bione
+// and /projects/motion-suit with no inbound <a href> anywhere on the site. Every
+// card now ships in the static markup, and the disclosure still works with JS off.
 const Projects = () => {
-    const [showAll, setShowAll] = useState(false);
-    const visible = showAll ? projects : projects.slice(0, INITIAL_COUNT);
-    const hasMore = projects.length > INITIAL_COUNT;
+    const featured = projects.slice(0, INITIAL_COUNT);
+    const rest = projects.slice(INITIAL_COUNT);
 
     return (
         <section id="projects" className="py-24 px-6 border-t border-border-subtle/30">
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-3xl md:text-4xl mb-12 text-primary">Selected Works</h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {visible.map((project) => (
+                <div className={GRID}>
+                    {featured.map((project) => (
                         <ProjectCard key={project.id} project={project} />
                     ))}
                 </div>
 
-                {hasMore && !showAll && (
-                    <div className="mt-12 flex justify-center">
-                        <button
-                            type="button"
-                            onClick={() => setShowAll(true)}
-                            className="px-6 py-2 border border-border-subtle text-sm text-primary hover:border-accent hover:text-accent transition-colors"
-                        >
-                            Load more
-                        </button>
-                    </div>
+                {rest.length > 0 && (
+                    <details className="group/more mt-12">
+                        <summary className="mx-auto w-fit cursor-pointer list-none px-6 py-2 border border-border-subtle text-sm text-primary hover:border-accent hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+                            <span className="group-open/more:hidden">Load more</span>
+                            <span className="hidden group-open/more:inline">Show less</span>
+                        </summary>
+
+                        {/* Plain wrapper, no display utility. Chromium collapses via
+                            `::details-content { content-visibility: hidden }`, which a display
+                            utility does not defeat — but engines still using the older
+                            `details:not([open]) > *:not(summary) { display: none }` would be
+                            overridden by an author `display: grid` here, leaving the disclosure
+                            permanently open. Keeping the grid one level down is portable. */}
+                        <div>
+                            <div className={`${GRID} mt-12`}>
+                                {rest.map((project) => (
+                                    <ProjectCard key={project.id} project={project} />
+                                ))}
+                            </div>
+                        </div>
+                    </details>
                 )}
             </div>
         </section>
