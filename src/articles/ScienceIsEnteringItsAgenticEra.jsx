@@ -5,6 +5,18 @@ import SEO from '../components/SEO';
 import { AUTHOR } from '../components/jsonld';
 import AuthorBio from '../components/AuthorBio';
 
+const Cite = ({ n }) => (
+    <sup>
+        <a
+            href={`#ref-${n}`}
+            className="text-accent no-underline hover:underline font-mono text-xs align-super"
+            aria-label={`Jump to reference ${n}`}
+        >
+            [{n}]
+        </a>
+    </sup>
+);
+
 const ScienceIsEnteringItsAgenticEra = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -72,10 +84,10 @@ const ScienceIsEnteringItsAgenticEra = () => {
                         A few facts worth noting:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 text-base marker:text-secondary">
-                        <li>FutureHouse, the AI-for-science lab co-founded by Sam Rodriques and Andrew White, launched its public platform on May 1, 2025, with five specialized agents (Crow, Falcon, Owl, Phoenix, and Finch), each built for a distinct stage of the research process. A commercial spinoff, Edison Scientific, followed in November 2025.</li>
-                        <li>In May 2025, FutureHouse demonstrated a multi-agent workflow that identified a novel therapeutic candidate for dry age-related macular degeneration, a leading cause of irreversible blindness.</li>
-                        <li>Sakana AI's <a href="https://github.com/SakanaAI/AI-Scientist" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"><em>AI Scientist</em></a> autonomously generates research ideas, writes code, runs experiments via agentic tree search, produces full manuscripts, and performs its own peer review. In its template-free mode, the system submitted three papers to an ICLR 2025 workshop. One would have been accepted had it not been withdrawn per protocol. The paper's scientific quality improves predictably with both compute budget and base model capability: the exact scaling dynamic that turns early demos into massively-adopted tools.</li>
-                        <li>Argonne, Oak Ridge, and Lawrence Berkeley National Laboratories now operate autonomous, AI-driven materials laboratories.</li>
+                        <li>FutureHouse, the AI-for-science lab co-founded by Sam Rodriques and Andrew White, launched its public platform on May 1, 2025, with five specialized agents (Crow, Falcon, Owl, Phoenix, and Finch), each built for a distinct stage of the research process.<Cite n={1} /> A commercial spinoff, Edison Scientific, followed in November 2025.<Cite n={2} /></li>
+                        <li>In May 2025, FutureHouse demonstrated a multi-agent workflow that identified a novel therapeutic candidate for dry age-related macular degeneration, a leading cause of irreversible blindness.<Cite n={3} /></li>
+                        <li>Sakana AI's <a href="https://github.com/SakanaAI/AI-Scientist" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"><em>AI Scientist</em></a> autonomously generates research ideas, writes code, runs experiments via agentic tree search, produces full manuscripts, and performs its own peer review.<Cite n={4} /> In its template-free mode, the system submitted three papers to an ICLR 2025 workshop. One would have been accepted had it not been withdrawn per protocol.<Cite n={5} /> The paper's scientific quality improves predictably with both compute budget and base model capability: the exact scaling dynamic that turns early demos into massively-adopted tools.<Cite n={4} /></li>
+                        <li>Argonne,<Cite n={6} /> Oak Ridge,<Cite n={7} /> and Lawrence Berkeley<Cite n={8} /> National Laboratories now operate autonomous, AI-driven materials laboratories.</li>
                     </ul>
                     <p>
                         None of this is finished work. These agents still hallucinate citations and miss methodological subtleties. But machine learning follows a consistent pattern: once a capability starts to work (even poorly), scale and better base models tend to push it past human performance faster than most people expect.
@@ -96,7 +108,7 @@ const ScienceIsEnteringItsAgenticEra = () => {
                         <li><strong>Integration.</strong> Dry-lab and wet-lab loops begin to close, with agents triggering real experiments, reading real results, and updating their own models.</li>
                     </ol>
                     <p>
-                        The AI Scientist makes these dynamics tangible. A single run (about fifteen hours and twenty dollars of compute) covers ideation, implementation, experimentation, and write-up. Its template-free mode surfaces research directions a human researcher might never prioritize. And its agentic tree search closes the loop entirely in silico: generating code, executing it, debugging failures, plotting results, and iterating — no human in the loop until the manuscript exists.
+                        The AI Scientist makes these dynamics tangible.<Cite n={4} /> A single run (about fifteen hours and twenty dollars of compute) covers ideation, implementation, experimentation, and write-up. Its template-free mode surfaces research directions a human researcher might never prioritize. And its agentic tree search closes the loop entirely in silico: generating code, executing it, debugging failures, plotting results, and iterating — no human in the loop until the manuscript exists.
                     </p>
                     <p>
                         By 2030, AI agents will run fully autonomous loops of scientific knowledge production, from hypothesis to manuscript, with human or robotic intervention only where real-world experiments require it.
@@ -146,11 +158,14 @@ const ScienceIsEnteringItsAgenticEra = () => {
                 <section className="space-y-6">
                     <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
                     <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
-                        <li id="ref-1" className="scroll-mt-24">Lu, C., Lu, C., Lange, R. T., Yamada, Y., Hu, S., Foerster, J., Ha, D. & Clune, J. <em>Towards end-to-end automation of AI research</em>. Nature 651, 914–919 (2026). <a href="https://doi.org/10.1038/s41586-026-10265-5" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">doi:10.1038/s41586-026-10265-5</a></li>
-                        <li id="ref-2" className="scroll-mt-24">Sakana AI. <em>The AI Scientist</em> — open-source code. <a href="https://github.com/SakanaAI/AI-Scientist" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">github.com/SakanaAI/AI-Scientist</a></li>
-                        <li id="ref-3" className="scroll-mt-24">FutureHouse. <em>Launching FutureHouse Platform: Superintelligent AI Agents for Scientific Discovery</em> (May 2025).</li>
-                        <li id="ref-4" className="scroll-mt-24">MIT News. <em>Accelerating scientific discovery with AI</em> (June 2025).</li>
-                        <li id="ref-5" className="scroll-mt-24">Singularity Hub. <em>What the Rise of AI Scientists May Mean for Human Research</em> (February 2026).</li>
+                        <li id="ref-1" className="scroll-mt-24">FutureHouse. <em>Launching FutureHouse Platform: Superintelligent AI Agents for Scientific Discovery</em> (1 May 2025). <a href="https://www.futurehouse.org/research-announcements/launching-futurehouse-platform-ai-agents" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">futurehouse.org/research-announcements/launching-futurehouse-platform-ai-agents</a></li>
+                        <li id="ref-2" className="scroll-mt-24">Edison Scientific. <em>Kosmos: the AI Scientist for R&amp;D teams</em> — company site of the FutureHouse spinout. <a href="https://www.edisonscientific.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">edisonscientific.com</a></li>
+                        <li id="ref-3" className="scroll-mt-24">Ghareeb, A. E., Chang, B., Mitchener, L., Yiu, A., Szostkiewicz, C. J., Laurent, J. M., Razzak, M. T., White, A. D., Hinks, M. M. &amp; Rodriques, S. G. <em>Robin: A multi-agent system for automating scientific discovery</em>. arXiv:2505.13400 (19 May 2025). <a href="https://arxiv.org/abs/2505.13400" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">arxiv.org/abs/2505.13400</a></li>
+                        <li id="ref-4" className="scroll-mt-24">Lu, C., Lu, C., Lange, R. T., Yamada, Y., Hu, S., Foerster, J., Ha, D. &amp; Clune, J. <em>Towards end-to-end automation of AI research</em>. Nature 651, 914–919 (2026). <a href="https://doi.org/10.1038/s41586-026-10265-5" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">doi:10.1038/s41586-026-10265-5</a></li>
+                        <li id="ref-5" className="scroll-mt-24">Sakana AI. <em>The AI Scientist Generates its First Peer-Reviewed Scientific Publication</em> (March 2025). <a href="https://sakana.ai/ai-scientist-first-publication/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">sakana.ai/ai-scientist-first-publication</a></li>
+                        <li id="ref-6" className="scroll-mt-24">Argonne National Laboratory. <em>Autonomous Discovery</em> — self-driving laboratories programme. <a href="https://www.anl.gov/autonomous-discovery" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">anl.gov/autonomous-discovery</a></li>
+                        <li id="ref-7" className="scroll-mt-24">Oak Ridge National Laboratory. <em>Autonomous Science</em>. <a href="https://www.ornl.gov/autonomousscience" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">ornl.gov/autonomousscience</a></li>
+                        <li id="ref-8" className="scroll-mt-24">Szymanski, N. J. et al. <em>An autonomous laboratory for the accelerated synthesis of inorganic materials</em>. Nature 624, 86–91 (2023). Berkeley Lab A-Lab. <a href="https://doi.org/10.1038/s41586-023-06734-w" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">doi:10.1038/s41586-023-06734-w</a></li>
                     </ol>
                 </section>
 

@@ -81,6 +81,41 @@ test('collection pages expose main landmarks and keyboard gallery controls', () 
     assert.match(read('src/pages/AcademicWork.jsx'), /<main\b/);
 });
 
+test('every citation marker resolves and every reference is cited', () => {
+    // Reference lists drift out of the prose they support: a numbered entry stays
+    // behind after an edit and nothing links to its #ref-N anchor, or a marker
+    // survives its reference. Both leave the academic apparatus quietly broken.
+    const articles = readdirSync(new URL('../src/articles/', import.meta.url), { recursive: true })
+        .filter((name) => String(name).endsWith('.jsx'))
+        .map((name) => `src/articles/${String(name).replaceAll('\\', '/')}`);
+
+    const uniqueNumbers = (source, pattern) =>
+        [...new Set([...source.matchAll(pattern)].map((match) => Number(match[1])))].sort((a, b) => a - b);
+
+    let checked = 0;
+
+    for (const path of articles) {
+        const source = read(path);
+        const markers = uniqueNumbers(source, /<Cite n=\{(\d+)\}/g);
+        const references = uniqueNumbers(source, /id="ref-(\d+)"/g);
+        if (markers.length === 0 && references.length === 0) continue;
+
+        assert.deepEqual(
+            references.filter((n) => !markers.includes(n)),
+            [],
+            `${path} has reference entries nothing cites`,
+        );
+        assert.deepEqual(
+            markers.filter((n) => !references.includes(n)),
+            [],
+            `${path} cites references that do not exist`,
+        );
+        checked += 1;
+    }
+
+    assert.ok(checked >= 9, `expected the cited articles to be covered, only ${checked} were`);
+});
+
 test('unused dependency and dead Header component are removed', () => {
     const packageJson = JSON.parse(read('package.json'));
     assert.equal(packageJson.dependencies['react-tweet'], undefined);

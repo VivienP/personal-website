@@ -356,7 +356,7 @@ const WhatShouldWeMeasureNext = () => {
                         Thus, the analysis supports structural allocation, not an incremental contribution from masking dispersion.
                     </p>
                     <p>
-                        A registered gate is a success criterion specified before inspection of the final results. <strong>All
+                        A registered gate is a success criterion specified before inspection of the final results.<Cite n={7} /> <strong>All
                         findings remain provisional and are limited to the evaluated benchmarks, learner, and experimental
                         protocol.</strong> They are not presented as general conclusions.
                     </p>
