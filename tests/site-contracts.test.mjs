@@ -225,7 +225,7 @@ test('epibudget content is reciprocal, current with the tracked evidence, and us
     assert.match(article, /On GB1.*map-recovery.*remains\s+inconclusive/is);
     assert.doesNotMatch(article, /inconclusive_zero_gpu/);
 
-    const allowedColors = new Set(['#FDFBF7', '#1A1A1A', '#5A5A5A', '#E5E0D8', '#1B3022']);
+    const allowedColors = new Set(['#FDFBF7', '#1A1A1A', '#5A5A5A', '#E5E0D8', '#1B2230']);
     for (const name of ['epistasis-loops.svg', 'allocation-strategies.svg', 'downstream-label-boundary.svg', 'structure-vs-dispersion.svg']) {
         const colors = read(`public/epibudget/${name}`).match(/#[0-9A-Fa-f]{6}/g) ?? [];
         assert.ok(colors.length > 0, `${name} has no explicit palette`);

@@ -12,11 +12,11 @@
     .measured-label{fill:#FDFBF7}
     .reference-label{fill:#5A5A5A}
     .divider{stroke:#E5E0D8;stroke-width:1.5}
-    .dark-edge{fill:none;stroke:#1B3022;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .dark-edge{fill:none;stroke:#1B2230;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
     .light-edge{fill:none;stroke:#E5E0D8;stroke-width:1.5;stroke-linecap:round}
-    .measured{fill:#1B3022;stroke:#1B3022;stroke-width:2}
+    .measured{fill:#1B2230;stroke:#1B2230;stroke-width:2}
     .reference{fill:#FDFBF7;stroke:#5A5A5A;stroke-width:2}
-    .focal{fill:none;stroke:#1B3022;stroke-width:2;stroke-dasharray:5 5}
+    .focal{fill:none;stroke:#1B2230;stroke-width:2;stroke-dasharray:5 5}
   </style>
 
   <text x="40" y="48" class="key">Closed measurement loops</text>

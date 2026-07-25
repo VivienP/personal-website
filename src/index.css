@@ -5,7 +5,7 @@
   --color-primary: #1A1A1A;
   --color-secondary: #5A5A5A;
   --color-border-subtle: #E5E0D8;
-  --color-accent: #1B3022;
+  --color-accent: #1B2230;
 
   /* Border for elements whose boundary carries the affordance (buttons, cards).
      3.55:1 on --color-cream, versus 1.27:1 for --color-border-subtle, which

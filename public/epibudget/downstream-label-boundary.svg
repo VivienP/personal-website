@@ -10,8 +10,8 @@
     .center{text-anchor:middle}
     .box{fill:#FDFBF7;stroke:#1A1A1A;stroke-width:1.5}
     .arrow{fill:none;stroke:#5A5A5A;stroke-width:2;stroke-linecap:round}
-    .barrier{stroke:#1B3022;stroke-width:2}
-    .barrier-label{font-size:14px;font-weight:600;fill:#1B3022;text-anchor:middle}
+    .barrier{stroke:#1B2230;stroke-width:2}
+    .barrier-label{font-size:14px;font-weight:600;fill:#1B2230;text-anchor:middle}
     .divider{stroke:#E5E0D8;stroke-width:1.5}
   </style>
 
