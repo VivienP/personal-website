@@ -22,22 +22,14 @@ const Cite = ({ n }) => (
 
 const Figure = ({ src, alt, number, title, description, width, height, wide = false, maxWidthClass = 'max-w-full' }) => (
     <figure className={`my-10 ${wide ? 'lg:-mx-16' : ''} not-prose`}>
-        <a
-            href={src}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Open Figure n°${number}: ${title} at full size`}
-            className={`block mx-auto ${maxWidthClass}`}
-        >
-            <img
-                src={src}
-                alt={alt}
-                width={width}
-                height={height}
-                className="block w-full h-auto border border-border-subtle rounded-lg bg-cream"
-                loading="lazy"
-            />
-        </a>
+        <img
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            className={`block mx-auto w-full h-auto border border-border-subtle rounded-lg bg-cream ${maxWidthClass}`}
+            loading="lazy"
+        />
         <figcaption className={`mt-4 mx-auto space-y-1 text-base leading-relaxed text-primary ${maxWidthClass}`}>
             <p className="font-semibold">Figure n°{number}: {title}</p>
             <p className="italic font-normal"><span>Description:</span> {description}</p>
@@ -287,8 +279,6 @@ const WhatShouldWeMeasureNext = () => {
                         a static ranking, not a sequential Bayesian design that updates after observing experimental results.
                     </p>
                     <AllocationStrategiesDiagram
-                        src="/epibudget/allocation-strategies.svg"
-                        maxWidthClass="max-w-[600px]"
                         number="3"
                         title="Same candidates, different experimental plates"
                         description="Five static strategies select the same number of variants from a shared candidate universe. Only the selection criterion changes which variants enter the plate."

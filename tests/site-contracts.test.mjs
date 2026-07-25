@@ -154,6 +154,31 @@ test('package exposes the regression suite', () => {
     assert.equal(packageJson.scripts.test, 'node --test');
 });
 
+test('epibudget editorial figures are images, not links to their assets', () => {
+    const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
+    const figureHelper = article.match(/const Figure = \([\s\S]*?\n\);\r?\n\r?\nconst MathBlock/)?.[0] ?? '';
+
+    assert.ok(figureHelper, 'Figure helper is missing');
+    assert.match(figureHelper, /<img\b/);
+    assert.doesNotMatch(figureHelper, /<a\b|href=|target=|Open Figure/);
+});
+
+test('PKvitality leads with the requested smartwatch video and ends with the internship photo', () => {
+    const project = read('src/articles/projects/PKvitality.jsx');
+    const video = project.indexOf('src="https://www.youtube.com/embed/VQMigUZQrfE"');
+    const introduction = project.indexOf('The <Link to="/projects/biowatch"');
+    const contribution = project.indexOf('I executed daily in-vitro testing of electrochemical microneedle CGM prototypes');
+    const photo = project.indexOf('<img\n                    src="/pkvitality/pkvitality.jpg"');
+
+    assert.ok(video !== -1 && introduction !== -1 && contribution !== -1 && photo !== -1);
+    assert.ok(video < introduction && introduction < contribution && contribution < photo);
+    assert.match(project, /I analyzed experimental data, documented anomalies and findings, and supported iterative R&amp;D decisions\./);
+    assert.match(project, /conducted scientific monitoring and published a literature review on lactate pharmacokinetics during physical activity\./);
+    assert.match(project, /"video": "https:\/\/www\.youtube\.com\/watch\?v=VQMigUZQrfE"/);
+    assert.match(project, /className="w-full max-w-\[600px\] mx-auto overflow-hidden border border-border-subtle"/);
+    assert.doesNotMatch(project, /4zz6rDdbdZY|Watch the K'Watch presentation|ExternalLink/);
+});
+
 test('epibudget pages and figures are present', () => {
     const requiredFiles = [
         'src/articles/projects/Epibudget.jsx',
@@ -306,6 +331,23 @@ test('epibudget article introduces the requested scientific vocabulary before us
     assert.doesNotMatch(article, /inconclusive_zero_gpu|correlated posterior/);
 });
 
+test('interactive allocation figure fills the article column and aligns its pointer controls', () => {
+    const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
+    const figure = read('src/components/epibudget/AllocationStrategiesDiagram.jsx');
+    const [call = ''] = article.match(/<AllocationStrategiesDiagram[\s\S]*?\/>/) ?? [];
+
+    assert.ok(call, 'Figure 3 call site is missing');
+    assert.doesNotMatch(call, /\bsrc=|maxWidthClass=/);
+    assert.equal((article.match(/maxWidthClass="max-w-\[600px\]"/g) ?? []).length, 2);
+
+    assert.doesNotMatch(figure, /Every strategy selects|Open the full static comparison|\(\{ src,/);
+    assert.match(figure, /cursor-pointer disabled:cursor-default/);
+    assert.match(figure, /const DIAGRAM_CENTER_Y = 126\.5;/);
+    assert.match(figure, /const CANDIDATE_GRAPH_Y = DIAGRAM_CENTER_Y - CANDIDATE_GRAPH_LOCAL_CENTER_Y;/);
+    assert.match(figure, /const PLATE_Y = DIAGRAM_CENTER_Y - \(PLATE_HEIGHT \/ 2\);/);
+    assert.match(figure, /y1=\{DIAGRAM_CENTER_Y\}[\s\S]*?y2=\{DIAGRAM_CENTER_Y\}/);
+});
+
 test('allocation figure compares five equal-budget selections with minimal labels', () => {
     const figure = read('public/epibudget/allocation-strategies.svg');
 
@@ -418,7 +460,7 @@ test('editorial figure captions follow images and use the approved copy', () => 
         assert.match(article, new RegExp(`description="${escapeRegex(description)}"`));
     }
 
-    assert.match(article, /<a[\s\S]*?href=\{src\}[\s\S]*?<img[\s\S]*?<\/a>\s*<figcaption/);
+    assert.match(article, /<img[\s\S]*?\/>\s*<figcaption/);
     assert.match(article, /Figure n°\{number\}: \{title\}/);
     assert.match(article, /<span>Description:<\/span> \{description\}/);
     assert.match(article, /<figcaption className=\{`[^`]*text-base leading-relaxed[^`]*`\}>/);
@@ -440,12 +482,11 @@ test('epibudget SVGs share a responsive two-size editorial system', () => {
     }
 });
 
-test('article figures use bounded editorial widths', () => {
+test('static article figures retain bounded editorial widths', () => {
     const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
 
-    assert.match(article, /className=\{`block mx-auto \$\{maxWidthClass\}`\}/);
+    assert.match(article, /className=\{`block mx-auto w-full h-auto[^`]*\$\{maxWidthClass\}`\}/);
     assert.match(article, /src="\/epibudget\/epistasis-loops\.svg"[\s\S]*?maxWidthClass="max-w-\[600px\]"/);
-    assert.match(article, /src="\/epibudget\/allocation-strategies\.svg"[\s\S]*?maxWidthClass="max-w-\[600px\]"/);
     assert.match(article, /src="\/epibudget\/structure-vs-dispersion\.svg"[\s\S]*?maxWidthClass="max-w-\[600px\]"/);
 });
 

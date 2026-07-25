@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import SEO from '../../components/SEO';
 
 const PKvitality = () => {
@@ -28,6 +28,7 @@ const PKvitality = () => {
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "image": "https://vivienperrelle.com/pkvitality/pkvitality.jpg",
+                    "video": "https://www.youtube.com/watch?v=VQMigUZQrfE",
                     "about": { "@type": "Organization", "name": "PKvitality", "url": "https://www.pkvitality.com/" },
                     "mainEntityOfPage": "https://vivienperrelle.com/projects/pkvitality"
                 }}
@@ -47,33 +48,37 @@ const PKvitality = () => {
                 </p>
             </header>
 
-            <div className="w-full overflow-hidden border border-border-subtle mb-16">
-                <img
-                    src="/pkvitality/pkvitality.jpg"
-                    alt="Vivien Perrelle in front of the PKvitality stand: Continuous Glucose Monitoring in a Smartwatch"
-                    className="w-full h-auto object-cover"
+            <div className="w-full aspect-video overflow-hidden border border-border-subtle mb-16 bg-black">
+                <iframe
+                    src="https://www.youtube.com/embed/VQMigUZQrfE"
+                    title="K'Watch glucose-monitoring smartwatch presentation"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    className="w-full h-full border-0"
                 />
             </div>
 
-            <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-base">
+            <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-base mb-12">
                 <p>
                     The <Link to="/projects/biowatch" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">BioWatch</Link> prototype I built during my master's is what landed me an internship at <a href="https://www.pkvitality.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">PKvitality</a>, a 50-person startup that raised several million euros to build the first glucose-monitoring smartwatch for diabetics.
                 </p>
                 <p>
                     I joined their R&amp;D team as a research assistant, working on the same minimally-invasive biosensing technology the BioWatch had let me prototype: micro-needles that read glucose in the dermal interstitial fluid, painlessly and continuously. It was the moment a student project turned into hands-on work on a product heading to market.
                 </p>
+                <p>
+                    I executed daily in-vitro testing of electrochemical microneedle CGM prototypes within a multidisciplinary R&amp;D laboratory. I analyzed experimental data, documented anomalies and findings, and supported iterative R&amp;D decisions. In parallel, I conducted scientific monitoring and published a literature review on lactate pharmacokinetics during physical activity.
+                </p>
+            </div>
 
-                <div className="pt-2 flex flex-wrap gap-4">
-                    <a
-                        href="https://www.youtube.com/watch?v=4zz6rDdbdZY"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm"
-                    >
-                        <span>Watch the K'Watch presentation</span>
-                        <ExternalLink size={14} />
-                    </a>
-                </div>
+            <div className="w-full max-w-[600px] mx-auto overflow-hidden border border-border-subtle">
+                <img
+                    src="/pkvitality/pkvitality.jpg"
+                    alt="Vivien Perrelle in front of the PKvitality stand: Continuous Glucose Monitoring in a Smartwatch"
+                    loading="lazy"
+                    className="w-full h-auto object-cover"
+                />
             </div>
         </article>
     );

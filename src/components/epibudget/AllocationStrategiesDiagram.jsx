@@ -11,7 +11,7 @@ import { useId, useState, useSyncExternalStore } from 'react';
  * resampling on click. Nothing is computed in the browser.
  *
  * Used only by src/articles/WhatShouldWeMeasureNext.jsx. The static SVG remains the
- * canonical full comparison and is linked underneath.
+ * canonical archived full comparison.
  */
 
 // Node coordinates and edges mirror #candidate-graph in
@@ -90,6 +90,12 @@ const nodeById = Object.fromEntries(NODES.map((node) => [node.id, node]));
 // by 2. ABC can land in any of the three filled positions depending on the strategy.
 const WELL_X = [26, 58, 90, 122];
 const PLATE_WIDTH = 148;
+const DIAGRAM_CENTER_Y = 126.5;
+// Visible bounds including the dashed halos span y=0..173 in local coordinates.
+const CANDIDATE_GRAPH_LOCAL_CENTER_Y = 86.5;
+const CANDIDATE_GRAPH_Y = DIAGRAM_CENTER_Y - CANDIDATE_GRAPH_LOCAL_CENTER_Y;
+const PLATE_HEIGHT = 96;
+const PLATE_Y = DIAGRAM_CENTER_Y - (PLATE_HEIGHT / 2);
 
 // Server snapshot false, client snapshot true: the subscription never fires, so this
 // flips exactly once, at hydration. Cheaper and more honest than a setState effect,
@@ -98,7 +104,7 @@ const NEVER_CHANGES = () => () => {};
 const useHydrated = () => useSyncExternalStore(NEVER_CHANGES, () => true, () => false);
 
 const CandidateGraph = ({ selection }) => (
-    <g transform="translate(60 40)">
+    <g transform={`translate(60 ${CANDIDATE_GRAPH_Y})`}>
         {EDGES.map(([from, to]) => (
             <line
                 key={`${from}-${to}`}
@@ -138,8 +144,8 @@ const CandidateGraph = ({ selection }) => (
 );
 
 const Plate = ({ selection }) => (
-    <g transform="translate(420 78)">
-        <rect width={PLATE_WIDTH} height="96" rx="12" fill="none" stroke={PALETTE.border} strokeWidth="1.5" />
+    <g transform={`translate(420 ${PLATE_Y})`}>
+        <rect width={PLATE_WIDTH} height={PLATE_HEIGHT} rx="12" fill="none" stroke={PALETTE.border} strokeWidth="1.5" />
         {WELL_X.map((cx, index) => {
             const variant = selection[index];
             // Reuse the graph's radii: the three-letter label is 30 units wide and
@@ -168,7 +174,7 @@ const Plate = ({ selection }) => (
     </g>
 );
 
-const AllocationStrategiesDiagram = ({ src, maxWidthClass = 'max-w-full', number, title, description }) => {
+const AllocationStrategiesDiagram = ({ maxWidthClass = 'max-w-full', number, title, description }) => {
     const [activeKey, setActiveKey] = useState('loop-count');
     // Controls stay inert until hydration so the prerendered figure is never a
     // set of buttons that silently do nothing.
@@ -193,7 +199,7 @@ const AllocationStrategiesDiagram = ({ src, maxWidthClass = 'max-w-full', number
                                 aria-pressed={isActive}
                                 disabled={!hydrated}
                                 onClick={() => setActiveKey(strategy.key)}
-                                className={`font-mono text-xs px-3 py-2 border disabled:opacity-60 ${
+                                className={`font-mono text-xs px-3 py-2 border cursor-pointer disabled:cursor-default disabled:opacity-60 ${
                                     isActive
                                         ? 'border-accent bg-accent text-cream'
                                         : 'border-border-strong text-primary hover:border-accent hover:text-accent'
@@ -219,8 +225,18 @@ const AllocationStrategiesDiagram = ({ src, maxWidthClass = 'max-w-full', number
 
                     <CandidateGraph selection={active.selection} />
 
-                    <line x1="300" y1="126" x2="386" y2="126" stroke={PALETTE.secondary} strokeWidth="1.5" />
-                    <path d="M400 126L386 120V132Z" fill={PALETTE.secondary} />
+                    <line
+                        x1="300"
+                        y1={DIAGRAM_CENTER_Y}
+                        x2="386"
+                        y2={DIAGRAM_CENTER_Y}
+                        stroke={PALETTE.secondary}
+                        strokeWidth="1.5"
+                    />
+                    <path
+                        d={`M400 ${DIAGRAM_CENTER_Y}L386 ${DIAGRAM_CENTER_Y - 6}V${DIAGRAM_CENTER_Y + 6}Z`}
+                        fill={PALETTE.secondary}
+                    />
 
                     <Plate selection={active.selection} />
                 </svg>
@@ -236,20 +252,6 @@ const AllocationStrategiesDiagram = ({ src, maxWidthClass = 'max-w-full', number
                     <p className="text-sm text-secondary leading-relaxed">{active.note}</p>
                 </div>
             </div>
-
-            {/* The static SVG carries all five strategies at once and is the fallback
-                whenever the controls are unavailable, so no in-page duplicate is needed. */}
-            <p className="mt-4 text-sm text-secondary">
-                Every strategy selects {BUDGET} variants from the same candidate universe of A, B, C, AB, AC, BC and ABC.{' '}
-                <a
-                    href={src}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors"
-                >
-                    Open the full static comparison
-                </a>
-            </p>
 
             <figcaption className="mt-4 space-y-1 text-base leading-relaxed text-primary">
                 <p className="font-semibold">Figure n°{number}: {title}</p>
