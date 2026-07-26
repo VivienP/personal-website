@@ -78,7 +78,13 @@ test('collection pages expose main landmarks and keyboard gallery controls', () 
     assert.match(art, /<main\b/);
     assert.match(art, /<button\b/);
     assert.match(art, /aria-pressed=/);
-    assert.match(read('src/pages/AcademicWork.jsx'), /<main\b/);
+    const academicWork = read('src/pages/AcademicWork.jsx');
+    const journal = read('src/pages/Journal.jsx');
+    assert.match(academicWork, /<main\b/);
+    for (const collection of [academicWork, journal]) {
+        assert.match(collection, /<Link to="\/"[^>]*>[\s\S]*?<span>Home<\/span>[\s\S]*?<\/Link>/);
+        assert.doesNotMatch(collection, /<span>Back<\/span>/);
+    }
 });
 
 test('every citation marker resolves and every reference is cited', () => {
@@ -167,16 +173,128 @@ test('PKvitality leads with the requested smartwatch video and ends with the int
     const project = read('src/articles/projects/PKvitality.jsx');
     const video = project.indexOf('src="https://www.youtube.com/embed/VQMigUZQrfE"');
     const introduction = project.indexOf('The <Link to="/projects/biowatch"');
-    const contribution = project.indexOf('I executed daily in-vitro testing of electrochemical microneedle CGM prototypes');
+    const contribution = project.indexOf('Working in a multidisciplinary laboratory');
     const photo = project.indexOf('<img\n                    src="/pkvitality/pkvitality.jpg"');
 
     assert.ok(video !== -1 && introduction !== -1 && contribution !== -1 && photo !== -1);
     assert.ok(video < introduction && introduction < contribution && contribution < photo);
-    assert.match(project, /I analyzed experimental data, documented anomalies and findings, and supported iterative R&amp;D decisions\./);
-    assert.match(project, /conducted scientific monitoring and published a literature review on lactate pharmacokinetics during physical activity\./);
+    assert.match(project, /led directly to an R&amp;D internship at/);
+    assert.match(project, /microneedles designed to measure glucose continuously and painlessly in dermal interstitial fluid/);
+    assert.match(project, /I ran in vitro tests on electrochemical microneedle CGM prototypes/);
+    assert.match(project, /helped guide the team's next R&amp;D iterations/);
+    assert.match(project, /<Link to="\/academic-work\/lactate-pharmacokinetics"[^>]*>literature review on lactate pharmacokinetics<\/Link>/);
     assert.match(project, /"video": "https:\/\/www\.youtube\.com\/watch\?v=VQMigUZQrfE"/);
     assert.match(project, /className="w-full max-w-\[600px\] mx-auto overflow-hidden border border-border-subtle"/);
     assert.doesNotMatch(project, /4zz6rDdbdZY|Watch the K'Watch presentation|ExternalLink/);
+});
+
+test('academic publications cross-link without ResearchGate buttons', () => {
+    const lactate = read('src/articles/academic/LactatePharmacokinetics.jsx');
+    const thesis = read('src/articles/academic/SmartwatchBiosensorsThesis.jsx');
+
+    assert.match(lactate, /to="\/academic-work\/smartwatch-embedded-biosensors"/);
+    assert.match(lactate, /Read the related master's thesis/);
+    assert.match(thesis, /to="\/academic-work\/lactate-pharmacokinetics"/);
+    assert.match(thesis, /Read the related literature review/);
+
+    for (const publication of [lactate, thesis]) {
+        assert.doesNotMatch(publication, /ResearchGate|RESEARCHGATE_URL|ExternalLink|"sameAs"/);
+    }
+});
+
+test('Journal collection reuses the homepage list and shows one of five interest tags per article', () => {
+    const manifest = read('src/routeManifest.js');
+    const section = read('src/sections/Journal.jsx');
+
+    assert.equal(existsSync(new URL('../src/pages/Journal.jsx', import.meta.url)), true, 'Journal page is missing');
+    assert.equal(existsSync(new URL('../src/data/journalArticles.js', import.meta.url)), true, 'Journal data module is missing');
+    assert.equal(existsSync(new URL('../src/components/CollectionListItem.jsx', import.meta.url)), true, 'shared collection item is missing');
+    const page = read('src/pages/Journal.jsx');
+    const journalData = read('src/data/journalArticles.js');
+    const collectionItem = read('src/components/CollectionListItem.jsx');
+    const tags = [...journalData.matchAll(/tag: "([^"]+)"/g)].map((match) => match[1]);
+    const uniqueTags = [...new Set(tags)].sort();
+
+    assert.match(manifest, /path: '\/journal'.*pages\/Journal\.jsx/);
+    assert.match(section, /import \{ journalArticles \} from '\.\.\/data\/journalArticles'/);
+    assert.match(section, /import CollectionListItem from '\.\.\/components\/CollectionListItem'/);
+    assert.match(section, /export const JournalList/);
+    assert.match(section, /<JournalList \/>/);
+    assert.match(section, /to=\{`\/journal\/\$\{article\.slug\}`\}/);
+    assert.match(section, /tag=\{showTags \? article\.tag : undefined\}/);
+    assert.match(section, /<h2 className="text-3xl md:text-4xl text-primary">Journal<\/h2>/);
+    assert.doesNotMatch(section, /<Link to="\/journal"|<ArrowUpRight size=\{18\}/);
+    assert.equal(tags.length, 10, 'every Journal article needs exactly one tag');
+    assert.deepEqual(uniqueTags, [
+        'AI-for-science',
+        'Agentic AI',
+        'Bioengineering',
+        'Entrepreneurship',
+        'Technology & society',
+    ]);
+    assert.ok(
+        collectionItem.indexOf('{date}') < collectionItem.indexOf('{tag}') &&
+            collectionItem.indexOf('{tag}') < collectionItem.indexOf('{title}'),
+        'collection tags must sit below the date and before the title',
+    );
+    assert.match(collectionItem, /md:w-32/);
+    assert.doesNotMatch(collectionItem, /md:w-40/);
+    assert.match(collectionItem, /md:items-center/);
+    assert.match(collectionItem, /md:space-x-8/);
+    assert.doesNotMatch(collectionItem, /md:space-x-12/);
+    assert.doesNotMatch(collectionItem, /md:pt-1/);
+    assert.match(collectionItem, /whitespace-nowrap/);
+    assert.match(page, /<main\b/);
+    assert.match(page, /url="\/journal"/);
+    assert.match(page, /<JournalList showTags headingLevel="h2" \/>/);
+});
+
+test('Academic Work uses the shared date-tag-title collection item', () => {
+    assert.equal(existsSync(new URL('../src/data/academicWorks.js', import.meta.url)), true, 'Academic Work data module is missing');
+    const page = read('src/pages/AcademicWork.jsx');
+    const section = read('src/sections/AcademicWork.jsx');
+    const data = read('src/data/academicWorks.js');
+
+    assert.match(data, /type: "Master Thesis"/);
+    assert.match(data, /type: "Literature Review"/);
+    for (const source of [page, section]) {
+        assert.match(source, /import CollectionListItem from '\.\.\/components\/CollectionListItem'/);
+        assert.match(source, /import \{ academicWorks \} from '\.\.\/data\/academicWorks'/);
+    }
+    assert.match(page, /tag=\{work\.type\}/);
+    assert.match(page, /headingLevel="h2"/);
+    assert.doesNotMatch(page, /\{work\.date\} · \{work\.type\}/);
+    assert.doesNotMatch(section, /tag=\{work\.type\}/);
+});
+
+test('Journal articles use coherent URLs and return to the Journal collection', () => {
+    const manifest = read('src/routeManifest.js');
+    const redirects = read('src/routes.jsx');
+    const journalPage = read('src/pages/Journal.jsx');
+    const articles = [
+        ['designing-protein-experiments-for-epistasis', 'src/articles/WhatShouldWeMeasureNext.jsx'],
+        ['trauma-vs-purpose', 'src/articles/TraumaVsPurpose.jsx'],
+        ['smartwatch', 'src/articles/SmartWatch.jsx'],
+        ['glucose-biosensor', 'src/articles/GlucoseBiosensor.jsx'],
+        ['is-technology-neutral', 'src/articles/IsTechnologyNeutral.jsx'],
+        ['lactate', 'src/articles/Lactate.jsx'],
+        ['openclaw', 'src/articles/OpenClaw.jsx'],
+        ['science-is-entering-its-agentic-era', 'src/articles/ScienceIsEnteringItsAgenticEra.jsx'],
+        ['ai-for-science-is-becoming-a-systems-problem', 'src/articles/AIForScienceIsBecomingInfrastructure.jsx'],
+        ['regulators-dont-accept-vibes', 'src/articles/RegulatorsDontAcceptVibes.jsx'],
+    ];
+
+    assert.match(journalPage, /`https:\/\/vivienperrelle\.com\/journal\/\$\{slug\}`/);
+
+    for (const [slug, file] of articles) {
+        const article = read(file);
+        assert.match(manifest, new RegExp(`path: '/journal/${slug}'`));
+        assert.doesNotMatch(manifest, new RegExp(`path: '/blog/${slug}'`));
+        assert.match(article, new RegExp(`url="/journal/${slug}"`));
+        assert.match(article, new RegExp(`mainEntityOfPage["']?: ["']https://vivienperrelle\\.com/journal/${slug}`));
+        assert.match(article, /<Link to="\/journal"[^>]*>[\s\S]*?<span>Journal<\/span>[\s\S]*?<\/Link>/);
+        assert.match(redirects, new RegExp(`path: '/blog/${slug}', to: '/journal/${slug}'`));
+    }
 });
 
 test('epibudget pages and figures are present', () => {
@@ -199,7 +317,7 @@ test('epibudget pages and figures are present', () => {
 test('epibudget routes and homepage entries have flagship placement', () => {
     const manifest = read('src/routeManifest.js');
     assert.match(manifest, /path: '\/projects\/epibudget'.*Epibudget\.jsx/);
-    assert.match(manifest, /path: '\/blog\/designing-protein-experiments-for-epistasis'.*WhatShouldWeMeasureNext\.jsx/);
+    assert.match(manifest, /path: '\/journal\/designing-protein-experiments-for-epistasis'.*WhatShouldWeMeasureNext\.jsx/);
 
     const projects = read('src/sections/Projects.jsx');
     const locus = projects.indexOf('title: "LocusLab"');
@@ -207,7 +325,7 @@ test('epibudget routes and homepage entries have flagship placement', () => {
     const verifier = projects.indexOf('title: "Scientific Claim Verifier"');
     assert.ok(locus !== -1 && epibudget > locus && epibudget < verifier, 'epibudget is not the second project');
 
-    const journal = read('src/sections/Journal.jsx');
+    const journal = read('src/data/journalArticles.js');
     assert.ok(
         journal.indexOf('title: "Measure for Information, Not for Fitness: Designing Protein Experiments to Reveal Epistasis"') <
             journal.indexOf('title: "AI for Science Is Moving From Prediction to Closed-Loop Research Systems"'),
@@ -226,7 +344,7 @@ test('epibudget content is reciprocal, current with the tracked evidence, and us
     const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
     assert.match(project, /View on GitHub/);
     assert.match(project, /Read the research story/);
-    assert.match(project, /\/blog\/designing-protein-experiments-for-epistasis/);
+    assert.match(project, /\/journal\/designing-protein-experiments-for-epistasis/);
     assert.match(article, /\/projects\/epibudget/);
     assert.doesNotMatch(article, /Illustration [1-5]|codex-inline-vis/);
 

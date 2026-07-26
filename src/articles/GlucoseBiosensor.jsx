@@ -68,7 +68,7 @@ const GlucoseBiosensor = () => {
             <SEO
                 title="How to Build a Wearable Glucose Biosensor | Vivien Perrelle"
                 description="A tutorial to build a wearable, non-invasive glucose biosensor from screen-printed electrodes in a sweat patch, streaming data over Bluetooth Low Energy."
-                url="/blog/glucose-biosensor"
+                url="/journal/glucose-biosensor"
                 image={`${B}/hero.jpg`}
                 type="article"
                 article={{ publishedTime: '2022-03-10', author: 'Vivien Perrelle' }}
@@ -80,12 +80,12 @@ const GlucoseBiosensor = () => {
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "image": `https://vivienperrelle.com${B}/hero.jpg`,
-                    "mainEntityOfPage": "https://vivienperrelle.com/blog/glucose-biosensor"
+                    "mainEntityOfPage": "https://vivienperrelle.com/journal/glucose-biosensor"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
+            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
+                <span>Journal</span>
             </Link>
 
             <header className="mb-12 space-y-4">
@@ -359,7 +359,7 @@ const GlucoseBiosensor = () => {
                             <li>The data are only available on the laptop.</li>
                         </ul>
                         <p>
-                            The ongoing GitHub project addresses this last point by redirecting the data to a homemade smartwatch. The <Link to="/blog/smartwatch" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">How to Build a SmartWatch</Link> tutorial explains how to build it.
+                            The ongoing GitHub project addresses this last point by redirecting the data to a homemade smartwatch. The <Link to="/journal/smartwatch" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">How to Build a SmartWatch</Link> tutorial explains how to build it.
                         </p>
                         <p>
                             Wearable devices providing molecular-level information are still in their infancy<Cite n={26} />. Their potential affordability and accessibility fuel interest in personalized medicine<Cite n={27} /><Cite n={28} />. This tutorial aims to make these technologies more accessible and spark interest in their medical and well-being applications. <span className="font-medium text-primary">Wearable biosensing devices are a potential next frontier of wearable technology for fitness and individual and public-health monitoring<Cite n={29} />.</span>

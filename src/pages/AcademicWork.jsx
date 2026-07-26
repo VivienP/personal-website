@@ -1,38 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
+import CollectionListItem from '../components/CollectionListItem';
 import SEO from '../components/SEO';
-
-const works = [
-    {
-        date: "2023-10",
-        type: "Master's Thesis",
-        title: "Smartwatch-Embedded Biosensors For Healthcare Monitoring",
-        slug: "smartwatch-embedded-biosensors"
-    },
-    {
-        date: "2023-08",
-        type: "Literature Review",
-        title: "Exploring Activity-Induced Lactate Pharmacokinetics: Implications for Minimally-Invasive Monitoring",
-        slug: "lactate-pharmacokinetics"
-    }
-];
-
-const WorkItem = ({ work }) => (
-    <Link
-        to={`/academic-work/${work.slug}`}
-        className="group flex items-center justify-between py-5 px-4 border-b border-border-subtle hover:bg-white/50 transition-colors cursor-pointer"
-    >
-        <div className="flex flex-col md:flex-row md:items-baseline md:space-x-12 w-full pr-8">
-            <span className="font-mono text-xs text-secondary w-40 shrink-0">{work.date} · {work.type}</span>
-            {/* h2, not h3: this list sits directly under the page h1 and an h3 skips a level. */}
-            <h2 className="text-base font-normal text-primary group-hover:text-accent transition-colors flex-1 mt-1 md:mt-0">
-                {work.title}
-            </h2>
-        </div>
-        <ArrowUpRight size={16} className="text-secondary opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 transition-opacity shrink-0" />
-    </Link>
-);
+import { academicWorks } from '../data/academicWorks';
 
 const AcademicWorkPage = () => {
     useEffect(() => {
@@ -74,7 +45,7 @@ const AcademicWorkPage = () => {
             />
             <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
+                <span>Home</span>
             </Link>
 
             <header className="mb-12 space-y-4">
@@ -85,8 +56,15 @@ const AcademicWorkPage = () => {
             </header>
 
             <div className="flex flex-col">
-                {works.map((work) => (
-                    <WorkItem key={work.slug} work={work} />
+                {academicWorks.map((work) => (
+                    <CollectionListItem
+                        key={work.slug}
+                        to={`/academic-work/${work.slug}`}
+                        date={work.date}
+                        tag={work.type}
+                        title={work.title}
+                        headingLevel="h2"
+                    />
                 ))}
             </div>
         </main>

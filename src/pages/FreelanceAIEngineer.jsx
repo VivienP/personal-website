@@ -150,17 +150,17 @@ const FreelanceAIEngineer = () => {
                     <SectionTitle>Read my thinking</SectionTitle>
                     <ul className="list-disc pl-6 space-y-2 text-primary">
                         <li>
-                            <Link to="/blog/ai-for-science-is-becoming-a-systems-problem" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
+                            <Link to="/journal/ai-for-science-is-becoming-a-systems-problem" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
                                 AI for Science Is Moving From Prediction to Closed-Loop Research Systems
                             </Link>
                         </li>
                         <li>
-                            <Link to="/blog/science-is-entering-its-agentic-era" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
+                            <Link to="/journal/science-is-entering-its-agentic-era" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
                                 Science Is Entering Its Agentic Era
                             </Link>
                         </li>
                         <li>
-                            <Link to="/blog/regulators-dont-accept-vibes" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
+                            <Link to="/journal/regulators-dont-accept-vibes" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
                                 Regulators Don&rsquo;t Accept Vibes: The Two Layers Pharma AI Is Missing
                             </Link>
                         </li>

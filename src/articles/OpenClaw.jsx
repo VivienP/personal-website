@@ -15,7 +15,7 @@ const OpenClaw = () => {
             <SEO
                 title="OpenClaw & the Infrastructure of Sovereign Intelligence | Vivien Perrelle"
                 description="The Assistant era is over. 2026 is defined by Sovereign Agents: locally hosted, proactive AI entities capable of self-funding and autonomous execution. But without data interoperability and strict security, these agents are a liability, not an asset."
-                url="/blog/openclaw"
+                url="/journal/openclaw"
                 type="article"
                 article={{ publishedTime: '2026-02-20', author: 'Vivien Perrelle' }}
                 jsonLd={{
@@ -28,12 +28,12 @@ const OpenClaw = () => {
                     "dateModified": "2026-02-20",
                     "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "mainEntityOfPage": "https://vivienperrelle.com/blog/openclaw"
+                    "mainEntityOfPage": "https://vivienperrelle.com/journal/openclaw"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
+            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
+                <span>Journal</span>
             </Link>
 
             <header className="mb-12 space-y-6">
@@ -228,8 +228,8 @@ const OpenClaw = () => {
             </div>
 
             <AuthorBio readNext={[
-                { to: '/blog/science-is-entering-its-agentic-era', label: 'Science Is Entering Its Agentic Era' },
-                { to: '/blog/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
+                { to: '/journal/science-is-entering-its-agentic-era', label: 'Science Is Entering Its Agentic Era' },
+                { to: '/journal/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
                 { to: '/projects/scientific-claim-verifier', label: 'Scientific Claim Verifier — open-source claim-to-source verification (F1 0.92 on SciFact)' },
             ]} />
         </article>

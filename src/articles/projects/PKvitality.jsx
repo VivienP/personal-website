@@ -62,13 +62,13 @@ const PKvitality = () => {
 
             <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-base mb-12">
                 <p>
-                    The <Link to="/projects/biowatch" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">BioWatch</Link> prototype I built during my master's is what landed me an internship at <a href="https://www.pkvitality.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">PKvitality</a>, a 50-person startup that raised several million euros to build the first glucose-monitoring smartwatch for diabetics.
+                    The <Link to="/projects/biowatch" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">BioWatch</Link> prototype I built during my master's led directly to an R&amp;D internship at <a href="https://www.pkvitality.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">PKvitality</a>, a 50-person startup that had raised several million euros to develop the first glucose-monitoring smartwatch for people with diabetes.
                 </p>
                 <p>
-                    I joined their R&amp;D team as a research assistant, working on the same minimally-invasive biosensing technology the BioWatch had let me prototype: micro-needles that read glucose in the dermal interstitial fluid, painlessly and continuously. It was the moment a student project turned into hands-on work on a product heading to market.
+                    At PKvitality, I joined the R&amp;D team as a research assistant and returned to the same minimally invasive biosensing principle I had explored with BioWatch: microneedles designed to measure glucose continuously and painlessly in dermal interstitial fluid. It was the point at which a student prototype became hands-on work on a product moving toward the market.
                 </p>
                 <p>
-                    I executed daily in-vitro testing of electrochemical microneedle CGM prototypes within a multidisciplinary R&amp;D laboratory. I analyzed experimental data, documented anomalies and findings, and supported iterative R&amp;D decisions. In parallel, I conducted scientific monitoring and published a literature review on lactate pharmacokinetics during physical activity.
+                    Working in a multidisciplinary laboratory, I combined daily experimentation with data analysis and scientific monitoring. I ran in vitro tests on electrochemical microneedle CGM prototypes, analyzed the results, documented anomalies and findings, and helped guide the team's next R&amp;D iterations. Alongside this laboratory work, I reviewed the scientific literature and published a <Link to="/academic-work/lactate-pharmacokinetics" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">literature review on lactate pharmacokinetics</Link> during physical activity.
                 </p>
             </div>
 

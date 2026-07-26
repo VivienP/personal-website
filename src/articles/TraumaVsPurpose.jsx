@@ -14,7 +14,7 @@ const TraumaVsPurpose = () => {
             <SEO
                 title="Trauma-Driven VS Purpose-Driven Entrepreneurship | Vivien Perrelle"
                 description="There is a prevailing narrative in VC: the best founders are broken. But there is a second path: the Purpose-Driven Founder."
-                url="/blog/trauma-vs-purpose"
+                url="/journal/trauma-vs-purpose"
                 type="article"
                 article={{ publishedTime: '2026-02-09', author: 'Vivien Perrelle' }}
                 jsonLd={{
@@ -27,12 +27,12 @@ const TraumaVsPurpose = () => {
                     "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "image": "https://vivienperrelle.com/me.png",
-                    "mainEntityOfPage": "https://vivienperrelle.com/blog/trauma-vs-purpose"
+                    "mainEntityOfPage": "https://vivienperrelle.com/journal/trauma-vs-purpose"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
+            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
+                <span>Journal</span>
             </Link>
 
             <header className="mb-12 space-y-6">

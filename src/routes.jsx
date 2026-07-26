@@ -10,7 +10,17 @@ const toLazyRoute = (definition) => {
 export const routes = routeDefinitions.map(toLazyRoute);
 
 export const legacyRedirects = [
-    { path: '/blog/pharma-data-layer', to: '/blog/regulators-dont-accept-vibes' },
+    { path: '/blog/designing-protein-experiments-for-epistasis', to: '/journal/designing-protein-experiments-for-epistasis' },
+    { path: '/blog/trauma-vs-purpose', to: '/journal/trauma-vs-purpose' },
+    { path: '/blog/smartwatch', to: '/journal/smartwatch' },
+    { path: '/blog/glucose-biosensor', to: '/journal/glucose-biosensor' },
+    { path: '/blog/is-technology-neutral', to: '/journal/is-technology-neutral' },
+    { path: '/blog/lactate', to: '/journal/lactate' },
+    { path: '/blog/openclaw', to: '/journal/openclaw' },
+    { path: '/blog/science-is-entering-its-agentic-era', to: '/journal/science-is-entering-its-agentic-era' },
+    { path: '/blog/ai-for-science-is-becoming-a-systems-problem', to: '/journal/ai-for-science-is-becoming-a-systems-problem' },
+    { path: '/blog/regulators-dont-accept-vibes', to: '/journal/regulators-dont-accept-vibes' },
+    { path: '/blog/pharma-data-layer', to: '/journal/regulators-dont-accept-vibes' },
     { path: '/blog/biowatch', to: '/projects/biowatch' },
     { path: '/blog/green-grown', to: '/projects/green-grown' },
     { path: '/blog/bione', to: '/projects/bione' },

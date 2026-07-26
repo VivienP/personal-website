@@ -56,7 +56,7 @@ const SmartWatch = () => {
             <SEO
                 title="How to Build a SmartWatch | Vivien Perrelle"
                 description="A hands-on tutorial to build a programmable, 3D-printed digital watch: program a round LCD with an Arduino and 3D-print the case."
-                url="/blog/smartwatch"
+                url="/journal/smartwatch"
                 image={`${B}/smartwatch-closeup.jpg`}
                 type="article"
                 article={{ publishedTime: '2022-01-20', author: 'Vivien Perrelle' }}
@@ -68,12 +68,12 @@ const SmartWatch = () => {
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "image": `https://vivienperrelle.com${B}/smartwatch-closeup.jpg`,
-                    "mainEntityOfPage": "https://vivienperrelle.com/blog/smartwatch"
+                    "mainEntityOfPage": "https://vivienperrelle.com/journal/smartwatch"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
+            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
+                <span>Journal</span>
             </Link>
 
             <header className="mb-12 space-y-4">

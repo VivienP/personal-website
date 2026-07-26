@@ -32,7 +32,7 @@ const filesUnder = (dir) =>
         return entry.isDirectory() ? filesUnder(full) : [full];
     });
 
-/** dist/blog/foo/index.html -> /blog/foo ; dist/index.html -> / ; dist/404.html -> /404 */
+/** dist/journal/foo/index.html -> /journal/foo ; dist/index.html -> / ; dist/404.html -> /404 */
 const routeOf = (file) => {
     const rel = relative(DIST, file).replaceAll('\\', '/');
     if (rel === 'index.html') return '/';
@@ -160,7 +160,7 @@ test('an inline SVG title is an accessible name, not the document title', () => 
     // <title> is also a legitimate SVG child, so without masking the SVG subtrees an
     // inline figure loses its accessible name — and one rendered before <SEO> would
     // take over the page's document title.
-    const article = pages.find((p) => p.route === '/blog/designing-protein-experiments-for-epistasis');
+    const article = pages.find((p) => p.route === '/journal/designing-protein-experiments-for-epistasis');
 
     assert.match(article.html, /<svg[^>]*role="img"[^>]*aria-labelledby=/);
     assert.match(article.html, /<title id="[^"]*">Loop-count selection at a fixed budget of 3<\/title>/);
@@ -172,7 +172,7 @@ test('an inline SVG title is an accessible name, not the document title', () => 
 });
 
 test('the main content of an article is present without JavaScript', () => {
-    const article = pages.find((p) => p.route === '/blog/designing-protein-experiments-for-epistasis');
+    const article = pages.find((p) => p.route === '/journal/designing-protein-experiments-for-epistasis');
     assert.ok(article, 'flagship article was not prerendered');
     const body = article.html.replace(/<script[\s\S]*?<\/script>/g, '');
     assert.ok(body.length > 20_000, `prerendered body is only ${body.length} bytes — content is not in the static HTML`);

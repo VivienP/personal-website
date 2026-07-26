@@ -27,7 +27,7 @@ const ScienceIsEnteringItsAgenticEra = () => {
             <SEO
                 title="Science Is Entering Its Agentic Era | Vivien Perrelle"
                 description="Exploring how agentic AI is transforming scientific research, from literature review to autonomous hypothesis generation and experimental design."
-                url="/blog/science-is-entering-its-agentic-era"
+                url="/journal/science-is-entering-its-agentic-era"
                 type="article"
                 article={{ publishedTime: '2026-04-17', author: 'Vivien Perrelle', tags: ['AI', 'Agentic AI', 'Scientific Research', 'Research Automation', 'BioTech'] }}
                 jsonLd={{
@@ -40,13 +40,13 @@ const ScienceIsEnteringItsAgenticEra = () => {
                     "dateModified": "2026-04-17",
                     "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "mainEntityOfPage": "https://vivienperrelle.com/blog/science-is-entering-its-agentic-era",
+                    "mainEntityOfPage": "https://vivienperrelle.com/journal/science-is-entering-its-agentic-era",
                     "keywords": "AI, Agentic AI, Scientific Research, Research Automation, BioTech"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
+            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
+                <span>Journal</span>
             </Link>
 
             <header className="mb-12 space-y-4">
@@ -172,8 +172,8 @@ const ScienceIsEnteringItsAgenticEra = () => {
             </div>
 
             <AuthorBio readNext={[
-                { to: '/blog/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
-                { to: '/blog/regulators-dont-accept-vibes', label: "Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing" },
+                { to: '/journal/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
+                { to: '/journal/regulators-dont-accept-vibes', label: "Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing" },
                 { to: '/projects/scientific-claim-verifier', label: 'Scientific Claim Verifier — open-source claim-to-source verification (F1 0.92 on SciFact)' },
             ]} />
         </article>

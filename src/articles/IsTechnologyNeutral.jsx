@@ -14,7 +14,7 @@ const IsTechnologyNeutral = () => {
             <SEO
                 title="Is Technology Neutral? | Vivien Perrelle"
                 description="Why the neutrality question is poorly framed, and where the value of a technology is actually decided: not in use, but in design."
-                url="/blog/is-technology-neutral"
+                url="/journal/is-technology-neutral"
                 image="/ellul/jacques-ellul.jpg"
                 imageWidth={350}
                 imageHeight={350}
@@ -30,13 +30,13 @@ const IsTechnologyNeutral = () => {
                     "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "image": "https://vivienperrelle.com/ellul/jacques-ellul.jpg",
-                    "mainEntityOfPage": "https://vivienperrelle.com/blog/is-technology-neutral",
+                    "mainEntityOfPage": "https://vivienperrelle.com/journal/is-technology-neutral",
                     "keywords": "Philosophy of Technology, Ethics, Design, Jacques Ellul"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
+            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
+                <span>Journal</span>
             </Link>
 
             <header className="mb-12 space-y-4">

@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import SEO from '../../components/SEO';
 import PdfEmbed from '../../components/PdfEmbed';
 import { AUTHOR } from '../../components/jsonld';
 
-const RESEARCHGATE_URL = 'https://www.researchgate.net/publication/375229419_Exploring_Activity-Induced_Lactate_Pharmacokinetics_Implications_for_Minimally-Invasive_Monitoring';
 const PDF_URL = '/papers/PERRELLE-Exploring-2023.pdf';
 
 const LactatePharmacokinetics = () => {
@@ -38,7 +37,6 @@ const LactatePharmacokinetics = () => {
                     "image": "https://vivienperrelle.com/build-lactate-biosensor/microneedles-gold.jpg",
                     "keywords": "lactate, pharmacokinetics, interstitial fluid, ISF, microneedle biosensors, muscle fatigue, minimally-invasive monitoring",
                     "url": "https://vivienperrelle.com/academic-work/lactate-pharmacokinetics",
-                    "sameAs": RESEARCHGATE_URL,
                     "mainEntityOfPage": "https://vivienperrelle.com/academic-work/lactate-pharmacokinetics",
                     "encoding": {
                         "@type": "MediaObject",
@@ -71,15 +69,13 @@ const LactatePharmacokinetics = () => {
                 />
 
                 <div className="pt-2">
-                    <a
-                        href={RESEARCHGATE_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <Link
+                        to="/academic-work/smartwatch-embedded-biosensors"
                         className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm"
                     >
-                        <span>Read the full review on ResearchGate</span>
-                        <ExternalLink size={14} />
-                    </a>
+                        <span>Read the related master's thesis</span>
+                        <ArrowUpRight size={14} />
+                    </Link>
                 </div>
             </div>
         </article>

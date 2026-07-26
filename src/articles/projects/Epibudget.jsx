@@ -5,7 +5,7 @@ import SEO from '../../components/SEO';
 import { AUTHOR } from '../../components/jsonld';
 
 const REPO = 'https://github.com/VivienP/epistasis-budget';
-const ARTICLE = '/blog/designing-protein-experiments-for-epistasis';
+const ARTICLE = '/journal/designing-protein-experiments-for-epistasis';
 
 const Epibudget = () => {
     useEffect(() => {

@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import SEO from '../../components/SEO';
 import PdfEmbed from '../../components/PdfEmbed';
 import { AUTHOR } from '../../components/jsonld';
 
-const RESEARCHGATE_URL = 'https://www.researchgate.net/publication/375227950_Smartwatch-Embedded_Biosensors_For_Healthcare_Monitoring';
 const PDF_URL = '/papers/PERRELLE-Embedded-2023.pdf';
 
 const SmartwatchBiosensorsThesis = () => {
@@ -43,7 +42,6 @@ const SmartwatchBiosensorsThesis = () => {
                     "image": "https://vivienperrelle.com/biowatch/biowatch-grand-angle.jpg",
                     "keywords": "wearable biosensors, smartwatch, healthcare monitoring, microneedle, lactate, BioWatch, biomonitoring",
                     "url": "https://vivienperrelle.com/academic-work/smartwatch-embedded-biosensors",
-                    "sameAs": RESEARCHGATE_URL,
                     "mainEntityOfPage": "https://vivienperrelle.com/academic-work/smartwatch-embedded-biosensors",
                     "encoding": {
                         "@type": "MediaObject",
@@ -76,15 +74,13 @@ const SmartwatchBiosensorsThesis = () => {
                 />
 
                 <div className="pt-2">
-                    <a
-                        href={RESEARCHGATE_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <Link
+                        to="/academic-work/lactate-pharmacokinetics"
                         className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm"
                     >
-                        <span>Read the full thesis on ResearchGate</span>
-                        <ExternalLink size={14} />
-                    </a>
+                        <span>Read the related literature review</span>
+                        <ArrowUpRight size={14} />
+                    </Link>
                 </div>
             </div>
         </article>

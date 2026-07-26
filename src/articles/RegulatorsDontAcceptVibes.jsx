@@ -38,7 +38,7 @@ const RegulatorsDontAcceptVibes = () => {
             <SEO
                 title="Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing | Vivien Perrelle"
                 description="Pharma AI breaks in two places, not one: unstructured inputs upstream and unverified outputs downstream. Why submission-grade pipelines need a standardization layer and a verification layer around the model."
-                url="/blog/regulators-dont-accept-vibes"
+                url="/journal/regulators-dont-accept-vibes"
                 type="article"
                 article={{ publishedTime: '2026-05-11', author: 'Vivien Perrelle' }}
                 jsonLd={{
@@ -51,12 +51,12 @@ const RegulatorsDontAcceptVibes = () => {
                     "dateModified": "2026-05-11",
                     "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "mainEntityOfPage": "https://vivienperrelle.com/blog/regulators-dont-accept-vibes"
+                    "mainEntityOfPage": "https://vivienperrelle.com/journal/regulators-dont-accept-vibes"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
+            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
+                <span>Journal</span>
             </Link>
 
             <header className="mb-12 space-y-6">
@@ -157,8 +157,8 @@ const RegulatorsDontAcceptVibes = () => {
             </div>
 
             <AuthorBio readNext={[
-                { to: '/blog/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
-                { to: '/blog/science-is-entering-its-agentic-era', label: 'Science Is Entering Its Agentic Era' },
+                { to: '/journal/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
+                { to: '/journal/science-is-entering-its-agentic-era', label: 'Science Is Entering Its Agentic Era' },
                 { to: '/projects/scientific-claim-verifier', label: 'Scientific Claim Verifier — open-source claim-to-source verification (F1 0.92 on SciFact)' },
             ]} />
         </article>

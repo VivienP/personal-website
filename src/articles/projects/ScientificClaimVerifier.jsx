@@ -126,16 +126,16 @@ const ScientificClaimVerifier = () => {
                         <ExternalLink size={14} />
                     </a>
                     <span className="text-sm text-secondary">
-                        Part of the verification infrastructure explored in <Link to="/blog/science-is-entering-its-agentic-era" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Science Is Entering Its Agentic Era</Link>.
+                        Part of the verification infrastructure explored in <Link to="/journal/science-is-entering-its-agentic-era" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Science Is Entering Its Agentic Era</Link>.
                     </span>
                 </footer>
 
             </div>
 
             <AuthorBio readNext={[
-                { to: '/blog/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
-                { to: '/blog/science-is-entering-its-agentic-era', label: 'Science Is Entering Its Agentic Era' },
-                { to: '/blog/regulators-dont-accept-vibes', label: "Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing" },
+                { to: '/journal/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
+                { to: '/journal/science-is-entering-its-agentic-era', label: 'Science Is Entering Its Agentic Era' },
+                { to: '/journal/regulators-dont-accept-vibes', label: "Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing" },
             ]} />
         </article>
     );

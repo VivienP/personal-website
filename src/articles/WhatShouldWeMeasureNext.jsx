@@ -57,7 +57,7 @@ const WhatShouldWeMeasureNext = () => {
             <SEO
                 title="Measure for Information, Not for Fitness: Designing Protein Experiments to Reveal Epistasis | Vivien Perrelle"
                 description="A provisional experimental-design study finds that loop-count allocation outperforms fitness-greedy selection downstream on GB1 and TrpB, without a supported gain from ESM masking dispersion."
-                url="/blog/designing-protein-experiments-for-epistasis"
+                url="/journal/designing-protein-experiments-for-epistasis"
                 image="/epibudget/workflow.webp"
                 imageWidth={2048}
                 imageHeight={900}
@@ -78,7 +78,7 @@ const WhatShouldWeMeasureNext = () => {
                     dateModified: '2026-07-23',
                     author: AUTHOR,
                     publisher: { '@type': 'Person', name: 'Vivien Perrelle' },
-                    mainEntityOfPage: 'https://vivienperrelle.com/blog/designing-protein-experiments-for-epistasis',
+                    mainEntityOfPage: 'https://vivienperrelle.com/journal/designing-protein-experiments-for-epistasis',
                     about: {
                         '@type': 'SoftwareSourceCode',
                         name: 'epibudget',
@@ -89,9 +89,9 @@ const WhatShouldWeMeasureNext = () => {
                 }}
             />
 
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
+            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
+                <span>Journal</span>
             </Link>
 
             <header className="mb-12 space-y-4">
@@ -477,7 +477,7 @@ const WhatShouldWeMeasureNext = () => {
 
             <AuthorBio readNext={[
                 { to: '/projects/epibudget', label: 'epibudget: experimental design for protein epistasis' },
-                { to: '/blog/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
+                { to: '/journal/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
                 { to: '/projects/scientific-claim-verifier', label: 'Scientific Claim Verifier: open-source claim-to-source verification' },
             ]} />
         </article>

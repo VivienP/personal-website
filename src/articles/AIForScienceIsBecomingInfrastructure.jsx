@@ -27,7 +27,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
             <SEO
                 title="AI for Science Is Moving From Prediction to Closed-Loop Research Systems | Vivien Perrelle"
                 description="How does AI-for-science find out it's wrong? A framework mapping research loops by cost and fidelity of feedback, from code-closed to patient-closed systems."
-                url="/blog/ai-for-science-is-becoming-a-systems-problem"
+                url="/journal/ai-for-science-is-becoming-a-systems-problem"
                 image="/ai-for-science/loops-cover-small.jpg"
                 imageWidth={1920}
                 imageHeight={1080}
@@ -43,13 +43,13 @@ const AIForScienceIsBecomingInfrastructure = () => {
                     "dateModified": "2026-06-01",
                     "author": AUTHOR,
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "mainEntityOfPage": "https://vivienperrelle.com/blog/ai-for-science-is-becoming-a-systems-problem",
+                    "mainEntityOfPage": "https://vivienperrelle.com/journal/ai-for-science-is-becoming-a-systems-problem",
                     "keywords": "AI, Scientific Research, Drug Discovery, Research Automation, BioTech, Evaluation, Google Co-Scientist, Isomorphic Labs, SoundnessBench, AI research agents, autonomous scientific discovery, AI-first drug design, AI Scientist Sakana AI, evaluation bottleneck, Eroom's law, feedback loops, cost fidelity"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
+            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
+                <span>Journal</span>
             </Link>
 
             <header className="mb-12 space-y-4">
@@ -450,8 +450,8 @@ const AIForScienceIsBecomingInfrastructure = () => {
             </div>
 
             <AuthorBio readNext={[
-                { to: '/blog/science-is-entering-its-agentic-era', label: 'Science Is Entering Its Agentic Era' },
-                { to: '/blog/regulators-dont-accept-vibes', label: "Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing" },
+                { to: '/journal/science-is-entering-its-agentic-era', label: 'Science Is Entering Its Agentic Era' },
+                { to: '/journal/regulators-dont-accept-vibes', label: "Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing" },
                 { to: '/projects/scientific-claim-verifier', label: 'Scientific Claim Verifier — open-source claim-to-source verification (F1 0.92 on SciFact)' },
             ]} />
         </article>

@@ -1,74 +1,20 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import CollectionListItem from '../components/CollectionListItem';
+import { journalArticles } from '../data/journalArticles';
 
-const articles = [
-    {
-        date: "2026-07-23",
-        title: "Measure for Information, Not for Fitness: Designing Protein Experiments to Reveal Epistasis",
-        slug: "designing-protein-experiments-for-epistasis"
-    },
-    {
-        date: "2026-06-01",
-        title: "AI for Science Is Moving From Prediction to Closed-Loop Research Systems",
-        slug: "ai-for-science-is-becoming-a-systems-problem"
-    },
-    {
-        date: "2026-05-11",
-        title: "Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing",
-        slug: "regulators-dont-accept-vibes"
-    },
-    {
-        date: "2026-04-17",
-        title: "Science Is Entering Its Agentic Era",
-        slug: "science-is-entering-its-agentic-era"
-    },
-    {
-        date: "2026-02-19",
-        title: "OpenClaw & the Infrastructure of Sovereign Intelligence",
-        slug: "openclaw"
-    },
-    {
-        date: "2026-02-09",
-        title: "Trauma-Driven VS Purpose-Driven Entrepreneurship",
-        slug: "trauma-vs-purpose"
-    },
-    {
-        date: "2023-02-24",
-        title: "Is Technology Neutral?",
-        slug: "is-technology-neutral"
-    },
-    {
-        date: "2023-02-04",
-        title: "How to Build a Lactate Biosensor?",
-        slug: "lactate"
-    },
-    {
-        date: "2022-03-10",
-        title: "How to Build a Wearable Glucose Biosensor?",
-        slug: "glucose-biosensor"
-    },
-    {
-        date: "2022-01-20",
-        title: "How to Build a SmartWatch?",
-        slug: "smartwatch"
-    }
-];
-
-import { Link } from 'react-router-dom';
-
-const JournalItem = ({ article }) => (
-    <Link
-        to={`/blog/${article.slug}`}
-        className="group flex items-center justify-between py-5 px-4 border-b border-border-subtle hover:bg-white/50 transition-colors cursor-pointer"
-    >
-        <div className="flex flex-col md:flex-row md:items-center md:space-x-12 w-full pr-8">
-            <span className="font-mono text-xs text-secondary w-32 shrink-0">{article.date}</span>
-            <h3 className="text-base text-primary group-hover:text-accent transition-colors flex-1 mt-1 md:mt-0">
-                {article.title}
-            </h3>
-        </div>
-        <ArrowUpRight size={16} className="text-secondary opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 transition-opacity shrink-0" />
-    </Link>
+export const JournalList = ({ showTags = false, headingLevel = 'h3' }) => (
+    <div className="flex flex-col">
+        {journalArticles.map((article) => (
+            <CollectionListItem
+                key={article.slug}
+                to={`/journal/${article.slug}`}
+                date={article.date}
+                tag={showTags ? article.tag : undefined}
+                title={article.title}
+                headingLevel={headingLevel}
+            />
+        ))}
+    </div>
 );
 
 const Journal = () => {
@@ -79,11 +25,7 @@ const Journal = () => {
                     <h2 className="text-3xl md:text-4xl text-primary">Journal</h2>
                 </div>
 
-                <div className="flex flex-col">
-                    {articles.map((article) => (
-                        <JournalItem key={article.slug} article={article} />
-                    ))}
-                </div>
+                <JournalList />
             </div>
         </section>
     );

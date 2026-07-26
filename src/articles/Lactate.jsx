@@ -50,7 +50,7 @@ const Lactate = () => {
             <SEO
                 title="How to Build a Lactate Biosensor | Vivien Perrelle"
                 description="A step-by-step tutorial to build a proof-of-concept enzymatic lactate biosensor on a platinum wire, for monitoring exercise-induced muscle fatigue."
-                url="/blog/lactate"
+                url="/journal/lactate"
                 image={`${B}/microneedles-gold.jpg`}
                 type="article"
                 article={{ publishedTime: '2023-02-04', author: 'Vivien Perrelle' }}
@@ -62,12 +62,12 @@ const Lactate = () => {
                     "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
                     "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
                     "image": `https://vivienperrelle.com${B}/microneedles-gold.jpg`,
-                    "mainEntityOfPage": "https://vivienperrelle.com/blog/lactate"
+                    "mainEntityOfPage": "https://vivienperrelle.com/journal/lactate"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
+            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
+                <span>Journal</span>
             </Link>
 
             <header className="mb-12 space-y-4">
