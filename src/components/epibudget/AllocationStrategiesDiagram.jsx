@@ -81,7 +81,7 @@ const PALETTE = {
     primary: '#1A1A1A',
     secondary: '#5A5A5A',
     border: '#E5E0D8',
-    accent: '#1B2230',
+    accent: '#3A2328',
 };
 
 const nodeById = Object.fromEntries(NODES.map((node) => [node.id, node]));

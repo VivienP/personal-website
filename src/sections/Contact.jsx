@@ -18,8 +18,8 @@ const Contact = ({ showServicesLink = true }) => {
                 hideEventTypeDetails: false,
                 layout: 'month_view',
                 cssVarsPerTheme: {
-                    light: { 'cal-brand': '#1B2230' },
-                    dark: { 'cal-brand': '#1B2230' },
+                    light: { 'cal-brand': '#3A2328' },
+                    dark: { 'cal-brand': '#3A2328' },
                 },
             });
         })();

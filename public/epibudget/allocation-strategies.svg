@@ -13,12 +13,12 @@
     .separator{stroke:#E5E0D8;stroke-width:1.5}
     .edge{fill:none;stroke:#E5E0D8;stroke-width:2;stroke-linecap:round}
     .node{fill:#FDFBF7;stroke:#5A5A5A;stroke-width:2}
-    .selected{fill:#1B2230;stroke:#1B2230;stroke-width:2}
-    .halo{fill:none;stroke:#1B2230;stroke-width:2;stroke-dasharray:5 5}
+    .selected{fill:#3A2328;stroke:#3A2328;stroke-width:2}
+    .halo{fill:none;stroke:#3A2328;stroke-width:2;stroke-dasharray:5 5}
     .arrow{fill:none;stroke:#5A5A5A;stroke-width:2;stroke-linecap:round}
     .plate-shell{fill:none;stroke:#E5E0D8;stroke-width:1.5}
     .well{fill:#FDFBF7;stroke:#5A5A5A;stroke-width:1.5}
-    .well-selected{fill:#1B2230;stroke:#1B2230;stroke-width:1.5}
+    .well-selected{fill:#3A2328;stroke:#3A2328;stroke-width:1.5}
   </style>
 
   <defs>
@@ -127,7 +127,7 @@
     <text x="42" y="70" class="label">singles → combinations</text>
     <g transform="translate(185 18)">
       <use href="#candidate-graph"/>
-      <path d="M10 150L45 90L80 150" fill="none" stroke="#1B2230" stroke-width="2"/>
+      <path d="M10 150L45 90L80 150" fill="none" stroke="#3A2328" stroke-width="2"/>
       <circle class="selected" cx="10" cy="150" r="14"/><text class="selected-label" x="10" y="150">A</text>
       <circle class="selected" cx="80" cy="150" r="14"/><text class="selected-label" x="80" y="150">B</text>
       <circle class="selected" cx="45" cy="90" r="14"/><text class="selected-label" x="45" y="90">AB</text>
