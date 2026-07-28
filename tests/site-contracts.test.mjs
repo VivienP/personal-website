@@ -395,6 +395,8 @@ test('epibudget article keeps a restrained scientific voice', () => {
     assert.ok(firstPersonPronouns.length <= 3, `article contains ${firstPersonPronouns.length} first-person pronouns`);
     assert.ok(emDashes.length <= 4, `article contains ${emDashes.length} em dashes`);
     assert.doesNotMatch(article, /The question changed/);
+    assert.doesNotMatch(article, /masking dispersion did not add value/i);
+    assert.match(article, /the registered analyses do not establish added value from masking dispersion beyond loop coverage/i);
     assert.match(article, /Implications for experimental design/);
 });
 
@@ -569,9 +571,55 @@ test('epibudget workflow metadata matches the optimized image dimensions', () =>
         const source = read(file);
         assert.match(source, /imageWidth=\{2048\}/);
         assert.match(source, /imageHeight=\{900\}/);
-        assert.match(source, /width="2048"/);
-        assert.match(source, /height="900"/);
     }
+
+    const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
+    assert.match(article, /src="\/epibudget\/workflow\.webp"[\s\S]*?width="2048"[\s\S]*?height="900"/);
+});
+
+test('map-recovery SVG suppresses its embedded headline and subtitle without leaving header whitespace', () => {
+    const figure = read('public/epibudget/map_recovery_trpb_vs_gb1.svg');
+
+    assert.match(figure, /<svg\b[^>]*height="620pt"[^>]*viewBox="0 80 590\.221875 620"/);
+    assert.match(figure, /<g id="text_60" style="display: none" aria-hidden="true">/);
+    assert.match(figure, /<g id="text_61" style="display: none" aria-hidden="true">/);
+
+    for (const page of ['src/articles/WhatShouldWeMeasureNext.jsx', 'src/articles/projects/Epibudget.jsx']) {
+        assert.match(read(page), /src="\/epibudget\/map_recovery_trpb_vs_gb1\.svg"[\s\S]*?height="620"/);
+    }
+});
+
+test('map-recovery figure uses rigorous HTML captions on both epibudget pages', () => {
+    const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
+    const project = read('src/articles/projects/Epibudget.jsx');
+    const description = /For TrpB, <code>info<\/code> meets the registered pairwise map-recovery rule relative to <code>fitness<\/code> and <code>random<\/code>; the corrective GB1 analysis is inconclusive\. <code>structural<\/code> denotes loop-coverage allocation\. Point estimates only; y-axis scales differ by row\./;
+    const confidenceIntervalCaveat = /The absence of intervals is a data-availability constraint: the public TrpB artifact does not include pointwise confidence intervals\./;
+
+    assert.match(article, /title="Pairwise epistasis-map recovery across TrpB and GB1"/);
+    assert.match(article, description);
+    assert.match(article, confidenceIntervalCaveat);
+    assert.match(project, /Pairwise epistasis-map recovery under fixed experimental budgets for TrpB and GB1/);
+    assert.match(project, description);
+    assert.match(project, confidenceIntervalCaveat);
+});
+
+test('map-recovery figure is presented without a decorative frame on either page', () => {
+    const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
+    const project = read('src/articles/projects/Epibudget.jsx');
+    const figure = project.match(/<figure[\s\S]*?map_recovery_trpb_vs_gb1\.svg[\s\S]*?<\/figure>/)?.[0] ?? '';
+
+    assert.ok(figure, 'project map-recovery figure not found');
+    assert.doesNotMatch(figure, /\bborder(?:-[a-z]+)?\b|\brounded(?:-[a-z]+)?\b/);
+    assert.match(article, /src="\/epibudget\/map_recovery_trpb_vs_gb1\.svg"[\s\S]*?framed=\{false\}/);
+});
+
+test('Evidence status introduces the map-recovery figure without the generic top margin', () => {
+    const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
+
+    assert.match(
+        article,
+        /<h2[^>]*>Evidence status<\/h2>\s*<p>\s*Below is the registered pairwise map-recovery comparison for TrpB and the corrective GB1 analysis across the three experimental budgets\.\s*<\/p>\s*<Figure[\s\S]*?src="\/epibudget\/map_recovery_trpb_vs_gb1\.svg"[\s\S]*?spacingClass="mb-10"/,
+    );
 });
 
 test('editorial figure captions follow images and use the approved copy', () => {

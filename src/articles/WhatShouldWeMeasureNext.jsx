@@ -20,14 +20,14 @@ const Cite = ({ n }) => (
     </sup>
 );
 
-const Figure = ({ src, alt, number, title, description, width, height, wide = false, maxWidthClass = 'max-w-full' }) => (
-    <figure className={`my-10 ${wide ? 'lg:-mx-16' : ''} not-prose`}>
+const Figure = ({ src, alt, number, title, description, width, height, wide = false, framed = true, spacingClass = 'my-10', maxWidthClass = 'max-w-full' }) => (
+    <figure className={`${spacingClass} ${wide ? 'lg:-mx-16' : ''} not-prose`}>
         <img
             src={src}
             alt={alt}
             width={width}
             height={height}
-            className={`block mx-auto w-full h-auto border border-border-subtle rounded-lg bg-cream ${maxWidthClass}`}
+            className={`block mx-auto w-full h-auto ${framed ? 'border border-border-subtle rounded-lg bg-cream' : ''} ${maxWidthClass}`}
             loading="lazy"
         />
         <figcaption className={`mt-4 mx-auto space-y-1 text-base leading-relaxed text-primary ${maxWidthClass}`}>
@@ -102,7 +102,7 @@ const WhatShouldWeMeasureNext = () => {
                     Measure for Information, Not for Fitness: Designing Protein Experiments to Reveal Epistasis
                 </h1>
                 <p className="text-lg text-secondary font-light max-w-2xl">
-                    A protein language model can rank thousands of mutations, but ranking does not tell us which measurements are worth buying. This study allocates a fixed experimental budget to variants chosen to expose mutation interactions. Registered downstream benchmarks support the <code>structural</code> loop-count baseline over fitness-greedy selection on GB1 and TrpB; they do not support an added benefit from ESM masking dispersion.
+                    A protein language model can rank thousands of variants. But that ranking does not identify which variants would be most informative to measure. AI for science needs another capability: choosing experiments that reduce uncertainty and create new knowledge. This study allocates a fixed experimental budget to variants chosen to expose mutation interactions. Registered downstream benchmarks support the <code>structural</code> loop-count baseline over fitness-greedy selection on GB1 and TrpB; they do not support an added benefit from ESM masking dispersion.
                 </p>
                 <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">
                     <span>By Vivien Perrelle · July 23, 2026</span>
@@ -252,7 +252,7 @@ const WhatShouldWeMeasureNext = () => {
                     </p>
                     <p>
                         The second role is more speculative. <strong>Masking</strong> temporarily hides a subset of non-mutated
-                        sequence positions before ESM-2 scores the same candidate again. Each candidate is rescored under
+                        sequence positions before ESM-2 scores the same candidate again. Each candidate is rescored under{' '}
                         <code>16</code> masking perturbations. Greater variation produces a larger <code>τ²(v)</code>. This statistic
                         measures sensitivity to artificial context perturbation; it is not calibrated predictive uncertainty.
                     </p>
@@ -266,11 +266,11 @@ const WhatShouldWeMeasureNext = () => {
                     </p>
                     <p>
                         Assigning every candidate the same dispersion removes the weighting term and yields the loop-count baseline,
-                        named <code>structural</code> in the tracked artifacts. Here, structural refers to interaction structure, not
-                        protein 3D structure.
+                        recorded as <code>structural</code> in the tracked artifacts. This label identifies allocation by
+                        interaction-loop coverage rather than a representation of tertiary protein structure.
                     </p>
                     <p>
-                        The five tracked strategies are <code>random</code>; <code>fitness</code> (fitness-greedy); <code>practice</code>;
+                        The five tracked strategies are <code>random</code>; <code>fitness</code> (fitness-greedy); <code>practice</code>;{' '}
                         <code>structural</code> (loop count alone); and <code>info</code> (dispersion-weighted loop count).
                     </p>
                     <p>
@@ -294,7 +294,7 @@ const WhatShouldWeMeasureNext = () => {
                     </p>
                     <p>
                         The loop-count baseline scores a candidate <code>v</code> by <code>n(v)</code>, the number of interaction
-                        terms containing <code>v</code>. The dispersion-weighted method uses <code>n(v) × τ²(v)</code>, where
+                        terms containing <code>v</code>. The dispersion-weighted method uses <code>n(v) × τ²(v)</code>, where{' '}
                         <code>τ²(v)</code> is the ESM masking dispersion across <code>16</code> perturbations.
                     </p>
                     <p>
@@ -328,10 +328,27 @@ const WhatShouldWeMeasureNext = () => {
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Evidence status</h2>
                     <p>
-                        On TrpB, <code>info</code> outperforms <code>fitness</code> and <code>random</code> in pairwise map recovery.
-                        However, <code>structural</code>, the simpler loop-count baseline, performs better at <code>B = 96</code> and
-                        <code>B = 192</code>, but not at <code>B = 48</code>. <strong>These results do not support an added benefit
-                        from masking dispersion.</strong>
+                        Below is the registered pairwise map-recovery comparison for TrpB and the corrective GB1 analysis across the three experimental budgets.
+                    </p>
+                    <Figure
+                        src="/epibudget/map_recovery_trpb_vs_gb1.svg"
+                        alt="Pairwise epistasis-map recovery across experimental budgets on the TrpB and GB1 four-site landscapes, comparing structural loop coverage, ESM-2-weighted information allocation, fitness-greedy allocation, and random allocation"
+                        width="590.221875"
+                        height="620"
+                        framed={false}
+                        spacingClass="mb-10"
+                        number="5"
+                        title="Pairwise epistasis-map recovery across TrpB and GB1"
+                        description={<>For TrpB, <code>info</code> meets the registered pairwise map-recovery rule relative to <code>fitness</code> and <code>random</code>; the corrective GB1 analysis is inconclusive. <code>structural</code> denotes loop-coverage allocation. Point estimates only; y-axis scales differ by row.</>}
+                    />
+                    <p>
+                        The absence of intervals is a data-availability constraint: the public TrpB artifact does not include pointwise confidence intervals.
+                    </p>
+                    <p>
+                        On TrpB, <code>info</code> meets the registered pairwise map-recovery rule relative to <code>fitness</code>{' '}
+                        and <code>random</code>. The <code>structural</code> loop-count baseline nevertheless yields higher Pearson
+                        and Spearman estimates at <code>B = 96</code> and <code>B = 192</code>, but not at <code>B = 48</code>.{' '}
+                        <strong>These results do not support an incremental contribution from masking dispersion.</strong>
                     </p>
                     <p>
                         On GB1, a map-recovery re-analysis using cached model scores, without an additional GPU run, remains
@@ -339,9 +356,9 @@ const WhatShouldWeMeasureNext = () => {
                         criterion is not met. No method is therefore declared the GB1 map-recovery winner.
                     </p>
                     <p>
-                        For downstream prediction, <strong>the registered <code>structural</code>-minus-<code>fitness</code>
-                        learning-curve AUC is positive in <code>20/20</code> partitions on both GB1 and TrpB.</strong> The
-                        <code>info</code>-minus-<code>structural</code> gate at <code>B = 192</code> is positive in
+                        For downstream prediction, <strong>the registered <code>structural</code>-minus-<code>fitness</code>{' '}
+                        learning-curve AUC is positive in <code>20/20</code> partitions on both GB1 and TrpB.</strong> The{' '}
+                        <code>info</code>-minus-<code>structural</code> gate at <code>B = 192</code> is positive in{' '}
                         <code>15/20</code> GB1 partitions and <code>0/20</code> TrpB partitions, below the registered threshold.
                         Thus, the analysis supports structural allocation, not an incremental contribution from masking dispersion.
                     </p>
@@ -357,18 +374,15 @@ const WhatShouldWeMeasureNext = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">What v1 established at the implementation level</h2>
+                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">What the study established</h2>
                     <ol className="list-decimal pl-6 space-y-2 text-base marker:text-secondary">
                         <li><strong>Variant selection can be posed as measurement design.</strong> Predicted fitness and expected experimental value are distinct objectives.</li>
-                        <li><strong>Interaction-loop counts define a reproducible baseline.</strong> The implementation exposes exactly which interaction terms contain each candidate.</li>
-                        <li><strong>Conjoint scoring preserves context-dependent model signal.</strong> Applying every mutation before reading conditional scores avoids the additive shortcut that would erase interaction signal by construction.</li>
-                        <li><strong>The masking-dispersion term can be isolated.</strong> The code supports a direct score-level ablation without dressing τ² up as calibrated uncertainty.</li>
-                        <li><strong>The implementation enforces the label boundary.</strong> The confirmatory benchmark fixes the plate before any measured fitness is revealed.</li>
+                        <li><strong>Interaction-loop coverage defines a reproducible design baseline.</strong></li>
+                        <li><strong>Conjoint scoring preserves context-dependent model signal.</strong> Applying every mutation before reading conditional scores avoids imposing additivity by construction.</li>
+                        <li><strong>The registered evaluations support loop-count allocation over fitness-greedy selection on both tested landscapes, but not an added contribution from masking dispersion.</strong></li>
                     </ol>
                     <p>
-                        The registered downstream benchmark adds comparative evidence for the allocation objective: under the fixed
-                        learner, <strong><code>structural</code> selection is supported over fitness-greedy selection on both
-                        landscapes.</strong> This does not establish generality beyond these datasets and this learner.
+                        These findings remain provisional and do not establish generality beyond the evaluated landscapes, learner, and protocol.
                     </p>
                 </section>
 
@@ -376,16 +390,10 @@ const WhatShouldWeMeasureNext = () => {
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Why masking dispersion remains an open question</h2>
                     <p>
                         Sensitivity to an artificially masked sequence context is not the same as calibrated predictive uncertainty.
-                        A prediction can vary under masking and still be accurate; it can also remain stable and be wrong. Current
-                        calibration evidence does not establish <code>τ²</code> as a posterior uncertainty estimate.
+                        A prediction can vary under masking and still be accurate; it can also remain stable and be wrong.
                     </p>
                     <p>
-                        The v1 variance model also assumes errors are independent across variants. Members of an epistatic loop share sequence context and pass through the same model, so their errors may be correlated. Ignoring those covariances keeps the score simple but may drop information a meaningful information-gain calculation would need.
-                    </p>
-                    <p>
-                        The conclusion remains narrow: current provisional results do not support an added contribution from masking
-                        dispersion. This evidence concerns one static heuristic, two four-site landscapes, and one downstream learner;
-                        it does not show that contextual dispersion can never be useful.
+                        The v1 score also ignores error covariance between variants that share sequence context and pass through the same model. Current evidence therefore supports only a narrow conclusion: on these two four-site landscapes and with this fixed downstream learner, the registered analyses do not establish added value from masking dispersion beyond loop coverage. They do not show that contextual uncertainty signals can never be useful.
                     </p>
                 </section>
 
@@ -432,22 +440,19 @@ const WhatShouldWeMeasureNext = () => {
                         Protein language models make predictions cheap.
                     </p>
                     <p>
-                        Experiments stay scarce.
+                        Experiments remain scarce.
                     </p>
                     <p>
-                        That asymmetry is what makes allocation matter more over time: as candidate generation scales, <strong>the bottleneck moves from proposing sequences to deciding which evidence is worth buying.</strong>
+                        As candidate generation scales, the bottleneck shifts from proposing sequences to deciding which evidence is worth producing.
                     </p>
                     <p>
-                        The current results do not support the original masking-dispersion hypothesis. They support a narrower design
-                        result: under the registered learner, <strong>structural loop-count selection yields better downstream ranking
-                        than fitness-greedy selection on GB1 and TrpB.</strong> This comparative result remains provisional and does not
-                        establish broader generality.
+                        epibudget is an early, static step toward that objective. It selects one plate before observing labels; a true closed-loop system would update its beliefs after every measured batch and use those results to design the next experiment.
                     </p>
                     <p>
                         The useful question is not “Which variants does the model like?” but “Which measurements make the interaction structure identifiable?”
                     </p>
                     <p>
-                        That is the criterion that should shape the next experimental round.
+                        <strong>The next generation of scientific AI should not merely predict biology from existing data. It should decide which experiment can change what we know.</strong>
                     </p>
                 </section>
 

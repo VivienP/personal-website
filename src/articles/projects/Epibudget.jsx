@@ -71,16 +71,17 @@ const Epibudget = () => {
                 </div>
             </header>
 
-            <figure className="mb-16 -mx-6 md:mx-0 overflow-hidden md:rounded-lg border-y md:border border-border-subtle bg-cream">
+            <figure className="mb-16 -mx-6 md:mx-0">
                 <img
-                    src="/epibudget/workflow.webp"
-                    alt="epibudget workflow from a target sequence and candidate positions through conjoint ESM-2 scoring and an epistasis factor graph to a ranked experimental shortlist"
-                    width="2048"
-                    height="900"
-                    className="w-full h-auto"
+                    src="/epibudget/map_recovery_trpb_vs_gb1.svg"
+                    alt="Pairwise epistasis-map recovery across experimental budgets on TrpB and GB1, comparing loop-coverage, ESM-2-weighted, fitness-greedy, and random selection"
+                    width="590.221875"
+                    height="620"
+                    className="block w-full h-auto"
                 />
-                <figcaption className="px-5 py-3 text-sm text-secondary border-t border-border-subtle">
-                    Given a budget <code>B</code>, epibudget ranks variants by the interaction loops their measurement would brace.
+                <figcaption className="mt-4 mx-6 md:mx-0 space-y-1 text-base leading-relaxed text-primary">
+                    <p className="font-semibold">Pairwise epistasis-map recovery under fixed experimental budgets for TrpB and GB1</p>
+                    <p className="italic font-normal">For TrpB, <code>info</code> meets the registered pairwise map-recovery rule relative to <code>fitness</code> and <code>random</code>; the corrective GB1 analysis is inconclusive. <code>structural</code> denotes loop-coverage allocation. Point estimates only; y-axis scales differ by row.</p>
                 </figcaption>
             </figure>
 
@@ -103,7 +104,7 @@ const Epibudget = () => {
                         <li><strong>Label-blind allocation</strong> ranks candidates before measured fitness enters the pipeline: <code>structural</code> uses loop coverage alone, whereas <code>info</code> weights that coverage by ESM masking dispersion.</li>
                     </ul>
                     <p>
-                        Loop coverage, masking dispersion, and predicted fitness remain separable signals, allowing their contributions to be evaluated independently. In the historical code and artifacts, <code>structural</code> denotes interaction structure, not protein tertiary structure.
+                        Loop coverage, masking dispersion, and predicted fitness remain separable signals, allowing their contributions to be evaluated independently.
                     </p>
                 </section>
 
@@ -115,12 +116,15 @@ const Epibudget = () => {
                     <p>
                         Map recovery reports pairwise and third-order correlations separately. A separate downstream benchmark fits the same pairwise-ridge learner to each selected plate and evaluates held-out double and triple mutants.
                     </p>
+                    <p>
+                        The absence of intervals is a data-availability constraint: the public TrpB artifact does not include pointwise confidence intervals.
+                    </p>
                 </section>
 
                 <section className="space-y-6">
                     <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Current findings</h2>
                     <p>
-                        On TrpB, <code>info</code> outperforms <code>fitness</code> and <code>random</code> for pairwise map recovery. However, <code>structural</code> outperforms <code>info</code> at budgets <code>96</code> and <code>192</code>, though not at <code>48</code>; the masking-dispersion weight therefore earns no contribution claim.
+                        On TrpB, <code>info</code> meets the registered pairwise map-recovery rule relative to <code>fitness</code> and <code>random</code>. The <code>structural</code> loop-count baseline yields higher Pearson and Spearman estimates at budgets <code>96</code> and <code>192</code>, though not at <code>48</code>; the registered results therefore do not support an incremental contribution from masking dispersion.
                     </p>
                     <p>
                         In the registered downstream benchmark, <code>structural</code> outperforms <code>fitness</code> in 20/20 partitions on both GB1 and TrpB. The <code>info</code>-versus-<code>structural</code> gate does not pass on either landscape.
