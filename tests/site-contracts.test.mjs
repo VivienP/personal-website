@@ -214,7 +214,7 @@ test('PKvitality leads with the requested smartwatch video and ends with the int
     const video = project.indexOf('src="https://www.youtube.com/embed/VQMigUZQrfE"');
     const introduction = project.indexOf('The <Link to="/projects/biowatch"');
     const contribution = project.indexOf('Working in a multidisciplinary laboratory');
-    const photo = project.indexOf('<img\n                    src="/pkvitality/pkvitality.jpg"');
+    const photo = project.search(/<img\s+src="\/pkvitality\/pkvitality\.jpg"/);
 
     assert.ok(video !== -1 && introduction !== -1 && contribution !== -1 && photo !== -1);
     assert.ok(video < introduction && introduction < contribution && contribution < photo);
@@ -224,7 +224,10 @@ test('PKvitality leads with the requested smartwatch video and ends with the int
     assert.match(project, /helped guide the team's next R&amp;D iterations/);
     assert.match(project, /<Link to="\/academic-work\/lactate-pharmacokinetics"[^>]*>literature review on lactate pharmacokinetics<\/Link>/);
     assert.match(project, /"video": "https:\/\/www\.youtube\.com\/watch\?v=VQMigUZQrfE"/);
-    assert.match(project, /className="w-full max-w-\[600px\] mx-auto overflow-hidden border border-border-subtle"/);
+    // The embed is held to the reading measure on purpose: at full column width the
+    // 16:9 frame dominated the page. Kept as a class assertion because the constraint
+    // is a width and has no other observable form in the static markup.
+    assert.match(project, /max-w-\[600px\]/);
     assert.doesNotMatch(project, /4zz6rDdbdZY|Watch the K'Watch presentation|ExternalLink/);
 });
 
@@ -262,7 +265,7 @@ test('Journal collection reuses the homepage list and shows one of five interest
     assert.match(section, /<JournalList \/>/);
     assert.match(section, /to=\{`\/journal\/\$\{article\.slug\}`\}/);
     assert.match(section, /tag=\{showTags \? article\.tag : undefined\}/);
-    assert.match(section, /<h2 className="text-3xl md:text-4xl text-primary">Journal<\/h2>/);
+    assert.match(section, /<h2[^>]*>Journal<\/h2>/);
     assert.doesNotMatch(section, /<Link to="\/journal"|<ArrowUpRight size=\{18\}/);
     assert.equal(tags.length, 10, 'every Journal article needs exactly one tag');
     assert.deepEqual(uniqueTags, [
@@ -277,12 +280,9 @@ test('Journal collection reuses the homepage list and shows one of five interest
             collectionItem.indexOf('{tag}') < collectionItem.indexOf('{title}'),
         'collection tags must sit below the date and before the title',
     );
-    assert.match(collectionItem, /md:w-32/);
-    assert.doesNotMatch(collectionItem, /md:w-40/);
-    assert.match(collectionItem, /md:items-center/);
-    assert.match(collectionItem, /md:space-x-8/);
-    assert.doesNotMatch(collectionItem, /md:space-x-12/);
-    assert.doesNotMatch(collectionItem, /md:pt-1/);
+    // The date column is the one width that carries meaning: a wrapped "February 20,
+    // 2026" breaks the alignment the whole list is built on. The column width, gutter
+    // and vertical padding that used to be pinned here are ordinary design decisions.
     assert.match(collectionItem, /whitespace-nowrap/);
     assert.match(page, /<main\b/);
     assert.match(page, /url="\/journal"/);
@@ -502,31 +502,33 @@ test('epibudget article keeps a restrained scientific voice', () => {
     assert.match(article, /Implications for experimental design/);
 });
 
-test('epibudget article uses the established Journal typography and spacing classes', () => {
+test('epibudget article is built from the shared editorial furniture', () => {
+    // What this used to pin, class string by class string, was "the flagship article
+    // looks like every other Journal entry". That is now structural: the frame comes
+    // from ArticleLayout, the byline from ArticleByline, the figure captions from
+    // FigureCaption. The remaining assertions are the ones a class string cannot state.
     const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
 
-    assert.match(article, /<article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">/);
-    assert.match(article, /<header className="mb-12 space-y-4">/);
-    assert.match(article, /<div className="flex items-center space-x-3 mb-2">\s*<span className="font-mono text-xs text-secondary tracking-widest uppercase">Journal Entry · AI for Science<\/span>\s*<\/div>/);
-    assert.match(article, /<h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">/);
-    assert.match(article, /<p className="text-lg text-secondary font-light max-w-2xl">/);
-    assert.match(article, /<div className="pt-2 flex items-center space-x-2 text-sm text-secondary\/80 italic font-light">\s*<span>By Vivien Perrelle · July 23, 2026<\/span>\s*<\/div>/);
-    assert.match(article, /<div className="prose prose-neutral prose-lg text-primary max-w-none space-y-12 font-light">/);
-    assert.match(article, /<ol className="list-decimal pl-6 space-y-2 text-base marker:text-secondary">/);
+    assert.match(article, /<ArticleLayout backTo="\/journal" backLabel="Journal">/);
+    assert.match(article, /<ArticleByline slug=\{SLUG\} \/>/);
+    assert.match(article, /<FigureCaption number=\{number\} title=\{title\} description=\{description\}/);
+    assert.match(article, /Journal Entry · AI for Science/);
+    // `prose` sets its own line height; adding leading-relaxed on the same element made
+    // the body copy and the figure captions disagree. Kept as a class assertion because
+    // the conflict is between two classes and has no other observable form.
     assert.doesNotMatch(article, /prose prose-neutral prose-lg[^"\n]*leading-relaxed/);
 });
 
 test('epibudget article opens with Terminology, Introduction, then the epistasis section', () => {
     const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
-    const headingClass = 'text-2xl font-normal text-primary pb-2 border-b border-border-subtle';
-    const terminology = `<h2 className="${headingClass}">Terminology</h2>`;
-    const introduction = `<h2 className="${headingClass}">Introduction</h2>`;
-    const epistasis = `<h2 className="${headingClass}">Epistasis makes prediction a relational problem</h2>`;
+    const headings = [...article.matchAll(/<h2[^>]*>([^<]+)<\/h2>/g)].map((match) => match[1]);
 
-    assert.ok(article.indexOf(terminology) >= 0);
-    assert.ok(article.indexOf(introduction) > article.indexOf(terminology));
-    assert.ok(article.indexOf(epistasis) > article.indexOf(introduction));
-    assert.doesNotMatch(article, /<p className="mb-3 font-semibold text-primary">Terminology<\/p>/);
+    assert.deepEqual(
+        headings.slice(0, 3),
+        ['Terminology', 'Introduction', 'Epistasis makes prediction a relational problem'],
+        'the reader meets the vocabulary before the argument that uses it',
+    );
+    assert.doesNotMatch(article, /<p className="[^"]*">Terminology<\/p>/, 'Terminology is a section, not a bold paragraph');
 });
 
 test('epibudget article introduces the requested scientific vocabulary before using specialist terms', () => {
