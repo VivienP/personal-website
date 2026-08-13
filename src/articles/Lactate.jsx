@@ -118,7 +118,7 @@ const Lactate = () => {
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <Figure src={`${B}/context-illustration.jpg`} alt="Smartwatch display illustration" />
                     <div className="space-y-6 order-first md:order-last">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Context</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Context</h2>
                         <p>
                             Biosensors are analytical devices that use biological recognition elements to detect and quantify target molecules. The first one was developed in the 1960s by Clark and Lyons, who measured blood glucose for the first time<Cite n={2} />. Since then, biosensors have advanced considerably and spread across healthcare, food safety, environmental monitoring, and drug discovery<Cite n={3} />.
                         </p>
@@ -131,7 +131,7 @@ const Lactate = () => {
                 {/* Skills & Opportunities */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Skills &amp; Opportunities</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Skills &amp; Opportunities</h2>
                         <p>
                             Biosensing research is multidisciplinary, spanning chemistry, biology, and engineering. This tutorial teaches two main skills.
                         </p>
@@ -149,7 +149,7 @@ const Lactate = () => {
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                     <Figure src={`${B}/lox-molecule.jpg`} alt="Representation of the lactate oxidase molecule" caption="Representation of the lactate oxidase molecule." />
                     <div className="space-y-6 order-first md:order-last">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Requirements</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Requirements</h2>
                         <p>This project requires the following:</p>
                         <ul className="list-disc pl-6 space-y-2 marker:text-secondary text-sm columns-1 md:columns-2 gap-x-8">
                             <li>Basic chemical knowledge</li>
@@ -175,18 +175,18 @@ const Lactate = () => {
 
                 {/* Biosensor Principles */}
                 <section className="space-y-10">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Biosensor Principles</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Biosensor Principles</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                         <div className="space-y-8">
                             <div className="space-y-4">
-                                <h3 className="text-base font-normal text-primary">Immobilization Matrix</h3>
+                                <h3 className="text-lg md:text-xl font-normal text-primary pt-2">Immobilization Matrix</h3>
                                 <p>
                                     Functionalizing a biosensor means immobilizing the enzyme on a transducer surface<Cite n={11} />. The four main methods are (1) non-covalent adsorption and deposition, (2) physical entrapment, (3) covalent attachment, and (4) bio-conjugation. This tutorial uses physical entrapment, including the enzyme within a polymer network<Cite n={12} />.
                                 </p>
                             </div>
                             <div className="space-y-4">
-                                <h3 className="text-base font-normal text-primary">Enzyme</h3>
+                                <h3 className="text-lg md:text-xl font-normal text-primary pt-2">Enzyme</h3>
                                 <p>
                                     The most common recognition elements for L-lactate biosensors are lactate dehydrogenase (LDH) and lactate oxidase (LOx)<Cite n={13} />. The enzyme catalyzes the oxidation of lactate into pyruvate in dissolved oxygen, producing hydrogen peroxide. Being electrochemically active, the hydrogen peroxide can be reduced or oxidized to yield a current proportional to the lactate concentration<Cite n={14} />. Both enzymes involve simple reactions and allow for a fairly simple sensor design<Cite n={15} />; this tutorial uses LOx for its lower cost.
                                 </p>
@@ -198,7 +198,7 @@ const Lactate = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <Figure src={`${B}/biosensor-principles.gif`} alt="Animated illustration of the biosensor working principle through the skin" />
                         <div className="space-y-4 order-first md:order-last">
-                            <h3 className="text-base font-normal text-primary">Membrane</h3>
+                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">Membrane</h3>
                             <p>The outer selector membrane has two roles:</p>
                             <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
                                 <li>filtering out interferents, biomolecules that could interact with the enzyme and distort the signal;</li>
@@ -213,11 +213,11 @@ const Lactate = () => {
 
                 {/* Tutorial */}
                 <section className="space-y-12">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Tutorial</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Tutorial</h2>
 
                     {/* 1. Functionalization */}
                     <div className="space-y-6">
-                        <h3 className="text-base font-normal text-primary">1. Biosensor Functionalization</h3>
+                        <h3 className="text-lg md:text-xl font-normal text-primary pt-2">1. Biosensor Functionalization</h3>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                             <div className="space-y-5">
@@ -265,7 +265,7 @@ const Lactate = () => {
 
                     {/* 2. LMP91000 Programming */}
                     <div className="space-y-6">
-                        <h3 className="text-base font-normal text-primary">2. LMP91000 Programming</h3>
+                        <h3 className="text-lg md:text-xl font-normal text-primary pt-2">2. LMP91000 Programming</h3>
                         <p>
                             Electrochemical biosensor tests require a <em>potentiostat</em> — an electronic circuit that applies a potential to a working electrode (WE)<Cite n={23} />. By applying the molecule's oxidation potential (+650 mV for lactate), the enzyme catalyzes its oxidation, producing one or more electrons. The resulting current flows through the WE to the circuitry and a counter electrode (CE), where op-amps amplify it to the microampere range. <em>Chronoamperometry</em> (CA) applies a fixed potential at the WE and measures current over time<Cite n={24} />, usually needing about an hour of calibration until the WE–CE potential stabilizes. The current is proportional to the lactate concentration at the WE surface. The LMP91000 is a popular potentiostat board for micro-power electrochemical sensing<Cite n={25} />.
                         </p>
@@ -313,7 +313,7 @@ const Lactate = () => {
 
                     {/* 3. Experimentation */}
                     <div className="space-y-6">
-                        <h3 className="text-base font-normal text-primary">3. Experimentation</h3>
+                        <h3 className="text-lg md:text-xl font-normal text-primary pt-2">3. Experimentation</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                             <div className="space-y-5">
                                 <p><span className="font-medium text-primary">3.1. Connect the electrodes.</span> Connect the functionalized platinum wire to the WE of the LMP91000 with an alligator clip. Cut and connect two more platinum wires to the CE and RE the same way, then check the connections with a voltmeter.</p>
@@ -335,7 +335,7 @@ const Lactate = () => {
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <Figure src={`${B}/microneedles-module.jpg`} alt="Microneedles module mounted on the BioWatch" />
                     <div className="space-y-6 order-first md:order-last">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Conclusion</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Conclusion</h2>
                         <p>
                             This tutorial designs a simple lactate biosensor from scratch using the most accessible equipment possible. The sensors built and tested perform poorly, likely because the non-optimized wiring lets in strong signal perturbations. Future work will test them with a commercial potentiostat. The platinum wire could also be replaced by micro-needles coated with platinum paste, which could then be integrated into the <Link to="/projects/biowatch" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">BioWatch</Link>.
                         </p>
@@ -344,7 +344,7 @@ const Lactate = () => {
 
                 {/* References */}
                 <section className="space-y-6">
-                    <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
+                    <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
                     <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
                         <li id="ref-1" className="scroll-mt-24">Sterling J. Novel Microneedle Patch on the Skin Can Test for Biomarkers. <em>GEN — Genetic Engineering and Biotechnology News</em>. 2021. <a href="https://www.genengnews.com/news/novel-microneedle-patch-on-the-skin-can-test-for-biomarkers/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
                         <li id="ref-2" className="scroll-mt-24">Yoo EH, Lee SY. Glucose biosensors: an overview of use in clinical practice. <em>Sensors (Basel)</em>. 2010. doi:10.3390/s100504558</li>

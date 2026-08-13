@@ -67,7 +67,7 @@ const RegulatorsDontAcceptVibes = () => {
             </header>
 
             <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-8 font-light">
-                <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary">1. The Signal</h2>
+                <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary">1. The Signal</h2>
 
                 <p>
                     Novo Nordisk built NovoScribe<Cite n={1} />, an internal pipeline that drafts Clinical Study Reports with Claude. The numbers are public: drafting time down from 12 weeks to under 10 minutes, a team of ~50 medical writers reduced to 3, and a reported 90% cut in CSR writing time<Cite n={2} />, with positive feedback from regulators. They experimented with other models for years before it worked.
@@ -81,7 +81,7 @@ const RegulatorsDontAcceptVibes = () => {
                     The shift is happening, and regulators have noticed. In April 2026, the FDA issued its first Warning Letter citing improper reliance on AI<Cite n={3} />: a manufacturer had used AI to generate required documents without adequate human review. The agency's position is explicit: you remain fully responsible for every AI-generated output. The question is no longer <em>whether</em> AI writes regulatory documents. It is whether you can prove that what it writes is true.
                 </p>
 
-                <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary">2. The Ceiling</h2>
+                <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary">2. The Ceiling</h2>
 
                 <p>
                     A Principal Medical Writer I interviewed runs AI daily on his own biohacking data: diet logs, biomarkers, time series. Roughly one response in three contains a timing error or conflates items across days. On his own data, with a 2-million-token context window, where he catches every mistake instantly.
@@ -91,7 +91,7 @@ const RegulatorsDontAcceptVibes = () => {
                     Now project that failure rate onto a 500-page CSR headed for submission. Even the FDA's own internal AI tool, Elsa, was reported by agency officials to hallucinate nonexistent studies<Cite n={4} />. The stakes are not a wrong diet log entry. The stakes are patient safety and a $2B drug program.
                 </p>
 
-                <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary">3. Two Failure Points, Not One</h2>
+                <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary">3. Two Failure Points, Not One</h2>
 
                 <p>
                     The tempting fix is a single one: better fine-tuning, bigger context, smarter prompts.
@@ -114,7 +114,7 @@ const RegulatorsDontAcceptVibes = () => {
                     Most "AI for regulatory" efforts fix neither. They demo a chatbot in the middle and hope.
                 </p>
 
-                <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary">4. The Architecture That Ships</h2>
+                <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary">4. The Architecture That Ships</h2>
 
                 <p>
                     What a submission-grade pipeline actually looks like:
@@ -133,13 +133,13 @@ const RegulatorsDontAcceptVibes = () => {
                     This is the unglamorous work that rarely makes the demo. It is easier to show a chatbot summarizing a CSR than to build the plumbing that makes the summary trustworthy. But without the plumbing, you are shipping a liability with good grammar.
                 </p>
 
-                <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary">Bottom Line</h2>
+                <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary">Bottom Line</h2>
 
                 <p>
                     The model works. The system around it does not exist yet. Regulators do not accept confident text; they accept documents where every number has a lineage. Structure the inputs so the model reasons on solid ground. Verify the outputs so no claim leaves the pipeline unchecked. Companies that build both layers will own regulatory AI. Companies that skip them will keep demoing.
                 </p>
 
-                <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
+                <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
                 <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
                     <li id="ref-1" className="scroll-mt-24">
                         MongoDB, <RefLink href="https://www.mongodb.com/solutions/customer-case-studies/novo-nordisk">"Novo Nordisk &amp; MongoDB Atlas: A Clinical Study Report in Minutes."</RefLink>

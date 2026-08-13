@@ -6,11 +6,11 @@ import { FREELANCE_SERVICE_JSON_LD } from '../components/jsonld';
 import Contact from '../sections/Contact';
 
 const SectionTitle = ({ children }) => (
-    <h2 className="text-xl md:text-2xl pt-10 pb-2 font-normal text-primary">{children}</h2>
+    <h2 className="text-2xl md:text-3xl pt-10 pb-2 font-normal text-primary">{children}</h2>
 );
 
 const Question = ({ children }) => (
-    <h3 className="text-base font-medium text-primary pt-4">{children}</h3>
+    <h3 className="text-lg md:text-xl font-medium text-primary pt-4">{children}</h3>
 );
 
 const FreelanceAIEngineer = () => {

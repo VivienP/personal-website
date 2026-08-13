@@ -62,7 +62,7 @@ const Bione = () => {
             <div className="text-primary max-w-none space-y-16 font-light leading-relaxed">
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Overview</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Overview</h2>
                     <p>
                         Bione is an open-source WebGL app I coded on the <a href="https://cables.gl/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Cables.gl</a> platform. It illustrates a microneedle glucose sensor that monitors the glucose levels of diabetics in their skin, similar to the one developed by the start-up <a href="https://www.pkvitality.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">PKvitality</a>. The interactive app seeks to make biosensing concepts accessible and easily assimilated, thanks to a 3D interactive wearable biosensor. This is the first 3D educational application for biosensors.
                     </p>
@@ -79,7 +79,7 @@ const Bione = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Code architecture</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Code architecture</h2>
                     <figure className="space-y-3">
                         <div className="w-full overflow-hidden border border-border-subtle">
                             <img

@@ -79,7 +79,7 @@ const ScienceIsEnteringItsAgenticEra = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Signals From the Last Twelve Months</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Signals From the Last Twelve Months</h2>
                     <p>
                         A few facts worth noting:
                     </p>
@@ -95,7 +95,7 @@ const ScienceIsEnteringItsAgenticEra = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">What It Actually Means</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">What It Actually Means</h2>
                     <p>
                         The right analogy is not ChatGPT. It is the printing press, or the moment computational simulation entered the physicist's toolkit.
                     </p>
@@ -119,7 +119,7 @@ const ScienceIsEnteringItsAgenticEra = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Why I Am Moving in This Direction</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Why I Am Moving in This Direction</h2>
                     <p>
                         My background is biosensing, wearable technology, and applied AI. For the past two months I have been building <a href="https://locuslabhq.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">LocusLab</a>, regulatory verification tooling for BioTech submissions. Useful work, but downstream of the actual bottleneck.
                     </p>
@@ -146,7 +146,7 @@ const ScienceIsEnteringItsAgenticEra = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">A Note On The Process</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">A Note On The Process</h2>
                     <p>
                         Whenever I catch weak signals that I may be heading in the wrong direction, I have learned (the hard way) not to push through them. I take time to write, to discuss with friends, and to brainstorm with Claude. Putting thoughts on a page forces clarity. Talking to people who know me breaks the echo chamber. Working with an AI that will push back honestly catches the rationalizations I can't catch alone.
                     </p>
@@ -156,7 +156,7 @@ const ScienceIsEnteringItsAgenticEra = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
+                    <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
                     <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
                         <li id="ref-1" className="scroll-mt-24">FutureHouse. <em>Launching FutureHouse Platform: Superintelligent AI Agents for Scientific Discovery</em> (1 May 2025). <a href="https://www.futurehouse.org/research-announcements/launching-futurehouse-platform-ai-agents" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">futurehouse.org/research-announcements/launching-futurehouse-platform-ai-agents</a></li>
                         <li id="ref-2" className="scroll-mt-24">Edison Scientific. <em>Kosmos: the AI Scientist for R&amp;D teams</em> — company site of the FutureHouse spinout. <a href="https://www.edisonscientific.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">edisonscientific.com</a></li>

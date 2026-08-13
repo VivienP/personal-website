@@ -66,7 +66,7 @@ const IsTechnologyNeutral = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Two senses of one word</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Two senses of one word</h2>
                     <p>
                         To call a technology neutral can mean two very different things.
                     </p>
@@ -79,7 +79,7 @@ const IsTechnologyNeutral = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">What the tool inclines us to do</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">What the tool inclines us to do</h2>
                     <p>
                         An object is never a blank slate offered to every will. It <em>invites</em> and it <em>constrains</em>. Ecological psychology calls this <em>affordance</em>: a handle invites the grip, a chair the sit, an infinite feed the endless scroll. Affordance is not a use we choose; it is a solicitation built into the form. We can resist what a device inclines us toward, but only by working <em>against</em> it, which already admits it is not neutral.
                     </p>
@@ -95,7 +95,7 @@ const IsTechnologyNeutral = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Ambivalence is not politics</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Ambivalence is not politics</h2>
                     <p>
                         There are two distinct ways to deny that neutrality, and they should not be merged.
                     </p>
@@ -111,7 +111,7 @@ const IsTechnologyNeutral = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Where value is decided</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Where value is decided</h2>
                     <p>
                         Both theses point to the same place: not use, but <em>design</em>.
                     </p>
@@ -127,7 +127,7 @@ const IsTechnologyNeutral = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">An upstream responsibility</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">An upstream responsibility</h2>
                     <p>
                         This shifts where responsibility lies. The convenient answer pushes it downstream: let innovation run, then govern its uses by rule. But Ellul warns that late regulation is often one more technical reflex: the system correcting itself by the system's means, never questioning its own course.
                     </p>

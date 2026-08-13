@@ -104,7 +104,7 @@ const MotionSuit = () => {
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                     <Img src="/catsuit/what-is-e-textiles.jpg" alt="Close-up of the e-textile garment with embroidered sensors and electronics" className="md:sticky md:top-24" />
                     <div className="space-y-6 order-first md:order-last">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">What are e-textiles?</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">What are e-textiles?</h2>
                         <p>
                             Smart textiles, electronic textiles, or e-textiles are fabrics infused with electronic components and functionality<Cite n={1} />. Their main applications are:
                         </p>
@@ -128,7 +128,7 @@ const MotionSuit = () => {
                 {/* Project Presentation */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Project presentation</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Project presentation</h2>
                         <p>
                             The project focuses on making the first and second generations of e-textiles accessible to the general public through fast-prototyping practices. Building the sensors and displays only requires basic sewing and electronics skills, both approachable for beginners.
                         </p>
@@ -141,12 +141,12 @@ const MotionSuit = () => {
 
                 {/* Project Details */}
                 <section className="space-y-10">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Project details</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Project details</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <Img src="/catsuit/overview.jpg" alt="The suit with stretch and crumpling sensors annotated" />
                         <div className="space-y-6 order-first md:order-last">
-                            <h3 className="text-base font-normal text-primary">Architecture</h3>
+                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">Architecture</h3>
                             <p>
                                 Mechanical movement sensors capture the wearer's motion. Three <a href="https://www.wemos.cc/en/latest/d1/d1_mini.html" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">ESP8266 Wemos Lolin D1 mini</a> microcontrollers (left, middle, and right) send this data to a server, which triggers audio-visual feedback whenever new information arrives.
                             </p>
@@ -161,7 +161,7 @@ const MotionSuit = () => {
                     {/* 1. Stretch sensors */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-4">
-                            <h3 className="text-base font-normal text-primary">1. Stretch sensors</h3>
+                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">1. Stretch sensors</h3>
                             <p>
                                 Stretch and crease sensors work alike: both have a resistance that varies with the number of contact points. The sensor is made with a tight zigzag stitch using conductive thread in the bottom spool. Stretching the fabric raises the resistance along the conductive thread<Cite n={4} />: the opening mesh breaks the parallel contact points, so the current flows in series rather than in parallel.
                             </p>
@@ -173,7 +173,7 @@ const MotionSuit = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <Img src="/catsuit/crumple-sensor-diagram.jpg" alt="Crumple sensor: circuit diagram and embroidered conductive pattern" />
                         <div className="space-y-4 order-first md:order-last">
-                            <h3 className="text-base font-normal text-primary">2. Crumple sensors</h3>
+                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">2. Crumple sensors</h3>
                             <p>
                                 Here the conductive thread is sewn across an entire surface. When the fabric wrinkles, it folds onto itself and creates contact points that let the current short-circuit the pattern, so the resistance drops accordingly.
                             </p>
@@ -183,7 +183,7 @@ const MotionSuit = () => {
                     {/* 3. LED interfaces */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-4">
-                            <h3 className="text-base font-normal text-primary">3. LED interfaces</h3>
+                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">3. LED interfaces</h3>
                             <p>
                                 The LEDs are off-the-shelf sewable sequins from Adafruit<Cite n={5} />, hand-sewn directly onto the sleeves and hood using the same process as the gyroscopic sensors. For now they are purely aesthetic, but they can easily be driven by the integrated GEMMA microcontrollers<Cite n={6} />.
                             </p>
@@ -195,7 +195,7 @@ const MotionSuit = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <Img src="/catsuit/gyroscopic-sensor.jpg" alt="Wemos microcontroller and accelerometer embroidered onto the sleeve" />
                         <div className="space-y-4 order-first md:order-last">
-                            <h3 className="text-base font-normal text-primary">4. Gyroscopic sensors</h3>
+                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">4. Gyroscopic sensors</h3>
                             <p>
                                 An accelerometer measures linear, non-gravitational acceleration. Three off-the-shelf accelerometers from Adafruit record acceleration and speed in the shoulder and torso area<Cite n={7} />. The connector is hand-sketched, imported into DRAWings as a PNG, then vectorized, rescaled, and turned into an ISO 301 stitch. The sensor is finally embroidered upside-down with that stitch on the outer surface of the sleeve.
                             </p>
@@ -205,7 +205,7 @@ const MotionSuit = () => {
 
                 {/* References */}
                 <section className="space-y-6">
-                    <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
+                    <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
                     <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
                         <li id="ref-1" className="scroll-mt-24">
                             Končar V. Smart textiles and their applications — visual perceptions. <em>Proceedings of 9th International Symposium on Graphic Engineering and Design</em>. Nov. 2018. doi:{' '}

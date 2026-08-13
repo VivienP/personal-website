@@ -68,7 +68,7 @@ const Finexov = () => {
                 </p>
 
                 <section className="space-y-4">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">What I did</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">What I did</h2>
                     <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
                         <li>Led end-to-end sales: cold calling and emailing, LinkedIn inbound/outbound (100K views/month), product demos, and closing initial deals with key clients in the innovation-funding sector.</li>
                         <li>Built a minimum viable product for an AI-powered funding-application platform.</li>
@@ -76,7 +76,7 @@ const Finexov = () => {
                 </section>
 
                 <section className="space-y-4">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Results</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Results</h2>
                     <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
                         <li><span className="font-medium text-primary">€30K in sales</span> and <span className="font-medium text-primary">€20K raised</span> in public funding.</li>
                         <li>Partnership with the <span className="font-medium text-primary">two largest French innovation-funding consultancies</span> (300+ consultants).</li>

@@ -87,14 +87,18 @@ const Epibudget = () => {
 
             <div className="text-primary max-w-none space-y-12 font-light leading-relaxed">
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">The scientific problem</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">The problem in one sentence</h2>
+                    <p>
+                        A four-site design generates <code>29,678</code> candidate variants and a plate measures{' '}
+                        <code>96</code> of them, so the scarce resource is not the candidate but the measurement.
+                    </p>
                     <p>
                         A protein language model can rank thousands of variants before any wet-lab measurement. Yet the variants with the highest predicted fitness are not necessarily those that best reveal interactions among mutations. Under a budget of <code>48</code>, <code>96</code>, or <code>192</code> wells, that distinction determines whether an experiment concentrates on predicted winners or samples variants that constrain an epistasis map.
                     </p>
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Method</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">What was built</h2>
                     <p>
                         <code>epibudget</code> selects measurements; it is neither a fitness optimizer nor an epistasis-inference package. Given a wild-type sequence, candidate positions, a budget <code>B</code>, and an ESM-2 checkpoint, it returns an ordered list of <code>B</code> single-, double-, and triple-mutant variants.
                     </p>
@@ -109,7 +113,7 @@ const Epibudget = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Validation design</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Evidence status</h2>
                     <p>
                         Selection remains label-blind: measured fitness is revealed only after the selected identities are fixed. The registered benchmark compares five methods—<code>info</code>, <code>fitness</code>, <code>random</code>, <code>practice</code>, and <code>structural</code>—at budgets <code>48</code>, <code>96</code>, and <code>192</code> on GB1 and TrpB.
                     </p>
@@ -122,17 +126,21 @@ const Epibudget = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Current findings</h2>
-                    <p>
-                        On TrpB, <code>info</code> meets the registered pairwise map-recovery rule relative to <code>fitness</code> and <code>random</code>. The <code>structural</code> loop-count baseline yields higher Pearson and Spearman estimates at budgets <code>96</code> and <code>192</code>, though not at <code>48</code>; the registered results therefore do not support an incremental contribution from masking dispersion.
-                    </p>
-                    <p>
-                        In the registered downstream benchmark, <code>structural</code> outperforms <code>fitness</code> in 20/20 partitions on both GB1 and TrpB. The <code>info</code>-versus-<code>structural</code> gate does not pass on either landscape.
-                    </p>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Engineering highlights</h2>
+                    <ul className="list-disc pl-6 space-y-3 marker:text-secondary">
+                        <li><strong>Reproducible selection.</strong> A declared <code>tie_seed</code> fixes which of the many equally scored candidates enter a plate, separating the scoring rule from enumeration order.</li>
+                        <li><strong>Gates registered before inspection.</strong> Success criteria are written down ahead of the final results, which is why the <code>info</code> versus loop-count comparison could be reported as a failed gate rather than quietly dropped.</li>
+                        <li><strong>Artifact provenance.</strong> Results live in tracked JSON artifacts carrying their eligibility flags, so a claim on this page can be traced to the run that produced it.</li>
+                        <li><strong>Limitations kept in the repository.</strong>{' '}
+                            <a href={`${REPO}/blob/main/docs/LIMITATIONS.md`} target="_blank" rel="noopener noreferrer" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">LIMITATIONS.md</a>{' '}and the{' '}
+                            <a href={`${REPO}/blob/main/docs/AUDIT_REMEDIATION_20260728.md`} target="_blank" rel="noopener noreferrer" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">audit remediation notes</a>{' '}
+                            are the canonical record of what the evidence does not cover.
+                        </li>
+                    </ul>
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Limitations and status</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Limitations and status</h2>
                     <p>
                         All comparative results remain provisional. GB1 map recovery remains <code>inconclusive_zero_gpu</code> with <code>public_claim_eligible=false</code>, and the TrpB source mirror contains <code>871</code> imputed fitness values that are not identified row by row. No general claim is made beyond these two landscapes and the fixed downstream learner.
                     </p>

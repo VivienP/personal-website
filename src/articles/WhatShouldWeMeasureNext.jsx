@@ -121,7 +121,7 @@ const WhatShouldWeMeasureNext = () => {
 
             <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-12 font-light">
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Terminology</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Terminology</h2>
                     <ul className="m-0 list-disc space-y-2 pl-6 text-base leading-relaxed text-primary">
                         <li><strong>Variant:</strong> One version of a protein sequence containing one or more amino-acid changes.</li>
                         <li><strong>Site:</strong> A position in that sequence.</li>
@@ -132,7 +132,7 @@ const WhatShouldWeMeasureNext = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Introduction</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Introduction</h2>
                     <p>
                         A protein language model can score thousands of mutations before anyone touches a pipette. That suggests an obvious recipe for protein engineering: <strong>rank the variants, keep the top predictions, and test them</strong>.
                     </p>
@@ -153,7 +153,7 @@ const WhatShouldWeMeasureNext = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Epistasis makes prediction a relational problem</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Epistasis makes prediction a relational problem</h2>
                     <blockquote className="not-prose border-l-2 border-accent pl-6 text-lg md:text-xl font-serif italic text-primary">
                         Epistasis is the non-additive interaction between mutations: the effect of one depends on the genetic background of the others.<Cite n={1} />
                     </blockquote>
@@ -211,7 +211,7 @@ const WhatShouldWeMeasureNext = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">A plate budget changes the objective</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">A plate budget changes the objective</h2>
                     <p>
                         The GB1<Cite n={5} /> and TrpB<Cite n={6} /> benchmarks each vary four selected sites in the protein sequence while
                         holding every other position fixed. Each site can contain any of the 20 standard amino acids.
@@ -232,7 +232,7 @@ const WhatShouldWeMeasureNext = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">A two-part ESM-2 hypothesis</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">A two-part ESM-2 hypothesis</h2>
                     <p>
                         The registered profile used the <code>esm2_t33_650M</code> checkpoint of ESM-2<Cite n={4} />. ESM-2 is a protein
                         language model: much as a text model learns which words are plausible from the surrounding sentence,
@@ -286,7 +286,7 @@ const WhatShouldWeMeasureNext = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Evaluation without label leakage</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Evaluation without label leakage</h2>
                     <p>
                         An ablation estimates a component&apos;s contribution by comparing methods that differ only in that
                         component. In v1, the two ablation methods differ only in the ESM masking-dispersion term. Both rank
@@ -326,7 +326,7 @@ const WhatShouldWeMeasureNext = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Evidence status</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Evidence status</h2>
                     <p>
                         Below is the registered pairwise map-recovery comparison for TrpB and the corrective GB1 analysis across the three experimental budgets.
                     </p>
@@ -374,7 +374,7 @@ const WhatShouldWeMeasureNext = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">What the study established</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">What the study established</h2>
                     <ol className="list-decimal pl-6 space-y-2 text-base marker:text-secondary">
                         <li><strong>Variant selection can be posed as measurement design.</strong> Predicted fitness and expected experimental value are distinct objectives.</li>
                         <li><strong>Interaction-loop coverage defines a reproducible design baseline.</strong></li>
@@ -387,7 +387,7 @@ const WhatShouldWeMeasureNext = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Why masking dispersion remains an open question</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Why masking dispersion remains an open question</h2>
                     <p>
                         Sensitivity to an artificially masked sequence context is not the same as calibrated predictive uncertainty.
                         A prediction can vary under masking and still be accurate; it can also remain stable and be wrong.
@@ -398,7 +398,7 @@ const WhatShouldWeMeasureNext = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Next validation steps</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Next validation steps</h2>
                     <p>
                         The current version is a <strong>single-shot allocator</strong>: it ranks the complete candidate pool once
                         and returns one plate of <code>B</code> variants.
@@ -435,7 +435,7 @@ const WhatShouldWeMeasureNext = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Implications for experimental design</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Implications for experimental design</h2>
                     <p>
                         Protein language models make predictions cheap.
                     </p>
@@ -467,7 +467,7 @@ const WhatShouldWeMeasureNext = () => {
                 </div>
 
                 <section className="space-y-6">
-                    <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
+                    <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
                     <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
                         <li id="ref-1" className="scroll-mt-24">Phillips, P. C. <a href="https://doi.org/10.1038/nrg2452" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Epistasis — the essential role of gene interactions in the structure and evolution of genetic systems.</a> <em>Nature Reviews Genetics</em> (2008).</li>
                         <li id="ref-2" className="scroll-mt-24">Poelwijk, F. J. et al. <a href="https://doi.org/10.1371/journal.pcbi.1004771" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">The context-dependence of mutations: a linkage of formalisms.</a> <em>PLOS Computational Biology</em> (2016).</li>

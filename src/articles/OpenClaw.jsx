@@ -72,7 +72,7 @@ const OpenClaw = () => {
                     Here is how the stack actually works today.
                 </p>
 
-                <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary">1. Technological Emancipation: Security & Sovereignty</h2>
+                <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary">1. Technological Emancipation: Security & Sovereignty</h2>
 
                 <p>
                     The shift toward frameworks like OpenClaw isn't just a technical preference. It is a <strong>rejection of the "SaaS Tax" on privacy</strong>.
@@ -98,7 +98,7 @@ const OpenClaw = () => {
                     <strong>Sovereignty requires security.</strong>
                 </p>
 
-                <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary">2. Economic Emancipation: The Machine Metabolism</h2>
+                <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary">2. Economic Emancipation: The Machine Metabolism</h2>
 
                 <p>
                     Once an agent is secured locally, how does it <em>live</em>?
@@ -124,7 +124,7 @@ const OpenClaw = () => {
                     It is a <strong>sovereign economic actor</strong>.
                 </p>
 
-                <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary">3. The Ultimate Crash Test</h2>
+                <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary">3. The Ultimate Crash Test</h2>
 
                 <p>
                     Booking flights or writing LinkedIn posts with an autonomous agent is fun. But it's a toy.
@@ -184,7 +184,7 @@ const OpenClaw = () => {
                     </table>
                 </div>
 
-                <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary">4. The Reality Wall</h2>
+                <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary">4. The Reality Wall</h2>
 
                 <p>
                     Autonomy is not a silver bullet.

@@ -113,7 +113,7 @@ const SmartWatch = () => {
                 {/* Context */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Context</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Context</h2>
                         <p>
                             The first liquid crystal display (LCD) was built in 1967 by Lechner et al.<Cite n={1} />, a technology that enables low-power flat-panel displays<Cite n={2} />. The first LCD-screen watch followed in 1968<Cite n={3} />, and Gordon Moore, co-founder of Intel, contributed greatly to advancing the technology<Cite n={4} />. LCDs are now found in most screens, including smartwatch displays.
                         </p>
@@ -131,7 +131,7 @@ const SmartWatch = () => {
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <Figure src={`${B}/worn-on-wrist.jpg`} alt="The smartwatch worn on a wrist" />
                     <div className="space-y-6 order-first md:order-last">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Skills &amp; Opportunities</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Skills &amp; Opportunities</h2>
                         <p>
                             The first skill is <span className="font-medium text-primary">programming LCD screens</span>, which lets you print images, videos, GIFs, and data. The second is <span className="font-medium text-primary">slicing 3D models</span>, the step that precedes any 3D print and lets you produce any object, such as a watch case. Building this smartwatch is a first approach to wearable technologies.
                         </p>
@@ -142,7 +142,7 @@ const SmartWatch = () => {
                 {/* Requirements */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Requirements</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Requirements</h2>
                         <p>This project involves several prerequisites:</p>
                         <ul className="list-disc pl-6 space-y-2 marker:text-secondary text-sm">
                             <li>A 3D printer and its slicing software,</li>
@@ -159,12 +159,12 @@ const SmartWatch = () => {
 
                 {/* Tutorial */}
                 <section className="space-y-12">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Tutorial</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Tutorial</h2>
                     <p>This project has three steps: 1. LCD programming, 2. Case 3D printing, and 3. Smartwatch assembly.</p>
 
                     {/* 1. LCD programming */}
                     <div className="space-y-6">
-                        <h3 className="text-base font-normal text-primary">1. LCD programming</h3>
+                        <h3 className="text-lg md:text-xl font-normal text-primary pt-2">1. LCD programming</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                             <p>
                                 The WaveShare 1.28" round LCD module embeds a <span className="font-medium text-primary">GC9A01 driver</span> and supports Raspberry Pi, Arduino, and STM32 boards. It uses the <span className="font-medium text-primary">Serial Peripheral Interface (SPI)</span> — a synchronous serial bus for short-distance communication, mostly in embedded systems. The GC9A01 datasheet is available <a href="https://www.waveshare.com/w/upload/5/5e/GC9A01A.pdf" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">here</a>.
@@ -260,7 +260,7 @@ const SmartWatch = () => {
 
                     {/* 2. Case 3D printing */}
                     <div className="space-y-6">
-                        <h3 className="text-base font-normal text-primary">2. Case 3D printing</h3>
+                        <h3 className="text-lg md:text-xl font-normal text-primary pt-2">2. Case 3D printing</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                             <div className="space-y-5">
                                 <p>
@@ -291,7 +291,7 @@ const SmartWatch = () => {
 
                     {/* 3. Smartwatch assembly */}
                     <div className="space-y-5">
-                        <h3 className="text-base font-normal text-primary">3. Smartwatch assembly</h3>
+                        <h3 className="text-lg md:text-xl font-normal text-primary pt-2">3. Smartwatch assembly</h3>
                         <ul className="list-disc pl-6 space-y-2 marker:text-secondary">
                             <li>Insert the LCD screen into the enclosure.</li>
                             <li>Plug the electronic cables into the LCD screen (push the connector with a screwdriver if needed).</li>
@@ -306,7 +306,7 @@ const SmartWatch = () => {
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <Figure src={`${B}/reproducibility.png`} alt="Reproducibility evaluation results" />
                     <div className="space-y-6 order-first md:order-last">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Reproducibility</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Reproducibility</h2>
                         <p>
                             An evaluation tested the tutorial's reproducibility. A group of 5 people followed it, all using an Arduino Uno with the Arduino IDE to program the driver and a Prusa Mini with PrusaSlicer to print the case. Four were familiar with electronics, three with 3D printing.
                         </p>
@@ -322,7 +322,7 @@ const SmartWatch = () => {
                 {/* Conclusion */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Conclusion</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Conclusion</h2>
                         <p>
                             This tutorial builds a first smartwatch from scratch as simply as possible, making smartwatch design widely accessible, a first wearable-technology experience for beginners and seasoned makers alike. It has limits, though: the watch does not keep time, and the device is not truly wearable. The <a href="https://open-smartwatch.github.io/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Open Smartwatch Project</a> overcomes these with hardware modules (including the GC9A01), 3D-printable cases, and a custom operating system — though it requires solid electronics and programming knowledge.
                         </p>
@@ -332,7 +332,7 @@ const SmartWatch = () => {
 
                 {/* References */}
                 <section className="space-y-6">
-                    <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
+                    <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
                     <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
                         <li id="ref-1" className="scroll-mt-24">Lechner B., Marlowe F., Nester E. &amp; Tults J. Liquid crystal matrix displays. <em>IEEE International Solid-State Circuits Conference</em>, 1969, pp. 52–53. doi:10.1109/ISSCC.1969.1154684</li>
                         <li id="ref-2" className="scroll-mt-24">Cristaldi D., Pennisi S., Pulvirenti F. <em>Liquid Crystal Display Drivers: Techniques and Circuits</em>. 2009.</li>

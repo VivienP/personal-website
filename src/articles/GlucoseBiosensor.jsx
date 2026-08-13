@@ -112,7 +112,7 @@ const GlucoseBiosensor = () => {
                 {/* Context */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Context</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Context</h2>
                         <p>
                             Global diabetes prevalence was estimated at 9.3% (460 million people) in 2019, and is projected to reach 10.2% (580 million) by 2030<Cite n={1} />. Regular blood glucose monitoring is an essential public-health issue for managing diabetes and other glucose-related chronic illnesses. The first <span className="font-medium text-primary">blood glucose meter (BGM)</span> was marketed in the 90s<Cite n={2} />; BGMs give an accurate instant reading but cannot track glucose continuously to dose insulin at the right time and amount.
                         </p>
@@ -140,7 +140,7 @@ const GlucoseBiosensor = () => {
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <Figure src={`${B}/sweat-patch.jpg`} alt="The sweat patch handled with gloves" />
                     <div className="space-y-6 order-first md:order-last">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Skills &amp; Opportunities</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Skills &amp; Opportunities</h2>
                         <p>
                             The first skill is <span className="font-medium text-primary">programming a server-client Bluetooth Low Energy (BLE) communication</span>. BLE has shown strong potential in wearables<Cite n={12} /> and is, with near-field communication (NFC), the most used technology for wireless transmission of analyzed data<Cite n={13} />. A DIY data-visualization display could reuse this communication solution.
                         </p>
@@ -153,7 +153,7 @@ const GlucoseBiosensor = () => {
                 {/* Requirements */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Requirements</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Requirements</h2>
                         <p>This project involves several prerequisites:</p>
                         <ul className="list-disc pl-6 space-y-2 marker:text-secondary text-sm">
                             <li>Basic knowledge in Python programming,</li>
@@ -174,7 +174,7 @@ const GlucoseBiosensor = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <Figure src={`${B}/screen-printed-electrodes.png`} alt="Illustration of a screen-printed electrodes biosensor" caption="Illustration of a screen-printed electrodes biosensor from Zimmer&Peacock." />
                         <div className="space-y-6 order-first md:order-last">
-                            <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Analytical chemistry notions</h2>
+                            <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Analytical chemistry notions</h2>
                             <p>
                                 Zimmer&amp;Peacock develops and manufactures electrochemical biosensors. The ec-Flex is a Bluetooth-enabled wearable biosensor platform<Cite n={14} /> that processes and sends the biosensor measurements. The notions below explain how ZP biosensors and the ec-Flex work.
                             </p>
@@ -183,13 +183,13 @@ const GlucoseBiosensor = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                         <div className="space-y-3">
-                            <h3 className="text-base font-normal text-primary">Three-electrode system</h3>
+                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">Three-electrode system</h3>
                             <p>
                                 The ZP glucose biosensor is a three-electrode system: a working electrode (WE), a counter electrode (CE), and a reference electrode (RE). The reference electrode compensates for potential changes caused by large currents through the WE and CE. The ec-Flex has an integrated potentiostat that measures the WE's Open Circuit Potential (OCP)<Cite n={15} />.
                             </p>
                         </div>
                         <div className="space-y-3">
-                            <h3 className="text-base font-normal text-primary">Screen-printed electrodes</h3>
+                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">Screen-printed electrodes</h3>
                             <p>
                                 This three-electrode system is screen-printed on a substrate<Cite n={16} /> via thick-film deposition<Cite n={17} />, which makes biosensor production simple, fast, and inexpensive<Cite n={18} />. The ZP glucose sensor uses silver/silver chloride for the reference and counter electrodes and platinum for the working electrode<Cite n={19} />.
                             </p>
@@ -198,7 +198,7 @@ const GlucoseBiosensor = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-4">
-                            <h3 className="text-base font-normal text-primary">Enzyme-based</h3>
+                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">Enzyme-based</h3>
                             <p>
                                 An enzyme recognizes and reacts with the target analyte<Cite n={20} />. For glucose (C₆H₁₂O₆), that enzyme is glucose oxidase (GOx), immobilized onto the electrochemical interface. It catalyzes glucose oxidation, producing gluconolactone (C₆H₁₀O₆) and hydrogen peroxide (H₂O₂)<Cite n={21} />. Glucose is then quantified by electrochemically measuring the hydrogen peroxide<Cite n={22} />. Non-enzymatic biosensors instead use nanomaterials for stability, reproducibility, and simplicity<Cite n={23} />.
                             </p>
@@ -211,13 +211,13 @@ const GlucoseBiosensor = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                         <div className="space-y-3">
-                            <h3 className="text-base font-normal text-primary">Amperometry</h3>
+                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">Amperometry</h3>
                             <p>
                                 ZP glucose biosensors are amperometric. The amperometric method can selectively distinguish several electroactive species in solution<Cite n={24} /> through a careful choice of applied potential and electrode material. Amperometric biosensors monitor currents: electrons exchanged between a biological system (the sweat) and an electrode.
                             </p>
                         </div>
                         <div className="space-y-3">
-                            <h3 className="text-base font-normal text-primary">First-generation</h3>
+                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">First-generation</h3>
                             <p>
                                 This tutorial targets first-generation glucose biosensors, which measure the concentration of analytes or enzymatic reaction products (H₂O₂ for glucose). Second-generation biosensors use redox mediators, and third-generation ones measure direct electron transfer between the redox-active biomolecule and the electrode surface<Cite n={18} />.
                             </p>
@@ -227,7 +227,7 @@ const GlucoseBiosensor = () => {
 
                 {/* Tutorial */}
                 <section className="space-y-12">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Tutorial</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Tutorial</h2>
                     <p>This project has two parts: 1. Hardware assembly, and 2. Data acquisition.</p>
                     <Note>
                         <p>The glucose biosensor and the battery have a short lifetime. If you are unfamiliar with ZP products, it is recommended to start with data acquisition: a low-frequency generator can power the ec-Flex.</p>
@@ -235,7 +235,7 @@ const GlucoseBiosensor = () => {
 
                     {/* 1. Hardware Assembly */}
                     <div className="space-y-8">
-                        <h3 className="text-base font-normal text-primary">1. Hardware assembly</h3>
+                        <h3 className="text-lg md:text-xl font-normal text-primary pt-2">1. Hardware assembly</h3>
 
                         {/* 1.1 Battery */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
@@ -274,7 +274,7 @@ const GlucoseBiosensor = () => {
 
                     {/* 2. Data acquisition */}
                     <div className="space-y-6">
-                        <h3 className="text-base font-normal text-primary">2. Data acquisition</h3>
+                        <h3 className="text-lg md:text-xl font-normal text-primary pt-2">2. Data acquisition</h3>
                         <p>
                             Download the Biosensor-to-smartwatch wireless communication project ZIP from <a href="https://github.com/DeVinci-Innovation-Center/Biosensor-to-smartwatch_wireless_communication" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">GitHub</a>. Extract it and open the project in your code editor, then import the required Python libraries. The <a href="https://pypi.org/project/bleak/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Bleak library</a> is a GATT client.
                         </p>
@@ -349,7 +349,7 @@ const GlucoseBiosensor = () => {
                 {/* Conclusion */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Conclusion</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Conclusion</h2>
                         <p>
                             This tutorial offers a <span className="font-medium text-primary">fast-prototyping solution to build a wearable glucose biosensor</span> while raising key biosensing notions — a first experience with wearable biosensors for beginners and seasoned makers. It has limits, though:
                         </p>
@@ -370,7 +370,7 @@ const GlucoseBiosensor = () => {
 
                 {/* References */}
                 <section className="space-y-6">
-                    <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
+                    <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
                     <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
                         <li id="ref-1" className="scroll-mt-24">World Health Organization. Diabetes. Accessed Feb. 2023. <a href="https://www.who.int/health-topics/diabetes" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
                         <li id="ref-2" className="scroll-mt-24">Zafar H, et al. Comprehensive Review on Wearable Sweat-Glucose Sensors for Continuous Glucose Monitoring. <em>Sensors</em>. 2022, 22(2):638.</li>

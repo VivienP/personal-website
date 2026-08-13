@@ -117,7 +117,7 @@ const BioWatch = () => {
 
                 {/* Introduction — text only */}
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Introduction</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Introduction</h2>
                     <p>
                         Wearable technology is undergoing constant development, entrenching our daily lives to capture rich contextual information produced for a personalized experience<Cite n={1} />. Smartwatches were the first socially accepted wearable devices and are still the most popular. In 2016, smartwatch sales in the wearables market were the second product over intelligent devices, with 50 million units sold. They cover a broad application scope, including connectivity, sports, and health<Cite n={2} />. Human activity detection for well-being applications has become a central stake in the smartwatch and fitness tracker market. Heart rate, temperature, and blood pressure are examples of already monitored physiological data by commercial wearable devices<Cite n={3} />. Wearable biosensor technology has advanced significantly<Cite n={4} />, but significant obstacles remain to overcome their full integration into our smartwatches regarding new materials, power sources, and communications systems<Cite n={5} />.
                     </p>
@@ -126,7 +126,7 @@ const BioWatch = () => {
                 {/* Related Works — text left, image right */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Related Works</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Related Works</h2>
                         <p>
                             Few works on watch-integrated biosensors and multianalyte measurement devices have been recently published. Kim et al. developed in 2018 a wearable and flexible patch that monitors two analytes in two different biofluids: alcohol in sweat and glucose in interstitial fluid (ISF)<Cite n={6} />. In 2022, Wang et al. presented a sweat cortisol sensor with an LCD screen that prints in real-time the measured concentrations<Cite n={7} />. Finally, the French company PKVitality (Paris, France) developed the K'Watch Glucose® and the K'Watch Athlete®, which can respectively monitor glucose and lactate levels thanks to minimally invasive biosensors<Cite n={8} />. Thus microneedles-based biosensors access the interstitial fluid without any sensation of pain or discomfort. The smartwatch tracks the wearer's glucose or lactate level in real-time for seven days before replacing the microneedles module with another one. The wearable seems promising in modularity and compatibility with all minimally-invasive electrochemical biosensors and multi-analyte measurements.
                         </p>
@@ -138,7 +138,7 @@ const BioWatch = () => {
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <Img src="/biowatch/biowatch-microneedles-module.jpg" alt="Microneedles module mounted on the BioWatch" />
                     <div className="space-y-6 order-first md:order-last">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Contribution</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Contribution</h2>
                         <p>
                             <span className="font-medium text-primary">The BioWatch is a smartwatch prototype for developing wearable biosensors and real-time data visualization.</span> This electronic project aims to easily demonstrate proof of concept of smartwatch-integrated or wirelessly connected wearable biosensors. It allows rapid implementation and on-body demonstration of non-invasive (sweat) or minimally invasive (ISF) electrochemical biosensors. Beyond electrochemical sensors, BioWatch's contribution extends to the development and proof of concept of any wearable sensor connected to or implemented in a smartwatch.
                         </p>
@@ -151,7 +151,7 @@ const BioWatch = () => {
                 {/* Functionalities — text left, image right */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Functionalities</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Functionalities</h2>
                         <p>
                             The system has five main functionalities: over-the-air programmability, Wi-Fi server-client connection connectivity, sensor data visualization, sensor modularity, and rechargeability.
                         </p>
@@ -169,7 +169,7 @@ const BioWatch = () => {
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <Img src="/biowatch/biowatch-v1-v2-schemes.jpg" alt="BioWatch V1 and V2 exploded schemes" />
                     <div className="space-y-6 order-first md:order-last">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Hardware</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Hardware</h2>
                         <p>
                             The display of the BioWatch is a <a href="https://www.waveshare.com/wiki/1.28inch_LCD_Module" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">1.28" round RGB LCD module from WaveShare</a> with an integrated GC9A01 driver. It communicates with <span className="font-medium text-primary">Serial Peripheral Interface (SPI)</span> bus protocol.
                         </p>
@@ -184,7 +184,7 @@ const BioWatch = () => {
                 {/* PCB Design — text left, image right */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">PCB Design</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">PCB Design</h2>
                         <p>
                             The second version of the BioWatch has a PCB explicitly designed for the BioWatch. It uses an ESP32 Wroom, a compact and low-power chip. The ESP32 Wroom module includes a dual-core Tensilica LX6 microcontroller with up to 240 MHz clock speeds and various peripheral interfaces such as SPI, I2C, UART, and ADC. It also includes Wi-Fi and Bluetooth 4.2 connectivity, making it an ideal choice for wearables applications.
                         </p>
@@ -199,7 +199,7 @@ const BioWatch = () => {
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <Img src="/biowatch/biowatch-display-designs.jpg" alt="Four proposed display designs" />
                     <div className="space-y-6 order-first md:order-last">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">User Interface Design</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">User Interface Design</h2>
                         <p>
                             The display has been designed based on the preferences of diabetic patients. The BioWatch interface should ensure a great user experience for diabetes to monitor their glucose levels and for other patients to track health data. Three patients with type 1 diabetes, including two adults and one child, were consulted for their preferences. They reported wanting three pieces of information on the BioWatch:
                         </p>
@@ -217,7 +217,7 @@ const BioWatch = () => {
                 {/* Software — text left, image right */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Software</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Software</h2>
                         <p>
                             The collection of user requirements was the basis for developing the watch software. The <a href="https://github.com/moononournation/Arduino_GFX" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Arduino GFX library</a> is used to control the screen graphics. The measured data are converted into coordinates of a pixel on the screen (240 x 240 pixels), allowing to draw a history curve. An algorithm displays a prediction of the next value.
                         </p>
@@ -239,7 +239,7 @@ const BioWatch = () => {
                         />
                     </div>
                     <div className="space-y-6 order-first md:order-last">
-                        <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Where it led</h2>
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Where it led</h2>
                         <p>
                             The BioWatch prototype is what landed me an internship at <a href="https://www.pkvitality.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">PKvitality</a>, a 50-person startup that raised several million euros to build the first glucose-monitoring smartwatch for diabetics. I joined their R&D team as a research assistant, working on the same minimally-invasive biosensing technology the BioWatch had let me prototype.
                         </p>
@@ -248,7 +248,7 @@ const BioWatch = () => {
 
                 {/* References */}
                 <section className="space-y-6">
-                    <h2 className="text-xl md:text-2xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
+                    <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
                     <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
                         <li id="ref-1" className="scroll-mt-24">
                             Ometov A., et. al., A Survey on Wearable Technology: History, State-of-the-Art and Current Challenges, <em>Computer Networks</em>, Volume 193, 2021, doi:{' '}

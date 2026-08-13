@@ -59,7 +59,7 @@ const TraumaVsPurpose = () => {
                     At first, I questioned if this was a weakness.
                 </p>
 
-                <h2 className="text-xl md:text-2xl pt-8 pb-4 font-normal text-primary">The Power of the Dark Engine</h2>
+                <h2 className="text-2xl md:text-3xl pt-8 pb-4 font-normal text-primary">The Power of the Dark Engine</h2>
 
                 <p>
                     Let's be intellectually honest. <strong>The "Trauma-Driven" model works.</strong> Some of the greatest companies in history were built by founders running on high-octane, dirty fuel.
@@ -85,7 +85,7 @@ const TraumaVsPurpose = () => {
                     But this narrative has a negative side effect. It implies that only the broken can build. It suggests that only if you are mentally stable, you lack the "edge" to succeed.
                 </p>
 
-                <h2 className="text-xl md:text-2xl pt-8 pb-4 font-normal text-primary">The Alternative: The Purpose</h2>
+                <h2 className="text-2xl md:text-3xl pt-8 pb-4 font-normal text-primary">The Alternative: The Purpose</h2>
 
                 <p>
                     There is a second path. It is less cinematic, but equally potent.
@@ -119,7 +119,7 @@ const TraumaVsPurpose = () => {
                     If you aren't fighting ghosts from your past, you have a massive competitive advantage: Clarity. You can see the market as it is, not as a battlefield for your ego.
                 </p>
 
-                <h2 className="text-xl md:text-2xl pt-8 pb-4 font-normal text-primary">It’s Not Black and White</h2>
+                <h2 className="text-2xl md:text-3xl pt-8 pb-4 font-normal text-primary">It’s Not Black and White</h2>
 
                 <p>
                     Reality is rarely binary. Founder psychology is not a switch; it is a spectrum.
@@ -141,7 +141,7 @@ const TraumaVsPurpose = () => {
                     Pure Purpose (without grit) can lead to a lack of urgency.
                 </p>
 
-                <h2 className="text-xl md:text-2xl pt-8 pb-4 font-normal text-primary">The Reality of Progress</h2>
+                <h2 className="text-2xl md:text-3xl pt-8 pb-4 font-normal text-primary">The Reality of Progress</h2>
 
                 <p>
                     In the end, we should stop treating entrepreneurship as a monolith. The industry needs the volatile brilliance of the "warrior" as much as it needs the surgical precision of the "builder." One breaks the world; the other makes it work better.

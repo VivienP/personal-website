@@ -62,7 +62,7 @@ const ScientificClaimVerifier = () => {
             <div className="text-primary max-w-none space-y-12 font-light leading-relaxed">
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Why I built it</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Why I built it</h2>
                     <p className="text-base">
                         AI now generates hypotheses, molecules, literature reviews, and entire papers far faster than humans can check them. As that volume explodes, the bottleneck shifts from <em>producing</em> scientific content to <em>verifying</em> it. We need a way to confirm that scientific claims actually hold against their sources — and to make that confirmation reproducible and traceable.
                     </p>
@@ -72,7 +72,7 @@ const ScientificClaimVerifier = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">How it works</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">How it works</h2>
                     <p>
                         Free-form scientific text is decomposed into citation-anchored claims by Claude. Each cited source is resolved through an API cascade (bibliography DOI → CrossRef → OpenAlex → PubMed) and its full text fetched (open-access URL → PMC → Europe PMC → Unpaywall PDF). The text is split into IMRAD-aware chunks, and the most relevant passages are selected by lexical <strong>BM25</strong> under a token budget. A router then picks one of five verifier modes by retrieval depth, and entailment is judged by prompting Claude — no dedicated NLI model, no embeddings.
                     </p>
@@ -93,7 +93,7 @@ const ScientificClaimVerifier = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Results</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Results</h2>
                     <p>
                         On the <strong>SciFact</strong> dev set, the verifier reaches an <strong>F1 of 0.92</strong> on oracle inputs (3-class), against <strong>0.62</strong> for a naive direct-LLM baseline committed in the repo: roughly a 30-point gap on this verifier-only setup. A regression guard fails the build if SciFact F1 drops more than 1% below the committed baseline.
                     </p>
@@ -103,7 +103,7 @@ const ScientificClaimVerifier = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary pb-2 border-b border-border-subtle">Stack</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Stack</h2>
                     <div className="flex flex-wrap gap-2">
                         {[
                             'Python 3.12+', 'Claude (Anthropic SDK)', 'rank-bm25', 'tiktoken',

@@ -117,7 +117,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary">Code-closed loops: computational research agents</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4">Code-closed loops: computational research agents</h2>
                     <p>
                         The easiest place to automate science is where the feedback loop is digital.
                     </p>
@@ -154,7 +154,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary">Literature-closed loops: hypothesis generation</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4">Literature-closed loops: hypothesis generation</h2>
                     <p>
                         Google Co-Scientist<Cite n={2} /><Cite n={3} /> sits one step further away from direct reality.
                     </p>
@@ -196,7 +196,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary">Simulation-closed loops: cheap feedback, dangerous fidelity</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4">Simulation-closed loops: cheap feedback, dangerous fidelity</h2>
                     <p>
                         Simulation is where the framework becomes more subtle.
                     </p>
@@ -233,7 +233,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary">Protein- and molecule-closed loops: biological design</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4">Protein- and molecule-closed loops: biological design</h2>
                     <p>
                         The next step is where AI moves from predicting biology to designing biological objects.
                     </p>
@@ -276,7 +276,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary">Patient-, regulator-, and market-closed loops: therapeutic reality</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4">Patient-, regulator-, and market-closed loops: therapeutic reality</h2>
                     <p>
                         The final validation loop is not computational.
                     </p>
@@ -301,7 +301,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary">Workflow-closed loops: pharma decision intelligence</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4">Workflow-closed loops: pharma decision intelligence</h2>
                     <p>
                         Not every valuable AI system in science will generate hypotheses, molecules, or experiments.
                     </p>
@@ -338,7 +338,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary">Cross-cutting constraint: evaluation</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4">Cross-cutting constraint: evaluation</h2>
                     <p>
                         Evaluation is not a layer.
                     </p>
@@ -380,7 +380,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary">The emerging map</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4">The emerging map</h2>
                     <p>
                         The sector is not converging around one "AI scientist."
                     </p>
@@ -426,7 +426,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 </section>
 
                 <section className="space-y-6">
-                    <h2 className="text-2xl font-normal text-primary">References</h2>
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4">References</h2>
                     <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
                         <li id="ref-1" className="scroll-mt-24">Scannell, J. W. et al. <a href="https://www.nature.com/articles/nrd3681" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">"Diagnosing the decline in pharmaceutical R&D efficiency."</a> <em>Nature Reviews Drug Discovery</em>, March 2012.</li>
                         <li id="ref-2" className="scroll-mt-24">Gottweis, J. et al. <a href="https://www.nature.com/articles/s41586-026-10644-y" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">"Accelerating scientific discovery with Co-Scientist."</a> <em>Nature</em>, May 2026.</li>
