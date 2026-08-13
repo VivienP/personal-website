@@ -4,9 +4,11 @@ import Figure from '../components/ArticleFigure';
 import Cite from '../components/Cite';
 import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
-import SEO from '../components/SEO';
+import ArticleSEO from '../components/ArticleSEO';
+import ArticleByline from '../components/ArticleByline';
 
 const B = '/build-lactate-biosensor';
+const SLUG = 'lactate';
 
 // Tip / "did you know" callout, mirroring the Notion asides.
 const Note = ({ children }) => (
@@ -18,23 +20,12 @@ const Note = ({ children }) => (
 const Lactate = () => {
     return (
         <ArticleLayout backTo="/journal" backLabel="Journal">
-            <SEO
+            <ArticleSEO
+                slug={SLUG}
                 title="How to Build a Lactate Biosensor | Vivien Perrelle"
                 description="A step-by-step tutorial to build a proof-of-concept enzymatic lactate biosensor on a platinum wire, for monitoring exercise-induced muscle fatigue."
-                url="/journal/lactate"
                 image={`${B}/microneedles-gold.jpg`}
-                type="article"
-                article={{ publishedTime: '2023-02-04', author: 'Vivien Perrelle' }}
-                jsonLd={{
-                    "@context": "https://schema.org",
-                    "@type": "TechArticle",
-                    "headline": "How to Build a Lactate Biosensor",
-                    "datePublished": "2023-02-04",
-                    "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
-                    "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "image": `https://vivienperrelle.com${B}/microneedles-gold.jpg`,
-                    "mainEntityOfPage": "https://vivienperrelle.com/journal/lactate"
-                }}
+                jsonLd={{ '@type': 'TechArticle' }}
             />
             <header className="mb-12 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">Tutorial</span>
@@ -44,6 +35,7 @@ const Lactate = () => {
                 <p className="text-lg text-secondary font-light max-w-2xl">
                     An enzymatic biosensor on a platinum wire.
                 </p>
+                <ArticleByline slug={SLUG} />
                 <div className="pt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-secondary/80 italic font-light">
                     <span>I wrote a research article titled <em>"Exploring Activity-Induced Lactate Pharmacokinetics: Implications for Minimally-Invasive Monitoring"</em> related to this work. Read it on</span>
                     <a

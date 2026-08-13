@@ -1,34 +1,21 @@
 import React from 'react';
 import ArticleLayout from '../components/ArticleLayout';
-import SEO from '../components/SEO';
-import { AUTHOR } from '../components/jsonld';
+import ArticleSEO from '../components/ArticleSEO';
+import ArticleByline from '../components/ArticleByline';
 
+const SLUG = 'is-technology-neutral';
 
 const IsTechnologyNeutral = () => {
     return (
         <ArticleLayout backTo="/journal" backLabel="Journal">
-            <SEO
+            <ArticleSEO
+                slug={SLUG}
                 title="Is Technology Neutral? | Vivien Perrelle"
                 description="Why the neutrality question is poorly framed, and where the value of a technology is actually decided: not in use, but in design."
-                url="/journal/is-technology-neutral"
                 image="/ellul/jacques-ellul.jpg"
                 imageWidth={350}
                 imageHeight={350}
-                type="article"
-                article={{ publishedTime: '2023-02-24', author: 'Vivien Perrelle', tags: ['Philosophy of Technology', 'Ethics', 'Design', 'Ellul'] }}
-                jsonLd={{
-                    "@context": "https://schema.org",
-                    "@type": "BlogPosting",
-                    "headline": "Is Technology Neutral?",
-                    "description": "Why the neutrality question is poorly framed, and where the value of a technology is actually decided: not in use, but in design.",
-                    "datePublished": "2023-02-24",
-                    "dateModified": "2023-02-24",
-                    "author": AUTHOR,
-                    "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "image": "https://vivienperrelle.com/ellul/jacques-ellul.jpg",
-                    "mainEntityOfPage": "https://vivienperrelle.com/journal/is-technology-neutral",
-                    "keywords": "Philosophy of Technology, Ethics, Design, Jacques Ellul"
-                }}
+                jsonLd={{ keywords: 'Philosophy of Technology, Ethics, Design, Jacques Ellul' }}
             />
             <header className="mb-12 space-y-4">
                 <div className="flex items-center space-x-3 mb-2">
@@ -40,9 +27,7 @@ const IsTechnologyNeutral = () => {
                 <p className="text-lg text-secondary font-light max-w-2xl">
                     Why the question is poorly framed, and where the value of a technology is actually decided.
                 </p>
-                <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">
-                    <span>By Vivien Perrelle · February 24, 2023</span>
-                </div>
+                <ArticleByline slug={SLUG} />
             </header>
 
             <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-12 font-light">

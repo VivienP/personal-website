@@ -1,36 +1,23 @@
 import React from 'react';
 import ArticleLayout from '../components/ArticleLayout';
-import SEO from '../components/SEO';
-import { AUTHOR } from '../components/jsonld';
+import ArticleSEO from '../components/ArticleSEO';
+import ArticleByline from '../components/ArticleByline';
 
+const SLUG = 'trauma-vs-purpose';
 
 const TraumaVsPurpose = () => {
     return (
         <ArticleLayout backTo="/journal" backLabel="Journal" width="narrow">
-            <SEO
+            <ArticleSEO
+                slug={SLUG}
                 title="Trauma-Driven VS Purpose-Driven Entrepreneurship | Vivien Perrelle"
                 description="There is a prevailing narrative in VC: the best founders are broken. But there is a second path: the Purpose-Driven Founder."
-                url="/journal/trauma-vs-purpose"
-                type="article"
-                article={{ publishedTime: '2026-02-09', author: 'Vivien Perrelle' }}
-                jsonLd={{
-                    "@context": "https://schema.org",
-                    "@type": "BlogPosting",
-                    "headline": "Trauma-Driven VS Purpose-Driven Entrepreneurship",
-                    "description": "There is a prevailing narrative in VC: the best founders are broken. But there is a second path: the Purpose-Driven Founder.",
-                    "datePublished": "2026-02-09",
-                    "dateModified": "2026-02-09",
-                    "author": AUTHOR,
-                    "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "image": "https://vivienperrelle.com/me.png",
-                    "mainEntityOfPage": "https://vivienperrelle.com/journal/trauma-vs-purpose"
-                }}
             />
             <header className="mb-12 space-y-6">
-                <span className="font-mono text-sm text-secondary">By Vivien Perrelle · 2026-02-09</span>
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
                     Trauma-Driven VS Purpose-Driven Entrepreneurship
                 </h1>
+                <ArticleByline slug={SLUG} />
             </header>
 
             <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-8 font-light">

@@ -1,10 +1,11 @@
 import React from 'react';
 import ArticleLayout from '../components/ArticleLayout';
 import Cite from '../components/Cite';
-import SEO from '../components/SEO';
-import { AUTHOR } from '../components/jsonld';
+import ArticleSEO from '../components/ArticleSEO';
+import ArticleByline from '../components/ArticleByline';
 import AuthorBio from '../components/AuthorBio';
 
+const SLUG = 'regulators-dont-accept-vibes';
 
 const RefLink = ({ href, children }) => (
     <a
@@ -20,30 +21,16 @@ const RefLink = ({ href, children }) => (
 const RegulatorsDontAcceptVibes = () => {
     return (
         <ArticleLayout backTo="/journal" backLabel="Journal" width="narrow">
-            <SEO
+            <ArticleSEO
+                slug={SLUG}
                 title="Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing | Vivien Perrelle"
                 description="Pharma AI breaks in two places, not one: unstructured inputs upstream and unverified outputs downstream. Why submission-grade pipelines need a standardization layer and a verification layer around the model."
-                url="/journal/regulators-dont-accept-vibes"
-                type="article"
-                article={{ publishedTime: '2026-05-11', author: 'Vivien Perrelle' }}
-                jsonLd={{
-                    "@context": "https://schema.org",
-                    "@type": "BlogPosting",
-                    "headline": "Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing",
-                    "description": "Pharma AI breaks in two places, not one: unstructured inputs upstream and unverified outputs downstream. Why submission-grade pipelines need a standardization layer and a verification layer around the model.",
-                    "image": "https://vivienperrelle.com/me.png",
-                    "datePublished": "2026-05-11",
-                    "dateModified": "2026-05-11",
-                    "author": AUTHOR,
-                    "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "mainEntityOfPage": "https://vivienperrelle.com/journal/regulators-dont-accept-vibes"
-                }}
             />
             <header className="mb-12 space-y-6">
-                <span className="font-mono text-sm text-secondary">By Vivien Perrelle · 2026-05-11</span>
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
                     Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing
                 </h1>
+                <ArticleByline slug={SLUG} />
             </header>
 
             <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-8 font-light">

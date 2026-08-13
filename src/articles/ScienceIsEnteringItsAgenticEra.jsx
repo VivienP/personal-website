@@ -2,33 +2,20 @@ import React from 'react';
 import ArticleLayout from '../components/ArticleLayout';
 import Cite from '../components/Cite';
 import { Link } from 'react-router-dom';
-import SEO from '../components/SEO';
-import { AUTHOR } from '../components/jsonld';
+import ArticleSEO from '../components/ArticleSEO';
+import ArticleByline from '../components/ArticleByline';
 import AuthorBio from '../components/AuthorBio';
 
+const SLUG = 'science-is-entering-its-agentic-era';
 
 const ScienceIsEnteringItsAgenticEra = () => {
     return (
         <ArticleLayout backTo="/journal" backLabel="Journal">
-            <SEO
+            <ArticleSEO
+                slug={SLUG}
                 title="Science Is Entering Its Agentic Era | Vivien Perrelle"
                 description="Exploring how agentic AI is transforming scientific research, from literature review to autonomous hypothesis generation and experimental design."
-                url="/journal/science-is-entering-its-agentic-era"
-                type="article"
-                article={{ publishedTime: '2026-04-17', author: 'Vivien Perrelle', tags: ['AI', 'Agentic AI', 'Scientific Research', 'Research Automation', 'BioTech'] }}
-                jsonLd={{
-                    "@context": "https://schema.org",
-                    "@type": "BlogPosting",
-                    "headline": "Science Is Entering Its Agentic Era",
-                    "description": "Exploring how agentic AI is transforming scientific research, from literature review to autonomous hypothesis generation and experimental design.",
-                    "image": "https://vivienperrelle.com/me.png",
-                    "datePublished": "2026-04-17",
-                    "dateModified": "2026-04-17",
-                    "author": AUTHOR,
-                    "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "mainEntityOfPage": "https://vivienperrelle.com/journal/science-is-entering-its-agentic-era",
-                    "keywords": "AI, Agentic AI, Scientific Research, Research Automation, BioTech"
-                }}
+                jsonLd={{ keywords: 'AI, Agentic AI, Scientific Research, Research Automation, BioTech' }}
             />
             <header className="mb-12 space-y-4">
                 <div className="flex items-center space-x-3 mb-2">
@@ -40,9 +27,7 @@ const ScienceIsEnteringItsAgenticEra = () => {
                 <p className="text-lg text-secondary font-light max-w-2xl">
                     How agentic AI is transforming scientific research from assistive tools to autonomous discovery systems.
                 </p>
-                <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">
-                    <span>By Vivien Perrelle · April 17, 2026</span>
-                </div>
+                <ArticleByline slug={SLUG} />
             </header>
 
             <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-12 font-light">

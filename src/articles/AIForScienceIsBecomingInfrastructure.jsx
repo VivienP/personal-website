@@ -2,35 +2,24 @@ import React from 'react';
 import ArticleLayout from '../components/ArticleLayout';
 import Cite from '../components/Cite';
 import { Link } from 'react-router-dom';
-import SEO from '../components/SEO';
-import { AUTHOR } from '../components/jsonld';
+import ArticleSEO from '../components/ArticleSEO';
+import ArticleByline from '../components/ArticleByline';
 import AuthorBio from '../components/AuthorBio';
 
+const SLUG = 'ai-for-science-is-becoming-a-systems-problem';
 
 const AIForScienceIsBecomingInfrastructure = () => {
     return (
         <ArticleLayout backTo="/journal" backLabel="Journal">
-            <SEO
+            <ArticleSEO
+                slug={SLUG}
                 title="AI for Science Is Moving From Prediction to Closed-Loop Research Systems | Vivien Perrelle"
                 description="How does AI-for-science find out it's wrong? A framework mapping research loops by cost and fidelity of feedback, from code-closed to patient-closed systems."
-                url="/journal/ai-for-science-is-becoming-a-systems-problem"
                 image="/ai-for-science/loops-cover-small.jpg"
                 imageWidth={1920}
                 imageHeight={1080}
-                type="article"
-                article={{ publishedTime: '2026-06-01', author: 'Vivien Perrelle', tags: ['AI', 'Scientific Research', 'Drug Discovery', 'Research Automation', 'BioTech', 'Evaluation', 'Google Co-Scientist', 'Isomorphic Labs', 'SoundnessBench'] }}
                 jsonLd={{
-                    "@context": "https://schema.org",
-                    "@type": "BlogPosting",
-                    "headline": "AI for Science Is Moving From Prediction to Closed-Loop Research Systems",
-                    "description": "How does AI-for-science find out it's wrong? A framework mapping research loops by cost and fidelity of feedback, from code-closed to patient-closed systems.",
-                    "image": "https://vivienperrelle.com/me.png",
-                    "datePublished": "2026-06-01",
-                    "dateModified": "2026-06-01",
-                    "author": AUTHOR,
-                    "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "mainEntityOfPage": "https://vivienperrelle.com/journal/ai-for-science-is-becoming-a-systems-problem",
-                    "keywords": "AI, Scientific Research, Drug Discovery, Research Automation, BioTech, Evaluation, Google Co-Scientist, Isomorphic Labs, SoundnessBench, AI research agents, autonomous scientific discovery, AI-first drug design, AI Scientist Sakana AI, evaluation bottleneck, Eroom's law, feedback loops, cost fidelity"
+                    keywords: "AI, Scientific Research, Drug Discovery, Research Automation, BioTech, Evaluation, Google Co-Scientist, Isomorphic Labs, SoundnessBench, AI research agents, autonomous scientific discovery, AI-first drug design, AI Scientist Sakana AI, evaluation bottleneck, Eroom's law, feedback loops, cost fidelity",
                 }}
             />
             <header className="mb-12 space-y-4">
@@ -43,9 +32,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 <p className="text-lg text-secondary font-light max-w-2xl">
                     How Does AI-for-Science Find Out It's Wrong?
                 </p>
-                <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">
-                    <span>By Vivien Perrelle · June 1, 2026</span>
-                </div>
+                <ArticleByline slug={SLUG} />
             </header>
 
             <figure className="mb-16 -mx-6 md:mx-0 overflow-hidden md:rounded-lg border-y md:border border-border-subtle">

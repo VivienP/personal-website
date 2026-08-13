@@ -1,11 +1,13 @@
 import React from 'react';
 import ArticleLayout from '../components/ArticleLayout';
 import Figure from '../components/ArticleFigure';
-import SEO from '../components/SEO';
 import Cite from '../components/Cite';
 import { ExternalLink } from 'lucide-react';
+import ArticleSEO from '../components/ArticleSEO';
+import ArticleByline from '../components/ArticleByline';
 
 const B = '/build-smartwatch';
+const SLUG = 'smartwatch';
 
 // Tip / "did you know" callout, mirroring the Notion asides.
 const Note = ({ children }) => (
@@ -24,23 +26,12 @@ const Code = ({ children }) => (
 const SmartWatch = () => {
     return (
         <ArticleLayout backTo="/journal" backLabel="Journal">
-            <SEO
+            <ArticleSEO
+                slug={SLUG}
                 title="How to Build a SmartWatch | Vivien Perrelle"
                 description="A hands-on tutorial to build a programmable, 3D-printed digital watch: program a round LCD with an Arduino and 3D-print the case."
-                url="/journal/smartwatch"
                 image={`${B}/smartwatch-closeup.jpg`}
-                type="article"
-                article={{ publishedTime: '2022-01-20', author: 'Vivien Perrelle' }}
-                jsonLd={{
-                    "@context": "https://schema.org",
-                    "@type": "TechArticle",
-                    "headline": "How to Build a SmartWatch",
-                    "datePublished": "2022-01-20",
-                    "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
-                    "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "image": `https://vivienperrelle.com${B}/smartwatch-closeup.jpg`,
-                    "mainEntityOfPage": "https://vivienperrelle.com/journal/smartwatch"
-                }}
+                jsonLd={{ '@type': 'TechArticle' }}
             />
             <header className="mb-12 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">Tutorial</span>
@@ -50,6 +41,7 @@ const SmartWatch = () => {
                 <p className="text-lg text-secondary font-light max-w-2xl">
                     A programmable and 3D-printed digital watch.
                 </p>
+                <ArticleByline slug={SLUG} />
             </header>
 
             <div className="text-primary max-w-none space-y-16 font-light leading-relaxed">

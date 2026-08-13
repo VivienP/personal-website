@@ -289,6 +289,54 @@ test('Journal collection reuses the homepage list and shows one of five interest
     assert.match(page, /<JournalList showTags headingLevel="h2" \/>/);
 });
 
+test('every Journal article renders the shared byline instead of its own', async () => {
+    const { journalArticles } = await optionalImport('../src/data/journalArticles.js');
+    const byline = read('src/components/ArticleByline.jsx');
+    const files = {
+        'epistasis-explained-best-variant-vs-best-experiment': 'src/articles/EpistasisExplained.jsx',
+        'designing-protein-experiments-for-epistasis': 'src/articles/WhatShouldWeMeasureNext.jsx',
+        'ai-for-science-is-becoming-a-systems-problem': 'src/articles/AIForScienceIsBecomingInfrastructure.jsx',
+        'regulators-dont-accept-vibes': 'src/articles/RegulatorsDontAcceptVibes.jsx',
+        'science-is-entering-its-agentic-era': 'src/articles/ScienceIsEnteringItsAgenticEra.jsx',
+        openclaw: 'src/articles/OpenClaw.jsx',
+        'trauma-vs-purpose': 'src/articles/TraumaVsPurpose.jsx',
+        'is-technology-neutral': 'src/articles/IsTechnologyNeutral.jsx',
+        lactate: 'src/articles/Lactate.jsx',
+        'glucose-biosensor': 'src/articles/GlucoseBiosensor.jsx',
+        smartwatch: 'src/articles/SmartWatch.jsx',
+    };
+
+    // One wording, one typography, one data source: the byline is the same component
+    // everywhere and reads its date and reading time from journalArticles.
+    assert.match(byline, /`By Vivien Perrelle · \$\{formatPublicationDate\(entry\.date\)\} · \$\{entry\.readingMinutes\} min read`/);
+    assert.match(byline, /import \{ getJournalArticle \} from '\.\.\/data\/journalArticles'/);
+    assert.doesNotMatch(byline, /updated|modified/i);
+
+    assert.deepEqual(
+        journalArticles.map(({ slug }) => slug).sort(),
+        Object.keys(files).sort(),
+        'the Journal listing and the article files have drifted apart',
+    );
+
+    for (const [slug, file] of Object.entries(files)) {
+        const source = read(file);
+        // The slug is written once per article and reused by the byline and the head.
+        assert.match(source, new RegExp(`const SLUG = '${slug}';`), `${file} does not declare its slug once`);
+        assert.match(source, /<ArticleByline slug=\{SLUG\} \/>/, `${file} does not use the shared byline`);
+        assert.doesNotMatch(source, /<span>By Vivien Perrelle|font-mono text-sm text-secondary">By Vivien/, `${file} still hardcodes a byline`);
+    }
+
+    for (const { slug, readingMinutes } of journalArticles) {
+        assert.equal(typeof readingMinutes, 'number', `${slug} has no reading time`);
+        assert.ok(readingMinutes >= 1 && Number.isInteger(readingMinutes), `${slug} has a nonsensical reading time`);
+    }
+
+    // Reading time is a Journal affordance; project pages do not carry one.
+    for (const project of ['src/articles/projects/Epibudget.jsx', 'src/articles/projects/ScientificClaimVerifier.jsx', 'src/articles/BioWatch.jsx']) {
+        assert.doesNotMatch(read(project), /ArticleByline|min read/);
+    }
+});
+
 test('Academic Work uses the shared date-tag-title collection item', () => {
     assert.equal(existsSync(new URL('../src/data/academicWorks.js', import.meta.url)), true, 'Academic Work data module is missing');
     const page = read('src/pages/AcademicWork.jsx');
@@ -324,16 +372,30 @@ test('Journal articles use coherent URLs and return to the Journal collection', 
         ['regulators-dont-accept-vibes', 'src/articles/RegulatorsDontAcceptVibes.jsx'],
     ];
 
+    // Published before the /blog -> /journal move, so each of these also owes a redirect.
+    // Articles written after it (the epistasis explainer) never had a /blog URL.
+    const relocated = new Set(articles.map(([slug]) => slug));
+    articles.push(['epistasis-explained-best-variant-vs-best-experiment', 'src/articles/EpistasisExplained.jsx']);
+
     assert.match(journalPage, /`https:\/\/vivienperrelle\.com\/journal\/\$\{slug\}`/);
 
     for (const [slug, file] of articles) {
         const article = read(file);
         assert.match(manifest, new RegExp(`path: '/journal/${slug}'`));
         assert.doesNotMatch(manifest, new RegExp(`path: '/blog/${slug}'`));
-        assert.match(article, new RegExp(`url="/journal/${slug}"`));
-        assert.match(article, new RegExp(`mainEntityOfPage["']?: ["']https://vivienperrelle\\.com/journal/${slug}`));
-        assert.match(article, /<Link to="\/journal"[^>]*>[\s\S]*?<span>Journal<\/span>[\s\S]*?<\/Link>/);
-        assert.match(redirects, new RegExp(`path: '/blog/${slug}', to: '/journal/${slug}'`));
+        assert.match(article, new RegExp(`const SLUG = '${slug}';`));
+        assert.match(article, /<ArticleSEO\r?\n\s+slug=\{SLUG\}/, `${file} does not derive its head from the listing`);
+        assert.match(article, /<ArticleLayout backTo="\/journal" backLabel="Journal"/, `${file} does not return to the Journal`);
+        // Canonical, identity and dates come from journalArticles; an article that
+        // restates any of them by hand is free to disagree with its own listing entry.
+        assert.doesNotMatch(
+            article,
+            /mainEntityOfPage|datePublished|dateModified|publishedTime|url="\/journal\//,
+            `${file} restates metadata that ArticleSEO derives`,
+        );
+        if (relocated.has(slug)) {
+            assert.match(redirects, new RegExp(`path: '/blog/${slug}', to: '/journal/${slug}'`));
+        }
     }
 });
 

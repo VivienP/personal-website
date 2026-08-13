@@ -4,13 +4,14 @@ import Cite from '../components/Cite';
 import FigureCaption from '../components/FigureCaption';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import SEO from '../components/SEO';
-import { AUTHOR } from '../components/jsonld';
+import ArticleSEO from '../components/ArticleSEO';
+import ArticleByline from '../components/ArticleByline';
 import AuthorBio from '../components/AuthorBio';
 import MathBlock from '../components/MathBlock';
 import AllocationStrategiesDiagram from '../components/epibudget/AllocationStrategiesDiagram';
 
 const REPO = 'https://github.com/VivienP/epistasis-budget';
+const SLUG = 'designing-protein-experiments-for-epistasis';
 
 // A static numbered figure. The caption comes from the same FigureCaption the inline
 // React diagrams use, so an image figure and a diagram figure cannot drift apart in
@@ -32,31 +33,17 @@ const Figure = ({ src, alt, number, title, description, width, height, wide = fa
 const WhatShouldWeMeasureNext = () => {
     return (
         <ArticleLayout backTo="/journal" backLabel="Journal">
-            <SEO
+            <ArticleSEO
+                slug={SLUG}
                 title="Measure for Information, Not for Fitness: Designing Protein Experiments to Reveal Epistasis | Vivien Perrelle"
-                description="A provisional experimental-design study finds that loop-count allocation outperforms fitness-greedy selection downstream on GB1 and TrpB, without a supported gain from ESM masking dispersion."
-                url="/journal/designing-protein-experiments-for-epistasis"
+                description="A provisional experimental-design study comparing label-blind plate-selection strategies under fixed protein-experiment budgets, and the audit that withdrew its original epistasis-map-recovery interpretation."
                 image="/epibudget/workflow.webp"
                 imageWidth={2048}
                 imageHeight={900}
-                type="article"
-                article={{
-                    publishedTime: '2026-07-23',
-                    author: 'Vivien Perrelle',
-                    section: 'AI for Science',
-                    tags: ['Protein Engineering', 'Epistasis', 'Experimental Design', 'ESM-2', 'AI for Science'],
-                }}
+                section="AI for Science"
+                modifiedTime="2026-08-13"
                 jsonLd={{
-                    '@context': 'https://schema.org',
-                    '@type': 'BlogPosting',
-                    headline: 'Measure for Information, Not for Fitness: Designing Protein Experiments to Reveal Epistasis',
-                    description: 'A research account of testing ESM-2 masking dispersion and interaction-loop coverage as policies for allocating a fixed protein-experiment budget.',
-                    image: 'https://vivienperrelle.com/epibudget/workflow.webp',
-                    datePublished: '2026-07-23',
-                    dateModified: '2026-07-23',
-                    author: AUTHOR,
-                    publisher: { '@type': 'Person', name: 'Vivien Perrelle' },
-                    mainEntityOfPage: 'https://vivienperrelle.com/journal/designing-protein-experiments-for-epistasis',
+                    description: 'A research account of testing ESM-2 masking dispersion and interaction-loop coverage as policies for allocating a fixed protein-experiment budget, including the audit that withdrew the original epistasis-map-recovery interpretation.',
                     about: {
                         '@type': 'SoftwareSourceCode',
                         name: 'epibudget',
@@ -77,9 +64,7 @@ const WhatShouldWeMeasureNext = () => {
                 <p className="text-lg text-secondary font-light max-w-2xl">
                     A protein language model can rank thousands of variants. But that ranking does not identify which variants would be most informative to measure. AI for science needs another capability: choosing experiments that reduce uncertainty and create new knowledge. This study allocates a fixed experimental budget to variants chosen to expose mutation interactions. Registered downstream benchmarks support the <code>structural</code> loop-count baseline over fitness-greedy selection on GB1 and TrpB; they do not support an added benefit from ESM masking dispersion.
                 </p>
-                <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">
-                    <span>By Vivien Perrelle · July 23, 2026</span>
-                </div>
+                <ArticleByline slug={SLUG} />
             </header>
 
             <Figure

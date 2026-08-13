@@ -34,7 +34,7 @@ const Epibudget = () => {
                 imageWidth={2048}
                 imageHeight={900}
                 type="article"
-                article={{ publishedTime: '2026-07-23', author: 'Vivien Perrelle', tags: ['Protein Engineering', 'Epistasis', 'Experimental Design', 'ESM-2', 'Open Source'] }}
+                article={{ publishedTime: '2026-07-23', modifiedTime: '2026-08-13', author: 'Vivien Perrelle', tags: ['Protein Engineering', 'Epistasis', 'Experimental Design', 'ESM-2', 'Open Source'] }}
                 jsonLd={{
                     '@context': 'https://schema.org',
                     '@type': 'SoftwareSourceCode',
@@ -43,7 +43,7 @@ const Epibudget = () => {
                     description: 'An open-source Python CLI that ranks protein variants by the interaction loops they cover under a fixed experimental budget.',
                     image: 'https://vivienperrelle.com/epibudget/workflow.webp',
                     datePublished: '2026-07-23',
-                    dateModified: '2026-07-23',
+                    dateModified: '2026-08-13',
                     codeRepository: REPO,
                     programmingLanguage: 'Python',
                     runtimePlatform: 'Python 3.12+',

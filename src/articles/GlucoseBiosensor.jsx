@@ -4,9 +4,11 @@ import Figure from '../components/ArticleFigure';
 import Cite from '../components/Cite';
 import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
-import SEO from '../components/SEO';
+import ArticleSEO from '../components/ArticleSEO';
+import ArticleByline from '../components/ArticleByline';
 
 const B = '/build-glucose-biosensor';
+const SLUG = 'glucose-biosensor';
 
 // Embedded YouTube video with caption, responsive 16:9.
 const Video = ({ id, title, caption }) => (
@@ -37,23 +39,12 @@ const Note = ({ children }) => (
 const GlucoseBiosensor = () => {
     return (
         <ArticleLayout backTo="/journal" backLabel="Journal">
-            <SEO
+            <ArticleSEO
+                slug={SLUG}
                 title="How to Build a Wearable Glucose Biosensor | Vivien Perrelle"
                 description="A tutorial to build a wearable, non-invasive glucose biosensor from screen-printed electrodes in a sweat patch, streaming data over Bluetooth Low Energy."
-                url="/journal/glucose-biosensor"
                 image={`${B}/hero.jpg`}
-                type="article"
-                article={{ publishedTime: '2022-03-10', author: 'Vivien Perrelle' }}
-                jsonLd={{
-                    "@context": "https://schema.org",
-                    "@type": "TechArticle",
-                    "headline": "How to Build a Wearable Glucose Biosensor",
-                    "datePublished": "2022-03-10",
-                    "author": { "@type": "Person", "name": "Vivien Perrelle", "url": "https://vivienperrelle.com" },
-                    "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "image": `https://vivienperrelle.com${B}/hero.jpg`,
-                    "mainEntityOfPage": "https://vivienperrelle.com/journal/glucose-biosensor"
-                }}
+                jsonLd={{ '@type': 'TechArticle' }}
             />
             <header className="mb-12 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">Tutorial</span>
@@ -63,6 +54,7 @@ const GlucoseBiosensor = () => {
                 <p className="text-lg text-secondary font-light max-w-2xl">
                     Screen-printed electrodes in a sweat patch.
                 </p>
+                <ArticleByline slug={SLUG} />
             </header>
 
             {/* Hero */}

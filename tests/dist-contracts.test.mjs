@@ -234,6 +234,71 @@ test('an inline SVG title is an accessible name, not the document title', () => 
     }
 });
 
+test('every Journal article shows one byline: author, publication date, reading time', async () => {
+    // The reading time is recorded in src/data/journalArticles.js rather than computed at
+    // render time, so it can drift away from the prose it describes. Hold it against the
+    // real prerendered word count, and keep revision dates out of the reader's first line.
+    const { journalArticles } = await import('../src/data/journalArticles.js');
+    const { measureJournal } = await import('../scripts/reading-time.mjs');
+
+    const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    for (const { date, slug, readingMinutes } of journalArticles) {
+        const page = pages.find((p) => p.route === `/journal/${slug}`);
+        assert.ok(page, `/journal/${slug} was not prerendered`);
+
+        const [year, month, day] = date.split('-').map(Number);
+        const byline = `By Vivien Perrelle · ${MONTHS[month - 1]} ${day}, ${year} · ${readingMinutes} min read`;
+        const bylines = page.html.match(/By Vivien Perrelle[^<]*/g) ?? [];
+
+        assert.deepEqual(bylines, [byline], `/journal/${slug} byline mismatch`);
+        assert.doesNotMatch(page.html, /updated \w+ \d+, \d{4}/, `/journal/${slug} shows a revision date`);
+    }
+
+    for (const { slug, words, measured, recorded } of measureJournal()) {
+        assert.ok(
+            Math.abs(measured - recorded) <= 1,
+            `/journal/${slug} records ${recorded} min but its ${words} words measure ${measured} min`,
+        );
+    }
+});
+
+test('every Journal head derives from the one listing record', async () => {
+    // The article files no longer restate their URL, dates, author or headline: they
+    // name a slug and src/data/journalArticles.js supplies the rest. This holds the
+    // shipped head against that record, which is the only thing the derivation buys.
+    const { journalArticles } = await import('../src/data/journalArticles.js');
+
+    for (const { slug, title, date } of journalArticles) {
+        const page = pages.find((p) => p.route === `/journal/${slug}`);
+        assert.ok(page, `/journal/${slug} was not prerendered`);
+        const canonical = `${SITE_URL}/journal/${slug}`;
+        const meta = (property) =>
+            page.html.match(new RegExp(`<meta property="${property}" content="([^"]*)"`))?.[1];
+
+        assert.equal(meta('og:url'), canonical, `/journal/${slug} og:url disagrees with its canonical`);
+        assert.equal(meta('og:type'), 'article');
+        assert.equal(meta('article:published_time'), date, `/journal/${slug} publication date disagrees with the listing`);
+
+        const [posting] = jsonLdBlocks(page.html);
+        assert.equal(posting.headline, title, `/journal/${slug} headline disagrees with the listing`);
+        assert.equal(posting.datePublished, date);
+        assert.equal(posting.mainEntityOfPage, canonical);
+        assert.equal(posting.author['@id'], `${SITE_URL}/#person`, `/journal/${slug} byline does not resolve to the site person`);
+        assert.ok(posting.dateModified >= date, `/journal/${slug} claims a revision older than its publication`);
+        // article:modified_time is only meaningful when there has been a revision.
+        const modified = meta('article:modified_time');
+        assert.equal(modified === undefined, posting.dateModified === date, `/journal/${slug} announces a revision it did not have`);
+    }
+});
+
+test('reading times stay out of the project pages', () => {
+    for (const { route, html } of pages) {
+        if (route.startsWith('/journal/')) continue;
+        assert.doesNotMatch(html, /\d+ min read/, `${route} should not carry a reading time`);
+    }
+});
+
 test('the main content of an article is present without JavaScript', () => {
     const article = pages.find((p) => p.route === '/journal/designing-protein-experiments-for-epistasis');
     assert.ok(article, 'flagship article was not prerendered');

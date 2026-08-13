@@ -1,37 +1,24 @@
 import React from 'react';
 import ArticleLayout from '../components/ArticleLayout';
-import SEO from '../components/SEO';
-import { AUTHOR } from '../components/jsonld';
+import ArticleSEO from '../components/ArticleSEO';
+import ArticleByline from '../components/ArticleByline';
 import AuthorBio from '../components/AuthorBio';
 
+const SLUG = 'openclaw';
 
 const OpenClaw = () => {
     return (
         <ArticleLayout backTo="/journal" backLabel="Journal" width="narrow">
-            <SEO
+            <ArticleSEO
+                slug={SLUG}
                 title="OpenClaw & the Infrastructure of Sovereign Intelligence | Vivien Perrelle"
                 description="The Assistant era is over. 2026 is defined by Sovereign Agents: locally hosted, proactive AI entities capable of self-funding and autonomous execution. But without data interoperability and strict security, these agents are a liability, not an asset."
-                url="/journal/openclaw"
-                type="article"
-                article={{ publishedTime: '2026-02-20', author: 'Vivien Perrelle' }}
-                jsonLd={{
-                    "@context": "https://schema.org",
-                    "@type": "BlogPosting",
-                    "headline": "OpenClaw & the Infrastructure of Sovereign Intelligence",
-                    "description": "The Assistant era is over. 2026 is defined by Sovereign Agents: locally hosted, proactive AI entities capable of self-funding and autonomous execution. But without data interoperability and strict security, these agents are a liability, not an asset.",
-                    "image": "https://vivienperrelle.com/me.png",
-                    "datePublished": "2026-02-20",
-                    "dateModified": "2026-02-20",
-                    "author": AUTHOR,
-                    "publisher": { "@type": "Person", "name": "Vivien Perrelle" },
-                    "mainEntityOfPage": "https://vivienperrelle.com/journal/openclaw"
-                }}
             />
             <header className="mb-12 space-y-6">
-                <span className="font-mono text-sm text-secondary">By Vivien Perrelle · 2026-02-20</span>
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
                     OpenClaw & the Infrastructure of Sovereign Intelligence.
                 </h1>
+                <ArticleByline slug={SLUG} />
             </header>
 
             <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-8 font-light">
