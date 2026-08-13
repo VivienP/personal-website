@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import React from 'react';
+import ArticleLayout from '../components/ArticleLayout';
 import SEO from '../components/SEO';
 import { AUTHOR } from '../components/jsonld';
 import AuthorBio from '../components/AuthorBio';
@@ -29,12 +28,8 @@ const RefLink = ({ href, children }) => (
 );
 
 const RegulatorsDontAcceptVibes = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
-        <article className="min-h-screen py-24 px-6 max-w-3xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/journal" backLabel="Journal" width="narrow">
             <SEO
                 title="Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing | Vivien Perrelle"
                 description="Pharma AI breaks in two places, not one: unstructured inputs upstream and unverified outputs downstream. Why submission-grade pipelines need a standardization layer and a verification layer around the model."
@@ -54,11 +49,6 @@ const RegulatorsDontAcceptVibes = () => {
                     "mainEntityOfPage": "https://vivienperrelle.com/journal/regulators-dont-accept-vibes"
                 }}
             />
-            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Journal</span>
-            </Link>
-
             <header className="mb-12 space-y-6">
                 <span className="font-mono text-sm text-secondary">By Vivien Perrelle · 2026-05-11</span>
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
@@ -161,7 +151,7 @@ const RegulatorsDontAcceptVibes = () => {
                 { to: '/journal/science-is-entering-its-agentic-era', label: 'Science Is Entering Its Agentic Era' },
                 { to: '/projects/scientific-claim-verifier', label: 'Scientific Claim Verifier — open-source claim-to-source verification (F1 0.92 on SciFact)' },
             ]} />
-        </article>
+        </ArticleLayout>
     );
 };
 

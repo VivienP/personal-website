@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import ArticleLayout from '../../components/ArticleLayout';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import SEO from '../../components/SEO';
 import PdfEmbed from '../../components/PdfEmbed';
 import { AUTHOR } from '../../components/jsonld';
@@ -8,12 +9,8 @@ import { AUTHOR } from '../../components/jsonld';
 const PDF_URL = '/papers/PERRELLE-Exploring-2023.pdf';
 
 const LactatePharmacokinetics = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
-        <article className="min-h-screen py-24 px-6 max-w-3xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/academic-work" backLabel="Academic Work" width="narrow">
             <SEO
                 title="Exploring Activity-Induced Lactate Pharmacokinetics: Implications for Minimally-Invasive Monitoring | Vivien Perrelle"
                 description="Literature review (August 2023) written during an internship at PKvitality on the parameters influencing lactate diffusion and the clinical value of dermal interstitial fluid (ISF) lactate as a muscle-fatigue biomarker. A pharmacological guide for developers of lactate microneedle biosensors."
@@ -45,11 +42,6 @@ const LactatePharmacokinetics = () => {
                     }
                 }}
             />
-            <Link to="/academic-work" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Academic Work</span>
-            </Link>
-
             <header className="mb-10 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">Literature Review · August 2023</span>
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
@@ -78,7 +70,7 @@ const LactatePharmacokinetics = () => {
                     </Link>
                 </div>
             </div>
-        </article>
+        </ArticleLayout>
     );
 };
 

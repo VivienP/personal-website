@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import React from 'react';
+import ArticleLayout from '../components/ArticleLayout';
+import { ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const Cite = ({ n }) => (
@@ -27,12 +27,8 @@ const Img = ({ src, alt, className = '' }) => (
 );
 
 const BioWatch = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
-        <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/" backLabel="Back">
             <SEO
                 title="BioWatch: A Smartwatch Prototype for Wearable Biosensors | Vivien Perrelle"
                 description="An open-source prototype smartwatch for the implementation of wearable biosensors, built during a master's degree research project at the Institute for Future Technologies."
@@ -53,11 +49,6 @@ const BioWatch = () => {
                     "mainEntityOfPage": "https://vivienperrelle.com/projects/biowatch"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
-            </Link>
-
             <header className="mb-12 space-y-4">
                 <div className="flex items-center space-x-3 mb-2">
                     <img src="/biowatch/apple-watch-icon.svg" alt="BioWatch Icon" className="w-8 h-8" />
@@ -292,7 +283,7 @@ const BioWatch = () => {
                 </footer>
 
             </div>
-        </article>
+        </ArticleLayout>
     );
 };
 

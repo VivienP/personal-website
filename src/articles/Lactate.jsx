@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import ArticleLayout from '../components/ArticleLayout';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const B = '/build-lactate-biosensor';
@@ -41,12 +42,8 @@ const Note = ({ children }) => (
 );
 
 const Lactate = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
-        <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/journal" backLabel="Journal">
             <SEO
                 title="How to Build a Lactate Biosensor | Vivien Perrelle"
                 description="A step-by-step tutorial to build a proof-of-concept enzymatic lactate biosensor on a platinum wire, for monitoring exercise-induced muscle fatigue."
@@ -65,11 +62,6 @@ const Lactate = () => {
                     "mainEntityOfPage": "https://vivienperrelle.com/journal/lactate"
                 }}
             />
-            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Journal</span>
-            </Link>
-
             <header className="mb-12 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">Tutorial</span>
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
@@ -382,7 +374,7 @@ const Lactate = () => {
                 </footer>
 
             </div>
-        </article>
+        </ArticleLayout>
     );
 };
 

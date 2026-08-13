@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import ArticleLayout from '../../components/ArticleLayout';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import SEO from '../../components/SEO';
 import PdfEmbed from '../../components/PdfEmbed';
 import { AUTHOR } from '../../components/jsonld';
@@ -8,12 +9,8 @@ import { AUTHOR } from '../../components/jsonld';
 const PDF_URL = '/papers/PERRELLE-Embedded-2023.pdf';
 
 const SmartwatchBiosensorsThesis = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
-        <article className="min-h-screen py-24 px-6 max-w-3xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/academic-work" backLabel="Academic Work" width="narrow">
             <SEO
                 title="Smartwatch-Embedded Biosensors For Healthcare Monitoring | Vivien Perrelle"
                 description="Master's thesis (October 2023) on two years of wearable biosensor research at the Institute for Future Technologies: the BioWatch smartwatch and a microneedle lactate sensor module, advocating a systemic design approach balancing technical performance, user experience, and medical relevance."
@@ -50,11 +47,6 @@ const SmartwatchBiosensorsThesis = () => {
                     }
                 }}
             />
-            <Link to="/academic-work" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Academic Work</span>
-            </Link>
-
             <header className="mb-10 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">Master's Thesis · October 2023</span>
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
@@ -83,7 +75,7 @@ const SmartwatchBiosensorsThesis = () => {
                     </Link>
                 </div>
             </div>
-        </article>
+        </ArticleLayout>
     );
 };
 

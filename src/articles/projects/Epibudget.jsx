@@ -1,19 +1,31 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import ArticleLayout from '../../components/ArticleLayout';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import SEO from '../../components/SEO';
 import { AUTHOR } from '../../components/jsonld';
 
 const REPO = 'https://github.com/VivienP/epistasis-budget';
 const ARTICLE = '/journal/designing-protein-experiments-for-epistasis';
 
-const Epibudget = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+const EVIDENCE_STATUS = [
+    {
+        status: 'Supported mechanism',
+        statement: 'Conjoint scoring preserves the possibility of context-dependent, non-additive ESM-2 signal.',
+    },
+    {
+        status: 'Historical observation',
+        statement: 'Particular v1 loop-count plates outperformed fitness-greedy plates downstream; robustness across tie seeds was not estimated.',
+    },
+    {
+        status: 'Not demonstrated / withdrawn',
+        statement: 'Masking dispersion did not pass its incremental gate; the earlier map-recovery interpretation is withdrawn.',
+    },
+];
 
+const Epibudget = () => {
     return (
-        <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/" backLabel="Back">
             <SEO
                 title="epibudget: Experimental Design for Protein Epistasis | Vivien Perrelle"
                 description="An open-source Python tool that spends a fixed experimental budget on the protein variants that expose interaction structure, not only the ones predicted to be fit."
@@ -48,27 +60,12 @@ const Epibudget = () => {
                 }}
             />
 
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
-            </Link>
-
             <header className="mb-12 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">Open Source · AI for Science · Experimental Design</span>
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">epibudget</h1>
                 <p className="text-lg text-secondary font-light max-w-2xl">
                     A Python CLI for ranking protein variants that expose mutation interactions under a fixed experimental budget.
                 </p>
-                <div className="pt-2 flex flex-wrap gap-3">
-                    <a href={REPO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm">
-                        <span>View on GitHub</span>
-                        <ExternalLink size={14} />
-                    </a>
-                    <Link to={ARTICLE} className="inline-flex items-center space-x-2 px-4 py-2 border border-border-subtle hover:border-accent transition-colors text-sm">
-                        <span>Read the research story</span>
-                        <ArrowRight size={14} />
-                    </Link>
-                </div>
             </header>
 
             <figure className="mb-16 -mx-6 md:mx-0">
@@ -153,7 +150,7 @@ const Epibudget = () => {
                     </Link>
                 </div>
             </div>
-        </article>
+        </ArticleLayout>
     );
 };
 

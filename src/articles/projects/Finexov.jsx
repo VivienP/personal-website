@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import React from 'react';
+import ArticleLayout from '../../components/ArticleLayout';
+import { ExternalLink } from 'lucide-react';
 import SEO from '../../components/SEO';
 
 const Finexov = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
-        <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/" backLabel="Back">
             <SEO
                 title="Finexov: An AI Platform for Public Funding Applications | Vivien Perrelle"
                 description="Finexov, my first startup: an AI platform that generates public-funding applications for French startups and scale-ups. Sold to innovation-funding consultancies, with €30K in sales and partnerships with the two largest French firms in the sector."
@@ -29,11 +25,6 @@ const Finexov = () => {
                     "mainEntityOfPage": "https://vivienperrelle.com/projects/finexov"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
-            </Link>
-
             <header className="mb-12 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">Startup · AI Agents</span>
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
@@ -87,7 +78,7 @@ const Finexov = () => {
                     I eventually stopped this venture to pursue a global project more in line with the ambition and impact I'm after.
                 </p>
             </div>
-        </article>
+        </ArticleLayout>
     );
 };
 

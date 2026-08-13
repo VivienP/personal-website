@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import React from 'react';
+import ArticleLayout from '../components/ArticleLayout';
+import { ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const Cite = ({ n }) => (
@@ -27,12 +27,8 @@ const Img = ({ src, alt, className = '' }) => (
 );
 
 const MotionSuit = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
-        <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/" backLabel="Back">
             <SEO
                 title="E-Textile Motion Suit: An Easy-to-Make E-Textile Platform | Vivien Perrelle"
                 description="An open-source, easy-to-make e-textile platform whose fully integrated fabric sensors detect touch, position, and deformation to capture a wearer's movements."
@@ -53,11 +49,6 @@ const MotionSuit = () => {
                     "mainEntityOfPage": "https://vivienperrelle.com/projects/motion-suit"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
-            </Link>
-
             <header className="mb-12 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">Electronics · E-Textile</span>
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
@@ -245,7 +236,7 @@ const MotionSuit = () => {
                 </footer>
 
             </div>
-        </article>
+        </ArticleLayout>
     );
 };
 

@@ -1,17 +1,13 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import React from 'react';
+import ArticleLayout from '../components/ArticleLayout';
 import SEO from '../components/SEO';
 import { AUTHOR } from '../components/jsonld';
 import AuthorBio from '../components/AuthorBio';
 
-const OpenClaw = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
 
+const OpenClaw = () => {
     return (
-        <article className="min-h-screen py-24 px-6 max-w-3xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/journal" backLabel="Journal" width="narrow">
             <SEO
                 title="OpenClaw & the Infrastructure of Sovereign Intelligence | Vivien Perrelle"
                 description="The Assistant era is over. 2026 is defined by Sovereign Agents: locally hosted, proactive AI entities capable of self-funding and autonomous execution. But without data interoperability and strict security, these agents are a liability, not an asset."
@@ -31,11 +27,6 @@ const OpenClaw = () => {
                     "mainEntityOfPage": "https://vivienperrelle.com/journal/openclaw"
                 }}
             />
-            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Journal</span>
-            </Link>
-
             <header className="mb-12 space-y-6">
                 <span className="font-mono text-sm text-secondary">By Vivien Perrelle · 2026-02-20</span>
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
@@ -232,7 +223,7 @@ const OpenClaw = () => {
                 { to: '/journal/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
                 { to: '/projects/scientific-claim-verifier', label: 'Scientific Claim Verifier — open-source claim-to-source verification (F1 0.92 on SciFact)' },
             ]} />
-        </article>
+        </ArticleLayout>
     );
 };
 

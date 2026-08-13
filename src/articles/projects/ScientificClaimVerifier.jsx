@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import ArticleLayout from '../../components/ArticleLayout';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import SEO from '../../components/SEO';
 import { AUTHOR } from '../../components/jsonld';
 import AuthorBio from '../../components/AuthorBio';
@@ -8,12 +9,8 @@ import AuthorBio from '../../components/AuthorBio';
 const REPO = 'https://github.com/VivienP/scientific-claim-verification-engine';
 
 const ScientificClaimVerifier = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
-        <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/" backLabel="Back">
             <SEO
                 title="Scientific Claim Verifier: Deterministic Claim-to-Source Verification | Vivien Perrelle"
                 description="An open-source Python engine that verifies each cited claim in scientific text against its actual source and returns a grounded verdict with full, replayable provenance. Built for an AI-saturated literature that needs verification, reproducibility, and traceability."
@@ -38,11 +35,6 @@ const ScientificClaimVerifier = () => {
                     "url": "https://vivienperrelle.com/projects/scientific-claim-verifier"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
-            </Link>
-
             <header className="mb-12 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">Open Source · AI for Science</span>
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
@@ -137,7 +129,7 @@ const ScientificClaimVerifier = () => {
                 { to: '/journal/science-is-entering-its-agentic-era', label: 'Science Is Entering Its Agentic Era' },
                 { to: '/journal/regulators-dont-accept-vibes', label: "Regulators Don't Accept Vibes: The Two Layers Pharma AI Is Missing" },
             ]} />
-        </article>
+        </ArticleLayout>
     );
 };
 

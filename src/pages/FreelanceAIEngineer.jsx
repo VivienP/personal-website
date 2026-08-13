@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import BackLink from '../components/BackLink';
 import SEO from '../components/SEO';
 import { FREELANCE_SERVICE_JSON_LD } from '../components/jsonld';
 import Contact from '../sections/Contact';
@@ -14,10 +14,6 @@ const Question = ({ children }) => (
 );
 
 const FreelanceAIEngineer = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
         <main className="min-h-screen animate-in fade-in duration-700">
             <SEO
@@ -31,13 +27,7 @@ const FreelanceAIEngineer = () => {
             />
 
             <article className="py-24 px-6 max-w-3xl mx-auto">
-                <Link
-                    to="/"
-                    className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group"
-                >
-                    <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                    <span>Back</span>
-                </Link>
+                <BackLink to="/" label="Back" />
 
                 <header className="mb-10 space-y-6">
                     <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">

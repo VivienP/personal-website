@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import React from 'react';
+import ArticleLayout from '../../components/ArticleLayout';
+import { ExternalLink } from 'lucide-react';
 import SEO from '../../components/SEO';
 
 const Oseille = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
-        <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/" backLabel="Back">
             <SEO
                 title="Oseille AI: An Agent for French Innovation Subsidies | Vivien Perrelle"
                 description="Oseille AI, a project launched during my time at Finexov, is a specialized agent on Bpifrance innovation subsidies. Through LinkedIn content it helped around ten startups navigate French public funding."
@@ -33,11 +29,6 @@ const Oseille = () => {
                     "mainEntityOfPage": "https://vivienperrelle.com/projects/oseille"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
-            </Link>
-
             <header className="mb-12 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">AI Agents · Public Funding</span>
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
@@ -96,7 +87,7 @@ const Oseille = () => {
                     className="w-full h-auto object-cover"
                 />
             </div>
-        </article>
+        </ArticleLayout>
     );
 };
 

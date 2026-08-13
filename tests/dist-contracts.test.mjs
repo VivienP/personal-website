@@ -144,15 +144,78 @@ test('the contact address is a real mailto in the static markup', () => {
     assert.doesNotMatch(home.html, /<a[^>]+href="#"/, 'a dead href="#" anchor shipped in the prerendered HTML');
 });
 
-test('each page has exactly one h1 and at most one main landmark', () => {
+test('every route rendered — no page fell back to an error boundary', () => {
+    // renderToString swallows a throwing page into a Suspense fallback and the build
+    // still reports success, so a broken route ships as an empty <div id="root">.
+    // `<!--$!-->` is React's marker for exactly that. One undefined component in
+    // /freelance-ai-engineer-biology got through the build this way.
+    for (const { route, html } of pages) {
+        assert.doesNotMatch(html, /<!--\$!-->/, `${route} threw during prerendering and shipped an error fallback`);
+    }
+});
+
+test('each page has exactly one h1 and exactly one main landmark', () => {
     for (const { route, html } of pages) {
         const h1 = (html.match(/<h1[\s>]/g) ?? []).length;
         const main = (html.match(/<main[\s>]/g) ?? []).length;
         assert.equal(h1, 1, `${route} has ${h1} h1 elements`);
-        assert.ok(main <= 1, `${route} has ${main} main landmarks`);
+        assert.equal(main, 1, `${route} has ${main} main landmarks`);
     }
-    // 22 of 27 routes still render no <main>: article pages return a bare <article>.
-    // ArticleLayout fixes that in phase 2, at which point this tightens to `=== 1`.
+});
+
+test('no page skips a heading level', () => {
+    // Screen-reader users navigate by heading level; a jump from h1 to h3 reads as a
+    // missing section. Checked on the output because headings come from several
+    // components (ArticleLayout's children, AuthorBio, the collection lists).
+    for (const { route, html } of pages) {
+        const levels = [...html.matchAll(/<h([1-6])[\s>]/g)].map((match) => Number(match[1]));
+        assert.equal(levels[0], 1, `${route} opens on h${levels[0]} instead of its h1`);
+        for (let i = 1; i < levels.length; i += 1) {
+            assert.ok(
+                levels[i] <= levels[i - 1] + 1,
+                `${route} jumps from h${levels[i - 1]} to h${levels[i]}`,
+            );
+        }
+    }
+});
+
+test('every article returns to the collection it belongs to', () => {
+    // The back link moved into ArticleLayout; what matters is that each piece still
+    // offers the way out, and that a Journal entry goes back to the Journal rather
+    // than to the homepage.
+    const collectionOf = (route) => {
+        if (route.startsWith('/journal/')) return { href: '/journal', label: 'Journal' };
+        if (route.startsWith('/academic-work/')) return { href: '/academic-work', label: 'Academic Work' };
+        if (route.startsWith('/projects/')) return { href: '/', label: 'Back' };
+        return null;
+    };
+
+    let checked = 0;
+    for (const { route, html } of pages) {
+        const collection = collectionOf(route);
+        if (!collection) continue;
+        assert.match(
+            html,
+            new RegExp(`<a[^>]+href="${collection.href}"[^>]*>(?:(?!</a>)[\\s\\S])*<span>${collection.label}</span>`),
+            `${route} has no back link to ${collection.href}`,
+        );
+        checked += 1;
+    }
+    assert.ok(checked >= 20, `expected every article page to be covered, only ${checked} were`);
+});
+
+test('the collection pages return home and the gallery toggle is a real button', () => {
+    for (const route of ['/journal', '/academic-work']) {
+        const page = pages.find((p) => p.route === route);
+        assert.match(
+            page.html,
+            /<a[^>]+href="\/"[^>]*>(?:(?!<\/a>)[\s\S])*<span>Home<\/span>/,
+            `${route} does not offer a way home`,
+        );
+    }
+
+    const art = pages.find((p) => p.route === '/art');
+    assert.match(art.html, /<button[^>]+aria-pressed="(?:true|false)"/, 'the framed/unframed toggle is not a button with a pressed state');
 });
 
 test('an inline SVG title is an accessible name, not the document title', () => {

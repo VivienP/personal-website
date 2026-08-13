@@ -73,18 +73,58 @@ test('committed sitemap is generated from the route manifest', async () => {
     assert.equal(read('public/sitemap.xml').replaceAll('\r\n', '\n'), `${renderSitemap()}\n`);
 });
 
-test('collection pages expose main landmarks and keyboard gallery controls', () => {
-    const art = read('src/pages/Art.jsx');
-    assert.match(art, /<main\b/);
-    assert.match(art, /<button\b/);
-    assert.match(art, /aria-pressed=/);
-    const academicWork = read('src/pages/AcademicWork.jsx');
-    const journal = read('src/pages/Journal.jsx');
-    assert.match(academicWork, /<main\b/);
-    for (const collection of [academicWork, journal]) {
-        assert.match(collection, /<Link to="\/"[^>]*>[\s\S]*?<span>Home<\/span>[\s\S]*?<\/Link>/);
-        assert.doesNotMatch(collection, /<span>Back<\/span>/);
+test('scroll restoration lives in one place and is keyed on the route', () => {
+    // ScrollToTop is mounted once, above the router outlet, and reacts to the pathname.
+    // The 27 page-level `useEffect(() => window.scrollTo(0, 0), [])` copies it replaced
+    // ran on mount only: they could not see a route change, and on every navigation they
+    // fired after this one had already done the work.
+    const scrollToTop = read('src/components/layout/ScrollToTop.jsx');
+    assert.match(scrollToTop, /const \{ pathname \} = useLocation\(\)/);
+    assert.match(scrollToTop, /window\.scrollTo\(0, 0\)/);
+    assert.match(scrollToTop, /\}, \[pathname\]\)/, 'the reset is not keyed on the route');
+    assert.match(read('src/App.jsx'), /<ScrollToTop \/>/);
+
+    const pageFiles = [
+        ...readdirSync(new URL('../src/articles/', import.meta.url), { recursive: true })
+            .filter((name) => String(name).endsWith('.jsx'))
+            .map((name) => `src/articles/${String(name).replaceAll('\\', '/')}`),
+        ...readdirSync(new URL('../src/pages/', import.meta.url)).map((name) => `src/pages/${name}`),
+        ...readdirSync(new URL('../src/sections/', import.meta.url)).map((name) => `src/sections/${name}`),
+    ];
+
+    assert.ok(pageFiles.length >= 30, `expected the page tree to be covered, found ${pageFiles.length} files`);
+    for (const file of pageFiles) {
+        assert.doesNotMatch(read(file), /window\.scrollTo/, `${file} reimplements the global scroll reset`);
     }
+});
+
+test('every article page is framed by the shared layout, not by its own copy of it', () => {
+    // The container, the <main> landmark and the back link used to be pasted into each
+    // article; the three-word difference between two copies is how /freelance and the
+    // collections ended up labelling the same destination differently. ArticleLayout
+    // owns the frame — an article that hand-rolls one again is drift, not a variant.
+    const articles = readdirSync(new URL('../src/articles/', import.meta.url), { recursive: true })
+        .filter((name) => String(name).endsWith('.jsx'))
+        .map((name) => `src/articles/${String(name).replaceAll('\\', '/')}`);
+
+    assert.ok(articles.length >= 23, `expected every article to be covered, found ${articles.length}`);
+
+    for (const path of articles) {
+        const source = read(path);
+        assert.match(source, /<ArticleLayout backTo="[^"]+" backLabel="[^"]+"/, `${path} does not use ArticleLayout`);
+        assert.doesNotMatch(source, /<article className=/, `${path} re-implements the article container`);
+        assert.doesNotMatch(source, /inline-flex items-center space-x-2 text-sm text-secondary/, `${path} re-implements the back link`);
+    }
+
+    // Only two reading measures exist, and they are named rather than spelled as classes.
+    const layout = read('src/components/ArticleLayout.jsx');
+    assert.match(layout, /<main className=/, 'the layout does not provide the main landmark');
+    assert.match(layout, /<article>/, 'the layout drops the article element');
+    assert.deepEqual(
+        [...layout.matchAll(/^ {4}(\w+): '[^']+',$/gm)].map((match) => match[1]),
+        ['wide', 'narrow'],
+        'the reading measures are the only presentational choice the layout offers',
+    );
 });
 
 test('every citation marker resolves and every reference is cited', () => {

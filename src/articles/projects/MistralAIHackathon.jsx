@@ -1,18 +1,14 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import React from 'react';
+import ArticleLayout from '../../components/ArticleLayout';
+import { ExternalLink } from 'lucide-react';
 import SEO from '../../components/SEO';
 
 const REPO = 'https://github.com/MCP4Public/landing-page';
 const VIDEO_EMBED = 'https://www.youtube.com/embed/7jalJhWDMec?si=CGrJ-VBoOY7SFRna';
 
 const MistralAIHackathon = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
-        <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/" backLabel="Back">
             <SEO
                 title="Mistral AI MCP Hackathon: MCP Server for European Funding | Vivien Perrelle"
                 description="A short project page for the Mistral AI MCP Hackathon: an MCP server built with Andrea Gemelli, Alexandros Popov PhD, and Ali Ahmadi to help companies find European funding calls from Le Chat."
@@ -36,11 +32,6 @@ const MistralAIHackathon = () => {
                     "mainEntityOfPage": "https://vivienperrelle.com/projects/mistral-ai-hackathon"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
-            </Link>
-
             <header className="mb-12 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">Hackathon / MCP / Public Funding</span>
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
@@ -84,7 +75,7 @@ const MistralAIHackathon = () => {
                     I was a contributor, not the author of the repository. The demo is the best way to understand the project.
                 </p>
             </div>
-        </article>
+        </ArticleLayout>
     );
 };
 

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import React, { useState } from 'react';
+import BackLink from '../components/BackLink';
 import SEO from '../components/SEO';
 import { SITE_URL } from '../components/jsonld';
 
@@ -130,10 +129,6 @@ const ArtworkCard = ({ artwork, eager }) => {
 };
 
 const Art = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
         <main className="min-h-screen py-24 px-6 max-w-6xl mx-auto animate-in fade-in duration-700">
             <SEO
@@ -142,10 +137,7 @@ const Art = () => {
                 url="/art"
                 jsonLd={ART_JSON_LD}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
-            </Link>
+            <BackLink to="/" label="Back" />
 
             <header className="mb-12 space-y-4">
                 <h1 className="text-3xl md:text-4xl text-primary">Art</h1>

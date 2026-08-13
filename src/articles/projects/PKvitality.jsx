@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import ArticleLayout from '../../components/ArticleLayout';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
 import SEO from '../../components/SEO';
 
 const PKvitality = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
-        <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/" backLabel="Back">
             <SEO
                 title="Research Intern @ PKvitality: Building a Pandiabetic Smartwatch | Vivien Perrelle"
                 description="How the BioWatch prototype landed me an R&D internship at PKvitality, a 50-person startup that raised several million euros to build the first glucose-monitoring smartwatch for diabetics."
@@ -33,11 +29,6 @@ const PKvitality = () => {
                     "mainEntityOfPage": "https://vivienperrelle.com/projects/pkvitality"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
-            </Link>
-
             <header className="mb-12 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">MedTech · R&amp;D</span>
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
@@ -80,7 +71,7 @@ const PKvitality = () => {
                     className="w-full h-auto object-cover"
                 />
             </div>
-        </article>
+        </ArticleLayout>
     );
 };
 

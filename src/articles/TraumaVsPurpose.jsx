@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import React from 'react';
+import ArticleLayout from '../components/ArticleLayout';
 import SEO from '../components/SEO';
 import { AUTHOR } from '../components/jsonld';
 
-const TraumaVsPurpose = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
 
+const TraumaVsPurpose = () => {
     return (
-        <article className="min-h-screen py-24 px-6 max-w-3xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/journal" backLabel="Journal" width="narrow">
             <SEO
                 title="Trauma-Driven VS Purpose-Driven Entrepreneurship | Vivien Perrelle"
                 description="There is a prevailing narrative in VC: the best founders are broken. But there is a second path: the Purpose-Driven Founder."
@@ -30,11 +26,6 @@ const TraumaVsPurpose = () => {
                     "mainEntityOfPage": "https://vivienperrelle.com/journal/trauma-vs-purpose"
                 }}
             />
-            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Journal</span>
-            </Link>
-
             <header className="mb-12 space-y-6">
                 <span className="font-mono text-sm text-secondary">By Vivien Perrelle · 2026-02-09</span>
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
@@ -155,7 +146,7 @@ const TraumaVsPurpose = () => {
                     We need both types of founders. We need all types of founders.
                 </p>
             </div>
-        </article>
+        </ArticleLayout>
     );
 };
 

@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import ArticleLayout from '../components/ArticleLayout';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const B = '/build-glucose-biosensor';
@@ -59,12 +60,8 @@ const Note = ({ children }) => (
 );
 
 const GlucoseBiosensor = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
-        <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/journal" backLabel="Journal">
             <SEO
                 title="How to Build a Wearable Glucose Biosensor | Vivien Perrelle"
                 description="A tutorial to build a wearable, non-invasive glucose biosensor from screen-printed electrodes in a sweat patch, streaming data over Bluetooth Low Energy."
@@ -83,11 +80,6 @@ const GlucoseBiosensor = () => {
                     "mainEntityOfPage": "https://vivienperrelle.com/journal/glucose-biosensor"
                 }}
             />
-            <Link to="/journal" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Journal</span>
-            </Link>
-
             <header className="mb-12 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">Tutorial</span>
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
@@ -411,7 +403,7 @@ const GlucoseBiosensor = () => {
                 </footer>
 
             </div>
-        </article>
+        </ArticleLayout>
     );
 };
 

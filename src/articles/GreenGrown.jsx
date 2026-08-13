@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import React from 'react';
+import ArticleLayout from '../components/ArticleLayout';
+import { ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const Img = ({ src, alt, className = '' }) => (
@@ -15,12 +15,8 @@ const Img = ({ src, alt, className = '' }) => (
 );
 
 const GreenGrown = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
     return (
-        <article className="min-h-screen py-24 px-6 max-w-4xl mx-auto animate-in fade-in duration-700">
+        <ArticleLayout backTo="/" backLabel="Back">
             <SEO
                 title="Green-Grown: A Creative Plant-Stake Construction Game | Vivien Perrelle"
                 description="A modular, wood-based construction game that lets a climbing plant grow into a unique living shape. Designed, manufactured, and crowdfunded on Kickstarter."
@@ -41,11 +37,6 @@ const GreenGrown = () => {
                     "mainEntityOfPage": "https://vivienperrelle.com/projects/green-grown"
                 }}
             />
-            <Link to="/" className="inline-flex items-center space-x-2 text-sm text-secondary hover:text-primary transition-colors mb-12 group">
-                <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-                <span>Back</span>
-            </Link>
-
             <header className="mb-12 space-y-4">
                 <span className="font-mono text-xs text-secondary tracking-widest uppercase">Marketing · Product Design</span>
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
@@ -161,7 +152,7 @@ const GreenGrown = () => {
                 </footer>
 
             </div>
-        </article>
+        </ArticleLayout>
     );
 };
 
