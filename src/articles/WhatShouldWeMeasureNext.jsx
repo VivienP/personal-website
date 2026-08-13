@@ -62,7 +62,7 @@ const WhatShouldWeMeasureNext = () => {
                     Measure for Information, Not for Fitness: Designing Protein Experiments to Reveal Epistasis
                 </h1>
                 <p className="text-lg text-secondary font-light max-w-2xl">
-                    A protein language model can rank thousands of variants. But that ranking does not identify which variants would be most informative to measure. AI for science needs another capability: choosing experiments that reduce uncertainty and create new knowledge. This study allocates a fixed experimental budget to variants chosen to expose mutation interactions. Registered downstream benchmarks support the <code>structural</code> loop-count baseline over fitness-greedy selection on GB1 and TrpB; they do not support an added benefit from ESM masking dispersion.
+                    A protein language model can rank thousands of variants, but ranking does not identify which measurements are most useful for learning mutation interactions. This study compares label-blind allocation strategies under fixed experimental budgets. Historical downstream artifacts favored particular loop-count plates over fitness-greedy plates on GB1 and TrpB, while masking dispersion did not pass its incremental gate. A later audit withdrew the original epistasis-map-recovery interpretation because the metric shared measured lower-order terms between prediction and truth.
                 </p>
                 <ArticleByline slug={SLUG} />
             </header>
@@ -228,6 +228,11 @@ const WhatShouldWeMeasureNext = () => {
                         interaction-loop coverage rather than a representation of tertiary protein structure.
                     </p>
                     <p>
+                        The score rewards participation in interaction terms additively. It does not explicitly reward
+                        completing a measurement family, and it does not by itself guarantee that any interaction
+                        coefficient becomes identifiable.
+                    </p>
+                    <p>
                         The five tracked strategies are <code>random</code>; <code>fitness</code> (fitness-greedy); <code>practice</code>;{' '}
                         <code>structural</code> (loop count alone); and <code>info</code> (dispersion-weighted loop count).
                     </p>
@@ -286,39 +291,32 @@ const WhatShouldWeMeasureNext = () => {
                 <section className="space-y-6">
                     <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Evidence status</h2>
                     <p>
-                        Below is the registered pairwise map-recovery comparison for TrpB and the corrective GB1 analysis across the three experimental budgets.
-                    </p>
-                    <Figure
-                        src="/epibudget/map_recovery_trpb_vs_gb1.svg"
-                        alt="Pairwise epistasis-map recovery across experimental budgets on the TrpB and GB1 four-site landscapes, comparing structural loop coverage, ESM-2-weighted information allocation, fitness-greedy allocation, and random allocation"
-                        width="590.221875"
-                        height="620"
-                        framed={false}
-                        spacingClass="mb-10"
-                        number="5"
-                        title="Pairwise epistasis-map recovery across TrpB and GB1"
-                        description={<>For TrpB, <code>info</code> meets the registered pairwise map-recovery rule relative to <code>fitness</code> and <code>random</code>; the corrective GB1 analysis is inconclusive. <code>structural</code> denotes loop-coverage allocation. Point estimates only; y-axis scales differ by row.</>}
-                    />
-                    <p>
-                        The absence of intervals is a data-availability constraint: the public TrpB artifact does not include pointwise confidence intervals.
+                        The evidence boundary changed after a mathematical audit of the recovery metric.
                     </p>
                     <p>
-                        On TrpB, <code>info</code> meets the registered pairwise map-recovery rule relative to <code>fitness</code>{' '}
-                        and <code>random</code>. The <code>structural</code> loop-count baseline nevertheless yields higher Pearson
-                        and Spearman estimates at <code>B = 96</code> and <code>B = 192</code>, but not at <code>B = 48</code>.{' '}
-                        <strong>These results do not support an incremental contribution from masking dispersion.</strong>
+                        The original analysis correlated predicted and measured epistasis contrasts. Both quantities
+                        contained the same signed sum of purchased lower-order measurements. Their correlation could
+                        therefore increase through this shared skeleton, even if predictions for the unmeasured terms did
+                        not improve. The former map-recovery interpretation is withdrawn; those correlations are retained
+                        only as diagnostics.
                     </p>
                     <p>
-                        On GB1, a map-recovery re-analysis using cached model scores, without an additional GPU run, remains
-                        inconclusive. Pairwise correlation improves at all registered budgets, but the relative squared-error
-                        criterion is not met. No method is therefore declared the GB1 map-recovery winner.
+                        No tracked corrected-recovery artifact currently demonstrates positive error reduction. The
+                        project therefore makes no public claim that any method reconstructed an epistasis map.
                     </p>
                     <p>
-                        For downstream prediction, <strong>the registered <code>structural</code>-minus-<code>fitness</code>{' '}
-                        learning-curve AUC is positive in <code>20/20</code> partitions on both GB1 and TrpB.</strong> The{' '}
-                        <code>info</code>-minus-<code>structural</code> gate at <code>B = 192</code> is positive in{' '}
-                        <code>15/20</code> GB1 partitions and <code>0/20</code> TrpB partitions, below the registered threshold.
-                        Thus, the analysis supports structural allocation, not an incremental contribution from masking dispersion.
+                        The tracked downstream v1 artifacts remain historical observations on particular selected plates.
+                        Under one tie realization, the learning-curve AUC favored <code>structural</code> over
+                        fitness-greedy on GB1 and TrpB. The incremental <code>info</code> versus <code>structural</code>{' '}
+                        gate did not pass on either landscape. Because the loop-count score is constant within mutation
+                        order and the tracked artifacts do not sample tie seeds, these results do not estimate the
+                        acquisition method over its selection distribution.
+                    </p>
+                    <p>
+                        The supported interpretation is narrower: the project distinguishes fitness optimization from
+                        measurement design, implements reproducible label-blind baselines, preserves context-dependent
+                        ESM-2 scoring, and exposes why identifiability, selection variability and leakage-resistant
+                        metrics are central to scientific evaluation.
                     </p>
                     <p>
                         A registered gate is a success criterion specified before inspection of the final results.<Cite n={7} /> <strong>All
@@ -329,15 +327,36 @@ const WhatShouldWeMeasureNext = () => {
                         The TrpB source paper reports <code>871</code> imputed fitness values, but the public mirror does not
                         identify them row by row.
                     </p>
+
+                    <details className="not-prose border border-border-subtle rounded-lg bg-cream">
+                        <summary className="cursor-pointer list-none px-6 py-4 text-sm text-primary hover:text-accent transition-colors [&::-webkit-details-marker]:hidden">
+                            Show the withdrawn diagnostic figure
+                        </summary>
+                        <div className="px-6 pb-6">
+                            <Figure
+                                src="/epibudget/map_recovery_trpb_vs_gb1.svg"
+                                alt="Epistasis-contrast correlation across experimental budgets on the TrpB and GB1 four-site landscapes, comparing loop-count allocation, dispersion-weighted allocation, fitness-greedy allocation, and random allocation"
+                                width="590.221875"
+                                height="620"
+                                framed={false}
+                                spacingClass="mb-10"
+                                number="5"
+                                title="Withdrawn diagnostic — not evidence of epistasis-map recovery"
+                                description={<>Predicted and measured contrasts share purchased lower-order terms, so correlation can rise without better prediction of unmeasured components. See the evaluation methodology notes.<Cite n={7} /> Point estimates only; y-axis scales differ by row. The absence of intervals is a data-availability constraint: the public TrpB artifact does not include pointwise confidence intervals.</>}
+                            />
+                        </div>
+                    </details>
                 </section>
 
                 <section className="space-y-6">
                     <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">What the study established</h2>
                     <ol className="list-decimal pl-6 space-y-2 text-base marker:text-secondary">
-                        <li><strong>Variant selection can be posed as measurement design.</strong> Predicted fitness and expected experimental value are distinct objectives.</li>
-                        <li><strong>Interaction-loop coverage defines a reproducible design baseline.</strong></li>
-                        <li><strong>Conjoint scoring preserves context-dependent model signal.</strong> Applying every mutation before reading conditional scores avoids imposing additivity by construction.</li>
-                        <li><strong>The registered evaluations support loop-count allocation over fitness-greedy selection on both tested landscapes, but not an added contribution from masking dispersion.</strong></li>
+                        <li><strong>Variant selection can be posed as measurement design:</strong> predicted fitness and expected experimental value are distinct objectives.</li>
+                        <li><strong>Conjoint scoring avoids imposing additivity</strong> by separately scoring mutations on an unchanged reference context.</li>
+                        <li><strong>Loop count defines a simple, reproducible allocation baseline,</strong> but it does not explicitly reward loop completion or guarantee identifiability.</li>
+                        <li><strong>Historical downstream artifacts favored particular loop-count plates over fitness-greedy plates;</strong> the tracked evidence does not establish robustness across tie seeds.</li>
+                        <li><strong>Masking dispersion did not demonstrate incremental value</strong> in the tested v1 procedure.</li>
+                        <li><strong>The original map-recovery interpretation is withdrawn</strong> because its correlation metric was confounded by shared measured terms.</li>
                     </ol>
                     <p>
                         These findings remain provisional and do not establish generality beyond the evaluated landscapes, learner, and protocol.
@@ -417,7 +436,7 @@ const WhatShouldWeMeasureNext = () => {
                 <div className="not-prose pt-4">
                     <Link
                         to="/projects/epibudget"
-                        className="inline-flex items-center space-x-2 px-5 py-3 border border-border-subtle hover:border-accent transition-colors text-sm text-primary"
+                        className="inline-flex items-center justify-between sm:justify-start gap-2 px-5 py-3 border border-border-subtle hover:border-accent transition-colors text-sm text-primary"
                     >
                         <span>Explore the epibudget project</span>
                         <ArrowRight size={16} />
@@ -433,7 +452,7 @@ const WhatShouldWeMeasureNext = () => {
                         <li id="ref-4" className="scroll-mt-24">Lin, Z. et al. <a href="https://doi.org/10.1126/science.ade2574" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Evolutionary-scale prediction of atomic-level protein structure with a language model.</a> <em>Science</em> (2023).</li>
                         <li id="ref-5" className="scroll-mt-24">Wu, N. C. et al. <a href="https://elifesciences.org/articles/16965" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Adaptation in protein fitness landscapes is facilitated by indirect paths.</a> <em>eLife</em> (2016).</li>
                         <li id="ref-6" className="scroll-mt-24">Johnston, K. E. et al. <a href="https://doi.org/10.1073/pnas.2400439121" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">A combinatorially complete epistatic fitness landscape in an enzyme active site.</a> <em>PNAS</em> (2024).</li>
-                        <li id="ref-7" className="scroll-mt-24"><a href={`${REPO}/blob/main/docs/VALIDATION.md`} target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Frozen validation protocol</a>, <a href={`${REPO}/blob/main/docs/LIMITATIONS.md`} target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">limitations</a>, and <a href={`${REPO}/blob/main/artifacts/structural_allocation_650m.json`} target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">tracked evidence artifact</a>.</li>
+                        <li id="ref-7" className="scroll-mt-24"><a href={`${REPO}/blob/main/docs/VALIDATION.md`} target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Frozen validation protocol</a>, <a href={`${REPO}/blob/main/docs/AUDIT_REMEDIATION_20260728.md`} target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">audit remediation notes</a>, <a href={`${REPO}/blob/main/docs/LIMITATIONS.md`} target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">limitations</a>, and <a href={`${REPO}/blob/main/artifacts/structural_allocation_650m.json`} target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">tracked evidence artifact</a>.</li>
                     </ol>
                 </section>
             </div>

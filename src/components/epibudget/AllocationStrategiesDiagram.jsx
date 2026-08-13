@@ -59,7 +59,7 @@ const STRATEGIES = [
         label: 'Loop-count',
         criterion: 'interaction coverage',
         selection: ['A', 'B', 'C'],
-        note: 'Ranks by n(v), the number of interaction terms containing v. Singles carry the most terms, so measuring them closes the most loops.',
+        note: 'Ranks by n(v), the number of interaction terms containing v. A single mutant appears in the greatest number of interaction terms, so it enters the plate first.',
     },
     {
         key: 'dispersion-weighted',

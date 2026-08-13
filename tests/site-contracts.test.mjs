@@ -444,30 +444,47 @@ test('epibudget content is reciprocal, current with the tracked evidence, and us
 
     const project = read('src/articles/projects/Epibudget.jsx');
     const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
+    const explainer = read('src/articles/EpistasisExplained.jsx');
     assert.match(project, /View on GitHub/);
-    assert.match(project, /Read the research story/);
+    assert.match(project, /Read the technical analysis/);
     assert.match(project, /\/journal\/designing-protein-experiments-for-epistasis/);
     assert.match(article, /\/projects\/epibudget/);
     assert.doesNotMatch(article, /Illustration [1-5]|codex-inline-vis/);
 
-    for (const source of [article, project]) {
+    // The 2026-07-28 audit showed that predicted and measured epistasis contrasts share the
+    // purchased lower-order terms, so their correlation can rise without better prediction of
+    // anything unmeasured. Every public page has to carry that withdrawal, and none of them may
+    // reinstate the recovery claim or quote the tie-realization downstream counts as if they
+    // estimated the method across selection seeds.
+    for (const source of [article, project, explainer]) {
         for (const boundary of [
-            /TrpB.*info.*fitness.*random/is,
-            /20\/20[\s\S]*partitions[\s\S]*GB1[\s\S]*TrpB/i,
-            /masking(?:-| )dispersion.*(?:not support|no contribution claim)/is,
-            /provisional/i,
-            /871.*imputed.*fitness\s+values/is,
+            /withdrew|withdrawn/i,
+            /masking dispersion did not (?:pass|demonstrate)/i,
+            /tie[- ]?seeds?|tie realization|tie-breaking seeds/i,
         ]) {
             assert.match(source, boundary);
         }
 
-        assert.doesNotMatch(source, /confirmatory downstream benchmark has not yet been run/i);
-        assert.doesNotMatch(source, /TrpB scientific comparison is not interpretable/i);
-        assert.doesNotMatch(source, /No comparative selection result is currently decision-eligible/i);
+        for (const retracted of [
+            /meets the registered pairwise map-recovery rule/i,
+            /\b20\/20\b/,
+            /demonstrat\w+ (?:epistasis-)?map (?:recovery|reconstruction)/i,
+            /confirmatory downstream benchmark has not yet been run/i,
+            /TrpB scientific comparison is not interpretable/i,
+            /No comparative selection result is currently decision-eligible/i,
+        ]) {
+            assert.doesNotMatch(source, retracted);
+        }
+    }
+
+    for (const source of [article, project]) {
+        assert.match(source, /provisional/i);
+        assert.match(source, /871.*imputed.*fitness\s+values/is);
     }
 
     assert.match(project, /GB1 map[- ]recovery.*inconclusive_zero_gpu/is);
-    assert.match(article, /On GB1.*map-recovery.*remains\s+inconclusive/is);
+    assert.match(article, /former map-recovery interpretation is withdrawn/i);
+    assert.match(article, /makes no public claim that any method reconstructed an epistasis map/i);
     assert.doesNotMatch(article, /inconclusive_zero_gpu/);
 
     const accent = '#3A2328';
@@ -688,41 +705,38 @@ test('map-recovery SVG suppresses its embedded headline and subtitle without lea
     assert.match(figure, /<g id="text_60" style="display: none" aria-hidden="true">/);
     assert.match(figure, /<g id="text_61" style="display: none" aria-hidden="true">/);
 
-    for (const page of ['src/articles/WhatShouldWeMeasureNext.jsx', 'src/articles/projects/Epibudget.jsx']) {
-        assert.match(read(page), /src="\/epibudget\/map_recovery_trpb_vs_gb1\.svg"[\s\S]*?height="620"/);
-    }
+    assert.match(read('src/articles/WhatShouldWeMeasureNext.jsx'), /src="\/epibudget\/map_recovery_trpb_vs_gb1\.svg"[\s\S]*?height="620"/);
 });
 
-test('map-recovery figure uses rigorous HTML captions on both epibudget pages', () => {
+test('the map-recovery figure survives only as a labelled withdrawn diagnostic', () => {
+    // The figure is kept for transparency, not as evidence. It therefore lives behind a
+    // disclosure inside Evidence status, carries the withdrawal in its own caption, and no
+    // longer appears on the project page at all.
     const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
     const project = read('src/articles/projects/Epibudget.jsx');
-    const description = /For TrpB, <code>info<\/code> meets the registered pairwise map-recovery rule relative to <code>fitness<\/code> and <code>random<\/code>; the corrective GB1 analysis is inconclusive\. <code>structural<\/code> denotes loop-coverage allocation\. Point estimates only; y-axis scales differ by row\./;
-    const confidenceIntervalCaveat = /The absence of intervals is a data-availability constraint: the public TrpB artifact does not include pointwise confidence intervals\./;
+    const disclosure = article.match(/<details[\s\S]*?<\/details>/)?.[0] ?? '';
 
-    assert.match(article, /title="Pairwise epistasis-map recovery across TrpB and GB1"/);
-    assert.match(article, description);
-    assert.match(article, confidenceIntervalCaveat);
-    assert.match(project, /Pairwise epistasis-map recovery under fixed experimental budgets for TrpB and GB1/);
-    assert.match(project, description);
-    assert.match(project, confidenceIntervalCaveat);
+    assert.ok(disclosure, 'withdrawn-diagnostic disclosure not found');
+    assert.match(disclosure, /Show the withdrawn diagnostic figure/);
+    assert.match(disclosure, /src="\/epibudget\/map_recovery_trpb_vs_gb1\.svg"/);
+    assert.match(disclosure, /title="Withdrawn diagnostic — not evidence of epistasis-map recovery"/);
+    assert.match(disclosure, /Predicted and measured contrasts share purchased lower-order terms, so correlation can rise without better prediction of unmeasured components\./);
+    assert.match(disclosure, /The absence of intervals is a data-availability constraint: the public TrpB artifact does not include pointwise confidence intervals\./);
+    assert.match(disclosure, /framed=\{false\}/);
+    assert.match(disclosure, /spacingClass="mb-10"/);
+
+    assert.doesNotMatch(project, /map_recovery_trpb_vs_gb1\.svg/);
 });
 
-test('map-recovery figure is presented without a decorative frame on either page', () => {
+test('Evidence status opens on the audit rather than on the withdrawn figure', () => {
     const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
-    const project = read('src/articles/projects/Epibudget.jsx');
-    const figure = project.match(/<figure[\s\S]*?map_recovery_trpb_vs_gb1\.svg[\s\S]*?<\/figure>/)?.[0] ?? '';
+    const section = article.match(/<h2[^>]*>Evidence status<\/h2>[\s\S]*?<\/section>/)?.[0] ?? '';
 
-    assert.ok(figure, 'project map-recovery figure not found');
-    assert.doesNotMatch(figure, /\bborder(?:-[a-z]+)?\b|\brounded(?:-[a-z]+)?\b/);
-    assert.match(article, /src="\/epibudget\/map_recovery_trpb_vs_gb1\.svg"[\s\S]*?framed=\{false\}/);
-});
-
-test('Evidence status introduces the map-recovery figure without the generic top margin', () => {
-    const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
-
-    assert.match(
-        article,
-        /<h2[^>]*>Evidence status<\/h2>\s*<p>\s*Below is the registered pairwise map-recovery comparison for TrpB and the corrective GB1 analysis across the three experimental budgets\.\s*<\/p>\s*<Figure[\s\S]*?src="\/epibudget\/map_recovery_trpb_vs_gb1\.svg"[\s\S]*?spacingClass="mb-10"/,
+    assert.ok(section, 'Evidence status section not found');
+    assert.match(section, /<h2[^>]*>Evidence status<\/h2>\s*<p>\s*The evidence boundary changed after a mathematical audit of the recovery metric\.\s*<\/p>/);
+    assert.ok(
+        section.indexOf('The former map-recovery interpretation is withdrawn') < section.indexOf('<details'),
+        'the withdrawal has to be stated before the figure is offered',
     );
 });
 
