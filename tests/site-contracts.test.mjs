@@ -267,7 +267,7 @@ test('Journal collection reuses the homepage list and shows one of five interest
     assert.match(section, /tag=\{showTags \? article\.tag : undefined\}/);
     assert.match(section, /<h2[^>]*>Journal<\/h2>/);
     assert.doesNotMatch(section, /<Link to="\/journal"|<ArrowUpRight size=\{18\}/);
-    assert.equal(tags.length, 10, 'every Journal article needs exactly one tag');
+    assert.equal(tags.length, 11, 'every Journal article needs exactly one tag');
     assert.deepEqual(uniqueTags, [
         'AI-for-science',
         'Agentic AI',
@@ -403,6 +403,10 @@ test('epibudget pages and figures are present', () => {
     const requiredFiles = [
         'src/articles/projects/Epibudget.jsx',
         'src/articles/WhatShouldWeMeasureNext.jsx',
+        'src/articles/EpistasisExplained.jsx',
+        'src/components/epibudget/BudgetScaleDiagram.jsx',
+        'src/components/epibudget/MeasurementSquareDiagram.jsx',
+        'src/components/epibudget/SelectionPipelineDiagram.jsx',
         'public/epibudget/workflow.webp',
         'public/epibudget/trpb-pairwise-map-recovery.png',
         'public/epibudget/epistasis-loops.svg',
@@ -420,6 +424,7 @@ test('epibudget routes and homepage entries have flagship placement', () => {
     const manifest = read('src/routeManifest.js');
     assert.match(manifest, /path: '\/projects\/epibudget'.*Epibudget\.jsx/);
     assert.match(manifest, /path: '\/journal\/designing-protein-experiments-for-epistasis'.*WhatShouldWeMeasureNext\.jsx/);
+    assert.match(manifest, /path: '\/journal\/epistasis-explained-best-variant-vs-best-experiment'.*EpistasisExplained\.jsx/);
 
     const projects = read('src/sections/Projects.jsx');
     const locus = projects.indexOf('title: "LocusLab"');
@@ -428,10 +433,13 @@ test('epibudget routes and homepage entries have flagship placement', () => {
     assert.ok(locus !== -1 && epibudget > locus && epibudget < verifier, 'epibudget is not the second project');
 
     const journal = read('src/data/journalArticles.js');
+    const explainer = journal.indexOf('title: "Epistasis Explained: Why the Best Protein Variant Is Not Always the Best Experiment"');
+    const technical = journal.indexOf('title: "Measure for Information, Not for Fitness: Designing Protein Experiments to Reveal Epistasis"');
+    assert.ok(explainer !== -1, 'the accessible explainer is missing from the Journal listing');
     assert.ok(
-        journal.indexOf('title: "Measure for Information, Not for Fitness: Designing Protein Experiments to Reveal Epistasis"') <
-            journal.indexOf('title: "AI for Science Is Moving From Prediction to Closed-Loop Research Systems"'),
-        'epibudget article is not the newest Journal entry',
+        explainer < technical &&
+            technical < journal.indexOf('title: "AI for Science Is Moving From Prediction to Closed-Loop Research Systems"'),
+        'the epibudget articles are not the newest Journal entries',
     );
 });
 
@@ -504,6 +512,110 @@ test('epibudget content is reciprocal, current with the tracked evidence, and us
         assert.ok(colors.includes(accent), `${name} does not use the site accent`);
         assert.deepEqual([...new Set(colors)].filter((color) => !allowedColors.has(color)), [], `${name} introduces a new color`);
     }
+});
+
+test('the accessible explainer teaches the distinction without overclaiming', () => {
+    const explainer = read('src/articles/EpistasisExplained.jsx');
+    const compact = explainer.replace(/\s+/g, ' ');
+
+    assert.match(explainer, /const SLUG = 'epistasis-explained-best-variant-vs-best-experiment';/);
+    // "Primer" names what the piece is; the audience signal is a checkable fact rather
+    // than a difficulty judgement, and neither describes the format the way "visual
+    // explainer" did — every article on the site has figures.
+    assert.match(explainer, /Primer · No protein-ML background needed · AI for Science/);
+    assert.doesNotMatch(explainer, /Visual explainer|Beginner-friendly/);
+
+    // The pairwise epistasis equation is the only formula the core idea depends on.
+    assert.match(compact, /ε\(A,B\) = Δ\(AB\) − Δ\(A\) − Δ\(B\)/);
+    assert.equal((explainer.match(/<MathBlock/g) ?? []).length, 2, 'the explainer should display at most the epistasis and info-score formulas');
+
+    for (const requiredCopy of [
+        '29,678 candidates in total',
+        'That plate covers about 0.3% of the candidate set',
+        'the structure of the <strong>interaction graph</strong>, not the protein&apos;s three-dimensional structure',
+        'it does not by itself guarantee that any interaction becomes identifiable',
+        'masking dispersion is not calibrated predictive uncertainty',
+        'not evidence that epibudget reconstructed an epistasis map',
+        'they are not promoted estimates of the acquisition method as a whole',
+    ]) {
+        assert.match(compact, new RegExp(escapeRegex(requiredCopy)));
+    }
+
+    for (const [component, number] of [
+        ['BudgetScaleDiagram', '1'],
+        ['MeasurementSquareDiagram', '2'],
+        ['SelectionPipelineDiagram', '3'],
+    ]) {
+        assert.match(explainer, new RegExp(`import ${component} from '\\.\\./components/epibudget/${component}'`));
+        assert.match(compact, new RegExp(`<${component} number="${number}"`));
+    }
+});
+
+test('the three epibudget pages route to one another and to the repository', () => {
+    const pages = {
+        explainer: read('src/articles/EpistasisExplained.jsx'),
+        article: read('src/articles/WhatShouldWeMeasureNext.jsx'),
+        project: read('src/articles/projects/Epibudget.jsx'),
+    };
+    const destinations = {
+        explainer: '/journal/epistasis-explained-best-variant-vs-best-experiment',
+        article: '/journal/designing-protein-experiments-for-epistasis',
+        project: '/projects/epibudget',
+    };
+
+    for (const [name, source] of Object.entries(pages)) {
+        for (const [target, path] of Object.entries(destinations)) {
+            if (target === name) continue;
+            assert.match(source, new RegExp(escapeRegex(path)), `${name} does not link to ${path}`);
+        }
+        // Every page declares the repository as the canonical implementation, but only the
+        // project page and the technical note link it in visible copy: the explainer keeps
+        // two buttons and routes readers to GitHub through the project page.
+        assert.match(source, /codeRepository: REPO|codeRepository": REPO/, `${name} does not declare the repository`);
+    }
+
+    for (const [name, source] of [['article', pages.article], ['project', pages.project]]) {
+        assert.match(source, /href=\{?[`"']?\$?\{?REPO/, `${name} has no visible link to the repository`);
+    }
+    assert.doesNotMatch(pages.explainer, /Inspect the code and evidence boundary on GitHub/);
+
+    // Two call-to-action buttons per article, no more: a third turned the end of the
+    // reading into a menu. The project page routes with its own "three ways in" cards.
+    // Counted by the button class because nothing else distinguishes a call to action
+    // from the dozens of inline links in the prose — this is an editorial limit, not a
+    // styling assertion, and it has no equivalent in the rendered HTML either.
+    for (const name of ['explainer', 'article']) {
+        const buttons = pages[name].match(/px-5 py-3 border border-border-subtle/g) ?? [];
+        assert.equal(buttons.length, 2, `${name} shows ${buttons.length} call-to-action buttons`);
+    }
+
+    // The technical note is advanced; the banner is how a newcomer finds the way in.
+    assert.match(pages.article, /Technical research note · Advanced · approximately 15 minutes/);
+    assert.match(pages.article, /New to epistasis or experimental design\? Start with the primer/);
+
+    for (const path of ['Read the primer', 'Read the technical analysis', 'Inspect code and evidence']) {
+        assert.match(pages.project, new RegExp(escapeRegex(path)), `project page is missing the "${path}" reading path`);
+    }
+});
+
+test('the explainer diagrams take their colours from the theme, not from hardcoded hex', () => {
+    for (const name of ['BudgetScaleDiagram', 'MeasurementSquareDiagram', 'SelectionPipelineDiagram']) {
+        const component = read(`src/components/epibudget/${name}.jsx`);
+        assert.deepEqual(component.match(/#[0-9A-Fa-f]{3,8}\b/g) ?? [], [], `${name} hardcodes a colour`);
+        assert.match(component, /text-accent|text-primary|text-secondary|border-accent/, `${name} does not use the site palette`);
+    }
+
+    // Geometry-only SVGs stay out of the accessibility tree; the numbers are real HTML text.
+    const budget = read('src/components/epibudget/BudgetScaleDiagram.jsx');
+    assert.equal((budget.match(/aria-hidden="true"/g) ?? []).length, 2);
+    for (const number of ['96 wells', '29,678 candidates', '76 single mutants', '2,166 double mutants', '27,436 triple mutants']) {
+        assert.match(budget, new RegExp(escapeRegex(number)));
+    }
+
+    const square = read('src/components/epibudget/MeasurementSquareDiagram.jsx');
+    assert.match(square, /role="img"/);
+    assert.match(square, /aria-labelledby=/);
+    assert.match(square, /Filled corners are measured/);
 });
 
 test('epibudget article keeps a restrained scientific voice', () => {

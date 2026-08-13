@@ -7,6 +7,7 @@ import { AUTHOR } from '../../components/jsonld';
 
 const REPO = 'https://github.com/VivienP/epistasis-budget';
 const ARTICLE = '/journal/designing-protein-experiments-for-epistasis';
+const EXPLAINER = '/journal/epistasis-explained-best-variant-vs-best-experiment';
 
 const EVIDENCE_STATUS = [
     {
@@ -51,11 +52,18 @@ const Epibudget = () => {
                     author: AUTHOR,
                     publisher: { '@type': 'Person', name: 'Vivien Perrelle' },
                     url: 'https://vivienperrelle.com/projects/epibudget',
-                    subjectOf: {
-                        '@type': 'BlogPosting',
-                        name: 'Measure for Information, Not for Fitness: Designing Protein Experiments to Reveal Epistasis',
-                        url: `https://vivienperrelle.com${ARTICLE}`,
-                    },
+                    subjectOf: [
+                        {
+                            '@type': 'BlogPosting',
+                            name: 'Epistasis Explained: Why the Best Protein Variant Is Not Always the Best Experiment',
+                            url: `https://vivienperrelle.com${EXPLAINER}`,
+                        },
+                        {
+                            '@type': 'BlogPosting',
+                            name: 'Measure for Information, Not for Fitness: Designing Protein Experiments to Reveal Epistasis',
+                            url: `https://vivienperrelle.com${ARTICLE}`,
+                        },
+                    ],
                     keywords: 'protein engineering, epistasis, experimental design, ESM-2, active learning, open source',
                 }}
             />
@@ -72,19 +80,41 @@ const Epibudget = () => {
                 </p>
             </header>
 
-            <figure className="mb-16 -mx-6 md:mx-0">
-                <img
-                    src="/epibudget/map_recovery_trpb_vs_gb1.svg"
-                    alt="Pairwise epistasis-map recovery across experimental budgets on TrpB and GB1, comparing loop-coverage, ESM-2-weighted, fitness-greedy, and random selection"
-                    width="590.221875"
-                    height="620"
-                    className="block w-full h-auto"
-                />
-                <figcaption className="mt-4 mx-6 md:mx-0 space-y-1 text-base leading-relaxed text-primary">
-                    <p className="font-semibold">Pairwise epistasis-map recovery under fixed experimental budgets for TrpB and GB1</p>
-                    <p className="italic font-normal">For TrpB, <code>info</code> meets the registered pairwise map-recovery rule relative to <code>fitness</code> and <code>random</code>; the corrective GB1 analysis is inconclusive. <code>structural</code> denotes loop-coverage allocation. Point estimates only; y-axis scales differ by row.</p>
-                </figcaption>
-            </figure>
+            <div className="border border-border-subtle rounded-lg bg-cream p-6 mb-12 space-y-2">
+                <p className="font-mono text-xs uppercase tracking-widest text-secondary">Primary result</p>
+                <p className="text-base leading-relaxed text-primary">
+                    Historical downstream runs favored particular loop-count plates over fitness-greedy plates on GB1
+                    and TrpB. Masking dispersion did not demonstrate incremental value, and a later audit withdrew the
+                    earlier epistasis-map-recovery interpretation.
+                </p>
+            </div>
+
+            <nav aria-label="Reading paths" className="mb-16 space-y-3">
+                <p className="font-mono text-xs uppercase tracking-widest text-secondary">Three ways in</p>
+                <div className="grid gap-3 md:grid-cols-3">
+                    <Link to={EXPLAINER} className="group border border-border-strong p-5 hover:border-accent transition-colors flex flex-col justify-between gap-4">
+                        <span className="space-y-1 block">
+                            <span className="block text-primary group-hover:text-accent transition-colors">Read the primer</span>
+                            <span className="block text-sm text-secondary leading-relaxed">Epistasis, measurement budgets, and the question the project starts from.</span>
+                        </span>
+                        <ArrowRight size={16} className="text-secondary group-hover:text-accent transition-colors" />
+                    </Link>
+                    <Link to={ARTICLE} className="group border border-border-subtle p-5 hover:border-accent transition-colors flex flex-col justify-between gap-4">
+                        <span className="space-y-1 block">
+                            <span className="block text-primary group-hover:text-accent transition-colors">Read the technical analysis</span>
+                            <span className="block text-sm text-secondary leading-relaxed">The research note: method, evaluation, and the audit.</span>
+                        </span>
+                        <ArrowRight size={16} className="text-secondary group-hover:text-accent transition-colors" />
+                    </Link>
+                    <a href={REPO} target="_blank" rel="noopener noreferrer" className="group border border-border-subtle p-5 hover:border-accent transition-colors flex flex-col justify-between gap-4">
+                        <span className="space-y-1 block">
+                            <span className="block text-primary group-hover:text-accent transition-colors">Inspect code and evidence</span>
+                            <span className="block text-sm text-secondary leading-relaxed">The repository, its artifacts, and its stated limitations.</span>
+                        </span>
+                        <ExternalLink size={14} className="text-secondary group-hover:text-accent transition-colors" />
+                    </a>
+                </div>
+            </nav>
 
             <div className="text-primary max-w-none space-y-12 font-light leading-relaxed">
                 <section className="space-y-6">

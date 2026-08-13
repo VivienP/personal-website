@@ -11,6 +11,7 @@ import MathBlock from '../components/MathBlock';
 import AllocationStrategiesDiagram from '../components/epibudget/AllocationStrategiesDiagram';
 
 const REPO = 'https://github.com/VivienP/epistasis-budget';
+const EXPLAINER = '/journal/epistasis-explained-best-variant-vs-best-experiment';
 const SLUG = 'designing-protein-experiments-for-epistasis';
 
 // A static numbered figure. The caption comes from the same FigureCaption the inline
@@ -66,6 +67,19 @@ const WhatShouldWeMeasureNext = () => {
                 </p>
                 <ArticleByline slug={SLUG} />
             </header>
+
+            <aside className="mb-12 border border-border-subtle rounded-lg bg-cream p-6 space-y-2">
+                <p className="font-mono text-xs uppercase tracking-widest text-secondary">
+                    Technical research note · Advanced · approximately 15 minutes
+                </p>
+                <p className="text-base leading-relaxed text-primary">
+                    New to epistasis or experimental design? Start with the primer:{' '}
+                    <Link to={EXPLAINER} className="italic border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
+                        Epistasis Explained: Why the Best Protein Variant Is Not Always the Best Experiment
+                    </Link>
+                    .
+                </p>
+            </aside>
 
             <Figure
                 src="/epibudget/workflow.webp"
@@ -433,7 +447,14 @@ const WhatShouldWeMeasureNext = () => {
                     </p>
                 </section>
 
-                <div className="not-prose pt-4">
+                <div className="not-prose pt-4 flex flex-col sm:flex-row flex-wrap gap-3">
+                    <Link
+                        to={EXPLAINER}
+                        className="inline-flex items-center justify-between sm:justify-start gap-2 px-5 py-3 border border-border-subtle hover:border-accent transition-colors text-sm text-primary"
+                    >
+                        <span>Read the primer</span>
+                        <ArrowRight size={16} />
+                    </Link>
                     <Link
                         to="/projects/epibudget"
                         className="inline-flex items-center justify-between sm:justify-start gap-2 px-5 py-3 border border-border-subtle hover:border-accent transition-colors text-sm text-primary"
@@ -458,6 +479,7 @@ const WhatShouldWeMeasureNext = () => {
             </div>
 
             <AuthorBio readNext={[
+                { to: EXPLAINER, label: 'Epistasis Explained: Why the Best Protein Variant Is Not Always the Best Experiment' },
                 { to: '/projects/epibudget', label: 'epibudget: experimental design for protein epistasis' },
                 { to: '/journal/ai-for-science-is-becoming-a-systems-problem', label: 'AI for Science Is Moving From Prediction to Closed-Loop Research Systems' },
                 { to: '/projects/scientific-claim-verifier', label: 'Scientific Claim Verifier: open-source claim-to-source verification' },
