@@ -1,26 +1,20 @@
 import React from 'react';
 import ArticleLayout from '../components/ArticleLayout';
+import Cite from '../components/Cite';
+import FigureCaption from '../components/FigureCaption';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import { AUTHOR } from '../components/jsonld';
 import AuthorBio from '../components/AuthorBio';
+import MathBlock from '../components/MathBlock';
 import AllocationStrategiesDiagram from '../components/epibudget/AllocationStrategiesDiagram';
 
 const REPO = 'https://github.com/VivienP/epistasis-budget';
 
-const Cite = ({ n }) => (
-    <sup>
-        <a
-            href={`#ref-${n}`}
-            className="text-accent no-underline hover:underline font-mono text-xs align-super"
-            aria-label={`Jump to reference ${n}`}
-        >
-            [{n}]
-        </a>
-    </sup>
-);
-
+// A static numbered figure. The caption comes from the same FigureCaption the inline
+// React diagrams use, so an image figure and a diagram figure cannot drift apart in
+// wording or typography; only the image and its measure are this article's business.
 const Figure = ({ src, alt, number, title, description, width, height, wide = false, framed = true, spacingClass = 'my-10', maxWidthClass = 'max-w-full' }) => (
     <figure className={`${spacingClass} ${wide ? 'lg:-mx-16' : ''} not-prose`}>
         <img
@@ -31,21 +25,8 @@ const Figure = ({ src, alt, number, title, description, width, height, wide = fa
             className={`block mx-auto w-full h-auto ${framed ? 'border border-border-subtle rounded-lg bg-cream' : ''} ${maxWidthClass}`}
             loading="lazy"
         />
-        <figcaption className={`mt-4 mx-auto space-y-1 text-base leading-relaxed text-primary ${maxWidthClass}`}>
-            <p className="font-semibold">Figure n°{number}: {title}</p>
-            <p className="italic font-normal"><span>Description:</span> {description}</p>
-        </figcaption>
+        <FigureCaption number={number} title={title} description={description} className={`mx-auto ${maxWidthClass}`} />
     </figure>
-);
-
-const MathBlock = ({ label, children }) => (
-    <div
-        role="math"
-        aria-label={label}
-        className="my-8 border-y border-border-subtle py-6 px-4 text-center text-base sm:text-xl md:text-2xl font-serif leading-relaxed [text-wrap:balance]"
-    >
-        {children}
-    </div>
 );
 
 const WhatShouldWeMeasureNext = () => {

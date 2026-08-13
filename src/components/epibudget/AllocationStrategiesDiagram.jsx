@@ -1,4 +1,5 @@
 import { useId, useState, useSyncExternalStore } from 'react';
+import FigureCaption from '../FigureCaption';
 
 /**
  * Guided comparison of the five allocation strategies tracked in the epibudget v1
@@ -253,10 +254,7 @@ const AllocationStrategiesDiagram = ({ maxWidthClass = 'max-w-full', number, tit
                 </div>
             </div>
 
-            <figcaption className="mt-4 space-y-1 text-base leading-relaxed text-primary">
-                <p className="font-semibold">Figure n°{number}: {title}</p>
-                <p className="italic font-normal"><span>Description:</span> {description}</p>
-            </figcaption>
+            <FigureCaption number={number} title={title} description={description} />
         </figure>
     );
 };

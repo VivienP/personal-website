@@ -202,7 +202,7 @@ test('package exposes the regression suite', () => {
 
 test('epibudget editorial figures are images, not links to their assets', () => {
     const article = read('src/articles/WhatShouldWeMeasureNext.jsx');
-    const figureHelper = article.match(/const Figure = \([\s\S]*?\n\);\r?\n\r?\nconst MathBlock/)?.[0] ?? '';
+    const figureHelper = article.match(/const Figure = \([\s\S]*?\n\);\r?\n\r?\nconst WhatShouldWeMeasureNext/)?.[0] ?? '';
 
     assert.ok(figureHelper, 'Figure helper is missing');
     assert.match(figureHelper, /<img\b/);
@@ -677,11 +677,15 @@ test('editorial figure captions follow images and use the approved copy', () => 
         assert.match(article, new RegExp(`description="${escapeRegex(description)}"`));
     }
 
-    assert.match(article, /<img[\s\S]*?\/>\s*<figcaption/);
-    assert.match(article, /Figure n°\{number\}: \{title\}/);
-    assert.match(article, /<span>Description:<\/span> \{description\}/);
-    assert.match(article, /<figcaption className=\{`[^`]*text-base leading-relaxed[^`]*`\}>/);
-    assert.doesNotMatch(article, /<figcaption className=\{`[^`]*text-lg[^`]*`\}>/);
+    // One caption component for static images and inline React diagrams alike, so the
+    // two families cannot drift into different wording. The rendered order — image,
+    // then caption — is checked on the built page in dist-contracts.test.mjs.
+    const caption = read('src/components/FigureCaption.jsx');
+    assert.match(caption, /<figcaption/);
+    assert.match(caption, /Figure n°\{number\}: \{title\}/);
+    assert.match(caption, /<span>Description:<\/span> \{description\}/);
+    assert.match(article, /<img[\s\S]*?\/>\s*<FigureCaption/);
+    assert.doesNotMatch(article, /<figcaption/, 'the article hand-rolls a caption instead of using FigureCaption');
     assert.doesNotMatch(article, /mobileScrollable|min-w-\[760px\]|Swipe horizontally/);
 });
 

@@ -1,38 +1,12 @@
 import React from 'react';
 import ArticleLayout from '../components/ArticleLayout';
+import Figure from '../components/ArticleFigure';
+import Cite from '../components/Cite';
 import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const B = '/build-lactate-biosensor';
-
-// Inline reference marker rendered as a superscript link.
-const Cite = ({ n }) => (
-    <sup>
-        <a
-            href={`#ref-${n}`}
-            className="text-accent no-underline hover:underline font-mono text-xs align-super"
-            aria-label={`Jump to reference ${n}`}
-        >
-            [{n}]
-        </a>
-    </sup>
-);
-
-// Bordered image with optional caption.
-const Figure = ({ src, alt, caption, className = '' }) => (
-    <figure className="space-y-3">
-        <div className={`border border-border-subtle ${className}`}>
-            <img
-                src={src}
-                alt={alt}
-                loading="lazy"
-                className="w-full h-auto object-contain"
-            />
-        </div>
-        {caption && <figcaption className="text-sm text-secondary italic">{caption}</figcaption>}
-    </figure>
-);
 
 // Tip / "did you know" callout, mirroring the Notion asides.
 const Note = ({ children }) => (

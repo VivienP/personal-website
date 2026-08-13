@@ -1,18 +1,8 @@
 import React from 'react';
 import ArticleLayout from '../components/ArticleLayout';
+import Img from '../components/BorderedImage';
 import { ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
-
-const Img = ({ src, alt, className = '' }) => (
-    <div className="border border-border-subtle">
-        <img
-            src={src}
-            alt={alt}
-            loading="lazy"
-            className={`w-full h-auto object-contain ${className}`}
-        />
-    </div>
-);
 
 const GreenGrown = () => {
     return (

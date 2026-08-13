@@ -240,3 +240,22 @@ test('the main content of an article is present without JavaScript', () => {
     const body = article.html.replace(/<script[\s\S]*?<\/script>/g, '');
     assert.ok(body.length > 20_000, `prerendered body is only ${body.length} bytes — content is not in the static HTML`);
 });
+
+test('numbered figures are captioned in order, under the image they describe', () => {
+    const article = pages.find((p) => p.route === '/journal/designing-protein-experiments-for-epistasis');
+    // React splits interpolated text with <!-- --> markers; they are invisible to a
+    // reader, so the caption is read the way a reader receives it.
+    const text = article.html.replace(/<!--[\s\S]*?-->/g, '');
+    const numbers = [...text.matchAll(/Figure n°(\d+):/g)].map((match) => Number(match[1]));
+
+    assert.ok(numbers.length >= 4, `only ${numbers.length} numbered figures on the flagship article`);
+    assert.deepEqual(
+        numbers,
+        numbers.map((_, index) => index + 1),
+        `figure numbers are not consecutive in reading order: ${numbers.join(', ')}`,
+    );
+    // The caption belongs to the figure, and follows it: a caption rendered before its
+    // image reads as an introduction to the next section instead.
+    assert.match(text, /<img[^>]*>\s*<figcaption/, 'no image figure is followed by its caption');
+    assert.match(text, /<figcaption[^>]*>[\s\S]{0,160}?Description:/);
+});

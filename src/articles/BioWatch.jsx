@@ -1,30 +1,9 @@
 import React from 'react';
 import ArticleLayout from '../components/ArticleLayout';
+import Img from '../components/BorderedImage';
+import Cite from '../components/Cite';
 import { ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
-
-const Cite = ({ n }) => (
-    <sup>
-        <a
-            href={`#ref-${n}`}
-            className="text-accent no-underline hover:underline font-mono text-xs align-super"
-            aria-label={`Jump to reference ${n}`}
-        >
-            [{n}]
-        </a>
-    </sup>
-);
-
-const Img = ({ src, alt, className = '' }) => (
-    <div className="border border-border-subtle">
-        <img
-            src={src}
-            alt={alt}
-            loading="lazy"
-            className={`w-full h-auto object-contain ${className}`}
-        />
-    </div>
-);
 
 const BioWatch = () => {
     return (

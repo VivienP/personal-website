@@ -1,21 +1,11 @@
 import React from 'react';
 import ArticleLayout from '../components/ArticleLayout';
+import Cite from '../components/Cite';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { AUTHOR } from '../components/jsonld';
 import AuthorBio from '../components/AuthorBio';
 
-const Cite = ({ n }) => (
-    <sup>
-        <a
-            href={`#ref-${n}`}
-            className="text-accent no-underline hover:underline font-mono text-xs align-super"
-            aria-label={`Jump to reference ${n}`}
-        >
-            [{n}]
-        </a>
-    </sup>
-);
 
 const AIForScienceIsBecomingInfrastructure = () => {
     return (
