@@ -349,14 +349,16 @@ const EpistasisExplained = () => {
                     </p>
                     <p>
                         That interpretation is now withdrawn. The old correlation remains a diagnostic, not evidence
-                        that epibudget reconstructed an epistasis map.
+                        that epibudget reconstructed an epistasis map. The audit also fixed what the right question
+                        looks like: recovery has to be measured on the interaction terms the experiment never bought,
+                        so the standing test now works directly on those unmeasured Fourier coefficients.
                     </p>
                     <p>The defensible conclusions are narrower:</p>
                     <ol className="list-decimal pl-6 space-y-2 text-base marker:text-secondary">
                         <li>predicted fitness and experimental value are different objectives;</li>
                         <li>conjoint scoring can retain context-dependent model signal;</li>
                         <li>interaction-count allocation is a useful and reproducible baseline;</li>
-                        <li>masking dispersion did not demonstrate added value in the tested v1 procedure;</li>
+                        <li>masking dispersion has not yet shown added value beyond loop coverage in the tested v1 procedure;</li>
                         <li>identifiability and metric design are as important as model sophistication.</li>
                     </ol>
                     <p>

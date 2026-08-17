@@ -315,8 +315,14 @@ const WhatShouldWeMeasureNext = () => {
                         only as diagnostics.
                     </p>
                     <p>
-                        No tracked corrected-recovery artifact currently demonstrates positive error reduction. The
-                        project therefore makes no public claim that any method reconstructed an epistasis map.
+                        The audit did not only remove a claim: it specified the replacement. Recovery is now posed
+                        directly on the Fourier coefficients of the unmeasured interaction terms, which cannot inherit
+                        the purchased lower-order skeleton.
+                    </p>
+                    <p>
+                        No tracked corrected-recovery artifact currently demonstrates positive error reduction under
+                        that test. The project therefore makes no public claim that any method reconstructed an
+                        epistasis map.
                     </p>
                     <p>
                         The tracked downstream v1 artifacts remain historical observations on particular selected plates.
@@ -369,8 +375,8 @@ const WhatShouldWeMeasureNext = () => {
                         <li><strong>Conjoint scoring avoids imposing additivity</strong> by separately scoring mutations on an unchanged reference context.</li>
                         <li><strong>Loop count defines a simple, reproducible allocation baseline,</strong> but it does not explicitly reward loop completion or guarantee identifiability.</li>
                         <li><strong>Historical downstream artifacts favored particular loop-count plates over fitness-greedy plates;</strong> the tracked evidence does not establish robustness across tie seeds.</li>
-                        <li><strong>Masking dispersion did not demonstrate incremental value</strong> in the tested v1 procedure.</li>
-                        <li><strong>The original map-recovery interpretation is withdrawn</strong> because its correlation metric was confounded by shared measured terms.</li>
+                        <li><strong>Masking dispersion has not yet shown added value beyond loop coverage</strong> in the tested v1 procedure.</li>
+                        <li><strong>The original map-recovery interpretation is withdrawn</strong> because its correlation metric was confounded by shared measured terms, and the audit sharpened the question into a stricter Fourier-coefficient test.</li>
                     </ol>
                     <p>
                         These findings remain provisional and do not establish generality beyond the evaluated landscapes, learner, and protocol.

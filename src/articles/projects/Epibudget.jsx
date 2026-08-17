@@ -19,8 +19,12 @@ const EVIDENCE_STATUS = [
         statement: 'Particular v1 loop-count plates outperformed fitness-greedy plates downstream; robustness across tie seeds was not estimated.',
     },
     {
-        status: 'Not demonstrated / withdrawn',
-        statement: 'Masking dispersion did not pass its incremental gate; the earlier map-recovery interpretation is withdrawn.',
+        status: 'Not yet demonstrated',
+        statement: 'Masking dispersion has not shown added value beyond loop coverage in the tested v1 procedure.',
+    },
+    {
+        status: 'Withdrawn, replaced',
+        statement: 'The earlier map-recovery interpretation is withdrawn; the audit replaced its confounded correlation with a stricter Fourier-coefficient test.',
     },
 ];
 
