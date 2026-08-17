@@ -81,11 +81,12 @@ const Epibudget = () => {
             </header>
 
             <div className="border border-border-subtle rounded-lg bg-cream p-6 mb-12 space-y-2">
-                <p className="font-mono text-xs uppercase tracking-widest text-secondary">Primary result</p>
+                <p className="font-mono text-xs uppercase tracking-widest text-secondary">Key finding</p>
                 <p className="text-base leading-relaxed text-primary">
-                    Historical downstream runs favored particular loop-count plates over fitness-greedy plates on GB1
-                    and TrpB. Masking dispersion did not demonstrate incremental value, and a later audit withdrew the
-                    earlier epistasis-map-recovery interpretation.
+                    Historical v1 downstream studies showed that measurement design mattered: particular loop-count
+                    plates outperformed fitness-greedy plates on GB1 and TrpB. Masking dispersion has not yet shown
+                    added value beyond loop coverage. A subsequent audit sharpened the recovery question and led to a
+                    stricter Fourier-coefficient test.
                 </p>
             </div>
 
