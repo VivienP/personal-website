@@ -2,23 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import BackLink from '../components/BackLink';
 import SEO from '../components/SEO';
+import { SectionTitle, Subheading } from '../components/LandingHeadings';
 import { FREELANCE_SERVICE_JSON_LD } from '../components/jsonld';
 import Contact from '../sections/Contact';
 
-const SectionTitle = ({ children }) => (
-    <h2 className="text-2xl md:text-3xl pt-10 pb-2 font-normal text-primary">{children}</h2>
-);
-
-const Question = ({ children }) => (
-    <h3 className="text-lg md:text-xl font-medium text-primary pt-4">{children}</h3>
+const InlineLink = ({ to, children }) => (
+    <Link to={to} className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
+        {children}
+    </Link>
 );
 
 const FreelanceAIEngineer = () => {
     return (
         <main className="min-h-screen animate-in fade-in duration-700">
             <SEO
-                title="Freelance AI Engineer for Biology Teams | Vivien Perrelle"
-                description="Hire a freelance AI engineer for biology: AI agents, RAG over scientific literature, and tooling for TechBio and AI-for-science teams. Book an intro call."
+                title="Freelance AI & Scientific Software Engineer for Biology R&D | Vivien Perrelle"
+                description="Freelance engineer for biology and AI-for-science R&D: scientific data infrastructure, evaluation, AI workflows and experimental design. Book an intro call."
                 url="/freelance-ai-engineer-biology"
                 jsonLd={{
                     '@context': 'https://schema.org',
@@ -31,149 +30,157 @@ const FreelanceAIEngineer = () => {
 
                 <header className="mb-10 space-y-6">
                     <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
-                        Freelance AI Engineer for Biology &amp; TechBio Teams
+                        Scientific Software &amp; AI Engineering for R&amp;D Teams
                     </h1>
                     <p className="text-base text-primary leading-relaxed">
-                        I&rsquo;m Vivien Perrelle, an AI engineer specialized in AI for biology. I want
-                        to work on systems that genuinely move science forward, and I believe the
-                        bottleneck now is trust: AI that is plausible is not enough when the output has
-                        to be correct. So I build the verification and reproducibility layer that
-                        scientific AI needs. I focus on AI agents, context engineering over scientific
-                        data, evaluation harnesses, and claim-to-source verification for research
-                        workflows.
+                        I build reliable software at the boundary between models, scientific data and
+                        experiments: the data infrastructure, the evaluation, the AI workflows and the
+                        experimental tooling that turn a research capability into a system a team can
+                        depend on.
                     </p>
                 </header>
 
                 <div className="prose prose-neutral text-primary max-w-none space-y-5 font-light">
-                    <SectionTitle>What I do</SectionTitle>
-                    <p>
-                        My work sits where language models meet real scientific workflows, the part
-                        that has to be right rather than just plausible:
-                    </p>
+                    <SectionTitle>What I build</SectionTitle>
+                    <p>Most projects need several of these at once:</p>
                     <ul className="list-disc pl-6 space-y-2 text-primary">
                         <li>
-                            <strong>AI agents for research workflows</strong>: agents that read, extract,
-                            cross-check, and draft over your internal corpus, with humans approving the
-                            irreversible steps.
+                            <strong>Scientific products and platforms</strong>: Python services, APIs and
+                            internal research tools that take an ambiguous research need to something
+                            scientists can use without its author beside them.
                         </li>
                         <li>
-                            <strong>RAG over scientific literature and internal data</strong>: retrieval
-                            pipelines grounded in primary sources, built to cite what they claim.
+                            <strong>Scientific data infrastructure</strong>: ingestion, validation,
+                            structured metadata, provenance and versioned transformations, so a processed
+                            result can be traced back to the raw measurement and re-derived.
                         </li>
                         <li>
-                            <strong>Claim-to-source verification</strong>: deterministic checking that every
-                            statement in a generated or human document traces back to its evidence.
+                            <strong>Evaluation and reliability</strong>: harnesses, regression suites,
+                            deterministic checks and documented failure modes, so a probabilistic system
+                            becomes testable rather than merely convincing.
                         </li>
                         <li>
-                            <strong>Evaluation harnesses</strong>: measurable baselines and regression suites
-                            so you know whether the system actually improved.
+                            <strong>AI workflows grounded in scientific data</strong>: agents, tool
+                            calling, structured outputs and retrieval over primary sources, with humans
+                            approving the steps that are expensive to undo.
                         </li>
                         <li>
-                            <strong>Scientific data tooling</strong>: pipelines over CrossRef, OpenAlex,
-                            PubMed, and your own datasets.
+                            <strong>Experimental design and decision systems</strong>: the layer that
+                            turns model output into the next experiment, choosing what to measure under a
+                            real budget.
                         </li>
                     </ul>
+
+                    <SectionTitle>From experiments to software</SectionTitle>
+                    <p>
+                        I started on the experimental side. My{' '}
+                        <InlineLink to="/academic-work/smartwatch-embedded-biosensors">
+                            MSc thesis
+                        </InlineLink>{' '}
+                        covered two years of wearable biosensor work at the Institute for Future
+                        Technologies: the{' '}
+                        <InlineLink to="/projects/biowatch">BioWatch</InlineLink>, a smartwatch I built
+                        from scratch to carry the enzymatic biosensors I was developing, and a
+                        microneedle lactate module for it. I then joined R&amp;D at{' '}
+                        <InlineLink to="/projects/pkvitality">PKvitality</InlineLink> as a research
+                        assistant, running in vitro tests on electrochemical microneedle CGM prototypes
+                        and documenting the anomalies that guided the next iteration.
+                    </p>
+                    <p>
+                        Which is why I don&rsquo;t treat scientific data as clean input. Measurements are
+                        noisy, instruments drift, protocols change between runs. It is the question I now
+                        ask of software: what happens when the data is wrong, and how would we find out?
+                    </p>
+
+                    <SectionTitle>Selected evidence</SectionTitle>
+                    <ul className="list-disc pl-6 space-y-2 text-primary">
+                        <li>
+                            <strong>
+                                <InlineLink to="/projects/epibudget">epibudget</InlineLink>
+                            </strong>
+                            : an open-source tool that spends a fixed experimental budget on the protein
+                            variants exposing interaction structure, not the ones a model predicts will
+                            score well. Success criteria were registered before the results, and an
+                            earlier interpretation was withdrawn once an audit contradicted it.
+                        </li>
+                        <li>
+                            <strong>
+                                <InlineLink to="/projects/scientific-claim-verifier">
+                                    Scientific Claim Verifier
+                                </InlineLink>
+                            </strong>
+                            : an open-source engine checking each cited claim against the source it
+                            points to. Everything that does not need a model stays deterministic, every
+                            step emits provenance, and a regression guard fails the build if SciFact F1
+                            drops below its committed baseline (0.92 against 0.62 naive, verifier-only).
+                        </li>
+                        <li>
+                            <strong>Founder-level ownership</strong>:{' '}
+                            <InlineLink to="/projects/finexov">Finexov</InlineLink>, an AI platform for
+                            public-funding applications taken from cold calls to &euro;30K in sales, and{' '}
+                            <InlineLink to="/projects/oseille">Oseille AI</InlineLink>, an agent for
+                            French innovation subsidies. Unclear problems, systems defined from scratch,
+                            nobody else to hand the ambiguity to.
+                        </li>
+                    </ul>
+
+                    <SectionTitle>How I think about AI for Science</SectionTitle>
+                    <p>
+                        The question I keep returning to is not what a scientific system can generate,
+                        but how it finds out that it is wrong. Feedback from reality has both a cost and
+                        a fidelity, and the two do not move together: the cheapest loops are the easiest
+                        to scale and the easiest to fool yourself with. Closing that gap, then using the
+                        result to choose the next experiment, is where I find the interesting
+                        engineering.
+                    </p>
+                    <p>
+                        I wrote that argument out in{' '}
+                        <InlineLink to="/journal/ai-for-science-is-becoming-a-systems-problem">
+                            AI for Science Is Moving From Prediction to Closed-Loop Research Systems
+                        </InlineLink>
+                        , applied it to protein experiments in{' '}
+                        <InlineLink to="/journal/designing-protein-experiments-for-epistasis">
+                            Measure for Information, Not for Fitness
+                        </InlineLink>
+                        , and to research agents in{' '}
+                        <InlineLink to="/journal/science-is-entering-its-agentic-era">
+                            Science Is Entering Its Agentic Era
+                        </InlineLink>
+                        .
+                    </p>
 
                     <SectionTitle>Who I work with</SectionTitle>
                     <p>
-                        I want to work with seed-to-growth TechBio and AI-for-biology startups, and
-                        AI-for-science teams inside larger organisations, at the moment a demo has to
-                        become a dependable system. That transition is what I&rsquo;m built for: an AI
-                        for biology engineer who writes production code, not slide decks.
+                        R&amp;D teams at the point where a model, a prototype or a research workflow has
+                        to become dependable software: AI-native biology and TechBio startups, scientific
+                        platform teams, and AI-for-science groups inside larger organisations. Biology is
+                        where I am most fluent, but the work generalises wherever models, data and
+                        experiments have to line up.
                     </p>
-
-                    <SectionTitle>Why me</SectionTitle>
                     <p>
-                        I&rsquo;ve worked on both sides of the problem, the biology and the software:
+                        I like working inside a team rather than beside it, close to the scientists who
+                        will use the system, where it is easier to see which part of their workflow
+                        actually breaks. I take one problem at a time and stay with it through the parts
+                        nobody could specify at the start, and I write production code with tests and
+                        explicit failure modes. Remote on CET hours with comfortable overlap for EU and
+                        US-East teams, and glad to relocate for long-term work.
                     </p>
-                    <ul className="list-disc pl-6 space-y-2 text-primary">
-                        <li>
-                            Built a{' '}
-                            <Link to="/academic-work/smartwatch-embedded-biosensors" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
-                                smartwatch with embedded enzymatic biosensors
-                            </Link>{' '}
-                            during my MSc in Creative Technologies at the{' '}
-                            <a href="https://ift.devinci.fr/" target="_blank" rel="noopener noreferrer" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
-                                Institute for Future Technologies
-                            </a>
-                            .
-                        </li>
-                        <li>
-                            Hands-on R&amp;D at{' '}
-                            <Link to="/projects/pkvitality" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
-                                PKvitality
-                            </Link>
-                            , a VC-backed team building a non-invasive CGM smartwatch.
-                        </li>
-                        <li>
-                            Founder of <a href="https://www.locuslabhq.com/" target="_blank" rel="noopener noreferrer" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">LocusLab</a>:
-                            independent evidence-assurance infrastructure for biology and regulated science.
-                        </li>
-                        <li>
-                            Author of an open-source{' '}
-                            <Link to="/projects/scientific-claim-verifier" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
-                                scientific claim verifier
-                            </Link>{' '}
-                            reaching F1 0.92 on SciFact (vs 0.62 naive baseline).
-                        </li>
-                        <li>
-                            Shipped production AI agents in my own startups,{' '}
-                            <Link to="/projects/finexov" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
-                                Finexov
-                            </Link>{' '}
-                            and{' '}
-                            <Link to="/projects/oseille" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
-                                Oseille AI
-                            </Link>
-                            .
-                        </li>
-                    </ul>
-
-                    <SectionTitle>How I work</SectionTitle>
-                    <p>
-                        I fit in well with small startup teams. I go all-in on one problem at a time.
-                        I work remotely on CET hours, with comfortable overlap for EU and
-                        US-East teams. I&rsquo;m also glad to
-                        relocate for long-term missions or roles.
-                    </p>
-
-                    <SectionTitle>Read my thinking</SectionTitle>
-                    <ul className="list-disc pl-6 space-y-2 text-primary">
-                        <li>
-                            <Link to="/journal/ai-for-science-is-becoming-a-systems-problem" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
-                                AI for Science Is Moving From Prediction to Closed-Loop Research Systems
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/journal/science-is-entering-its-agentic-era" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
-                                Science Is Entering Its Agentic Era
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/journal/regulators-dont-accept-vibes" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
-                                Regulators Don&rsquo;t Accept Vibes: The Two Layers Pharma AI Is Missing
-                            </Link>
-                        </li>
-                    </ul>
 
                     <SectionTitle>Common questions</SectionTitle>
 
-                    <Question>Do you work with early-stage TechBio startups?</Question>
+                    <Subheading>What stack do you work in?</Subheading>
                     <p>
-                        That&rsquo;s exactly the work I&rsquo;m set up for. Early teams usually need one
-                        system taken from prototype to production fast, with verification built in so
-                        it holds up. I can take that on as a defined project, or embed with the team
-                        that owns it.
+                        Python: async services with FastAPI and Pydantic, typed and tested (mypy
+                        --strict, pytest). LLM APIs and MCP servers, retrieval over CrossRef, OpenAlex
+                        and PubMed, ESM-2 where the science calls for it, and Docker deployment,
+                        including the air-gapped environments I build under at{' '}
+                        <a href="https://www.locuslabhq.com/" target="_blank" rel="noopener noreferrer" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
+                            LocusLab
+                        </a>
+                        .
                     </p>
 
-                    <Question>What stack do you work in?</Question>
-                    <p>
-                        Python (async, FastAPI, Pydantic), the major LLM APIs and agent frameworks,
-                        retrieval infrastructure, and Docker-based deployment, including on-prem and
-                        air-gapped environments when the data can&rsquo;t leave your infrastructure.
-                    </p>
-
-                    <Question>How do engagements start?</Question>
+                    <Subheading>How do engagements start?</Subheading>
                     <p>
                         A 30-minute intro call. If the problem is a fit, I send a concrete proposal
                         within a few days: scope, deliverables, timeline. If it isn&rsquo;t, I&rsquo;ll
@@ -182,7 +189,9 @@ const FreelanceAIEngineer = () => {
                 </div>
             </article>
 
-            <Contact showServicesLink={false} />
+            {/* The reader is already on the engineering offer, so the closing block
+                restates that one rather than reintroducing both. */}
+            <Contact lead="I take on selective freelance engagements with biology, TechBio and AI-for-science R&D teams: scientific data infrastructure, evaluation and reliability, AI workflows, and the systems that turn model output into the next experiment." />
         </main>
     );
 };

@@ -1,14 +1,53 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getCalApi } from '@calcom/embed-react';
-import { ArrowUpRight, Mail, Calendar } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Mail, Calendar } from 'lucide-react';
 import { EMAIL_HREF } from '../utils/email';
 
 const CAL_NAMESPACE = 'quick-chat';
 
-// showServicesLink is off on the freelance landing page, where the "more on
-// how I work" link would point to itself.
-const Contact = ({ showServicesLink = true }) => {
+// The two ways of working with me, as the homepage presents them. Deliberately
+// the Beyond Work column rhythm rather than the bordered Projects card: this
+// section closes the page and should read as two short paragraphs with a way in,
+// not as a pricing grid.
+const OFFERS = [
+    {
+        title: 'AI Engineering',
+        body: 'Software at the boundary between models, scientific data and experiments: scientific data infrastructure, evaluation and reliability, AI workflows, and the systems that turn model output into the next experiment. For biology, TechBio and AI-for-science R&D teams.',
+        to: '/freelance-ai-engineer-biology',
+        cta: 'Explore AI engineering',
+    },
+    {
+        title: 'AI Training & Workshops',
+        body: 'Practical AI training for professional teams, built around the work they actually do: confidential AI use, local models, and Claude, ChatGPT and MCP workflows. Delivered to law firms, accounting professionals, business leaders and university audiences.',
+        to: '/ai-training',
+        cta: 'Explore AI training',
+    },
+];
+
+const Offers = () => (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 max-w-4xl mb-12">
+        {OFFERS.map(({ title, body, to, cta }) => (
+            <div key={to}>
+                <h3 className="text-xl text-primary mb-3">{title}</h3>
+                <p className="text-sm text-secondary leading-relaxed mb-4">{body}</p>
+                <Link
+                    to={to}
+                    className="group inline-flex items-center space-x-2 text-sm text-primary border-b border-primary pb-0.5 hover:text-accent hover:border-accent transition-colors"
+                >
+                    <span>{cta}</span>
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+            </div>
+        ))}
+    </div>
+);
+
+// The booking block that closes every commercial page. `lead` is what sits between
+// the heading and the controls: the landing pages pass a paragraph scoped to the
+// offer the reader has just finished, and the homepage, which has to introduce
+// both, falls through to the two offers instead.
+const Contact = ({ lead = null }) => {
     // Initialise the Cal.com embed once; the modal loads on element click,
     // so nothing heavy runs for visitors who don't book.
     useEffect(() => {
@@ -30,23 +69,11 @@ const Contact = ({ showServicesLink = true }) => {
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-3xl md:text-4xl text-primary mb-6">Work with me</h2>
 
-                <p className="text-base text-secondary leading-relaxed max-w-2xl mb-10">
-                    I take on selective freelance engagements with biology, BioTech, and
-                    AI-for-science teams: AI agents, context engineering over
-                    scientific literature, evaluation, and scientific tooling. The same
-                    systems I build for my own verification work at LocusLab.
-                    {showServicesLink && (
-                        <>
-                            {' '}
-                            <Link
-                                to="/freelance-ai-engineer-biology"
-                                className="text-primary border-b border-primary/40 hover:text-accent hover:border-accent transition-colors"
-                            >
-                                More on how I work →
-                            </Link>
-                        </>
-                    )}
-                </p>
+                {lead ? (
+                    <p className="text-base text-secondary leading-relaxed max-w-2xl mb-10">{lead}</p>
+                ) : (
+                    <Offers />
+                )}
 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                     <button

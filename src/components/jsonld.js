@@ -17,9 +17,23 @@ export const AUTHOR = {
 export const FREELANCE_SERVICE_JSON_LD = {
     '@type': 'Service',
     '@id': `${SITE_URL}/#freelance`,
-    name: 'Freelance AI engineering for biology and scientific research teams',
-    serviceType: 'AI agents, RAG, verification, scientific tooling',
+    name: 'Freelance scientific software and AI engineering for biology and research teams',
+    serviceType: 'Scientific data infrastructure, evaluation and reliability, AI workflows, experimental design systems',
     provider: { '@id': `${SITE_URL}/#person` },
     areaServed: 'Worldwide',
     url: `${SITE_URL}/freelance-ai-engineer-biology`,
+};
+
+// The training offer, declared as its own Service rather than folded into the
+// freelance one: they are bought by different people for different reasons, and
+// a single blurred "AI services" node would describe neither. The Person node
+// stays the engineering entity — this hangs off it, it does not restate it.
+export const TRAINING_SERVICE_JSON_LD = {
+    '@type': 'Service',
+    '@id': `${SITE_URL}/#training`,
+    name: 'AI training and workshops for professional teams',
+    serviceType: 'AI training, workshops, confidential AI use, local models, AI workflow design',
+    provider: { '@id': `${SITE_URL}/#person` },
+    areaServed: 'Worldwide',
+    url: `${SITE_URL}/ai-training`,
 };

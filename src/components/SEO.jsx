@@ -1,4 +1,4 @@
-import { SITE_URL, FREELANCE_SERVICE_JSON_LD } from './jsonld';
+import { SITE_URL, FREELANCE_SERVICE_JSON_LD, TRAINING_SERVICE_JSON_LD } from './jsonld';
 import { resolveOpenGraphImage } from './seoMeta';
 
 const TWITTER_HANDLE = '@PerrelleVivien';
@@ -61,6 +61,7 @@ const DEFAULT_JSON_LD = {
             ],
         },
         FREELANCE_SERVICE_JSON_LD,
+        TRAINING_SERVICE_JSON_LD,
         {
             '@type': 'WebSite',
             '@id': `${SITE_URL}/#website`,
