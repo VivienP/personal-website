@@ -30,7 +30,7 @@ const WhenALabCommandSaysSucceeded = () => (
     <ArticleLayout backTo="/journal" backLabel="Journal" width="narrow">
         <ArticleSEO
             slug={SLUG}
-            title="When a Lab Command Says SUCCEEDED, What Actually Happened? | Vivien Perrelle"
+            title="MHS Standardizes How Agents Act. The Next Layer Is Proving What Changed. | Vivien Perrelle"
             description="Why reliable lab automation needs action-linked physical evidence and a separate effect state for safe retries and recovery."
             section="AI for Science"
             modifiedTime="2026-08-30"
@@ -47,7 +47,7 @@ const WhenALabCommandSaysSucceeded = () => (
 
         <header className="mb-12 space-y-6">
             <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
-                When a Lab Command Says <code className="font-mono not-italic text-[0.85em]">SUCCEEDED</code>, What Actually Happened?
+                MHS Standardizes How Agents Act. The Next Layer Is Proving What Changed.
             </h1>
             <p className="text-lg text-secondary font-normal italic max-w-2xl">
                 Anthropic's Model Hardware Standard makes lab hardware easier for agents to operate. But device APIs only tell an agent how to act. Reliable autonomy also needs action-linked evidence and a separate effect state: a machine-readable contract for what the system can safely believe before it continues, recovers, or retries.
@@ -200,11 +200,12 @@ effect_unknown`}</CodeBlock>
 
 action-linked evidence
     command → justified claim about reality`}</CodeBlock>
-            <p>MHS and an effect-evidence contract solve complementary problems. One standardizes how an agent asks hardware to act. The other states what the system is justified in believing after the attempt. Sometimes that evidence is a controller value; sometimes it comes from another sensor or an analytical result; and sometimes the correct state remains <code>effect_unknown</code>.</p>
-            <p>These two public datasets are not representative enough to show that action-to-evidence provenance is absent from laboratory automation generally. They do show that useful evidence can remain implicit even in rich, reproducible records. The proposal would be unnecessary where systems already expose explicit action identifiers, typed effect states, linked readbacks, and recovery outcomes.</p>
+            <p>Sometimes that evidence is a controller value; sometimes it comes from another sensor or an analytical result; and sometimes the correct state remains <code>effect_unknown</code>. What the contract standardizes is not the sensor but the provenance: which observation was consulted, for which action, and what it licenses the system to believe.</p>
+            <p>Two public datasets are not representative enough to show that action-to-evidence provenance is absent from laboratory automation generally. They do show that useful evidence can remain implicit even in rich, reproducible records — and that where it stays implicit, no downstream agent can act on it.</p>
 
             <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary">Conclusion</h2>
-            <p>The design requirement is not simply more logging. It is an explicit, machine-readable link between an action, the evidence bearing on its physical effect, and the claim the system is justified in making.</p>
+            <p>MHS makes the first half of that contract routine: an agent can now ask almost any instrument to act. The second half — what the system is entitled to believe once the attempt returns — is still specified per lab, per instrument, per script.</p>
+            <p>Closing it is not a matter of retaining more data. It requires an explicit, machine-readable link between an action, the evidence bearing on its physical effect, and the claim that evidence justifies.</p>
             <p>For non-idempotent operations, this distinction directly determines whether retrying is safe. Until an automation stack exposes it, <code>SUCCEEDED</code> should mean only that command execution completed, not that the intended physical effect is known to have occurred.</p>
 
             <div className="not-prose pt-4 flex flex-col sm:flex-row flex-wrap gap-3">

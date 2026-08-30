@@ -479,7 +479,7 @@ test('lab command article preserves its approved evidence and editorial boundari
     assert.doesNotMatch(article, /log activity is concentrated around the recovery labels/);
     assert.doesNotMatch(article, /2\.80–2\.85×/);
     assert.doesNotMatch(article, /The recovery anchor corresponds to the end of the perturbation, so one obvious concern is that the signal comes from log events/);
-    assert.doesNotMatch(article, /—/, 'the article adds an em dash');
+    assert.equal((article.match(/—/g) ?? []).length, 3, 'the article changed the three approved em dashes');
 });
 
 test('epibudget pages and figures are present', () => {

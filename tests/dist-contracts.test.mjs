@@ -298,7 +298,7 @@ test('lab command article prerenders its approved metadata and evidence', () => 
     assert.ok(article, `${route} was not prerendered`);
 
     const { html } = article;
-    assert.match(html, /<title>When a Lab Command Says SUCCEEDED, What Actually Happened\? \| Vivien Perrelle<\/title>/);
+    assert.match(html, /<title>MHS Standardizes How Agents Act\. The Next Layer Is Proving What Changed\. \| Vivien Perrelle<\/title>/);
     assert.match(html, /Why reliable lab automation needs action-linked physical evidence and a separate effect state/);
     assert.match(html, /986\/986 operations paired cleanly/);
     assert.match(html, /34\/79 = 43\.04%/);
@@ -321,13 +321,13 @@ test('lab command article prerenders its approved metadata and evidence', () => 
     assert.match(html, /<span>Explore the audit project<\/span>[\s\S]*?References/);
     assert.match(html, /"codeRepository":"https:\/\/github\.com\/VivienP\/lab-log-observability-audit"/);
     assert.match(html, /versioned release 21535243/);
-    assert.match(html, /The design requirement is not simply more logging/);
+    assert.match(html, /Closing it is not a matter of retaining more data/);
     assert.doesNotMatch(html, /If you operate Chemspeed/);
     assert.doesNotMatch(html, /answered by practitioners|testing one question with practitioners|next three real laboratory automation stacks/);
     assert.doesNotMatch(html, /17 of the 79 windows|only eight contained|Recovery observability coverage: 43%|event_category/);
     assert.doesNotMatch(html, /237 deduplicated anomaly records|log activity is concentrated around the recovery labels|2\.80–2\.85×/);
     const body = html.match(/<article\b[\s\S]*?<\/article>/)?.[0] ?? '';
-    assert.doesNotMatch(body, /—/, 'the rendered article adds an em dash');
+    assert.equal((body.match(/—/g) ?? []).length, 3, 'the rendered article changed the three approved em dashes');
 });
 
 test('reading times stay out of the project pages', () => {

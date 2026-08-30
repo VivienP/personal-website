@@ -9,7 +9,7 @@
 export const journalArticles = [
     {
         date: "2026-08-29",
-        title: "When a Lab Command Says SUCCEEDED, What Actually Happened?",
+        title: "MHS Standardizes How Agents Act. The Next Layer Is Proving What Changed.",
         slug: "when-a-lab-command-says-succeeded",
         tag: "AI-for-science",
         readingMinutes: 10
