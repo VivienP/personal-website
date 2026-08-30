@@ -34,7 +34,7 @@ const PKvitality = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Research Intern @ PKvitality
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     How a prototype opened the door to building a pandiabetic smartwatch.
                 </p>
             </header>
@@ -51,7 +51,7 @@ const PKvitality = () => {
                 />
             </div>
 
-            <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-base mb-12">
+            <div className="text-primary max-w-none space-y-8 font-normal leading-relaxed text-base mb-12">
                 <p>
                     The <Link to="/projects/biowatch" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">BioWatch</Link> prototype I built during my master's led directly to an R&amp;D internship at <a href="https://www.pkvitality.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">PKvitality</a>, a 50-person startup that had raised several million euros to develop the first glucose-monitoring smartwatch for people with diabetes.
                 </p>

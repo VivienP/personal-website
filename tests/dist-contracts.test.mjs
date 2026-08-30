@@ -292,6 +292,38 @@ test('every Journal head derives from the one listing record', async () => {
     }
 });
 
+test('lab command article prerenders its approved metadata and evidence', () => {
+    const route = '/journal/when-a-lab-command-says-succeeded';
+    const article = pages.find((page) => page.route === route);
+    assert.ok(article, `${route} was not prerendered`);
+
+    const { html } = article;
+    assert.match(html, /<title>When a Lab Command Says SUCCEEDED, What Actually Happened\? \| Vivien Perrelle<\/title>/);
+    assert.match(html, /Why reliable lab automation needs action-linked physical evidence and a separate effect state/);
+    assert.match(html, /986\/986 operations paired cleanly/);
+    assert.match(html, /34\/79 = 43\.04%/);
+    assert.match(html, /34\/74 = 45\.95%/);
+    assert.match(html, /17\.67%/);
+    assert.match(html, /2\.60×/);
+    assert.match(html, /37\/74 = 50\.0%/);
+    assert.match(html, /51\.1%/);
+    assert.match(html, /0\.98×/);
+    assert.match(html, /p = 0\.63/);
+    assert.match(html, /2\.80–2\.85×/);
+    assert.match(html, /unanswerable rather than negative/);
+    assert.match(html, /temporal association/);
+    assert.match(html, /recipe-engine rows/);
+    assert.match(html, /href="https:\/\/github\.com\/VivienP\/lab-log-observability-audit"/);
+    assert.match(html, /"codeRepository":"https:\/\/github\.com\/VivienP\/lab-log-observability-audit"/);
+    assert.match(html, /versioned release 21535243/);
+    assert.match(html, /The design requirement is not simply more logging/);
+    assert.doesNotMatch(html, /If you operate Chemspeed/);
+    assert.doesNotMatch(html, /answered by practitioners|testing one question with practitioners|next three real laboratory automation stacks/);
+    assert.doesNotMatch(html, /17 of the 79 windows|only eight contained|Recovery observability coverage: 43%|event_category/);
+    const body = html.match(/<article\b[\s\S]*?<\/article>/)?.[0] ?? '';
+    assert.doesNotMatch(body, /—/, 'the rendered article adds an em dash');
+});
+
 test('reading times stay out of the project pages', () => {
     for (const { route, html } of pages) {
         if (route.startsWith('/journal/')) continue;

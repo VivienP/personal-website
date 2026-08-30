@@ -21,7 +21,7 @@ const OpenClaw = () => {
                 <ArticleByline slug={SLUG} />
             </header>
 
-            <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-8 font-light">
+            <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-8 font-normal">
                 <p className="text-secondary italic">
                     <strong>TL;DR:</strong> The "Assistant" era is over. 2026 is defined by <strong>Sovereign Agents</strong>: locally hosted, proactive AI entities capable of self-funding and autonomous execution. For companies, this means a shift from chatbots to "Agentic Layers" that orchestrate workflows. But the bottleneck remains infrastructure. Without data interoperability and strict security, these agents are a liability, not an asset.
                 </p>

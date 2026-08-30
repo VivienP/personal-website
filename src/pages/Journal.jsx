@@ -32,7 +32,7 @@ const JournalPage = () => {
 
             <header className="mb-12 space-y-4">
                 <h1 className="text-3xl md:text-4xl text-primary">Journal</h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     Essays on AI-for-science, bioengineering, agentic systems, entrepreneurship, and technology's role in society.
                 </p>
             </header>

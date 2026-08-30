@@ -141,7 +141,7 @@ const Art = () => {
 
             <header className="mb-12 space-y-4">
                 <h1 className="text-3xl md:text-4xl text-primary">Art</h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     A selection of my drawings in charcoal, pencil and soft pastel.
                 </p>
             </header>

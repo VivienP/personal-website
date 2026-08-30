@@ -62,7 +62,7 @@ const WhatShouldWeMeasureNext = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Measure for Information, Not for Fitness: Designing Protein Experiments to Reveal Epistasis
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     A protein language model can rank thousands of variants, but ranking does not identify which measurements are most useful for learning mutation interactions. This study compares label-blind allocation strategies under fixed experimental budgets. Historical downstream artifacts favored particular loop-count plates over fitness-greedy plates on GB1 and TrpB, while masking dispersion did not pass its incremental gate. A later audit withdrew the original epistasis-map-recovery interpretation because the metric shared measured lower-order terms between prediction and truth.
                 </p>
                 <ArticleByline slug={SLUG} />
@@ -91,7 +91,7 @@ const WhatShouldWeMeasureNext = () => {
                 description="epibudget scores complete variants, maps their interaction structure, and converts a fixed experimental budget into a ranked measurement plate."
             />
 
-            <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-12 font-light">
+            <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-12 font-normal">
                 <section className="space-y-6">
                     <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Terminology</h2>
                     <ul className="m-0 list-disc space-y-2 pl-6 text-base leading-relaxed text-primary">
@@ -472,7 +472,7 @@ const WhatShouldWeMeasureNext = () => {
 
                 <section className="space-y-6">
                     <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
-                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-normal">
                         <li id="ref-1" className="scroll-mt-24">Phillips, P. C. <a href="https://doi.org/10.1038/nrg2452" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Epistasis — the essential role of gene interactions in the structure and evolution of genetic systems.</a> <em>Nature Reviews Genetics</em> (2008).</li>
                         <li id="ref-2" className="scroll-mt-24">Poelwijk, F. J. et al. <a href="https://doi.org/10.1371/journal.pcbi.1004771" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">The context-dependence of mutations: a linkage of formalisms.</a> <em>PLOS Computational Biology</em> (2016).</li>
                         <li id="ref-3" className="scroll-mt-24">Faure, A. J. et al. <a href="https://doi.org/10.1371/journal.pcbi.1012132" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">An extension of the Walsh-Hadamard transform to calculate and model epistasis in genetic landscapes of arbitrary shape and complexity.</a> <em>PLOS Computational Biology</em> (2024).</li>

@@ -1,5 +1,6 @@
 export const routeDefinitions = [
     { path: '/', lastmod: '2026-08-17', load: () => import('./sections/Home.jsx') },
+    { path: '/journal/when-a-lab-command-says-succeeded', lastmod: '2026-08-30', load: () => import('./articles/WhenALabCommandSaysSucceeded.jsx') },
     { path: '/projects/epibudget', lastmod: '2026-08-13', load: () => import('./articles/projects/Epibudget.jsx') },
     { path: '/journal/epistasis-explained-best-variant-vs-best-experiment', lastmod: '2026-08-13', load: () => import('./articles/EpistasisExplained.jsx') },
     { path: '/journal/designing-protein-experiments-for-epistasis', lastmod: '2026-08-13', load: () => import('./articles/WhatShouldWeMeasureNext.jsx') },

@@ -43,7 +43,7 @@
 
 @layer base {
   body {
-    @apply bg-cream text-primary antialiased font-sans;
+    @apply bg-cream text-primary antialiased font-sans font-normal;
   }
 
   #root {

@@ -37,7 +37,7 @@ const MistralAIHackathon = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Mistral AI MCP Hackathon
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     A weekend hackathon: an MCP server to help companies find the right European funding calls, directly from Le Chat.
                 </p>
                 <div className="pt-2 flex flex-wrap gap-4">
@@ -64,7 +64,7 @@ const MistralAIHackathon = () => {
                 />
             </div>
 
-            <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-base">
+            <div className="text-primary max-w-none space-y-8 font-normal leading-relaxed text-base">
                 <p>
                     During Mistral AI's MCP Hackathon, I contributed to Look 4 Fundings with Andrea Gemelli, Alexandros Popov PhD, and Ali Ahmadi.
                 </p>

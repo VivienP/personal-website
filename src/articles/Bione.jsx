@@ -31,7 +31,7 @@ const Bione = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Bione
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     A 3D interactive app to learn about biosensors.
                 </p>
             </header>
@@ -50,7 +50,7 @@ const Bione = () => {
                 />
             </div>
 
-            <div className="text-primary max-w-none space-y-16 font-light leading-relaxed">
+            <div className="text-primary max-w-none space-y-16 font-normal leading-relaxed">
 
                 <section className="space-y-6">
                     <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Overview</h2>

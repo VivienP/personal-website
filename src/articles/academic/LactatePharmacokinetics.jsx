@@ -49,7 +49,7 @@ const LactatePharmacokinetics = () => {
                 </h1>
             </header>
 
-            <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-base">
+            <div className="text-primary max-w-none space-y-8 font-normal leading-relaxed text-base">
                 <p>
                     Faced with the lack of research on dermal ISF lactate concentrations, I wrote this article during my internship at PKvitality. I investigate the main parameters influencing lactate diffusion and, therefore, the clinical value of dermal ISF lactate as a muscle fatigue biomarker. This pharmacological guide summarizes my literature research for developers of lactate microneedle biosensors.
                 </p>

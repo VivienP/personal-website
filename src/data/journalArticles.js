@@ -8,6 +8,13 @@
 // tests/dist-contracts.test.mjs can hold the recorded values against the real text.
 export const journalArticles = [
     {
+        date: "2026-08-29",
+        title: "When a Lab Command Says SUCCEEDED, What Actually Happened?",
+        slug: "when-a-lab-command-says-succeeded",
+        tag: "AI-for-science",
+        readingMinutes: 10
+    },
+    {
         date: "2026-08-13",
         title: "Epistasis Explained: Why the Best Protein Variant Is Not Always the Best Experiment",
         slug: "epistasis-explained-best-variant-vs-best-experiment",

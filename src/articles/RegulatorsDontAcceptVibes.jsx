@@ -33,7 +33,7 @@ const RegulatorsDontAcceptVibes = () => {
                 <ArticleByline slug={SLUG} />
             </header>
 
-            <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-8 font-light">
+            <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-8 font-normal">
                 <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary">1. The Signal</h2>
 
                 <p>
@@ -107,7 +107,7 @@ const RegulatorsDontAcceptVibes = () => {
                 </p>
 
                 <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
-                <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-normal">
                     <li id="ref-1" className="scroll-mt-24">
                         MongoDB, <RefLink href="https://www.mongodb.com/solutions/customer-case-studies/novo-nordisk">"Novo Nordisk &amp; MongoDB Atlas: A Clinical Study Report in Minutes."</RefLink>
                     </li>

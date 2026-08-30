@@ -42,7 +42,7 @@ const AcademicWorkPage = () => {
 
             <header className="mb-12 space-y-4">
                 <h1 className="text-3xl md:text-4xl text-primary">Academic Work</h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     Peer-shared research on wearable biosensors and minimally-invasive health monitoring.
                 </p>
             </header>

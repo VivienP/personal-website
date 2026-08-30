@@ -267,7 +267,7 @@ test('Journal collection reuses the homepage list and shows one of five interest
     assert.match(section, /tag=\{showTags \? article\.tag : undefined\}/);
     assert.match(section, /<h2[^>]*>Journal<\/h2>/);
     assert.doesNotMatch(section, /<Link to="\/journal"|<ArrowUpRight size=\{18\}/);
-    assert.equal(tags.length, 11, 'every Journal article needs exactly one tag');
+    assert.equal(tags.length, 12, 'every Journal article needs exactly one tag');
     assert.deepEqual(uniqueTags, [
         'AI-for-science',
         'Agentic AI',
@@ -293,6 +293,7 @@ test('every Journal article renders the shared byline instead of its own', async
     const { journalArticles } = await optionalImport('../src/data/journalArticles.js');
     const byline = read('src/components/ArticleByline.jsx');
     const files = {
+        'when-a-lab-command-says-succeeded': 'src/articles/WhenALabCommandSaysSucceeded.jsx',
         'epistasis-explained-best-variant-vs-best-experiment': 'src/articles/EpistasisExplained.jsx',
         'designing-protein-experiments-for-epistasis': 'src/articles/WhatShouldWeMeasureNext.jsx',
         'ai-for-science-is-becoming-a-systems-problem': 'src/articles/AIForScienceIsBecomingInfrastructure.jsx',
@@ -375,11 +376,13 @@ test('Journal articles use coherent URLs and return to the Journal collection', 
     // Published before the /blog -> /journal move, so each of these also owes a redirect.
     // Articles written after it (the epistasis explainer) never had a /blog URL.
     const relocated = new Set(articles.map(([slug]) => slug));
+    articles.push(['when-a-lab-command-says-succeeded', 'src/articles/WhenALabCommandSaysSucceeded.jsx']);
     articles.push(['epistasis-explained-best-variant-vs-best-experiment', 'src/articles/EpistasisExplained.jsx']);
 
     assert.match(journalPage, /`https:\/\/vivienperrelle\.com\/journal\/\$\{slug\}`/);
 
     for (const [slug, file] of articles) {
+        assert.equal(existsSync(new URL(`../${file}`, import.meta.url)), true, `${file} is missing`);
         const article = read(file);
         assert.match(manifest, new RegExp(`path: '/journal/${slug}'`));
         assert.doesNotMatch(manifest, new RegExp(`path: '/blog/${slug}'`));
@@ -397,6 +400,60 @@ test('Journal articles use coherent URLs and return to the Journal collection', 
             assert.match(redirects, new RegExp(`path: '/blog/${slug}', to: '/journal/${slug}'`));
         }
     }
+});
+
+test('lab command article preserves its approved evidence and editorial boundaries', () => {
+    const file = 'src/articles/WhenALabCommandSaysSucceeded.jsx';
+    assert.equal(existsSync(new URL(`../${file}`, import.meta.url)), true, `${file} is missing`);
+    const article = read(file);
+    const approvedSubtitle = "Anthropic's Model Hardware Standard makes lab hardware easier for agents to operate. But device APIs only tell an agent how to act. Reliable autonomy also needs action-linked evidence and a separate effect state: a machine-readable contract for what the system can safely believe before it continues, recovers, or retries.";
+    const references = [
+        'https://github.com/VivienP/lab-log-observability-audit',
+        'https://www.anthropic.com/news/model-hardware-standard-research-preview',
+        'https://www.nature.com/articles/s41467-026-74425-x',
+        'https://zenodo.org/records/18930287',
+        'https://arxiv.org/abs/2607.15620',
+        'https://www.nature.com/articles/s41597-026-07124-3',
+        'https://zenodo.org/records/17395543',
+    ];
+
+    assert.match(article, /const SLUG = 'when-a-lab-command-says-succeeded';/);
+    assert.ok(article.includes(approvedSubtitle), 'the approved subtitle changed');
+    assert.match(article, /986\/986 operations paired cleanly/);
+    assert.match(article, /34\/79 = 43\.04%/);
+    assert.match(article, /34\/74 = 45\.95%/);
+    assert.match(article, /17\.67%/);
+    assert.match(article, /2\.60×/);
+    assert.match(article, /10,000 iterations/);
+    assert.match(article, /seed 20260830/);
+    assert.match(article, /37\/74 = 50\.0%/);
+    assert.match(article, /from 34\/79 to 37\/79/);
+    assert.match(article, /51\.1%/);
+    assert.match(article, /0\.98×/);
+    assert.match(article, /p = 0\.63/);
+    assert.match(article, /2\.80–2\.85×/);
+    assert.match(article, /unanswerable rather than negative/);
+    assert.match(article, /temporal association/);
+    assert.match(article, /recipe-engine rows/);
+    assert.match(article, /versioned release 21535243/);
+    assert.match(article, /const AUDIT_REPO = 'https:\/\/github\.com\/VivienP\/lab-log-observability-audit';/);
+    assert.match(article, /codeRepository: AUDIT_REPO/);
+    assert.match(article, /<RefLink href=\{AUDIT_REPO\}>public audit repository<\/RefLink>/);
+    assert.match(article, /modifiedTime="2026-08-30"/);
+    assert.match(
+        read('src/routeManifest.js'),
+        /path: '\/journal\/when-a-lab-command-says-succeeded', lastmod: '2026-08-30'/,
+    );
+    assert.match(article, /<RefLink href="https:\/\/zenodo\.org\/records\/18930287">Flex-Cat<\/RefLink>/);
+    assert.match(article, /<RefLink href="https:\/\/zenodo\.org\/records\/17395543">Batch Distillation<\/RefLink>/);
+    assert.match(article, /reliable laboratory autonomy requires a separate <strong>effect state<\/strong>/);
+    assert.match(article, /action-linked evidence/);
+    assert.match(article, /effect_unknown/);
+    for (const href of references) assert.ok(article.includes(href), `missing reference ${href}`);
+    assert.doesNotMatch(article, /If you operate Chemspeed/);
+    assert.doesNotMatch(article, /answered by practitioners|testing one question with practitioners|next three real laboratory automation stacks/);
+    assert.doesNotMatch(article, /17 of the 79 windows|only eight contained|Recovery observability coverage: 43%|event_category/);
+    assert.doesNotMatch(article, /—/, 'the article adds an em dash');
 });
 
 test('epibudget pages and figures are present', () => {

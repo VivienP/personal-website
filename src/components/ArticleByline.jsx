@@ -22,7 +22,7 @@ const ArticleByline = ({ slug }) => {
     const entry = getJournalArticle(slug);
 
     return (
-        <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">
+        <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-normal">
             {/* One interpolation, so SSR emits a single text node rather than splitting the
                 line with <!-- --> markers between each value. */}
             <span>{`By Vivien Perrelle · ${formatPublicationDate(entry.date)} · ${entry.readingMinutes} min read`}</span>

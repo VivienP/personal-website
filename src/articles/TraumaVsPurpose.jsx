@@ -20,7 +20,7 @@ const TraumaVsPurpose = () => {
                 <ArticleByline slug={SLUG} />
             </header>
 
-            <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-8 font-light">
+            <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-8 font-normal">
                 <p>
                     There is a prevailing narrative in Venture Capital: the best founders are broken.
                 </p>

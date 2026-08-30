@@ -32,11 +32,11 @@ const Lactate = () => {
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
                     How to Build a Lactate Biosensor?
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     An enzymatic biosensor on a platinum wire.
                 </p>
                 <ArticleByline slug={SLUG} />
-                <div className="pt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-secondary/80 italic font-light">
+                <div className="pt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-secondary/80 italic font-normal">
                     <span>I wrote a research article titled <em>"Exploring Activity-Induced Lactate Pharmacokinetics: Implications for Minimally-Invasive Monitoring"</em> related to this work. Read it on</span>
                     <a
                         href="https://www.researchgate.net/publication/375229419_Exploring_Activity-Induced_Lactate_Pharmacokinetics_Implications_for_Minimally-Invasive_Monitoring"
@@ -50,7 +50,7 @@ const Lactate = () => {
                 </div>
             </header>
 
-            <div className="text-primary max-w-none space-y-16 font-light leading-relaxed">
+            <div className="text-primary max-w-none space-y-16 font-normal leading-relaxed">
 
                 {/* Lead */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -303,7 +303,7 @@ const Lactate = () => {
                 {/* References */}
                 <section className="space-y-6">
                     <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
-                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-normal">
                         <li id="ref-1" className="scroll-mt-24">Sterling J. Novel Microneedle Patch on the Skin Can Test for Biomarkers. <em>GEN — Genetic Engineering and Biotechnology News</em>. 2021. <a href="https://www.genengnews.com/news/novel-microneedle-patch-on-the-skin-can-test-for-biomarkers/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
                         <li id="ref-2" className="scroll-mt-24">Yoo EH, Lee SY. Glucose biosensors: an overview of use in clinical practice. <em>Sensors (Basel)</em>. 2010. doi:10.3390/s100504558</li>
                         <li id="ref-3" className="scroll-mt-24">Tetyana P, et al. Biosensors: Design, Development and Applications. <em>Nanopores</em>, IntechOpen. 2021. doi:10.5772/intechopen.97576</li>

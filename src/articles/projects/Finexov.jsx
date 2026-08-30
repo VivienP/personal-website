@@ -30,7 +30,7 @@ const Finexov = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Finexov
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     An AI platform that generates public-funding applications.
                 </p>
                 <div className="pt-2 flex">
@@ -53,7 +53,7 @@ const Finexov = () => {
                 />
             </div>
 
-            <div className="text-primary max-w-none space-y-10 font-light leading-relaxed">
+            <div className="text-primary max-w-none space-y-10 font-normal leading-relaxed">
                 <p className="text-base">
                     I launched my first real startup after my end-of-studies internship at a Parisian consulting firm. I wanted to automate my own work: after drafting around 50 public-funding applications for French startups and scale-ups, I built an AI platform to generate my clients' applications, pitched it to consulting firms, and made my first sales.
                 </p>

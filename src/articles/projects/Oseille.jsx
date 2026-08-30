@@ -34,7 +34,7 @@ const Oseille = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Oseille AI
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     An agent for French innovation subsidies.
                 </p>
             </header>
@@ -51,7 +51,7 @@ const Oseille = () => {
                 />
             </div>
 
-            <div className="text-primary max-w-none space-y-8 font-light leading-relaxed text-base">
+            <div className="text-primary max-w-none space-y-8 font-normal leading-relaxed text-base">
                 <p>
                     <em>"Oseille" is French slang for "money."</em>
                 </p>

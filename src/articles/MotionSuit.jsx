@@ -33,10 +33,10 @@ const MotionSuit = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     E-Textile Motion Suit
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     An easy-to-make e-textile platform.
                 </p>
-                <p className="pt-2 text-sm text-secondary/90 italic font-light max-w-2xl">
+                <p className="pt-2 text-sm text-secondary/90 italic font-normal max-w-2xl">
                     I worked on this project during the first year of my Creative Technology master's degree, alongside two senior and PhD students, Marie Julou and Madalina Nicolae. Building the sensors taught me the basics of electronics.
                 </p>
             </header>
@@ -55,7 +55,7 @@ const MotionSuit = () => {
                 />
             </div>
 
-            <div className="text-primary max-w-none space-y-16 font-light leading-relaxed">
+            <div className="text-primary max-w-none space-y-16 font-normal leading-relaxed">
 
                 {/* Lead statement */}
                 <section className="space-y-6">
@@ -176,7 +176,7 @@ const MotionSuit = () => {
                 {/* References */}
                 <section className="space-y-6">
                     <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
-                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-normal">
                         <li id="ref-1" className="scroll-mt-24">
                             Končar V. Smart textiles and their applications — visual perceptions. <em>Proceedings of 9th International Symposium on Graphic Engineering and Design</em>. Nov. 2018. doi:{' '}
                             <a href="https://doi.org/10.24867/grid-2018-p1" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">10.24867/grid-2018-p1</a>

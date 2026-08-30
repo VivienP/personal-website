@@ -36,10 +36,10 @@ const BioWatch = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     BioWatch
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     A smartwatch for wearable biosensors.
                 </p>
-                <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-light">
+                <div className="pt-2 flex items-center space-x-2 text-sm text-secondary/80 italic font-normal">
                     <span>I published a master thesis on this work. Read it on</span>
                     <a
                         href="https://www.researchgate.net/publication/375227950_Smartwatch-Embedded_Biosensors_For_Healthcare_Monitoring"
@@ -62,7 +62,7 @@ const BioWatch = () => {
                 />
             </div>
 
-            <div className="text-primary max-w-none space-y-16 font-light leading-relaxed">
+            <div className="text-primary max-w-none space-y-16 font-normal leading-relaxed">
 
                 {/* Intro statement */}
                 <section className="space-y-6">
@@ -219,7 +219,7 @@ const BioWatch = () => {
                 {/* References */}
                 <section className="space-y-6">
                     <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
-                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-normal">
                         <li id="ref-1" className="scroll-mt-24">
                             Ometov A., et. al., A Survey on Wearable Technology: History, State-of-the-Art and Current Challenges, <em>Computer Networks</em>, Volume 193, 2021, doi:{' '}
                             <a href="https://doi.org/10.1016/j.comnet.2021.108074" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">10.1016/j.comnet.2021.108074</a>

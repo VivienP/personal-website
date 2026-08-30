@@ -51,7 +51,7 @@ const GlucoseBiosensor = () => {
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
                     How to Build a Wearable Glucose Biosensor?
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     Screen-printed electrodes in a sweat patch.
                 </p>
                 <ArticleByline slug={SLUG} />
@@ -66,7 +66,7 @@ const GlucoseBiosensor = () => {
                 />
             </div>
 
-            <div className="text-primary max-w-none space-y-16 font-light leading-relaxed">
+            <div className="text-primary max-w-none space-y-16 font-normal leading-relaxed">
 
                 {/* Context */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -330,7 +330,7 @@ const GlucoseBiosensor = () => {
                 {/* References */}
                 <section className="space-y-6">
                     <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
-                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-normal">
                         <li id="ref-1" className="scroll-mt-24">World Health Organization. Diabetes. Accessed Feb. 2023. <a href="https://www.who.int/health-topics/diabetes" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors break-words">Link</a></li>
                         <li id="ref-2" className="scroll-mt-24">Zafar H, et al. Comprehensive Review on Wearable Sweat-Glucose Sensors for Continuous Glucose Monitoring. <em>Sensors</em>. 2022, 22(2):638.</li>
                         <li id="ref-3" className="scroll-mt-24">Biermann E. Discrepancies Between Blood Glucose and Interstitial Glucose. <em>J Diabetes Sci Technol</em>. 2018. doi:10.1177/1932296818771396</li>

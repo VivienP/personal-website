@@ -24,13 +24,13 @@ const IsTechnologyNeutral = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Is Technology Neutral?
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     Why the question is poorly framed, and where the value of a technology is actually decided.
                 </p>
                 <ArticleByline slug={SLUG} />
             </header>
 
-            <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-12 font-light">
+            <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-12 font-normal">
 
                 <section className="space-y-6">
                     <p>

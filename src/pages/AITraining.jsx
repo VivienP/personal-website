@@ -66,7 +66,7 @@ const AITraining = () => {
                     </div>
                 ) : null}
 
-                <div className="prose prose-neutral text-primary max-w-none space-y-5 font-light">
+                <div className="prose prose-neutral text-primary max-w-none space-y-5 font-normal">
                     <SectionTitle>What the workshops cover</SectionTitle>
                     <p>
                         Four areas, in the order teams usually need them. Each session draws on them in

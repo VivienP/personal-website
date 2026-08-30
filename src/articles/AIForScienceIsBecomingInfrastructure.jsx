@@ -29,7 +29,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     AI for Science Is Moving From Prediction to Closed-Loop Research Systems
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     How Does AI-for-Science Find Out It's Wrong?
                 </p>
                 <ArticleByline slug={SLUG} />
@@ -44,7 +44,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                 />
             </figure>
 
-            <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-12 font-light">
+            <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-12 font-normal">
 
                 <section className="space-y-6">
                     <p>
@@ -78,7 +78,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                             className="h-auto rounded-lg border border-border-subtle mx-auto block max-w-[600px] w-full"
                             loading="lazy"
                         />
-                        <figcaption className="mt-3 text-center text-sm text-secondary italic font-light">
+                        <figcaption className="mt-3 text-center text-sm text-secondary italic font-normal">
                             Cost vs. fidelity of feedback across research loops
                         </figcaption>
                     </figure>
@@ -136,7 +136,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
                             className="h-auto rounded-lg border border-border-subtle mx-auto block max-w-[800px] w-full"
                             loading="lazy"
                         />
-                        <figcaption className="mt-3 text-center text-sm text-secondary italic font-light">
+                        <figcaption className="mt-3 text-center text-sm text-secondary italic font-normal">
                             Co-Scientist hypothesis selection process
                         </figcaption>
                     </figure>
@@ -395,7 +395,7 @@ const AIForScienceIsBecomingInfrastructure = () => {
 
                 <section className="space-y-6">
                     <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4">References</h2>
-                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-normal">
                         <li id="ref-1" className="scroll-mt-24">Scannell, J. W. et al. <a href="https://www.nature.com/articles/nrd3681" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">"Diagnosing the decline in pharmaceutical R&D efficiency."</a> <em>Nature Reviews Drug Discovery</em>, March 2012.</li>
                         <li id="ref-2" className="scroll-mt-24">Gottweis, J. et al. <a href="https://www.nature.com/articles/s41586-026-10644-y" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">"Accelerating scientific discovery with Co-Scientist."</a> <em>Nature</em>, May 2026.</li>
                         <li id="ref-3" className="scroll-mt-24">Google DeepMind. <a href="https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">"Co-Scientist: A multi-agent AI partner to accelerate research."</a> May 2026.</li>

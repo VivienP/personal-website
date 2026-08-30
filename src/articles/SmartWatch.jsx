@@ -38,13 +38,13 @@ const SmartWatch = () => {
                 <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
                     How to Build a SmartWatch?
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     A programmable and 3D-printed digital watch.
                 </p>
                 <ArticleByline slug={SLUG} />
             </header>
 
-            <div className="text-primary max-w-none space-y-16 font-light leading-relaxed">
+            <div className="text-primary max-w-none space-y-16 font-normal leading-relaxed">
 
                 {/* Lead — image left, intro right */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -291,7 +291,7 @@ const SmartWatch = () => {
                 {/* References */}
                 <section className="space-y-6">
                     <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
-                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-light">
+                    <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-normal">
                         <li id="ref-1" className="scroll-mt-24">Lechner B., Marlowe F., Nester E. &amp; Tults J. Liquid crystal matrix displays. <em>IEEE International Solid-State Circuits Conference</em>, 1969, pp. 52–53. doi:10.1109/ISSCC.1969.1154684</li>
                         <li id="ref-2" className="scroll-mt-24">Cristaldi D., Pennisi S., Pulvirenti F. <em>Liquid Crystal Display Drivers: Techniques and Circuits</em>. 2009.</li>
                         <li id="ref-3" className="scroll-mt-24">Castellano J. <em>The History of LCD Development</em>. 2005.</li>

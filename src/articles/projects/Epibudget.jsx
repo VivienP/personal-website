@@ -77,7 +77,7 @@ const Epibudget = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Choosing which protein variants to measure when every experimental well counts
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     <code>epibudget</code> is a Python tool and evaluation study for budgeted protein experiments. It
                     separates predicted fitness from experimental value, compares label-blind plate-selection
                     strategies, and documents what the resulting evidence can, and cannot, support.
@@ -121,7 +121,7 @@ const Epibudget = () => {
                 </div>
             </nav>
 
-            <div className="text-primary max-w-none space-y-12 font-light leading-relaxed">
+            <div className="text-primary max-w-none space-y-12 font-normal leading-relaxed">
                 <section className="space-y-6">
                     <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">The problem in one sentence</h2>
                     <p>

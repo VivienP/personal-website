@@ -40,7 +40,7 @@ const FreelanceAIEngineer = () => {
                     </p>
                 </header>
 
-                <div className="prose prose-neutral text-primary max-w-none space-y-5 font-light">
+                <div className="prose prose-neutral text-primary max-w-none space-y-5 font-normal">
                     <SectionTitle>What I build</SectionTitle>
                     <p>Most projects need several of these at once:</p>
                     <ul className="list-disc pl-6 space-y-2 text-primary">

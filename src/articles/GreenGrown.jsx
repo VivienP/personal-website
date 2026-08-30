@@ -32,10 +32,10 @@ const GreenGrown = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Green-Grown
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     A creative plant-stake construction game.
                 </p>
-                <p className="pt-2 text-sm text-secondary/90 italic font-light max-w-2xl">
+                <p className="pt-2 text-sm text-secondary/90 italic font-normal max-w-2xl">
                     During the first year of my master's program, I launched a Kickstarter crowdfunding campaign for the Green-Grown project. I participated in the <span className="font-medium not-italic text-primary">product's design</span>, <span className="font-medium not-italic text-primary">manufacture</span>, and <span className="font-medium not-italic text-primary">marketing content</span> realization with four friends. We sold about 100 products.
                 </p>
             </header>
@@ -54,7 +54,7 @@ const GreenGrown = () => {
                 />
             </div>
 
-            <div className="text-primary max-w-none space-y-16 font-light leading-relaxed">
+            <div className="text-primary max-w-none space-y-16 font-normal leading-relaxed">
 
                 {/* What is Green-Grown? */}
                 <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

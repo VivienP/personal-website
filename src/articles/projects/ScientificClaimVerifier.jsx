@@ -40,7 +40,7 @@ const ScientificClaimVerifier = () => {
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
                     Scientific Claim Verifier
                 </h1>
-                <p className="text-lg text-secondary font-light max-w-2xl">
+                <p className="text-lg text-secondary font-normal max-w-2xl">
                     An open-source engine that verifies each cited claim in scientific text against its actual source and returns a grounded verdict with replayable provenance.
                 </p>
                 <div className="pt-2 flex">
@@ -51,7 +51,7 @@ const ScientificClaimVerifier = () => {
                 </div>
             </header>
 
-            <div className="text-primary max-w-none space-y-12 font-light leading-relaxed">
+            <div className="text-primary max-w-none space-y-12 font-normal leading-relaxed">
 
                 <section className="space-y-6">
                     <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Why I built it</h2>
