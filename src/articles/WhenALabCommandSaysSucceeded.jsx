@@ -4,6 +4,7 @@ import ArticleSEO from '../components/ArticleSEO';
 import ArticleByline from '../components/ArticleByline';
 import AuthorBio from '../components/AuthorBio';
 import Cite from '../components/Cite';
+import { ArrowRight } from 'lucide-react';
 
 const AUDIT_REPO = 'https://github.com/VivienP/lab-log-observability-audit';
 const SLUG = 'when-a-lab-command-says-succeeded';
@@ -53,6 +54,15 @@ const WhenALabCommandSaysSucceeded = () => (
             </p>
             <ArticleByline slug={SLUG} />
         </header>
+
+        <figure className="mb-16 -mx-6 md:mx-0 overflow-hidden md:rounded-lg border-y md:border border-border-subtle">
+            <img
+                src="/lab-log-observability/cover.jpg"
+                alt="Automated laboratory instrument operating above sample trays in a dark laboratory"
+                className="w-full h-auto object-cover"
+                loading="eager"
+            />
+        </figure>
 
         <div className="prose prose-neutral prose-lg text-primary max-w-none space-y-8 font-normal">
             <p>Anthropic's <strong>Model Hardware Standard (MHS)</strong> gives AI agents a common interface to physical devices through standard primitives such as <code>read</code> and <code>write</code>.<Cite n={1} /></p>
@@ -105,14 +115,14 @@ volume = 6.732 µL`}</CodeBlock>
             <p>For the subset with operation logs, I found:</p>
             <ul className="list-disc pl-6 space-y-3 marker:text-accent">
                 <li>106 experiments</li>
-                <li>237 deduplicated anomaly records</li>
+                <li>237 deduplicated records carrying an anomaly class</li>
                 <li>137 <code>ConfirmedAnomaly</code> records</li>
                 <li><strong>79 labelled recoveries</strong></li>
             </ul>
             <p>The metadata describes recovery actions such as <code>Restore normal state</code>, providing ground truth that a recovery occurred. I then inspected each recovery in an operation-log window from 60 seconds before to 120 seconds after the perturbation ended. When that timestamp was unavailable, I used the anomaly end as an explicit fallback.</p>
             <blockquote className="border-l-2 border-accent pl-6 text-primary"><strong>In the original window, 34/79 = 43.04% of labelled recoveries had at least one parseable operation-log row nearby. This is a log-activity proxy, not evidence that the recovery itself was observed.</strong></blockquote>
             <p>Five of the 79 recoveries are anchored outside the interval covered by their operational log. No window can match them. They are unanswerable rather than negative, so the comparison with random background uses the remaining 74.</p>
-            <p>At the original window, log activity is concentrated around the recovery labels at 2.60× the background obtained by random anchoring within the same experiment's log: 34/74 = 45.95% versus 17.67%, with empirical p = 0.0001 over 10,000 iterations using seed 20260830.</p>
+            <p>At the original window, recovery labels are 2.60× more likely than random instants in the same log to have at least one parseable operation-log row nearby: 34/74 = 45.95% versus 17.67%, empirical p = 0.0001 over 10,000 iterations using seed 20260830.</p>
             <div className="not-prose overflow-x-auto">
                 <table className="w-full min-w-[38rem] border-collapse text-sm text-primary">
                     <thead>
@@ -150,7 +160,7 @@ volume = 6.732 µL`}</CodeBlock>
                 </table>
             </div>
             <p>Widening the window raises raw headline coverage from 34/79 to 37/79, but random background rises faster. At ±600 s, the observed 50.0% is indistinguishable from chance (background 51.1%, ratio 0.98×, p = 0.63). The extra matches gained by widening are what chance alone would produce.</p>
-            <p>The anchor is the end of the perturbation. Removing event classes mechanically coupled to this boundary, including mode transitions and setpoint changes, leaves the enrichment intact at 2.80–2.85×. This rules out that precise explanation. But the residual signal is carried mainly by recipe-engine rows, which may be coupled to the same boundary when the controller resumes its step schedule. This remains a temporal association, not evidence that the labelled physical or operator recovery was itself observed.</p>
+            <p>The recovery anchor corresponds to the end of the perturbation, so one obvious concern is that the signal simply comes from log events mechanically triggered at that boundary. I tested this by progressively removing those event types. First, I removed mode transitions and setpoint changes; the enrichment remained at 2.80×. I then also removed device toggles, and finally broader process, warning, and emergency-stop events; the enrichment still remained around 2.8×. <strong>So those boundary events alone do not explain the result.</strong> However, much of the remaining signal comes from recipe-engine events, which may themselves occur when the controller resumes its normal sequence after the perturbation. The result therefore remains a temporal association, not evidence that the physical or operator recovery itself was observed.</p>
             <p>A silent window does not mean no operator acted. The intervention may fall outside the selected window, appear in another modality, or remain outside the software logs. Recovery ground truth and recovery evidence are different records.</p>
             <p>The two datasets expose complementary gaps. Flex-Cat preserves controller and process evidence without consistently binding it to the actions it could verify. Batch Distillation preserves expert recovery outcomes while its operation log often omits the intervention itself.</p>
 
@@ -196,6 +206,18 @@ action-linked evidence
             <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary">Conclusion</h2>
             <p>The design requirement is not simply more logging. It is an explicit, machine-readable link between an action, the evidence bearing on its physical effect, and the claim the system is justified in making.</p>
             <p>For non-idempotent operations, this distinction directly determines whether retrying is safe. Until an automation stack exposes it, <code>SUCCEEDED</code> should mean only that command execution completed, not that the intended physical effect is known to have occurred.</p>
+
+            <div className="not-prose pt-4 flex flex-col sm:flex-row flex-wrap gap-3">
+                <a
+                    href={AUDIT_REPO}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-between sm:justify-start gap-2 px-5 py-3 border border-border-subtle hover:border-accent transition-colors text-sm text-primary"
+                >
+                    <span>Explore the audit project</span>
+                    <ArrowRight size={16} />
+                </a>
+            </div>
 
             <h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>
             <ol className="list-decimal pl-6 space-y-3 text-sm marker:text-secondary font-normal">

@@ -431,13 +431,35 @@ test('lab command article preserves its approved evidence and editorial boundari
     assert.match(article, /51\.1%/);
     assert.match(article, /0\.98×/);
     assert.match(article, /p = 0\.63/);
-    assert.match(article, /2\.80–2\.85×/);
+    assert.match(article, /<li>237 deduplicated records carrying an anomaly class<\/li>/, 'the anomaly count copy changed');
+    assert.match(
+        article,
+        /<p>At the original window, recovery labels are 2\.60× more likely than random instants in the same log to have at least one parseable operation-log row nearby: 34\/74 = 45\.95% versus 17\.67%, empirical p = 0\.0001 over 10,000 iterations using seed 20260830\.<\/p>/,
+        'the approved original-window result changed',
+    );
+    assert.match(
+        article,
+        /<p>The recovery anchor corresponds to the end of the perturbation, so one obvious concern is that the signal simply comes from log events mechanically triggered at that boundary\. I tested this by progressively removing those event types\. First, I removed mode transitions and setpoint changes; the enrichment remained at 2\.80×\. I then also removed device toggles, and finally broader process, warning, and emergency-stop events; the enrichment still remained around 2\.8×\. <strong>So those boundary events alone do not explain the result\.<\/strong> However, much of the remaining signal comes from recipe-engine events, which may themselves occur when the controller resumes its normal sequence after the perturbation\. The result therefore remains a temporal association, not evidence that the physical or operator recovery itself was observed\.<\/p>/,
+        'the approved falsification paragraph changed',
+    );
     assert.match(article, /unanswerable rather than negative/);
     assert.match(article, /temporal association/);
-    assert.match(article, /recipe-engine rows/);
     assert.match(article, /versioned release 21535243/);
     assert.match(article, /const AUDIT_REPO = 'https:\/\/github\.com\/VivienP\/lab-log-observability-audit';/);
     assert.match(article, /codeRepository: AUDIT_REPO/);
+    assert.match(article, /import \{ ArrowRight \} from 'lucide-react';/);
+    assert.match(
+        article,
+        /<div className="not-prose pt-4 flex flex-col sm:flex-row flex-wrap gap-3">\s*<a\s+href=\{AUDIT_REPO\}\s+target="_blank"\s+rel="noopener noreferrer"\s+className="inline-flex items-center justify-between sm:justify-start gap-2 px-5 py-3 border border-border-subtle hover:border-accent transition-colors text-sm text-primary"\s*>\s*<span>Explore the audit project<\/span>\s*<ArrowRight size=\{16\} \/>\s*<\/a>\s*<\/div>\s*<h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References<\/h2>/,
+        'the audit CTA block or its placement changed',
+    );
+    const finalConclusion = '<p>For non-idempotent operations, this distinction directly determines whether retrying is safe. Until an automation stack exposes it, <code>SUCCEEDED</code> should mean only that command execution completed, not that the intended physical effect is known to have occurred.</p>';
+    const referencesHeading = '<h2 className="text-2xl md:text-3xl pt-8 pb-2 font-normal text-primary border-b border-border-subtle">References</h2>';
+    const finalConclusionIndex = article.indexOf(finalConclusion);
+    const ctaIndex = article.indexOf('<div className="not-prose pt-4 flex flex-col sm:flex-row flex-wrap gap-3">');
+    assert.notEqual(finalConclusionIndex, -1, 'the final conclusion paragraph is missing');
+    assert.ok(finalConclusionIndex < ctaIndex, 'the audit CTA must follow the final conclusion');
+    assert.ok(ctaIndex < article.indexOf(referencesHeading), 'the audit CTA must precede References');
     assert.match(article, /<RefLink href=\{AUDIT_REPO\}>public audit repository<\/RefLink>/);
     assert.match(article, /modifiedTime="2026-08-30"/);
     assert.match(
@@ -453,6 +475,10 @@ test('lab command article preserves its approved evidence and editorial boundari
     assert.doesNotMatch(article, /If you operate Chemspeed/);
     assert.doesNotMatch(article, /answered by practitioners|testing one question with practitioners|next three real laboratory automation stacks/);
     assert.doesNotMatch(article, /17 of the 79 windows|only eight contained|Recovery observability coverage: 43%|event_category/);
+    assert.doesNotMatch(article, /237 deduplicated anomaly records/);
+    assert.doesNotMatch(article, /log activity is concentrated around the recovery labels/);
+    assert.doesNotMatch(article, /2\.80–2\.85×/);
+    assert.doesNotMatch(article, /The recovery anchor corresponds to the end of the perturbation, so one obvious concern is that the signal comes from log events/);
     assert.doesNotMatch(article, /—/, 'the article adds an em dash');
 });
 
