@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { journalArticles } from '../src/data/journalArticles.js';
 
 /**
  * Contracts over the built output rather than over source text.
@@ -77,6 +78,22 @@ test('the build output is newer than its source inputs', () => {
         oldestPage >= newestInput,
         'dist/ is older than a build input — run `npm run build` before `npm test`',
     );
+});
+
+test('every Journal page prerenders a large dedicated social card', () => {
+    for (const entry of journalArticles) {
+        const route = `/journal/${entry.slug}`;
+        const page = pages.find((candidate) => candidate.route === route);
+        assert.ok(page, `${route} was not prerendered`);
+
+        const image = `${SITE_URL}${entry.socialImage}`;
+        const escapedImage = image.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        assert.match(page.html, new RegExp(`<meta property="og:image" content="${escapedImage}"\\s*/?>`));
+        assert.match(page.html, /<meta property="og:image:width" content="1200"\s*\/?>/);
+        assert.match(page.html, /<meta property="og:image:height" content="630"\s*\/?>/);
+        assert.match(page.html, /<meta name="twitter:card" content="summary_large_image"\s*\/?>/);
+        assert.match(page.html, new RegExp(`<meta name="twitter:image" content="${escapedImage}"\\s*/?>`));
+    }
 });
 
 test('every indexable route is reachable from another prerendered page', () => {

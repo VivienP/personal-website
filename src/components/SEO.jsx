@@ -91,6 +91,7 @@ const SEO = ({
     noindex = false,
     jsonLd = null,
     locale = 'en_US',
+    twitterCard = 'summary',
 }) => {
     const openGraphImage = resolveOpenGraphImage({ image, imageWidth, imageHeight });
     const seo = {
@@ -129,7 +130,7 @@ const SEO = ({
             <meta property="og:locale" content={locale} />
 
             {/* Twitter Card */}
-            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:card" content={twitterCard} />
             <meta name="twitter:site" content={TWITTER_HANDLE} />
             <meta name="twitter:creator" content={TWITTER_HANDLE} />
             <meta name="twitter:title" content={seo.title} />

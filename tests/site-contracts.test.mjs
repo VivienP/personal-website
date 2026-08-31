@@ -19,6 +19,52 @@ const readLossyWebpDimensions = (file) => {
     };
 };
 
+const readJpegDimensions = (file) => {
+    const body = readFileSync(new URL(`../${file}`, import.meta.url));
+    assert.equal(body.readUInt16BE(0), 0xffd8, `${file} is not a JPEG`);
+
+    let offset = 2;
+    while (offset < body.length) {
+        if (body[offset] !== 0xff) {
+            offset += 1;
+            continue;
+        }
+
+        const marker = body[offset + 1];
+        if ([0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf].includes(marker)) {
+            return {
+                width: body.readUInt16BE(offset + 7),
+                height: body.readUInt16BE(offset + 5),
+            };
+        }
+
+        if (marker === 0xd8 || marker === 0xd9) {
+            offset += 2;
+            continue;
+        }
+
+        const segmentLength = body.readUInt16BE(offset + 2);
+        offset += 2 + segmentLength;
+    }
+
+    assert.fail(`${file} has no JPEG frame header`);
+};
+
+test('every Journal article declares a dedicated 1200 by 630 social image', async () => {
+    const { journalArticles } = await optionalImport('../src/data/journalArticles.js');
+    assert.equal(journalArticles.length, 12);
+
+    for (const article of journalArticles) {
+        const expected = `/social/journal/${article.slug}.jpg`;
+        assert.equal(article.socialImage, expected, `${article.slug} does not use its dedicated social image`);
+        assert.equal(article.socialImageWidth, 1200, `${article.slug} has the wrong social image width metadata`);
+        assert.equal(article.socialImageHeight, 630, `${article.slug} has the wrong social image height metadata`);
+        const file = `public${expected}`;
+        assert.ok(existsSync(new URL(`../${file}`, import.meta.url)), `${file} is missing`);
+        assert.deepEqual(readJpegDimensions(file), { width: 1200, height: 630 }, `${file} has the wrong dimensions`);
+    }
+});
+
 test('email link is exposed synchronously on the activated anchor', async () => {
     const { prepareEmailLink } = await optionalImport('../src/utils/email.js');
     assert.equal(typeof prepareEmailLink, 'function', 'email helper is not implemented');

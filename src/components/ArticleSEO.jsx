@@ -37,15 +37,21 @@ const ArticleSEO = ({
     const url = `/journal/${slug}`;
     const published = entry.date;
     const modified = modifiedTime ?? published;
+    const socialImage = resolveOpenGraphImage({
+        image: entry.socialImage ?? image,
+        imageWidth: entry.socialImageWidth ?? imageWidth,
+        imageHeight: entry.socialImageHeight ?? imageHeight,
+    });
 
     return (
         <SEO
             title={title}
             description={description}
             url={url}
-            image={image}
-            imageWidth={imageWidth}
-            imageHeight={imageHeight}
+            image={socialImage.src}
+            imageWidth={socialImage.width}
+            imageHeight={socialImage.height}
+            twitterCard="summary_large_image"
             type="article"
             article={{
                 publishedTime: published,
@@ -60,7 +66,7 @@ const ArticleSEO = ({
                 '@type': 'BlogPosting',
                 headline: entry.title,
                 description,
-                image: resolveOpenGraphImage({ image }).src,
+                image: socialImage.src,
                 ...jsonLd,
                 // Identity and provenance are derived last: they are what makes the
                 // listing, the canonical URL and the visible byline agree, so an
