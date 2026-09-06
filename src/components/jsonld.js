@@ -3,8 +3,6 @@
 
 export const SITE_URL = 'https://vivienperrelle.com';
 
-// Canonical author node. Articles reference the same @id as the home-page
-// Person graph node so search/AI engines resolve every byline to one entity.
 export const AUTHOR = {
     '@type': 'Person',
     '@id': `${SITE_URL}/#person`,
@@ -12,22 +10,16 @@ export const AUTHOR = {
     url: SITE_URL,
 };
 
-// The freelance offer as a machine-readable Service. Shared between the home
-// page graph and the landing page so both reference one entity.
 export const FREELANCE_SERVICE_JSON_LD = {
     '@type': 'Service',
     '@id': `${SITE_URL}/#freelance`,
-    name: 'Freelance scientific software and AI engineering for biology and research teams',
-    serviceType: 'Scientific data infrastructure, evaluation and reliability, AI workflows, experimental design systems',
+    name: 'Lab automation and scientific software engineering',
+    serviceType: 'Fixed-scope laboratory automation software engineering, workflow implementation, instrument/software integration, reliability, testing and handover',
     provider: { '@id': `${SITE_URL}/#person` },
     areaServed: 'Worldwide',
-    url: `${SITE_URL}/freelance-ai-engineer-biology`,
+    url: `${SITE_URL}/lab-automation-software-engineer`,
 };
 
-// The training offer, declared as its own Service rather than folded into the
-// freelance one: they are bought by different people for different reasons, and
-// a single blurred "AI services" node would describe neither. The Person node
-// stays the engineering entity — this hangs off it, it does not restate it.
 export const TRAINING_SERVICE_JSON_LD = {
     '@type': 'Service',
     '@id': `${SITE_URL}/#training`,
