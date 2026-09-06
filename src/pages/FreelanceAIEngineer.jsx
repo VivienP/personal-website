@@ -12,13 +12,24 @@ const InlineLink = ({ to, children }) => (
     </Link>
 );
 
+const ExternalLink = ({ href, children }) => (
+    <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors"
+    >
+        {children}
+    </a>
+);
+
 const FreelanceAIEngineer = () => {
     return (
         <main className="min-h-screen animate-in fade-in duration-700">
             <SEO
-                title="Freelance AI & Scientific Software Engineer for Biology R&D | Vivien Perrelle"
-                description="Freelance engineer for biology and AI-for-science R&D: scientific data infrastructure, evaluation, AI workflows and experimental design. Book an intro call."
-                url="/freelance-ai-engineer-biology"
+                title="Lab Automation Software Engineer | Vivien Perrelle"
+                description="Fixed-scope software engineering for existing laboratory automation deployments: workflow implementation, instrument/software integration, reliability, testing and handover."
+                url="/lab-automation-software-engineer"
                 jsonLd={{
                     '@context': 'https://schema.org',
                     ...FREELANCE_SERVICE_JSON_LD,
@@ -28,170 +39,157 @@ const FreelanceAIEngineer = () => {
             <article className="py-24 px-6 max-w-3xl mx-auto">
                 <BackLink to="/" label="Back" />
 
-                <header className="mb-10 space-y-6">
+                <header className="mb-12 space-y-6">
+                    <p className="text-sm font-mono uppercase tracking-wide text-secondary">
+                        Fixed-scope engineering support
+                    </p>
                     <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
-                        Scientific Software &amp; AI Engineering for R&amp;D Teams
+                        Software engineering for laboratory automation workflows
                     </h1>
                     <p className="text-base text-primary leading-relaxed">
-                        I build reliable software at the boundary between models, scientific data and
-                        experiments: the data infrastructure, the evaluation, the AI workflows and the
-                        experimental tooling that turn a research capability into a system a team can
-                        depend on.
+                        I take ownership of bounded software work inside existing lab automation deployments,
+                        working alongside the team that already owns the protocol, instruments and physical
+                        validation.
+                    </p>
+                    <p className="text-base text-secondary leading-relaxed">
+                        Best fit: lab automation integrators, instrument and automation vendors, and internal
+                        automation teams with a concrete project already in motion.
                     </p>
                 </header>
 
                 <div className="prose prose-neutral text-primary max-w-none space-y-5 font-normal">
-                    <SectionTitle>What I build</SectionTitle>
-                    <p>Most projects need several of these at once:</p>
-                    <ul className="list-disc pl-6 space-y-2 text-primary">
+                    <SectionTitle>Work I can take off your plate</SectionTitle>
+                    <ul className="list-disc pl-6 space-y-3 text-primary">
                         <li>
-                            <strong>Scientific products and platforms</strong>: Python services, APIs and
-                            internal research tools that take an ambiguous research need to something
-                            scientists can use without its author beside them.
+                            <strong>Workflow implementation and adaptation</strong>: implement or modify
+                            existing workflow logic in Python, PyLabRobot, vendor SDKs or APIs, within a
+                            configuration your team already understands.
                         </li>
                         <li>
-                            <strong>Scientific data infrastructure</strong>: ingestion, validation,
-                            structured metadata, provenance and versioned transformations, so a processed
-                            result can be traced back to the raw measurement and re-derived.
+                            <strong>Instrument and software integration</strong>: connect an instrument,
+                            service or data handoff to an existing workflow, including typed interfaces,
+                            state transitions and failure handling.
                         </li>
                         <li>
-                            <strong>Evaluation and reliability</strong>: harnesses, regression suites,
-                            deterministic checks and documented failure modes, so a probabilistic system
-                            becomes testable rather than merely convincing.
+                            <strong>Reliability and recovery engineering</strong>: make failure states
+                            explicit, improve logging and recovery visibility, add bounded retry or
+                            reconciliation logic where the physical semantics are known.
                         </li>
                         <li>
-                            <strong>AI workflows grounded in scientific data</strong>: agents, tool
-                            calling, structured outputs and retrieval over primary sources, with humans
-                            approving the steps that are expensive to undo.
-                        </li>
-                        <li>
-                            <strong>Experimental design and decision systems</strong>: the layer that
-                            turns model output into the next experiment, choosing what to measure under a
-                            real budget.
+                            <strong>Testing, simulation and handover</strong>: regression tests, mocks or
+                            simulated paths, fault cases, documentation and a clean transfer back to the
+                            team that will maintain the system.
                         </li>
                     </ul>
 
-                    <SectionTitle>From experiments to software</SectionTitle>
+                    <SectionTitle>A first engagement stays small</SectionTitle>
                     <p>
-                        I started on the experimental side. My{' '}
-                        <InlineLink to="/academic-work/smartwatch-embedded-biosensors">
-                            MSc thesis
-                        </InlineLink>{' '}
-                        covered two years of wearable biosensor work at the Institute for Future
-                        Technologies: the{' '}
-                        <InlineLink to="/projects/biowatch">BioWatch</InlineLink>, a smartwatch I built
-                        from scratch to carry the enzymatic biosensors I was developing, and a
-                        microneedle lactate module for it. I then joined R&amp;D at{' '}
-                        <InlineLink to="/projects/pkvitality">PKvitality</InlineLink> as a research
-                        assistant, running in vitro tests on electrochemical microneedle CGM prototypes
-                        and documenting the anomalies that guided the next iteration.
+                        The starting point is one concrete work package: one workflow, one defined software
+                        change, clear required access and an acceptance check agreed before implementation.
+                        A typical first milestone is small enough to review and ship without turning into a
+                        speculative automation programme.
                     </p>
                     <p>
-                        Which is why I don&rsquo;t treat scientific data as clean input. Measurements are
-                        noisy, instruments drift, protocols change between runs. It is the question I now
-                        ask of software: what happens when the data is wrong, and how would we find out?
+                        If the scope is not yet clear, the first paid milestone can be a short feasibility
+                        sprint that maps the current workflow, interfaces, technical unknowns and a testable
+                        implementation plan.
                     </p>
 
-                    <SectionTitle>Selected evidence</SectionTitle>
-                    <ul className="list-disc pl-6 space-y-2 text-primary">
-                        <li>
-                            <strong>
-                                <InlineLink to="/projects/epibudget">epibudget</InlineLink>
-                            </strong>
-                            : an open-source tool that spends a fixed experimental budget on the protein
-                            variants exposing interaction structure, not the ones a model predicts will
-                            score well. Success criteria were registered before the results, and an
-                            earlier interpretation was withdrawn once an audit contradicted it.
-                        </li>
-                        <li>
-                            <strong>
-                                <InlineLink to="/projects/scientific-claim-verifier">
-                                    Scientific Claim Verifier
-                                </InlineLink>
-                            </strong>
-                            : an open-source engine checking each cited claim against the source it
-                            points to. Everything that does not need a model stays deterministic, every
-                            step emits provenance, and a regression guard fails the build if SciFact F1
-                            drops below its committed baseline (0.92 against 0.62 naive, verifier-only).
-                        </li>
-                        <li>
-                            <strong>Founder-level ownership</strong>:{' '}
-                            <InlineLink to="/projects/finexov">Finexov</InlineLink>, an AI platform for
-                            public-funding applications taken from cold calls to &euro;30K in sales, and{' '}
-                            <InlineLink to="/projects/oseille">Oseille AI</InlineLink>, an agent for
-                            French innovation subsidies. Unclear problems, systems defined from scratch,
-                            nobody else to hand the ambiguity to.
-                        </li>
-                    </ul>
-
-                    <SectionTitle>How I think about AI for Science</SectionTitle>
+                    <SectionTitle>Responsibility boundary</SectionTitle>
                     <p>
-                        The question I keep returning to is not what a scientific system can generate,
-                        but how it finds out that it is wrong. Feedback from reality has both a cost and
-                        a fidelity, and the two do not move together: the cheapest loops are the easiest
-                        to scale and the easiest to fool yourself with. Closing that gap, then using the
-                        result to choose the next experiment, is where I find the interesting
-                        engineering.
-                    </p>
-                    <p>
-                        I wrote that argument out in{' '}
-                        <InlineLink to="/journal/ai-for-science-is-becoming-a-systems-problem">
-                            AI for Science Is Moving From Prediction to Closed-Loop Research Systems
-                        </InlineLink>
-                        , applied it to protein experiments in{' '}
-                        <InlineLink to="/journal/designing-protein-experiments-for-epistasis">
-                            Measure for Information, Not for Fitness
-                        </InlineLink>
-                        , and to research agents in{' '}
-                        <InlineLink to="/journal/science-is-entering-its-agentic-era">
-                            Science Is Entering Its Agentic Era
-                        </InlineLink>
-                        .
+                        I own the software work I agree to deliver. Your automation or applications team
+                        remains responsible for the scientific method, hardware configuration, calibration,
+                        labware and consumable compatibility, physical safety, bench validation and the
+                        decision to put a workflow into production. If a project needs deeper applications or
+                        hardware expertise, that expertise should be identified before the engagement starts.
                     </p>
 
-                    <SectionTitle>Who I work with</SectionTitle>
+                    <SectionTitle>Selected proof</SectionTitle>
+
+                    <Subheading>PyLabRobot: production open-source contributions</Subheading>
                     <p>
-                        R&amp;D teams at the point where a model, a prototype or a research workflow has
-                        to become dependable software: AI-native biology and TechBio startups, scientific
-                        platform teams, and AI-for-science groups inside larger organisations. Biology is
-                        where I am most fluent, but the work generalises wherever models, data and
-                        experiments have to line up.
+                        I contribute to{' '}
+                        <ExternalLink href="https://github.com/PyLabRobot/pylabrobot">PyLabRobot</ExternalLink>,
+                        an open-source lab automation framework. A merged contribution added structured
+                        lifecycle events across plate readers, imagers and thermocyclers while preserving the
+                        distinction between a backend call returning successfully and independent physical
+                        proof that an instrument procedure occurred. The PR passed 226 tests plus 29 subtests,
+                        mypy, Ruff and the documentation build.{' '}
+                        <ExternalLink href="https://github.com/PyLabRobot/pylabrobot/pull/1229">
+                            Review the merged PR
+                        </ExternalLink>.
+                    </p>
+
+                    <Subheading>Real automation logs: what does “succeeded” actually prove?</Subheading>
+                    <p>
+                        I built a reproducible audit of public Chemspeed and batch-distillation logs to test
+                        whether software traces can establish the physical effect of a laboratory command.
+                        All 986 Chemspeed operation events paired cleanly; all 60 transfer endpoints reported
+                        requested and actual volume as equal; yet the public source did not establish that the
+                        reported field was an independent measurement of physical transfer. In the
+                        distillation data, 34 of 79 labelled recoveries had nearby parseable log activity in
+                        the primary window, which is useful context but not proof of the operator intervention
+                        itself.{' '}
+                        <ExternalLink href="https://github.com/VivienP/lab-log-observability-audit">
+                            Audit, data provenance and reproduction steps
+                        </ExternalLink>{' '}
+                        ·{' '}
+                        <InlineLink to="/journal/when-a-lab-command-says-succeeded">
+                            Read the analysis
+                        </InlineLink>.
+                    </p>
+
+                    <Subheading>LabBridge: failure-aware execution and evidence</Subheading>
+                    <p>
+                        <ExternalLink href="https://github.com/VivienP/labbridge">LabBridge</ExternalLink>{' '}
+                        is my open-source experimental-data and reliability project. Its demonstrated fault
+                        campaign runs 100 seeded synthetic campaigns across process-termination boundaries
+                        with zero lost accepted observations, zero unintended duplicate acceptances, zero
+                        hard-budget overspends, zero projection mismatches and zero package-verification
+                        failures. That evidence is deliberately limited to synthetic replay infrastructure;
+                        it is not presented as a live-instrument result.
+                    </p>
+
+                    <SectionTitle>How I work</SectionTitle>
+                    <p>
+                        I work inside the existing engineering environment rather than replacing it. The
+                        engagement starts from the actual repository, workflow, API or integration task. I
+                        keep scope, interfaces and failure modes explicit, write tested code, and document
+                        what was validated in software versus what still requires physical confirmation.
                     </p>
                     <p>
-                        I like working inside a team rather than beside it, close to the scientists who
-                        will use the system, where it is easier to see which part of their workflow
-                        actually breaks. I take one problem at a time and stay with it through the parts
-                        nobody could specify at the start, and I write production code with tests and
-                        explicit failure modes. Remote on CET hours with comfortable overlap for EU and
-                        US-East teams, and glad to relocate for long-term work.
+                        Remote from France with overlap for European and US-East teams. On-site work can be
+                        discussed when hardware access makes it necessary.
                     </p>
 
                     <SectionTitle>Common questions</SectionTitle>
 
                     <Subheading>What stack do you work in?</Subheading>
                     <p>
-                        Python: async services with FastAPI and Pydantic, typed and tested (mypy
-                        --strict, pytest). LLM APIs and MCP servers, retrieval over CrossRef, OpenAlex
-                        and PubMed, ESM-2 where the science calls for it, and Docker deployment,
-                        including the air-gapped environments I build under at{' '}
-                        <a href="https://www.locuslabhq.com/" target="_blank" rel="noopener noreferrer" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
-                            LocusLab
-                        </a>
-                        .
+                        Primarily Python: async services, FastAPI, Pydantic, SQLAlchemy, pytest and typed
+                        interfaces. For lab automation I work with PyLabRobot and can integrate against the
+                        interface your project already uses, including vendor SDKs or APIs. I also build
+                        agentic and MCP-based systems when they solve a concrete workflow problem rather than
+                        adding an unnecessary runtime layer.
+                    </p>
+
+                    <Subheading>Do you deliver turnkey laboratory automation?</Subheading>
+                    <p>
+                        No. I am currently a software specialist inside the delivery team, not a substitute
+                        for an experienced automation engineer, applications scientist or hardware
+                        integrator. That boundary is intentional.
                     </p>
 
                     <Subheading>How do engagements start?</Subheading>
                     <p>
-                        A 30-minute intro call. If the problem is a fit, I send a concrete proposal
-                        within a few days: scope, deliverables, timeline. If it isn&rsquo;t, I&rsquo;ll
-                        say so directly.
+                        A short call around one active project. If there is a self-contained software package
+                        I can own, I send a proposal with deliverables, dependencies, acceptance criteria and
+                        the next milestone. If the task requires expertise I do not have, I will say so.
                     </p>
                 </div>
             </article>
 
-            {/* The reader is already on the engineering offer, so the closing block
-                restates that one rather than reintroducing both. */}
-            <Contact lead="I take on selective freelance engagements with biology, TechBio and AI-for-science R&D teams: scientific data infrastructure, evaluation and reliability, AI workflows, and the systems that turn model output into the next experiment." />
+            <Contact lead="Have an active lab automation deployment with a bounded software task that needs an owner? I can take on workflow implementation, integration, reliability or testing alongside your automation team." />
         </main>
     );
 };
