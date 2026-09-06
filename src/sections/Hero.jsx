@@ -8,7 +8,6 @@ const Hero = () => {
             <div className="max-w-6xl mx-auto w-full">
                 <div className="max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-1000 space-y-8">
 
-                    {/* Profile Picture */}
                     <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border border-border-subtle bg-border-subtle/20 grayscale hover:grayscale-0 transition-all duration-500">
                         <img
                             src="/me.png"
@@ -17,25 +16,21 @@ const Hero = () => {
                         />
                     </div>
 
-                    {/* Bio / Main Title */}
                     <h1 className="text-base text-primary leading-relaxed">
-                        I’m Vivien Perrelle — a founder building verification infrastructure for biology research, and a{' '}
+                        I’m Vivien Perrelle, a scientific software engineer focused on laboratory automation and AI for Science. I take on{' '}
                         <Link
-                            to="/freelance-ai-engineer-biology"
+                            to="/lab-automation-software-engineer"
                             className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors"
                         >
-                            freelance AI engineer for biology
-                        </Link>{' '}
-                        and TechBio teams: AI agents, context engineering, and scientific tooling. <br className="hidden md:block" />
+                            fixed-scope software work inside existing lab automation deployments
+                        </Link>
+                        : workflow implementation, instrument/software integration, reliability and testing.
                     </h1>
 
-                    {/* Credentials */}
                     <p className="text-base text-primary leading-relaxed">
-                        MSc in Creative Technologies (Institute for Future Technologies) · ex-R&amp;D at PKvitality ·
-                        founder of Finexov and LocusLab · building AI that science can trust.
+                        PyLabRobot contributor · built LabBridge and a reproducible audit of real laboratory-automation logs · ex-R&amp;D at PKvitality · founder of Finexov.
                     </p>
 
-                    {/* Location */}
                     <div className="flex items-center space-x-2 text-secondary text-sm md:text-base">
                         <MapPin size={16} className="text-secondary/70" />
                         <span>Lyon, France</span>

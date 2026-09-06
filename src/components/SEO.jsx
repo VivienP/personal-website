@@ -12,8 +12,8 @@ const DEFAULT_JSON_LD = {
             name: 'Vivien Perrelle',
             url: SITE_URL,
             image: `${SITE_URL}/me.png`,
-            jobTitle: 'Founder & Freelance AI Engineer, AI for Biology',
-            description: 'Founder building verification infrastructure for biology research. Freelance AI engineer for biology, TechBio, and AI-for-science teams: AI agents, RAG, scientific tooling.',
+            jobTitle: 'Scientific Software Engineer — Laboratory Automation & AI for Science',
+            description: 'Scientific software engineer focused on laboratory automation, reliability and AI for Science. PyLabRobot contributor and builder of open-source scientific software.',
             address: { '@type': 'PostalAddress', addressLocality: 'Lyon', addressCountry: 'FR' },
             alumniOf: [
                 {
@@ -30,12 +30,13 @@ const DEFAULT_JSON_LD = {
                 },
             ],
             knowsAbout: [
+                'laboratory automation',
+                'scientific software engineering',
+                'PyLabRobot',
+                'automation reliability',
                 'AI for science',
                 'AI agents',
-                'retrieval-augmented generation (RAG)',
-                'scientific claim verification',
-                'LLM engineering',
-                'scientific tooling',
+                'scientific data provenance',
                 'biosensors',
                 'Python',
                 'FastAPI',
@@ -43,14 +44,14 @@ const DEFAULT_JSON_LD = {
             hasOccupation: [
                 {
                     '@type': 'Occupation',
-                    name: 'Founder',
-                    description: 'Founder of LocusLab, verification infrastructure for biology research.',
+                    name: 'Scientific Software Engineer',
+                    description: 'Fixed-scope software engineering for laboratory automation and AI-for-science teams.',
+                    occupationLocation: { '@type': 'City', name: 'Lyon' },
                 },
                 {
                     '@type': 'Occupation',
-                    name: 'Freelance AI Engineer',
-                    description: 'Freelance AI engineering for biology, TechBio, and AI-for-science teams.',
-                    occupationLocation: { '@type': 'City', name: 'Lyon' },
+                    name: 'Founder',
+                    description: 'Founder with experience building and selling technical B2B products.',
                 },
             ],
             sameAs: [
@@ -74,8 +75,8 @@ const DEFAULT_JSON_LD = {
 };
 
 const defaults = {
-    title: 'Vivien Perrelle | AI Engineer & Founder, AI for Biology',
-    description: 'I help TechBio and AI-for-biology teams ship AI agents, RAG pipelines, and scientific tooling. Selective freelance engagements. Book an intro call.',
+    title: 'Vivien Perrelle | Lab Automation & Scientific Software Engineer',
+    description: 'Fixed-scope software engineering for lab automation teams: workflow implementation, integration, reliability and testing.',
     image: `${SITE_URL}/me.png`,
 };
 
@@ -101,9 +102,6 @@ const SEO = ({
         url: url ? `${SITE_URL}${url}` : SITE_URL,
     };
 
-    // Only the homepage carries the Person/Service/WebSite @graph. Falling back to
-    // it when `url` is merely absent made /404 declare the site's entity too, and
-    // pointed its og:url at the homepage.
     const effectiveJsonLd = jsonLd ?? (url === '/' ? DEFAULT_JSON_LD : null);
 
     if (import.meta.env.DEV && !url) {
@@ -115,10 +113,8 @@ const SEO = ({
             <title>{seo.title}</title>
             <meta name="description" content={seo.description} />
             <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
-            {/* A canonical alongside noindex sends contradictory signals — omit it. */}
             {!noindex && <link rel="canonical" href={seo.url} />}
 
-            {/* Open Graph */}
             <meta property="og:type" content={type} />
             <meta property="og:title" content={seo.title} />
             <meta property="og:description" content={seo.description} />
@@ -129,7 +125,6 @@ const SEO = ({
             <meta property="og:site_name" content="Vivien Perrelle" />
             <meta property="og:locale" content={locale} />
 
-            {/* Twitter Card */}
             <meta name="twitter:card" content={twitterCard} />
             <meta name="twitter:site" content={TWITTER_HANDLE} />
             <meta name="twitter:creator" content={TWITTER_HANDLE} />
@@ -137,7 +132,6 @@ const SEO = ({
             <meta name="twitter:description" content={seo.description} />
             <meta name="twitter:image" content={seo.image} />
 
-            {/* Article meta */}
             {article?.publishedTime && (
                 <meta property="article:published_time" content={article.publishedTime} />
             )}
@@ -151,7 +145,6 @@ const SEO = ({
                 <meta property="article:section" content={article.section} />
             )}
 
-            {/* JSON-LD */}
             {effectiveJsonLd && (
                 <script type="application/ld+json">
                     {JSON.stringify(effectiveJsonLd)}
