@@ -6,16 +6,12 @@ import { EMAIL_HREF } from '../utils/email';
 
 const CAL_NAMESPACE = 'quick-chat';
 
-// The two ways of working with me, as the homepage presents them. Deliberately
-// the Beyond Work column rhythm rather than the bordered Projects card: this
-// section closes the page and should read as two short paragraphs with a way in,
-// not as a pricing grid.
 const OFFERS = [
     {
-        title: 'AI Engineering',
-        body: 'Software at the boundary between models, scientific data and experiments: scientific data infrastructure, evaluation and reliability, AI workflows, and the systems that turn model output into the next experiment. For biology, TechBio and AI-for-science R&D teams.',
-        to: '/freelance-ai-engineer-biology',
-        cta: 'Explore AI engineering',
+        title: 'Lab Automation Software',
+        body: 'Fixed-scope software engineering for existing laboratory automation deployments: workflow implementation, instrument/software integration, reliability, testing and handover. For integrators, automation vendors and internal automation teams.',
+        to: '/lab-automation-software-engineer',
+        cta: 'Explore lab automation engineering',
     },
     {
         title: 'AI Training & Workshops',
@@ -43,13 +39,7 @@ const Offers = () => (
     </div>
 );
 
-// The booking block that closes every commercial page. `lead` is what sits between
-// the heading and the controls: the landing pages pass a paragraph scoped to the
-// offer the reader has just finished, and the homepage, which has to introduce
-// both, falls through to the two offers instead.
 const Contact = ({ lead = null }) => {
-    // Initialise the Cal.com embed once; the modal loads on element click,
-    // so nothing heavy runs for visitors who don't book.
     useEffect(() => {
         (async () => {
             const cal = await getCalApi({ namespace: CAL_NAMESPACE });
