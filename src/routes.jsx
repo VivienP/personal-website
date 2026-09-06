@@ -10,6 +10,7 @@ const toLazyRoute = (definition) => {
 export const routes = routeDefinitions.map(toLazyRoute);
 
 export const legacyRedirects = [
+    { path: '/freelance-ai-engineer-biology', to: '/lab-automation-software-engineer' },
     { path: '/blog/designing-protein-experiments-for-epistasis', to: '/journal/designing-protein-experiments-for-epistasis' },
     { path: '/blog/trauma-vs-purpose', to: '/journal/trauma-vs-purpose' },
     { path: '/blog/smartwatch', to: '/journal/smartwatch' },
