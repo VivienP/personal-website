@@ -1,5 +1,5 @@
 export const routeDefinitions = [
-    { path: '/', lastmod: '2026-08-17', load: () => import('./sections/Home.jsx') },
+    { path: '/', lastmod: '2026-09-06', load: () => import('./sections/Home.jsx') },
     { path: '/journal/when-a-lab-command-says-succeeded', lastmod: '2026-08-30', load: () => import('./articles/WhenALabCommandSaysSucceeded.jsx') },
     { path: '/projects/epibudget', lastmod: '2026-08-13', load: () => import('./articles/projects/Epibudget.jsx') },
     { path: '/journal/epistasis-explained-best-variant-vs-best-experiment', lastmod: '2026-08-13', load: () => import('./articles/EpistasisExplained.jsx') },
@@ -27,7 +27,7 @@ export const routeDefinitions = [
     { path: '/journal/science-is-entering-its-agentic-era', lastmod: '2026-07-07', load: () => import('./articles/ScienceIsEnteringItsAgenticEra.jsx') },
     { path: '/journal/ai-for-science-is-becoming-a-systems-problem', lastmod: '2026-07-07', load: () => import('./articles/AIForScienceIsBecomingInfrastructure.jsx') },
     { path: '/journal/regulators-dont-accept-vibes', lastmod: '2026-07-06', load: () => import('./articles/RegulatorsDontAcceptVibes.jsx') },
-    { path: '/freelance-ai-engineer-biology', lastmod: '2026-08-17', load: () => import('./pages/FreelanceAIEngineer.jsx') },
+    { path: '/lab-automation-software-engineer', lastmod: '2026-09-06', load: () => import('./pages/FreelanceAIEngineer.jsx') },
     { path: '/ai-training', lastmod: '2026-08-17', load: () => import('./pages/AITraining.jsx') },
     { path: '/404', sitemap: false, load: () => import('./pages/NotFound.jsx') },
 ];
