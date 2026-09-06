@@ -4,12 +4,18 @@ import { Link } from 'react-router-dom';
 
 const projects = [
     {
-        id: 0,
-        title: "LocusLab",
-        description: "Building independent evidence-assurance infrastructure for biology and regulated science, the first commercial layer of a broader verification thesis for AI-driven research.",
-        tags: ["AI for Science", "Verification", "Founder"],
-        link: "https://www.locuslabhq.com/",
-        github: "#"
+        id: 15,
+        title: "LabBridge",
+        description: "Open-source experimental-data and reliability infrastructure with durable execution, replay, provenance, fault injection and verifiable evidence packages.",
+        tags: ["Lab Automation", "Reliability", "Open Source"],
+        link: "https://github.com/VivienP/labbridge",
+    },
+    {
+        id: 16,
+        title: "Lab Automation Log Audit",
+        description: "Reproducible audit of real Chemspeed and batch-distillation logs asking what a successful software command actually proves about physical execution.",
+        tags: ["Lab Automation", "Observability", "Evidence"],
+        link: "/journal/when-a-lab-command-says-succeeded",
     },
     {
         id: 14,
@@ -17,31 +23,41 @@ const projects = [
         description: "Built an open-source experimental-design tool that chooses protein variants by the interaction structure they expose under a fixed lab budget.",
         tags: ["Open Source", "Protein Engineering", "Experimental Design"],
         link: "/projects/epibudget",
-        github: "https://github.com/VivienP/epistasis-budget"
     },
     {
         id: 12,
         title: "Scientific Claim Verifier",
-        description: "Open-source engine that verifies each cited claim in scientific text against its source, with deterministic, fully-traceable provenance: F1 0.92 on SciFact (vs 0.62 naive baseline).",
+        description: "Open-source engine that verifies cited scientific claims against their sources with deterministic, traceable provenance and regression-tested evaluation.",
         tags: ["Open Source", "AI for Science", "Python"],
         link: "/projects/scientific-claim-verifier",
-        github: "#"
     },
     {
         id: 1,
         title: "Finexov",
-        description: "Built AI agents to streamline complex R&D documentation for public funding.",
+        description: "Built and sold an AI platform for complex R&D funding workflows, from cold outreach to production delivery and customer ownership.",
         tags: ["Full-Stack Development", "AI Agents", "Startup"],
         link: "/projects/finexov",
-        github: "#"
     },
     {
-        id: 2,
-        title: "Oseille AI",
-        description: "Developed a specialized agent for French business subsidies.",
-        tags: ["AI Engineering", "Full-Stack Development", "SaaS"],
-        link: "/projects/oseille",
-        github: "#"
+        id: 4,
+        title: "Lab Automation Software Engineering",
+        description: "Fixed-scope software support for existing automation deployments: workflow implementation, integration, reliability, testing and handover.",
+        tags: ["Lab Automation", "Python", "Freelance"],
+        link: "/lab-automation-software-engineer",
+    },
+    {
+        id: 5,
+        title: "Research Intern @ PKvitality",
+        description: "Hands-on R&D on enzymatic microneedle biosensors inside a VC-backed team developing a continuous glucose monitoring smartwatch.",
+        tags: ["MedTech", "Biosensors", "R&D"],
+        link: "/projects/pkvitality",
+    },
+    {
+        id: 3,
+        title: "Wearable Biosensor Research",
+        description: "Built a smartwatch prototype for wearable glucose and lactate enzymatic biosensors, including electronics, software and experimental work.",
+        tags: ["Research", "Biosensors", "Hardware"],
+        link: "/projects/biowatch",
     },
     {
         id: 13,
@@ -49,31 +65,6 @@ const projects = [
         description: "Contributed to an MCP server that helps companies find relevant European funding calls directly from Le Chat.",
         tags: ["Hackathon", "MCP", "Mistral AI"],
         link: "/projects/mistral-ai-hackathon",
-        github: "#"
-    },
-    {
-        id: 4,
-        title: "Freelance AI Engineer",
-        description: "Freelance AI engineering for biology, TechBio, and AI-for-science teams: AI agents, context engineering, evaluation, and scientific data tooling.",
-        tags: ["AI for Science", "AI Agents", "Context Engineering"],
-        link: "/freelance-ai-engineer-biology",
-        github: "#"
-    },
-    {
-        id: 5,
-        title: "Research Intern @ PKvitality",
-        description: "Hands-on R&D on enzymatic microneedle biosensors (glucose & lactate) inside a VC-backed team building the first non-invasive CGM smartwatch for diabetics.",
-        tags: ["MedTech", "Biosensors", "R&D"],
-        link: "/projects/pkvitality",
-        github: "#"
-    },
-    {
-        id: 3,
-        title: "Wearable Biosensor Research",
-        description: "Built a working smartwatch prototype for wearable glucose and lactate enzymatic biosensors from scratch, the project that earned the PKvitality R&D role.",
-        tags: ["Research", "Biosensors", "HealthTech"],
-        link: "/projects/biowatch",
-        github: "#"
     },
     {
         id: 6,
@@ -81,7 +72,6 @@ const projects = [
         description: "Designed, manufactured and crowdfunded a modular wood construction game that shapes a living climbing plant.",
         tags: ["Student Project", "Product Design", "Marketing"],
         link: "/projects/green-grown",
-        github: "#"
     },
     {
         id: 7,
@@ -89,15 +79,13 @@ const projects = [
         description: "Coded an open-source WebGL app that teaches how a microneedle glucose biosensor works through an interactive 3D model.",
         tags: ["Student Project", "WebGL", "Programming"],
         link: "/projects/bione",
-        github: "#"
     },
     {
         id: 8,
         title: "E-Textile Motion Suit",
-        description: "Co-built an easy-to-make e-textile platform whose fabric sensors capture a wearer's movements through stitched stretch, crumple, and inertial sensors.",
+        description: "Co-built an e-textile platform whose fabric sensors capture a wearer's movements through stitched stretch, crumple and inertial sensors.",
         tags: ["Student Project", "Electronics", "E-Textile"],
         link: "/projects/motion-suit",
-        github: "#"
     }
 ];
 
@@ -147,10 +135,6 @@ const ProjectCard = ({ project }) => {
 
 const GRID = 'grid grid-cols-1 md:grid-cols-2 gap-8';
 
-// <details> rather than useState: React state would keep the extra cards out of
-// the prerendered HTML entirely, which left /projects/green-grown, /projects/bione
-// and /projects/motion-suit with no inbound <a href> anywhere on the site. Every
-// card now ships in the static markup, and the disclosure still works with JS off.
 const Projects = () => {
     const featured = projects.slice(0, INITIAL_COUNT);
     const rest = projects.slice(INITIAL_COUNT);
@@ -168,19 +152,10 @@ const Projects = () => {
 
                 {rest.length > 0 && (
                     <details className="group/more mt-12">
-                        {/* group-open/more:hidden removes the control once it has been used, so
-                            expanding is one-way. Pure CSS: no collapse path to get wrong, and it
-                            still works with JavaScript off. */}
                         <summary className="mx-auto w-fit cursor-pointer list-none px-6 py-2 border border-border-subtle text-sm text-primary hover:border-accent hover:text-accent transition-colors group-open/more:hidden [&::-webkit-details-marker]:hidden">
                             Load more
                         </summary>
 
-                        {/* Plain wrapper, no display utility. Chromium collapses via
-                            `::details-content { content-visibility: hidden }`, which a display
-                            utility does not defeat — but engines still using the older
-                            `details:not([open]) > *:not(summary) { display: none }` would be
-                            overridden by an author `display: grid` here, leaving the disclosure
-                            permanently open. Keeping the grid one level down is portable. */}
                         <div>
                             <div className={`${GRID} mt-12`}>
                                 {rest.map((project) => (
