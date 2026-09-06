@@ -6,7 +6,7 @@ const projects = [
     {
         id: 15,
         title: "LabBridge",
-        description: "Open-source experimental-data and reliability infrastructure with durable execution, replay, provenance, fault injection and verifiable evidence packages.",
+        description: "Open-source software for experimental data, with replayable execution, traceable observations and tests for recovery after failures.",
         tags: ["Lab Automation", "Reliability", "Open Source"],
         link: "https://github.com/VivienP/labbridge",
     },
@@ -34,16 +34,16 @@ const projects = [
     {
         id: 1,
         title: "Finexov",
-        description: "Built and sold an AI platform for complex R&D funding workflows, from cold outreach to production delivery and customer ownership.",
+        description: "Built an AI platform for public-funding applications and sold it to consulting firms.",
         tags: ["Full-Stack Development", "AI Agents", "Startup"],
         link: "/projects/finexov",
     },
     {
         id: 4,
-        title: "Lab Automation Software Engineering",
-        description: "Fixed-scope software support for existing automation deployments: workflow implementation, integration, reliability, testing and handover.",
-        tags: ["Lab Automation", "Python", "Freelance"],
-        link: "/lab-automation-software-engineer",
+        title: "PyLabRobot Contributions",
+        description: "Contributed structured lifecycle events for plate readers, imagers and thermocyclers, making software operations easier to trace.",
+        tags: ["Lab Automation", "Python", "Open Source"],
+        link: "https://github.com/PyLabRobot/pylabrobot/pull/1229",
     },
     {
         id: 5,

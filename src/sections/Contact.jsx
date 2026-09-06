@@ -9,7 +9,7 @@ const CAL_NAMESPACE = 'quick-chat';
 const OFFERS = [
     {
         title: 'Lab Automation Software',
-        body: 'Fixed-scope software engineering for existing laboratory automation deployments: workflow implementation, instrument/software integration, reliability, testing and handover. For integrators, automation vendors and internal automation teams.',
+        body: 'Software engineering for existing laboratory automation workflows: Python development, instrument and service integration, and testing. I work with integrators, instrument vendors and internal automation teams.',
         to: '/lab-automation-software-engineer',
         cta: 'Explore lab automation engineering',
     },

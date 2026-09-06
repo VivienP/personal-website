@@ -17,18 +17,19 @@ const Hero = () => {
                     </div>
 
                     <h1 className="text-base text-primary leading-relaxed">
-                        I’m Vivien Perrelle, a scientific software engineer focused on laboratory automation and AI for Science. I take on{' '}
+                        I’m Vivien Perrelle, a scientific software engineer working on{' '}
                         <Link
                             to="/lab-automation-software-engineer"
                             className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors"
                         >
-                            fixed-scope software work inside existing lab automation deployments
-                        </Link>
-                        : workflow implementation, instrument/software integration, reliability and testing.
+                            laboratory automation
+                        </Link>{' '}
+                        and AI for science. I help automation teams adapt and deploy existing laboratory
+                        workflows for new instruments, configurations and software integrations.
                     </h1>
 
                     <p className="text-base text-primary leading-relaxed">
-                        PyLabRobot contributor · built LabBridge and a reproducible audit of real laboratory-automation logs · ex-R&amp;D at PKvitality · founder of Finexov.
+                        PyLabRobot contributor · creator of LabBridge · ex-R&amp;D at PKvitality · founder of Finexov.
                     </p>
 
                     <div className="flex items-center space-x-2 text-secondary text-sm md:text-base">

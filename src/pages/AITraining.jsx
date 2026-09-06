@@ -150,10 +150,10 @@ const AITraining = () => {
                             LocusLab
                         </a>{' '}
                         where data cannot leave the client&rsquo;s infrastructure, and{' '}
-                        <Link to="/freelance-ai-engineer-biology" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
-                            freelance AI engineering
+                        <Link to="/lab-automation-software-engineer" className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors">
+                            freelance software engineering
                         </Link>{' '}
-                        for biology and TechBio teams. That is what the sessions carry back into the
+                        for laboratory automation teams. That is what the sessions carry back into the
                         room: where these tools are genuinely strong, where they fail quietly, and what
                         that means for work that has to be right.
                     </p>

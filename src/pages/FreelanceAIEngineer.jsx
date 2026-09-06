@@ -41,80 +41,63 @@ const FreelanceAIEngineer = () => {
 
                 <header className="mb-12 space-y-6">
                     <p className="text-sm font-mono uppercase tracking-wide text-secondary">
-                        Fixed-scope engineering support
+                        Freelance software engineering
                     </p>
                     <h1 className="text-3xl md:text-4xl text-primary leading-tight font-serif italic">
-                        Software engineering for laboratory automation workflows
+                        Software engineering for laboratory automation
                     </h1>
                     <p className="text-base text-primary leading-relaxed">
-                        I take ownership of bounded software work inside existing lab automation deployments,
-                        working alongside the team that already owns the protocol, instruments and physical
-                        validation.
+                        I build and improve the software behind existing laboratory automation workflows:
+                        implementing protocols in Python, connecting instruments and services, and making
+                        failures easier to investigate.
                     </p>
-                    <p className="text-base text-secondary leading-relaxed">
-                        Best fit: lab automation integrators, instrument and automation vendors, and internal
-                        automation teams with a concrete project already in motion.
+                    <p className="text-base text-primary leading-relaxed">
+                        I work with integrators, instrument vendors and internal automation teams. Together,
+                        we define the software change, how it will be tested, and what needs to be checked on
+                        the instruments.
                     </p>
                 </header>
 
                 <div className="prose prose-neutral text-primary max-w-none space-y-5 font-normal">
-                    <SectionTitle>Work I can take off your plate</SectionTitle>
+                    <SectionTitle>What I can help you build</SectionTitle>
                     <ul className="list-disc pl-6 space-y-3 text-primary">
                         <li>
-                            <strong>Workflow implementation and adaptation</strong>: implement or modify
-                            existing workflow logic in Python, PyLabRobot, vendor SDKs or APIs, within a
-                            configuration your team already understands.
+                            <strong>Workflow implementation</strong>: implement or adapt workflow logic in
+                            Python, using PyLabRobot, vendor SDKs or APIs within your existing setup.
                         </li>
                         <li>
-                            <strong>Instrument and software integration</strong>: connect an instrument,
-                            service or data handoff to an existing workflow, including typed interfaces,
-                            state transitions and failure handling.
+                            <strong>Instrument and software integration</strong>: connect instruments and
+                            services to your workflow, with explicit interfaces and failure handling.
                         </li>
                         <li>
-                            <strong>Reliability and recovery engineering</strong>: make failure states
-                            explicit, improve logging and recovery visibility, add bounded retry or
-                            reconciliation logic where the physical semantics are known.
+                            <strong>Reliability and recovery</strong>: make failures easier to diagnose,
+                            improve logging, and add retry or reconciliation logic where the physical effects
+                            are understood.
                         </li>
                         <li>
-                            <strong>Testing, simulation and handover</strong>: regression tests, mocks or
-                            simulated paths, fault cases, documentation and a clean transfer back to the
-                            team that will maintain the system.
+                            <strong>Testing and handover</strong>: test normal operation and failure cases
+                            with mocks or simulations, and document the software for the team maintaining it.
                         </li>
                     </ul>
 
-                    <SectionTitle>A first engagement stays small</SectionTitle>
+                    <SectionTitle>From experiments to software</SectionTitle>
                     <p>
-                        The starting point is one concrete work package: one workflow, one defined software
-                        change, clear required access and an acceptance check agreed before implementation.
-                        A typical first milestone is small enough to review and ship without turning into a
-                        speculative automation programme.
-                    </p>
-                    <p>
-                        If the scope is not yet clear, the first paid milestone can be a short feasibility
-                        sprint that maps the current workflow, interfaces, technical unknowns and a testable
-                        implementation plan.
+                        I started on the experimental side, building{' '}
+                        <InlineLink to="/projects/biowatch">wearable biosensors</InlineLink> and working in
+                        R&amp;D at <InlineLink to="/projects/pkvitality">PKvitality</InlineLink>. That experience
+                        shapes how I approach software: measurements are noisy, instruments drift, and a
+                        successful command does not always tell us what happened at the bench.
                     </p>
 
-                    <SectionTitle>Responsibility boundary</SectionTitle>
-                    <p>
-                        I own the software work I agree to deliver. Your automation or applications team
-                        remains responsible for the scientific method, hardware configuration, calibration,
-                        labware and consumable compatibility, physical safety, bench validation and the
-                        decision to put a workflow into production. If a project needs deeper applications or
-                        hardware expertise, that expertise should be identified before the engagement starts.
-                    </p>
+                    <SectionTitle>Selected work</SectionTitle>
 
-                    <SectionTitle>Selected proof</SectionTitle>
-
-                    <Subheading>PyLabRobot: production open-source contributions</Subheading>
+                    <Subheading>Merged contributions to PyLabRobot</Subheading>
                     <p>
-                        I contribute to{' '}
+                        I contributed structured lifecycle events for plate readers, imagers and thermocyclers to{' '}
                         <ExternalLink href="https://github.com/PyLabRobot/pylabrobot">PyLabRobot</ExternalLink>,
-                        an open-source lab automation framework. A merged contribution added structured
-                        lifecycle events across plate readers, imagers and thermocyclers while preserving the
-                        distinction between a backend call returning successfully and independent physical
-                        proof that an instrument procedure occurred. The PR passed 226 tests plus 29 subtests,
-                        mypy, Ruff and the documentation build.{' '}
+                        an open-source lab automation framework. The merged contribution makes software
+                        operations easier to trace while keeping backend completion distinct from physical
+                        verification.{' '}
                         <ExternalLink href="https://github.com/PyLabRobot/pylabrobot/pull/1229">
                             Review the merged PR
                         </ExternalLink>.
@@ -122,14 +105,11 @@ const FreelanceAIEngineer = () => {
 
                     <Subheading>Real automation logs: what does “succeeded” actually prove?</Subheading>
                     <p>
-                        I built a reproducible audit of public Chemspeed and batch-distillation logs to test
-                        whether software traces can establish the physical effect of a laboratory command.
-                        All 986 Chemspeed operation events paired cleanly; all 60 transfer endpoints reported
-                        requested and actual volume as equal; yet the public source did not establish that the
-                        reported field was an independent measurement of physical transfer. In the
-                        distillation data, 34 of 79 labelled recoveries had nearby parseable log activity in
-                        the primary window, which is useful context but not proof of the operator intervention
-                        itself.{' '}
+                        I audited public Chemspeed and batch-distillation logs to examine what software
+                        records establish about physical execution. All 986 Chemspeed operations had matching
+                        start and end events, but the reported transfer volumes did not establish an
+                        independent measurement of physical transfer. In the distillation data, nearby log
+                        activity was not proof of the recovery intervention itself.{' '}
                         <ExternalLink href="https://github.com/VivienP/lab-log-observability-audit">
                             Audit, data provenance and reproduction steps
                         </ExternalLink>{' '}
@@ -142,54 +122,50 @@ const FreelanceAIEngineer = () => {
                     <Subheading>LabBridge: failure-aware execution and evidence</Subheading>
                     <p>
                         <ExternalLink href="https://github.com/VivienP/labbridge">LabBridge</ExternalLink>{' '}
-                        is my open-source experimental-data and reliability project. Its demonstrated fault
-                        campaign runs 100 seeded synthetic campaigns across process-termination boundaries
-                        with zero lost accepted observations, zero unintended duplicate acceptances, zero
-                        hard-budget overspends, zero projection mismatches and zero package-verification
-                        failures. That evidence is deliberately limited to synthetic replay infrastructure;
-                        it is not presented as a live-instrument result.
+                        is my open-source project for experimental data and execution reliability. Its fault
+                        campaign tests recovery after process termination across 100 seeded synthetic
+                        campaigns, checking for lost observations, duplicate acceptances, budget overspends,
+                        projection mismatches and package-verification failures. This validation covers
+                        synthetic replay infrastructure; it is not a live-instrument result.
                     </p>
 
-                    <SectionTitle>How I work</SectionTitle>
+                    <SectionTitle>How we start</SectionTitle>
                     <p>
-                        I work inside the existing engineering environment rather than replacing it. The
-                        engagement starts from the actual repository, workflow, API or integration task. I
-                        keep scope, interfaces and failure modes explicit, write tested code, and document
-                        what was validated in software versus what still requires physical confirmation.
+                        We start with a short call about your workflow and the software change you need.
+                        I work within your existing repository and tools. We agree on the scope, access,
+                        deliverables and acceptance criteria before implementation, with a first milestone
+                        that your team can review and test.
+                    </p>
+                    <p>
+                        If the scope is not yet clear, the first paid milestone can be a short feasibility
+                        study covering the workflow, interfaces, technical unknowns and an implementation plan.
                     </p>
                     <p>
                         Remote from France with overlap for European and US-East teams. On-site work can be
                         discussed when hardware access makes it necessary.
                     </p>
 
-                    <SectionTitle>Common questions</SectionTitle>
+                    <SectionTitle>Software delivery and lab validation</SectionTitle>
+                    <p>
+                        I deliver the agreed software, tests and documentation, including what was validated
+                        in software and what still needs physical confirmation. Your automation or applications
+                        team remains responsible for the scientific method, hardware configuration, calibration,
+                        labware and consumable compatibility, physical safety, bench validation and the
+                        decision to put a workflow into production. We identify any additional applications or
+                        hardware expertise needed before the engagement starts.
+                    </p>
 
-                    <Subheading>What stack do you work in?</Subheading>
+                    <SectionTitle>Tools I work with</SectionTitle>
                     <p>
                         Primarily Python: async services, FastAPI, Pydantic, SQLAlchemy, pytest and typed
                         interfaces. For lab automation I work with PyLabRobot and can integrate against the
                         interface your project already uses, including vendor SDKs or APIs. I also build
-                        agentic and MCP-based systems when they solve a concrete workflow problem rather than
-                        adding an unnecessary runtime layer.
-                    </p>
-
-                    <Subheading>Do you deliver turnkey laboratory automation?</Subheading>
-                    <p>
-                        No. I am currently a software specialist inside the delivery team, not a substitute
-                        for an experienced automation engineer, applications scientist or hardware
-                        integrator. That boundary is intentional.
-                    </p>
-
-                    <Subheading>How do engagements start?</Subheading>
-                    <p>
-                        A short call around one active project. If there is a self-contained software package
-                        I can own, I send a proposal with deliverables, dependencies, acceptance criteria and
-                        the next milestone. If the task requires expertise I do not have, I will say so.
+                        agentic and MCP-based systems when they solve a concrete workflow problem.
                     </p>
                 </div>
             </article>
 
-            <Contact lead="Have an active lab automation deployment with a bounded software task that needs an owner? I can take on workflow implementation, integration, reliability or testing alongside your automation team." />
+            <Contact lead="Tell me about the workflow you are working on and the software change you need. We can start with a short call to discuss the scope, access and validation requirements." />
         </main>
     );
 };

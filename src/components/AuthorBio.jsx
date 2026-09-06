@@ -9,16 +9,16 @@ const AuthorBio = ({ readNext = [] }) => (
         <div className="space-y-3">
             <h2 className="font-mono text-xs uppercase tracking-widest text-secondary">About the author</h2>
             <p className="text-sm text-secondary leading-relaxed max-w-2xl">
-                <strong className="text-primary font-medium">Vivien Perrelle</strong> is a Lyon-based founder and{' '}
+                <strong className="text-primary font-medium">Vivien Perrelle</strong> is a Lyon-based scientific
+                software engineer and founder. He works on{' '}
                 <Link
-                    to="/freelance-ai-engineer-biology"
+                    to="/lab-automation-software-engineer"
                     className="text-primary border-b border-primary/40 hover:text-accent hover:border-accent transition-colors"
                 >
-                    freelance AI engineer for biology
+                    laboratory automation
                 </Link>
-                . He builds LocusLab, verification infrastructure for biology research, and takes on
-                selective freelance engagements with BioTech, TechBio, and AI-for-science teams:
-                AI agents, context engineering, and scientific tooling.{' '}
+                {' '}and AI for science, and builds LocusLab, verification infrastructure for biology
+                research.{' '}
                 <a
                     href="https://www.linkedin.com/in/vivien-perrelle/"
                     target="_blank"
