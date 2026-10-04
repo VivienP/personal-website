@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin } from 'lucide-react';
+import PortraitViewer from '../components/PortraitViewer';
 
 const Hero = () => {
     return (
@@ -9,15 +10,7 @@ const Hero = () => {
                 <div className="max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-1000 space-y-8">
 
                     <div className="space-y-6">
-                        <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border border-border-subtle bg-border-subtle/20">
-                            <img
-                                src="/me.png"
-                                alt="Portrait of Vivien Perrelle"
-                                width={300}
-                                height={300}
-                                className="w-full h-full object-cover brightness-110"
-                            />
-                        </div>
+                        <PortraitViewer />
 
                         <h1 className="text-base text-primary leading-relaxed">
                             I’m Vivien Perrelle, a scientific software engineer working on{' '}
