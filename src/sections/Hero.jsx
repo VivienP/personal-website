@@ -8,25 +8,29 @@ const Hero = () => {
             <div className="max-w-6xl mx-auto w-full">
                 <div className="max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-1000 space-y-8">
 
-                    <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border border-border-subtle bg-border-subtle/20 grayscale hover:grayscale-0 transition-all duration-500">
-                        <img
-                            src="/me.png"
-                            alt="Portrait of Vivien Perrelle"
-                            className="w-full h-full object-cover brightness-110"
-                        />
-                    </div>
+                    <div className="space-y-6">
+                        <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border border-border-subtle bg-border-subtle/20">
+                            <img
+                                src="/me.png"
+                                alt="Portrait of Vivien Perrelle"
+                                width={300}
+                                height={300}
+                                className="w-full h-full object-cover brightness-110"
+                            />
+                        </div>
 
-                    <h1 className="text-base text-primary leading-relaxed">
-                        I’m Vivien Perrelle, a scientific software engineer working on{' '}
-                        <Link
-                            to="/lab-automation-software-engineer"
-                            className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors"
-                        >
-                            laboratory automation
-                        </Link>{' '}
-                        and AI for science. I help automation teams adapt and deploy existing laboratory
-                        workflows for new instruments, configurations and software integrations.
-                    </h1>
+                        <h1 className="text-base text-primary leading-relaxed">
+                            I’m Vivien Perrelle, a scientific software engineer working on{' '}
+                            <Link
+                                to="/lab-automation-software-engineer"
+                                className="border-b border-primary/40 hover:text-accent hover:border-accent transition-colors"
+                            >
+                                laboratory automation
+                            </Link>{' '}
+                            and AI for science. I help automation teams adapt and deploy existing laboratory
+                            workflows for new instruments, configurations and software integrations.
+                        </h1>
+                    </div>
 
                     <p className="text-base text-primary leading-relaxed">
                         PyLabRobot contributor · creator of LabBridge · ex-R&amp;D at PKvitality · founder of Finexov.

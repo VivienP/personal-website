@@ -7,19 +7,12 @@ import { SectionTitle, Subheading } from '../components/LandingHeadings';
 import { TRAINING_SERVICE_JSON_LD } from '../components/jsonld';
 import Contact from '../sections/Contact';
 
-// A real photograph from a session, in the same frame the project pages use.
-// `src` is empty until the file is committed, and the figure is skipped entirely
-// while it is: a missing image would break the page at its most visible point.
-//
-// To enable it: put the photo at public/training/workshop.webp (git-tracked, or
-// it 404s in production), optimised like public/art — long edge <= 1600 px, WebP
-// quality 80 — then set `src` below and correct `width`/`height` to the file's
-// real pixel dimensions so the layout reserves the right space.
+// Session photograph, using the same frame as the project pages.
 const SESSION_PHOTO = {
-    src: '',
+    src: '/training/workshop.webp',
     width: 1600,
     height: 1067,
-    alt: 'Vivien Perrelle running an AI workshop with a professional team',
+    alt: 'Vivien Perrelle presenting MCP connectors during an AI training session',
 };
 
 const AITraining = () => {
