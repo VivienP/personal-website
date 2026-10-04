@@ -49,14 +49,22 @@ const PortraitViewer = () => {
                 {isOpen && (
                     <>
                         <div className="aspect-[4/5] w-[min(calc(100vw-2rem),64dvh)] md:aspect-square md:w-[min(calc(100vw-2rem),80dvh)]">
-                            <img
-                                src="/portraits/vivien-33.webp"
-                                alt="Vivien Perrelle smiling, full portrait"
-                                width={2400}
-                                height={2400}
-                                decoding="async"
-                                className="h-full w-full object-cover object-center"
-                            />
+                            <picture className="block h-full w-full">
+                                <source
+                                    media="(max-width: 767px)"
+                                    srcSet="/portraits/vivien-33-mobile.webp"
+                                    width={1200}
+                                    height={1500}
+                                />
+                                <img
+                                    src="/portraits/vivien-33.webp"
+                                    alt="Vivien Perrelle smiling, full portrait"
+                                    width={2400}
+                                    height={2400}
+                                    decoding="async"
+                                    className="h-full w-full object-cover object-center"
+                                />
+                            </picture>
                         </div>
                         <button
                             type="button"
