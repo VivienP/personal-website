@@ -65,6 +65,29 @@ test('every Journal article declares a dedicated 1200 by 630 social image', asyn
     }
 });
 
+test('every legacy URL is redirected by the server, in one hop, to a real page', async () => {
+    const { legacyRedirects = [], routeDefinitions = [] } = await optionalImport('../src/routeManifest.js');
+    const server = JSON.parse(read('vercel.json')).redirects ?? [];
+    const pages = new Set(routeDefinitions.filter(({ sitemap = true }) => sitemap).map(({ path }) => path));
+
+    assert.ok(legacyRedirects.length > 0, 'routeManifest.js exports no legacyRedirects');
+
+    // A redirect the client alone knows about is a 404 to crawlers: legacy paths are
+    // not prerendered, so Vercel answers them with 404.html before any JS runs.
+    for (const { path, to } of legacyRedirects) {
+        const rule = server.find(({ source }) => source === path);
+        assert.ok(rule, `${path} has no server redirect in vercel.json`);
+        assert.equal(rule.destination, to, `${path} redirects to different targets on server and client`);
+        assert.equal(rule.permanent, true, `${path} is not a permanent redirect`);
+    }
+
+    // Every server rule lands on a prerendered page, never on another redirect.
+    for (const { source, destination } of server) {
+        assert.ok(pages.has(destination), `${source} -> ${destination} does not land on a prerendered page`);
+        assert.ok(legacyRedirects.some(({ path }) => path === source), `${source} is a server-only redirect`);
+    }
+});
+
 test('email link is exposed synchronously on the activated anchor', async () => {
     const { prepareEmailLink } = await optionalImport('../src/utils/email.js');
     assert.equal(typeof prepareEmailLink, 'function', 'email helper is not implemented');
@@ -403,8 +426,8 @@ test('Academic Work uses the shared date-tag-title collection item', () => {
 });
 
 test('Journal articles use coherent URLs and return to the Journal collection', () => {
-    const manifest = read('src/routeManifest.js');
-    const redirects = read('src/routes.jsx');
+    const manifest = read('src/routeManifest.js').split('export const legacyRedirects')[0];
+    const redirects = read('src/routeManifest.js');
     const journalPage = read('src/pages/Journal.jsx');
     const articles = [
         ['designing-protein-experiments-for-epistasis', 'src/articles/WhatShouldWeMeasureNext.jsx'],
