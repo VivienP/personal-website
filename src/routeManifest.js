@@ -31,3 +31,25 @@ export const routeDefinitions = [
     { path: '/ai-training', lastmod: '2026-08-17', load: () => import('./pages/AITraining.jsx') },
     { path: '/404', sitemap: false, load: () => import('./pages/NotFound.jsx') },
 ];
+
+// Old URLs and where they now live. vercel.json must carry the same pairs as
+// permanent server redirects: these paths are not prerendered, so without a
+// server rule Vercel answers them with 404.html before the client can redirect.
+export const legacyRedirects = [
+    { path: '/freelance-ai-engineer-biology', to: '/lab-automation-software-engineer' },
+    { path: '/blog/designing-protein-experiments-for-epistasis', to: '/journal/designing-protein-experiments-for-epistasis' },
+    { path: '/blog/trauma-vs-purpose', to: '/journal/trauma-vs-purpose' },
+    { path: '/blog/smartwatch', to: '/journal/smartwatch' },
+    { path: '/blog/glucose-biosensor', to: '/journal/glucose-biosensor' },
+    { path: '/blog/is-technology-neutral', to: '/journal/is-technology-neutral' },
+    { path: '/blog/lactate', to: '/journal/lactate' },
+    { path: '/blog/openclaw', to: '/journal/openclaw' },
+    { path: '/blog/science-is-entering-its-agentic-era', to: '/journal/science-is-entering-its-agentic-era' },
+    { path: '/blog/ai-for-science-is-becoming-a-systems-problem', to: '/journal/ai-for-science-is-becoming-a-systems-problem' },
+    { path: '/blog/regulators-dont-accept-vibes', to: '/journal/regulators-dont-accept-vibes' },
+    { path: '/blog/pharma-data-layer', to: '/journal/regulators-dont-accept-vibes' },
+    { path: '/blog/biowatch', to: '/projects/biowatch' },
+    { path: '/blog/green-grown', to: '/projects/green-grown' },
+    { path: '/blog/bione', to: '/projects/bione' },
+    { path: '/blog/motion-suit', to: '/projects/motion-suit' },
+];

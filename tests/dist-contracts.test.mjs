@@ -4,6 +4,7 @@ import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { journalArticles } from '../src/data/journalArticles.js';
+import { routeDefinitions } from '../src/routeManifest.js';
 
 /**
  * Contracts over the built output rather than over source text.
@@ -18,7 +19,6 @@ import { journalArticles } from '../src/data/journalArticles.js';
 
 const SITE_URL = 'https://vivienperrelle.com';
 const DIST = fileURLToPath(new URL('../dist/', import.meta.url));
-const MANIFEST = fileURLToPath(new URL('../src/routeManifest.js', import.meta.url));
 
 const htmlFiles = (dir) =>
     readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -41,8 +41,7 @@ const routeOf = (file) => {
     return `/${rel.replace(/\/index\.html$/, '')}`;
 };
 
-const manifestRoutes = () =>
-    [...readFileSync(MANIFEST, 'utf8').matchAll(/path: '([^']+)'/g)].map((m) => m[1]);
+const manifestRoutes = () => routeDefinitions.map(({ path }) => path);
 
 const pages = existsSync(DIST)
     ? htmlFiles(DIST).map((file) => ({ file, route: routeOf(file), html: readFileSync(file, 'utf8') }))
