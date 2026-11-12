@@ -331,7 +331,7 @@ test('Journal collection reuses the homepage list and shows one of five interest
     assert.match(section, /import \{ journalArticles \} from '\.\.\/data\/journalArticles'/);
     assert.match(section, /import CollectionListItem from '\.\.\/components\/CollectionListItem'/);
     assert.match(section, /export const JournalList/);
-    assert.match(section, /<JournalList \/>/);
+    assert.match(section, /<JournalList exclude=\{featuredArticle\?\.slug\} \/>/);
     assert.match(section, /to=\{`\/journal\/\$\{article\.slug\}`\}/);
     assert.match(section, /tag=\{showTags \? article\.tag : undefined\}/);
     assert.match(section, /<h2[^>]*>Journal<\/h2>/);
