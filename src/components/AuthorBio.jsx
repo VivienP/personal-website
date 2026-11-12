@@ -47,7 +47,7 @@ const AuthorBio = ({ readNext = [] }) => (
                         <li key={to}>
                             <Link
                                 to={to}
-                                className="text-sm text-primary hover:text-accent transition-colors"
+                                className="text-sm text-primary underline decoration-transparent underline-offset-4 hover:decoration-accent transition-colors"
                             >
                                 {label}
                             </Link>

@@ -28,6 +28,7 @@ const FeaturedArticle = ({ article }) => (
         className="group mb-8 flex flex-col justify-between border border-border-subtle p-6 hover:border-accent transition-colors duration-300"
     >
         <div className="space-y-4">
+            <span className="block font-mono text-xs uppercase tracking-widest text-secondary">Start here</span>
             <div className="flex justify-between items-start">
                 <h3 className="text-xl text-primary group-hover:text-accent transition-colors">{article.title}</h3>
                 <ArrowRight size={18} className="text-secondary group-hover:text-primary transition-colors shrink-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" />
