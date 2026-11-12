@@ -1,21 +1,15 @@
 import React from 'react';
-import { ExternalLink } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const projects = [
     {
-        id: 15,
-        title: "LabBridge",
-        description: "Open-source software for experimental data, with replayable execution, traceable observations and tests for recovery after failures.",
-        tags: ["Lab Automation", "Reliability", "Open Source"],
-        link: "https://github.com/VivienP/labbridge",
-    },
-    {
-        id: 16,
-        title: "Lab Automation Log Audit",
-        description: "Reproducible audit of real Chemspeed and batch-distillation logs asking what a successful software command actually proves about physical execution.",
-        tags: ["Lab Automation", "Observability", "Evidence"],
-        link: "/journal/when-a-lab-command-says-succeeded",
+        id: 17,
+        title: "LocusLab",
+        description: "An exploration of where software can make lab automation more reliable, starting from how teams review changes to automated methods. Teams with software engineers tend to build this in-house, and instrument vendors cover the compliance layer. My working hypothesis: the underserved problems sit in labs running routine automation without a software team.",
+        tags: ["Lab Automation", "Customer Discovery", "Startup"],
+        link: "https://locuslabhq.com",
+        featured: true,
     },
     {
         id: 14,
@@ -89,7 +83,8 @@ const projects = [
     }
 ];
 
-const INITIAL_COUNT = 6;
+// One full-width featured card plus a 2x2 block: no empty cell on the md+ grid.
+const INITIAL_COUNT = 5;
 
 const ProjectCard = ({ project }) => {
     const isInternal = project.link.startsWith('/');
@@ -100,9 +95,11 @@ const ProjectCard = ({ project }) => {
             <div className="space-y-4">
                 <div className="flex justify-between items-start">
                     <h3 className="text-xl text-primary group-hover:text-accent transition-colors">{project.title}</h3>
-                    {hasLink && (
-                        <ExternalLink size={18} className="text-secondary group-hover:text-primary transition-colors shrink-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" />
-                    )}
+                    {hasLink && (isInternal ? (
+                        <ArrowRight size={18} className="text-secondary group-hover:text-primary transition-colors shrink-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" />
+                    ) : (
+                        <ExternalLink size={18} className="text-secondary group-hover:text-primary transition-[color,opacity] shrink-0 opacity-100 md:opacity-50 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" />
+                    ))}
                 </div>
 
                 <p className="text-sm text-secondary leading-relaxed">
@@ -120,7 +117,7 @@ const ProjectCard = ({ project }) => {
         </>
     );
 
-    const className = "group border border-border-subtle p-6 hover:border-accent transition-colors duration-300 bg-transparent flex flex-col justify-between h-full";
+    const className = `group border border-border-subtle p-6 hover:border-accent transition-colors duration-300 bg-transparent flex flex-col justify-between h-full${project.featured ? ' md:col-span-2' : ''}`;
 
     if (!hasLink) {
         return <div className={className}>{inner}</div>;
@@ -142,7 +139,7 @@ const Projects = () => {
     return (
         <section id="projects" className="py-24 px-6 border-t border-border-subtle/30">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-3xl md:text-4xl mb-12 text-primary">Selected Works</h2>
+                <h2 className="text-3xl md:text-4xl mb-12 text-primary">Selected Work</h2>
 
                 <div className={GRID}>
                     {featured.map((project) => (

@@ -59,7 +59,7 @@ const BudgetScaleDiagram = ({ maxWidthClass = 'max-w-full', number, title, descr
                         viewBox={`0 0 ${PLATE_WIDTH} ${PLATE_HEIGHT}`}
                         aria-hidden="true"
                         focusable="false"
-                        className="block w-full h-auto max-w-[240px] text-accent"
+                        className="block w-full h-auto max-w-[240px] text-figure"
                     >
                         {WELLS.map(({ key, cx, cy }) => (
                             <circle key={key} cx={cx} cy={cy} r={WELL_RADIUS} fill="currentColor" />
@@ -85,7 +85,7 @@ const BudgetScaleDiagram = ({ maxWidthClass = 'max-w-full', number, title, descr
                                 y={y}
                                 width={CELL_SIZE}
                                 height={CELL_SIZE}
-                                className={highlighted ? 'text-accent' : undefined}
+                                className={highlighted ? 'text-figure' : undefined}
                                 fill="currentColor"
                             />
                         ))}

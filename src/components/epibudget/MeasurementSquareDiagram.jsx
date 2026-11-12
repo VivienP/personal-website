@@ -99,7 +99,7 @@ const Panel = ({ panel }) => {
                 {NODES.map(({ id, x, y }) => {
                     const isMeasured = panel.measured.includes(id);
                     return (
-                        <g key={id} className={isMeasured ? 'text-accent' : 'text-border-strong'}>
+                        <g key={id} className={isMeasured ? 'text-figure' : 'text-border-strong'}>
                             <circle
                                 cx={x}
                                 cy={y}

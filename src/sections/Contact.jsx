@@ -47,8 +47,8 @@ const Contact = ({ lead = null }) => {
                 hideEventTypeDetails: false,
                 layout: 'month_view',
                 cssVarsPerTheme: {
-                    light: { 'cal-brand': '#3A2328' },
-                    dark: { 'cal-brand': '#3A2328' },
+                    light: { 'cal-brand': '#9A3324' },
+                    dark: { 'cal-brand': '#9A3324' },
                 },
             });
         })();
