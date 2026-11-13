@@ -80,7 +80,7 @@ const BioWatch = () => {
                         </a>
                     </div>
                     <div className="space-y-6 pt-4">
-                        <div className="max-w-lg"><Img src="/biowatch/biowatch-viewed-from-above.jpg" alt="BioWatch viewed from above" /></div>
+                        <div className="max-w-lg mx-auto"><Img src="/biowatch/biowatch-viewed-from-above.jpg" alt="BioWatch viewed from above" /></div>
                         <Img src="/biowatch/bioWatch-photo-white-box-profil.jpg" alt="BioWatch profile view" />
                     </div>
                 </section>
@@ -181,7 +181,7 @@ const BioWatch = () => {
                             Based on this consultation, four designs were proposed to 30 healthy subjects who evaluated the designs based on aesthetics and intuitiveness. Design number 2 received the highest score.
                         </p>
                     </div>
-                    <div className="max-w-lg"><Img src="/biowatch/biowatch-display-designs.jpg" alt="Four proposed display designs" /></div>
+                    <div className="max-w-lg mx-auto"><Img src="/biowatch/biowatch-display-designs.jpg" alt="Four proposed display designs" /></div>
                 </section>
 
                 {/* Software — text left, image right */}
@@ -206,7 +206,7 @@ const BioWatch = () => {
                             The BioWatch prototype is what landed me an internship at <a href="https://www.pkvitality.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">PKvitality</a>, a 50-person startup that raised several million euros to build the first glucose-monitoring smartwatch for diabetics. I joined their R&D team as a research assistant, working on the same minimally-invasive biosensing technology the BioWatch had let me prototype.
                         </p>
                     </div>
-                    <div className="border border-border-subtle max-w-lg">
+                    <div className="border border-border-subtle max-w-lg mx-auto">
                         <img
                             src="/pkvitality/pkvitality.jpg"
                             alt="Vivien Perrelle in front of the PKvitality stand: Continuous Glucose Monitoring in a Smartwatch"

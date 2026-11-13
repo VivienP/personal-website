@@ -59,7 +59,7 @@ const SmartWatch = () => {
                             </a>
                         </div>
                     </div>
-                    <div className="overflow-hidden border border-border-subtle max-w-lg">
+                    <div className="overflow-hidden border border-border-subtle max-w-lg mx-auto">
                         <img
                             src={`${B}/smartwatch-closeup.jpg`}
                             alt="Close-up of the finished 3D-printed smartwatch"
@@ -82,7 +82,7 @@ const SmartWatch = () => {
                             <span className="font-medium text-primary">Technological tools are increasingly within reach of individuals.</span> Prototyping platforms make electronics easy to program, and 3D printing allows tailor-made objects, so non-professionals can now build complex devices such as a smartwatch.
                         </p>
                     </div>
-                    <Figure src={`${B}/market-share.jpg`} className="max-w-lg" alt="Smartwatch market share pie chart, 2020" caption="Smartwatch market share, Global, 2020. Source: Forbes." />
+                    <Figure src={`${B}/market-share.jpg`} size="medium" alt="Smartwatch market share pie chart, 2020" caption="Smartwatch market share, Global, 2020. Source: Forbes." />
                 </section>
 
                 {/* Skills & Opportunities */}
@@ -127,7 +127,7 @@ const SmartWatch = () => {
                             <p>
                                 The WaveShare 1.28" round LCD module embeds a <span className="font-medium text-primary">GC9A01 driver</span> and supports Raspberry Pi, Arduino, and STM32 boards. It uses the <span className="font-medium text-primary">Serial Peripheral Interface (SPI)</span> — a synchronous serial bus for short-distance communication, mostly in embedded systems. The GC9A01 datasheet is available <a href="https://www.waveshare.com/w/upload/5/5e/GC9A01A.pdf" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">here</a>.
                             </p>
-                            <Figure src={`${B}/lcd-module.jpg`} className="max-w-lg" alt="1.28-inch round LCD module" caption="1.28″ round LCD module with the GC9A01 driver." />
+                            <Figure src={`${B}/lcd-module.jpg`} size="medium" alt="1.28-inch round LCD module" caption="1.28″ round LCD module with the GC9A01 driver." />
                         </div>
 
                         {/* 1.1 Hardware connexion */}
@@ -160,7 +160,7 @@ const SmartWatch = () => {
                             </div>
                             <div className="space-y-8 pt-2">
                                 <Figure src={`${B}/arduino-wiring.jpg`} alt="LCD wired to an Arduino Uno" caption="Wiring the LCD to an Arduino Uno." />
-                                <Figure src={`${B}/wiring-color-code.png`} className="max-w-sm" alt="Color code of the LCD wiring" caption="LCD wiring color code." />
+                                <Figure src={`${B}/wiring-color-code.png`} size="small" alt="Color code of the LCD wiring" caption="LCD wiring color code." />
                             </div>
                         </div>
 
@@ -189,8 +189,8 @@ const SmartWatch = () => {
                                     </Note>
                                 </div>
                                 <div className="space-y-8">
-                                    <Figure src={`${B}/ide-clock-example.jpg`} className="max-w-sm" alt="Arduino IDE menu showing the Clock example" caption="Loading the Clock example from the GFX library." />
-                                    <Figure src={`${B}/gfx-code-edit.png`} className="max-w-lg" alt="Editing the GFX example code" caption="Editing the data bus and display classes." />
+                                    <Figure src={`${B}/ide-clock-example.jpg`} size="small" alt="Arduino IDE menu showing the Clock example" caption="Loading the Clock example from the GFX library." />
+                                    <Figure src={`${B}/gfx-code-edit.png`} size="medium" alt="Editing the GFX example code" caption="Editing the data bus and display classes." />
                                 </div>
                             </div>
                             <div className="space-y-5">
@@ -241,8 +241,8 @@ const SmartWatch = () => {
                                 <p><span className="font-medium text-primary">Carefully remove the supports</span> from the printed piece.</p>
                             </div>
                             <div className="space-y-8">
-                                <Figure src={`${B}/prusaslicer-settings.png`} className="max-w-lg" alt="Slicing settings in PrusaSlicer" caption="Slicing settings in PrusaSlicer." />
-                                <Figure src={`${B}/assembly.jpg`} className="max-w-lg" alt="The printed black case and components" caption="The 3D-printed case ready for assembly." />
+                                <Figure src={`${B}/prusaslicer-settings.png`} size="medium" alt="Slicing settings in PrusaSlicer" caption="Slicing settings in PrusaSlicer." />
+                                <Figure src={`${B}/assembly.jpg`} size="medium" alt="The printed black case and components" caption="The 3D-printed case ready for assembly." />
                             </div>
                         </div>
                     </div>

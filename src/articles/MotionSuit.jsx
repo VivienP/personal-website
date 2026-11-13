@@ -92,7 +92,7 @@ const MotionSuit = () => {
                             Despite this progress, e-textiles remain hard to reach for non-experts. Cost, comfort, durability, and the lack of learning platforms are still real barriers. Today the most accessible form of non-commercial e-textile lives in the cosplay and DIY community. Through collaboration, education, and standardization, e-textiles could become far more practical for students and beginners.
                         </p>
                     </div>
-                    <div className="max-w-sm"><Img src="/catsuit/what-is-e-textiles.jpg" alt="Close-up of the e-textile garment with embroidered sensors and electronics" /></div>
+                    <div className="max-w-sm mx-auto"><Img src="/catsuit/what-is-e-textiles.jpg" alt="Close-up of the e-textile garment with embroidered sensors and electronics" /></div>
                 </section>
 
                 {/* Project Presentation */}
@@ -158,7 +158,7 @@ const MotionSuit = () => {
                                 The LEDs are off-the-shelf sewable sequins from Adafruit<Cite n={5} />, hand-sewn directly onto the sleeves and hood using the same process as the gyroscopic sensors. For now they are purely aesthetic, but they can easily be driven by the integrated GEMMA microcontrollers<Cite n={6} />.
                             </p>
                         </div>
-                        <div className="max-w-lg"><Img src="/catsuit/led-interfaces.jpg" alt="Sewable LED sequins lit on the garment" /></div>
+                        <div className="max-w-lg mx-auto"><Img src="/catsuit/led-interfaces.jpg" alt="Sewable LED sequins lit on the garment" /></div>
                     </div>
 
                     {/* 4. Gyroscopic sensors */}

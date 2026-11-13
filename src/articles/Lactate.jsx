@@ -127,7 +127,7 @@ const Lactate = () => {
                             <li>Iron wires for electronics</li>
                         </ul>
                     </div>
-                    <Figure src={`${B}/lox-molecule.jpg`} className="max-w-lg" alt="Representation of the lactate oxidase molecule" caption="Representation of the lactate oxidase molecule." />
+                    <Figure src={`${B}/lox-molecule.jpg`} size="medium" alt="Representation of the lactate oxidase molecule" caption="Representation of the lactate oxidase molecule." />
                 </section>
 
                 {/* Biosensor Principles */}

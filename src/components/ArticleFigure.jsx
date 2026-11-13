@@ -1,13 +1,22 @@
 import React from 'react';
 
+// Figures narrower than the reading column: a square, portrait or low-resolution
+// image shown at full width would fill the screen or be stretched. They are centred,
+// and the cap sits on the <figure> so the caption stays under the image.
+const SIZES = {
+    medium: 'max-w-lg mx-auto',
+    small: 'max-w-sm mx-auto',
+};
+
 // A framed image with a short caption, as the three build tutorials use it: a real
 // <figure>/<figcaption> pair so the caption is associated with the image rather than
-// floating under it as a paragraph. `className` sizes the frame, not the image.
+// floating under it as a paragraph. `className` styles the frame, not the image;
+// `size` narrows the whole figure.
 //
 // The numbered "Figure n°N" system the epibudget pieces use is a different, heavier
 // convention — see FigureCaption — and the two are deliberately not merged.
-const ArticleFigure = ({ src, alt, caption, className = '' }) => (
-    <figure className="space-y-3">
+const ArticleFigure = ({ src, alt, caption, size, className = '' }) => (
+    <figure className={['space-y-3', SIZES[size]].filter(Boolean).join(' ')}>
         <div className={`border border-border-subtle ${className}`}>
             <img
                 src={src}

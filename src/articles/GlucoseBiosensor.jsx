@@ -82,7 +82,7 @@ const GlucoseBiosensor = () => {
                             Despite recent advances, commercial CGMs remain painful<Cite n={8} />. Minimally- or non-invasive technologies address this. The under-development K'Watch by PKvitality is a minimally-invasive, watch-based CGM<Cite n={9} /> whose micro-needles measure glucose in the dermal ISF, shallower than the nerve endings. It could become the world's first painless CGM — but no fully non-invasive CGM has been announced for commercialization yet.
                         </p>
                     </div>
-                    <Figure src={`${B}/kwatch-pkvitality.jpg`} className="max-w-lg" alt="Illustration of the K'Watch from PKvitality" caption="Illustration of the K'Watch from PKvitality." />
+                    <Figure src={`${B}/kwatch-pkvitality.jpg`} size="medium" alt="Illustration of the K'Watch from PKvitality" caption="Illustration of the K'Watch from PKvitality." />
                 </section>
 
                 {/* Definitions callouts */}
@@ -164,7 +164,7 @@ const GlucoseBiosensor = () => {
                         </div>
                         <div className="space-y-8">
                             <Figure src={`${B}/glucose-oxidation-reactions.png`} alt="Glucose oxidation and hydrogen peroxide oxidation reactions" caption="Glucose oxidation and hydrogen peroxide oxidation reactions." />
-                            <Figure src={`${B}/first-generation-principle.jpg`} className="max-w-lg" alt="Operating principle of an enzyme-based first-generation glucose biosensor" caption={<>Operating principle of an enzyme-based first-generation glucose biosensor. From Rocchitta et al.<Cite n={18} /></>} />
+                            <Figure src={`${B}/first-generation-principle.jpg`} size="medium" alt="Operating principle of an enzyme-based first-generation glucose biosensor" caption={<>Operating principle of an enzyme-based first-generation glucose biosensor. From Rocchitta et al.<Cite n={18} /></>} />
                         </div>
                     </div>
 
@@ -324,7 +324,7 @@ const GlucoseBiosensor = () => {
                             Wearable devices providing molecular-level information are still in their infancy<Cite n={26} />. Their potential affordability and accessibility fuel interest in personalized medicine<Cite n={27} /><Cite n={28} />. This tutorial aims to make these technologies more accessible and spark interest in their medical and well-being applications. <span className="font-medium text-primary">Wearable biosensing devices are a potential next frontier of wearable technology for fitness and individual and public-health monitoring<Cite n={29} />.</span>
                         </p>
                     </div>
-                    <Figure src={`${B}/watch-on-wrist.jpg`} className="max-w-lg" alt="The finished smartwatch worn on a wrist" />
+                    <Figure src={`${B}/watch-on-wrist.jpg`} size="medium" alt="The finished smartwatch worn on a wrist" />
                 </section>
 
                 {/* References */}
