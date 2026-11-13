@@ -56,7 +56,7 @@ const SmartwatchBiosensorsThesis = () => {
 
             <div className="text-primary max-w-none space-y-8 font-normal leading-relaxed text-base">
                 <p>
-                    This master's thesis delves into my two-year work on wearable biosensors at the Institute for Future Technologies, and was submitted for the MSc in Creative Technologies delivered by <a href="https://www.esilv.fr/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">ESILV (École Supérieure d'Ingénieurs Léonard de Vinci)</a>. It covers the BioWatch development and the design of a microneedle lactate sensor module for the BioWatch. Beyond exploring smartwatches' potential, this thesis advocates a systemic design approach to wearable biomonitoring systems, driven by the triptych: technical performance, user experience, and medical relevance.
+                    This master's thesis delves into my two-year work on wearable biosensors at the <a href="https://ift.devinci.fr/?lang=en" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Institute for Future Technologies</a>, and was submitted for the MSc in Creative Technologies delivered by ESILV (École Supérieure d'Ingénieurs Léonard de Vinci). It covers the BioWatch development and the design of a microneedle lactate sensor module for the BioWatch. Beyond exploring smartwatches' potential, this thesis advocates a systemic design approach to wearable biomonitoring systems, driven by the triptych: technical performance, user experience, and medical relevance.
                 </p>
 
                 <PdfEmbed
