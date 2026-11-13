@@ -61,6 +61,8 @@ const GlucoseBiosensor = () => {
             <div className="w-full overflow-hidden border border-border-subtle mb-16">
                 <img
                     src={`${B}/hero.jpg`}
+                    width={1800}
+                    height={968}
                     alt="The wearable glucose biosensor patch"
                     className="w-full h-auto object-contain"
                 />
@@ -82,7 +84,7 @@ const GlucoseBiosensor = () => {
                             Despite recent advances, commercial CGMs remain painful<Cite n={8} />. Minimally- or non-invasive technologies address this. The under-development K'Watch by PKvitality is a minimally-invasive, watch-based CGM<Cite n={9} /> whose micro-needles measure glucose in the dermal ISF, shallower than the nerve endings. It could become the world's first painless CGM — but no fully non-invasive CGM has been announced for commercialization yet.
                         </p>
                     </div>
-                    <Figure src={`${B}/kwatch-pkvitality.jpg`} size="medium" alt="Illustration of the K'Watch from PKvitality" caption="Illustration of the K'Watch from PKvitality." />
+                    <Figure src={`${B}/kwatch-pkvitality.jpg`} width={1080} height={1080} size="medium" alt="Illustration of the K'Watch from PKvitality" caption="Illustration of the K'Watch from PKvitality." />
                 </section>
 
                 {/* Definitions callouts */}
@@ -106,7 +108,7 @@ const GlucoseBiosensor = () => {
                             The second skill is <span className="font-medium text-primary">electrochemical biosensing with screen-printed electrodes</span>. This tutorial presents a non-invasive way to measure human glucose in real time, introducing the basics, challenges, and opportunities of molecular biosensing. <span className="font-medium text-primary">Building this biosensor is a first experience of electrochemical on-skin biosensing and wearable technologies.</span>
                         </p>
                     </div>
-                    <Figure src={`${B}/sweat-patch.jpg`} alt="The sweat patch handled with gloves" />
+                    <Figure src={`${B}/sweat-patch.jpg`} width={1080} height={771} alt="The sweat patch handled with gloves" />
                 </section>
 
                 {/* Requirements */}
@@ -125,7 +127,7 @@ const GlucoseBiosensor = () => {
                             <li>A code editor such as Visual Studio Code.</li>
                         </ul>
                     </div>
-                    <Figure src={`${B}/ecflex-on-arm.jpg`} alt="The ec-Flex biosensor platform worn on a forearm" />
+                    <Figure src={`${B}/ecflex-on-arm.jpg`} width={1351} height={1012} alt="The ec-Flex biosensor platform worn on a forearm" />
                 </section>
 
                 {/* Analytical chemistry notions */}
@@ -137,7 +139,7 @@ const GlucoseBiosensor = () => {
                                 Zimmer&amp;Peacock develops and manufactures electrochemical biosensors. The ec-Flex is a Bluetooth-enabled wearable biosensor platform<Cite n={14} /> that processes and sends the biosensor measurements. The notions below explain how ZP biosensors and the ec-Flex work.
                             </p>
                         </div>
-                        <Figure src={`${B}/screen-printed-electrodes.png`} alt="Illustration of a screen-printed electrodes biosensor" caption="Illustration of a screen-printed electrodes biosensor from Zimmer&Peacock." />
+                        <Figure src={`${B}/screen-printed-electrodes.png`} width={1462} height={436} alt="Illustration of a screen-printed electrodes biosensor" caption="Illustration of a screen-printed electrodes biosensor from Zimmer&Peacock." />
                     </div>
 
                     <div className="space-y-8">
@@ -163,8 +165,8 @@ const GlucoseBiosensor = () => {
                             </p>
                         </div>
                         <div className="space-y-8">
-                            <Figure src={`${B}/glucose-oxidation-reactions.png`} alt="Glucose oxidation and hydrogen peroxide oxidation reactions" caption="Glucose oxidation and hydrogen peroxide oxidation reactions." />
-                            <Figure src={`${B}/first-generation-principle.jpg`} size="medium" alt="Operating principle of an enzyme-based first-generation glucose biosensor" caption={<>Operating principle of an enzyme-based first-generation glucose biosensor. From Rocchitta et al.<Cite n={18} /></>} />
+                            <Figure src={`${B}/glucose-oxidation-reactions.png`} width={1917} height={373} alt="Glucose oxidation and hydrogen peroxide oxidation reactions" caption="Glucose oxidation and hydrogen peroxide oxidation reactions." />
+                            <Figure src={`${B}/first-generation-principle.jpg`} width={639} height={644} size="medium" alt="Operating principle of an enzyme-based first-generation glucose biosensor" caption={<>Operating principle of an enzyme-based first-generation glucose biosensor. From Rocchitta et al.<Cite n={18} /></>} />
                         </div>
                     </div>
 
@@ -297,7 +299,7 @@ const GlucoseBiosensor = () => {
                                         <li>Each array from handle 17 contains four values: an <span className="font-medium">ID</span>, a <span className="font-medium">timer</span>, a <span className="font-medium">temperature</span>, and an <span className="font-medium">Analog-to-Digital Conversion (ADC)</span> value.</li>
                                         <li>The ADC value is the glucose sensor readout, converted into a user-friendly value with these formulas:</li>
                                     </ul>
-                                    <Figure src={`${B}/conversion-formulas.png`} alt="Conversion formulas for the glucose sensor readout" className="bg-white" />
+                                    <Figure src={`${B}/conversion-formulas.png`} width={1765} height={524} alt="Conversion formulas for the glucose sensor readout" className="bg-white" />
                                     <p>Vout: voltage readout · Cg: glucose concentration. See the <a href="https://www.zimmerpeacocktech.com/app/download/11782510898/ecFlex+quick-start+v0.3.pdf?t=1596730497" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">ecFlex quick-start developer guide</a> for more.</p>
                                 </Note>
                             </div>
@@ -324,7 +326,7 @@ const GlucoseBiosensor = () => {
                             Wearable devices providing molecular-level information are still in their infancy<Cite n={26} />. Their potential affordability and accessibility fuel interest in personalized medicine<Cite n={27} /><Cite n={28} />. This tutorial aims to make these technologies more accessible and spark interest in their medical and well-being applications. <span className="font-medium text-primary">Wearable biosensing devices are a potential next frontier of wearable technology for fitness and individual and public-health monitoring<Cite n={29} />.</span>
                         </p>
                     </div>
-                    <Figure src={`${B}/watch-on-wrist.jpg`} size="medium" alt="The finished smartwatch worn on a wrist" />
+                    <Figure src={`${B}/watch-on-wrist.jpg`} width={713} height={612} size="medium" alt="The finished smartwatch worn on a wrist" />
                 </section>
 
                 {/* References */}

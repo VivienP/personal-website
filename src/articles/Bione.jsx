@@ -75,6 +75,8 @@ const Bione = () => {
                         <div className="w-full overflow-hidden border border-border-subtle">
                             <img
                                 src="/bione/overview-diagram.jpg"
+                                width={1200}
+                                height={903}
                                 alt="Visual architecture of the JavaScript code on Cables.gl"
                                 loading="lazy"
                                 className="w-full h-auto object-contain"

@@ -62,6 +62,8 @@ const SmartWatch = () => {
                     <div className="overflow-hidden border border-border-subtle max-w-lg mx-auto">
                         <img
                             src={`${B}/smartwatch-closeup.jpg`}
+                            width={1024}
+                            height={1025}
                             alt="Close-up of the finished 3D-printed smartwatch"
                             className="w-full h-auto object-contain"
                         />
@@ -82,7 +84,7 @@ const SmartWatch = () => {
                             <span className="font-medium text-primary">Technological tools are increasingly within reach of individuals.</span> Prototyping platforms make electronics easy to program, and 3D printing allows tailor-made objects, so non-professionals can now build complex devices such as a smartwatch.
                         </p>
                     </div>
-                    <Figure src={`${B}/market-share.jpg`} size="medium" alt="Smartwatch market share pie chart, 2020" caption="Smartwatch market share, Global, 2020. Source: Forbes." />
+                    <Figure src={`${B}/market-share.jpg`} width={720} height={720} size="medium" alt="Smartwatch market share pie chart, 2020" caption="Smartwatch market share, Global, 2020. Source: Forbes." />
                 </section>
 
                 {/* Skills & Opportunities */}
@@ -92,9 +94,9 @@ const SmartWatch = () => {
                         <p>
                             The first skill is <span className="font-medium text-primary">programming LCD screens</span>, which lets you print images, videos, GIFs, and data. The second is <span className="font-medium text-primary">slicing 3D models</span>, the step that precedes any 3D print and lets you produce any object, such as a watch case. Building this smartwatch is a first approach to wearable technologies.
                         </p>
-                        <Figure src={`${B}/worn-closeup.jpg`} alt="Close-up of the smartwatch on the wrist" />
+                        <Figure src={`${B}/worn-closeup.jpg`} width={1024} height={683} alt="Close-up of the smartwatch on the wrist" />
                     </div>
-                    <Figure src={`${B}/worn-on-wrist.jpg`} alt="The smartwatch worn on a wrist" />
+                    <Figure src={`${B}/worn-on-wrist.jpg`} width={1080} height={565} alt="The smartwatch worn on a wrist" />
                 </section>
 
                 {/* Requirements */}
@@ -112,7 +114,7 @@ const SmartWatch = () => {
                             <li>4 small screws of 2 mm diameter <span className="italic">(optional)</span>.</li>
                         </ul>
                     </div>
-                    <Figure src={`${B}/sketching.jpg`} alt="Sketching the watch design while wearing a prototype" />
+                    <Figure src={`${B}/sketching.jpg`} width={1080} height={810} alt="Sketching the watch design while wearing a prototype" />
                 </section>
 
                 {/* Tutorial */}
@@ -127,7 +129,7 @@ const SmartWatch = () => {
                             <p>
                                 The WaveShare 1.28" round LCD module embeds a <span className="font-medium text-primary">GC9A01 driver</span> and supports Raspberry Pi, Arduino, and STM32 boards. It uses the <span className="font-medium text-primary">Serial Peripheral Interface (SPI)</span> — a synchronous serial bus for short-distance communication, mostly in embedded systems. The GC9A01 datasheet is available <a href="https://www.waveshare.com/w/upload/5/5e/GC9A01A.pdf" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">here</a>.
                             </p>
-                            <Figure src={`${B}/lcd-module.jpg`} size="medium" alt="1.28-inch round LCD module" caption="1.28″ round LCD module with the GC9A01 driver." />
+                            <Figure src={`${B}/lcd-module.jpg`} width={512} height={323} size="medium" alt="1.28-inch round LCD module" caption="1.28″ round LCD module with the GC9A01 driver." />
                         </div>
 
                         {/* 1.1 Hardware connexion */}
@@ -159,8 +161,8 @@ const SmartWatch = () => {
                                 </table>
                             </div>
                             <div className="space-y-8 pt-2">
-                                <Figure src={`${B}/arduino-wiring.jpg`} alt="LCD wired to an Arduino Uno" caption="Wiring the LCD to an Arduino Uno." />
-                                <Figure src={`${B}/wiring-color-code.png`} size="small" alt="Color code of the LCD wiring" caption="LCD wiring color code." />
+                                <Figure src={`${B}/arduino-wiring.jpg`} width={1024} height={732} alt="LCD wired to an Arduino Uno" caption="Wiring the LCD to an Arduino Uno." />
+                                <Figure src={`${B}/wiring-color-code.png`} width={418} height={512} size="small" alt="Color code of the LCD wiring" caption="LCD wiring color code." />
                             </div>
                         </div>
 
@@ -189,8 +191,8 @@ const SmartWatch = () => {
                                     </Note>
                                 </div>
                                 <div className="space-y-8">
-                                    <Figure src={`${B}/ide-clock-example.jpg`} size="small" alt="Arduino IDE menu showing the Clock example" caption="Loading the Clock example from the GFX library." />
-                                    <Figure src={`${B}/gfx-code-edit.png`} size="medium" alt="Editing the GFX example code" caption="Editing the data bus and display classes." />
+                                    <Figure src={`${B}/ide-clock-example.jpg`} width={451} height={512} size="small" alt="Arduino IDE menu showing the Clock example" caption="Loading the Clock example from the GFX library." />
+                                    <Figure src={`${B}/gfx-code-edit.png`} width={512} height={265} size="medium" alt="Editing the GFX example code" caption="Editing the data bus and display classes." />
                                 </div>
                             </div>
                             <div className="space-y-5">
@@ -241,8 +243,8 @@ const SmartWatch = () => {
                                 <p><span className="font-medium text-primary">Carefully remove the supports</span> from the printed piece.</p>
                             </div>
                             <div className="space-y-8">
-                                <Figure src={`${B}/prusaslicer-settings.png`} size="medium" alt="Slicing settings in PrusaSlicer" caption="Slicing settings in PrusaSlicer." />
-                                <Figure src={`${B}/assembly.jpg`} size="medium" alt="The printed black case and components" caption="The 3D-printed case ready for assembly." />
+                                <Figure src={`${B}/prusaslicer-settings.png`} width={503} height={286} size="medium" alt="Slicing settings in PrusaSlicer" caption="Slicing settings in PrusaSlicer." />
+                                <Figure src={`${B}/assembly.jpg`} width={1080} height={967} size="medium" alt="The printed black case and components" caption="The 3D-printed case ready for assembly." />
                             </div>
                         </div>
                     </div>
@@ -274,7 +276,7 @@ const SmartWatch = () => {
                             Participants unanimously found the content educational, and all felt their electronics or 3D-slicing skills had improved — one even wanted to try another DIY wearable tutorial.
                         </p>
                     </div>
-                    <Figure src={`${B}/reproducibility.png`} alt="Reproducibility evaluation results" />
+                    <Figure src={`${B}/reproducibility.png`} width={1024} height={462} alt="Reproducibility evaluation results" />
                 </section>
 
                 {/* Conclusion */}
@@ -285,7 +287,7 @@ const SmartWatch = () => {
                             This tutorial builds a first smartwatch from scratch as simply as possible, making smartwatch design widely accessible, a first wearable-technology experience for beginners and seasoned makers alike. It has limits, though: the watch does not keep time, and the device is not truly wearable. The <a href="https://open-smartwatch.github.io/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Open Smartwatch Project</a> overcomes these with hardware modules (including the GC9A01), 3D-printable cases, and a custom operating system — though it requires solid electronics and programming knowledge.
                         </p>
                     </div>
-                    <Figure src={`${B}/watch-black.jpg`} alt="The finished black smartwatch" />
+                    <Figure src={`${B}/watch-black.jpg`} width={1024} height={718} alt="The finished black smartwatch" />
                 </section>
 
                 {/* References */}

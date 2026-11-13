@@ -12,6 +12,10 @@ const Home = () => (
       title="Vivien Perrelle | AI Engineer & Founder"
       description="AI engineer and founder with a background in biosensors and lab automation. Currently at Station F in Paris with the Pioneers program."
       url="/"
+      image="/social/home.jpg"
+      imageWidth={1200}
+      imageHeight={630}
+      twitterCard="summary_large_image"
     />
     <Hero />
     <Projects />

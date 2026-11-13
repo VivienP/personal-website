@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-const Thumb = ({ src, alt }) => (
+const Thumb = ({ src, alt, width, height }) => (
     <div className="aspect-square w-full overflow-hidden border border-border-subtle mb-4">
         <img
             src={src}
             alt={alt}
+            width={width}
+            height={height}
             loading="lazy"
             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
         />
@@ -22,7 +24,7 @@ const BeyondWork = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Engagement */}
                     <div className="group">
-                        <Thumb src="/other/army.jpg" alt="Vivien Perrelle as an Air Force reservist" />
+                        <Thumb src="/other/army.jpg" width={500} height={500} alt="Vivien Perrelle as an Air Force reservist" />
                         <h3 className="text-xl text-primary mb-2">Engagement</h3>
                         <p className="text-sm text-secondary leading-relaxed">
                             I enlisted as a reservist in the French Air Force at 18.
@@ -31,7 +33,7 @@ const BeyondWork = () => {
 
                     {/* Hiking */}
                     <div className="group">
-                        <Thumb src="/other/hiking.jpg" alt="Hiking in the French Alps" />
+                        <Thumb src="/other/hiking.jpg" width={839} height={1080} alt="Hiking in the French Alps" />
                         <h3 className="text-xl text-primary mb-2">Hiking</h3>
                         <p className="text-sm text-secondary leading-relaxed">
                             I love hiking in the French Alps.
@@ -40,7 +42,7 @@ const BeyondWork = () => {
 
                     {/* Art — clickable, links to the gallery */}
                     <Link to="/art" className="group block">
-                        <Thumb src="/other/drawing.webp" alt="Charcoal drawing of an eye and flowing hair" />
+                        <Thumb src="/other/drawing.webp" width={1920} height={2298} alt="Charcoal drawing of an eye and flowing hair" />
                         <h3 className="text-xl text-primary group-hover:text-accent transition-colors mb-2">Art</h3>
                         <p className="text-sm text-secondary leading-relaxed mb-3">
                             I used to draw.

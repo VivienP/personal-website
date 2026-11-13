@@ -92,7 +92,7 @@ const MotionSuit = () => {
                             Despite this progress, e-textiles remain hard to reach for non-experts. Cost, comfort, durability, and the lack of learning platforms are still real barriers. Today the most accessible form of non-commercial e-textile lives in the cosplay and DIY community. Through collaboration, education, and standardization, e-textiles could become far more practical for students and beginners.
                         </p>
                     </div>
-                    <div className="max-w-sm mx-auto"><Img src="/catsuit/what-is-e-textiles.jpg" alt="Close-up of the e-textile garment with embroidered sensors and electronics" /></div>
+                    <div className="max-w-sm mx-auto"><Img src="/catsuit/what-is-e-textiles.jpg" width={683} height={1024} alt="Close-up of the e-textile garment with embroidered sensors and electronics" /></div>
                 </section>
 
                 {/* Project Presentation */}
@@ -106,7 +106,7 @@ const MotionSuit = () => {
                             The electronic parts are off-the-shelf components from Adafruit, commonly used in cosplay; the boards are popular in DIY projects; and the sewing materials are available in specialized shops. The suit gives a hands-on understanding of how to integrate electronics into fabric, and offers playful, artistic applications of e-textile — such as a garment that produces music from the wearer's movements.
                         </p>
                     </div>
-                    <Img src="/catsuit/pieces.jpg" alt="Fabric sensor pieces laid out with thread, scissors, and electronics" />
+                    <Img src="/catsuit/pieces.jpg" width={1024} height={576} alt="Fabric sensor pieces laid out with thread, scissors, and electronics" />
                 </section>
 
                 {/* Project Details */}
@@ -125,7 +125,7 @@ const MotionSuit = () => {
                                 <li><span className="font-medium text-primary">Crumple sensors</span> at the ends of both sleeves measure the wearer's grip.</li>
                             </ul>
                         </div>
-                        <Img src="/catsuit/overview.jpg" alt="The suit with stretch and crumpling sensors annotated" />
+                        <Img src="/catsuit/overview.jpg" width={1024} height={682} alt="The suit with stretch and crumpling sensors annotated" />
                     </div>
 
                     {/* 1. Stretch sensors */}
@@ -136,7 +136,7 @@ const MotionSuit = () => {
                                 Stretch and crease sensors work alike: both have a resistance that varies with the number of contact points. The sensor is made with a tight zigzag stitch using conductive thread in the bottom spool. Stretching the fabric raises the resistance along the conductive thread<Cite n={4} />: the opening mesh breaks the parallel contact points, so the current flows in series rather than in parallel.
                             </p>
                         </div>
-                        <Img src="/catsuit/stretch-sensor-diagram.jpg" alt="Stretch sensor: circuit diagram and embroidered conductive stitch" />
+                        <Img src="/catsuit/stretch-sensor-diagram.jpg" width={1024} height={555} alt="Stretch sensor: circuit diagram and embroidered conductive stitch" />
                     </div>
 
                     {/* 2. Crumple sensors */}
@@ -147,7 +147,7 @@ const MotionSuit = () => {
                                 Here the conductive thread is sewn across an entire surface. When the fabric wrinkles, it folds onto itself and creates contact points that let the current short-circuit the pattern, so the resistance drops accordingly.
                             </p>
                         </div>
-                        <Img src="/catsuit/crumple-sensor-diagram.jpg" alt="Crumple sensor: circuit diagram and embroidered conductive pattern" />
+                        <Img src="/catsuit/crumple-sensor-diagram.jpg" width={1024} height={551} alt="Crumple sensor: circuit diagram and embroidered conductive pattern" />
                     </div>
 
                     {/* 3. LED interfaces */}
@@ -158,7 +158,7 @@ const MotionSuit = () => {
                                 The LEDs are off-the-shelf sewable sequins from Adafruit<Cite n={5} />, hand-sewn directly onto the sleeves and hood using the same process as the gyroscopic sensors. For now they are purely aesthetic, but they can easily be driven by the integrated GEMMA microcontrollers<Cite n={6} />.
                             </p>
                         </div>
-                        <div className="max-w-lg mx-auto"><Img src="/catsuit/led-interfaces.jpg" alt="Sewable LED sequins lit on the garment" /></div>
+                        <div className="max-w-lg mx-auto"><Img src="/catsuit/led-interfaces.jpg" width={512} height={384} alt="Sewable LED sequins lit on the garment" /></div>
                     </div>
 
                     {/* 4. Gyroscopic sensors */}
@@ -169,7 +169,7 @@ const MotionSuit = () => {
                                 An accelerometer measures linear, non-gravitational acceleration. Three off-the-shelf accelerometers from Adafruit record acceleration and speed in the shoulder and torso area<Cite n={7} />. The connector is hand-sketched, imported into DRAWings as a PNG, then vectorized, rescaled, and turned into an ISO 301 stitch. The sensor is finally embroidered upside-down with that stitch on the outer surface of the sleeve.
                             </p>
                         </div>
-                        <Img src="/catsuit/gyroscopic-sensor.jpg" alt="Wemos microcontroller and accelerometer embroidered onto the sleeve" />
+                        <Img src="/catsuit/gyroscopic-sensor.jpg" width={864} height={646} alt="Wemos microcontroller and accelerometer embroidered onto the sleeve" />
                     </div>
                 </section>
 

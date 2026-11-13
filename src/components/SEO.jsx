@@ -58,7 +58,6 @@ const DEFAULT_JSON_LD = {
                 'https://x.com/PerrelleVivien',
                 'https://www.linkedin.com/in/vivien-perrelle/',
                 'https://github.com/VivienP',
-                'https://www.malt.fr/profile/vivienperrelle',
             ],
         },
         FREELANCE_SERVICE_JSON_LD,

@@ -122,6 +122,8 @@ const IsTechnologyNeutral = () => {
                     <div className="w-full overflow-hidden border border-border-subtle">
                         <img
                             src="/ellul/jacques-ellul.jpg"
+                            width={350}
+                            height={350}
                             alt="Jacques Ellul"
                             loading="lazy"
                             className="w-full h-auto object-contain"
