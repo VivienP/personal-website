@@ -83,7 +83,6 @@ const Lactate = () => {
                             After glucose, lactate is the next biomarker likely to be monitored effectively in the coming years. In vivo human studies show clear links between muscle lactate and muscle fatigue<Cite n={4} /><Cite n={5} />, and muscle lactate is a well-known marker of exercise-induced fatigue<Cite n={6} /><Cite n={7} />. Developing non- or minimally-invasive biosensors for continuous lactate monitoring has recently drawn strong interest in wellness and sports<Cite n={8} />, since lactate tracking helps athletes tailor their training to their performance<Cite n={9} /><Cite n={10} />.
                         </p>
                     </div>
-                    <Figure src={`${B}/context-illustration.jpg`} alt="Smartwatch display illustration" />
                 </section>
 
                 {/* Skills & Opportunities */}
