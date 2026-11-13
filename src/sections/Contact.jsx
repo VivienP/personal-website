@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getCalApi } from '@calcom/embed-react';
-import { ArrowRight, ArrowUpRight, Mail, Calendar } from 'lucide-react';
+import { ArrowRight, Mail, Calendar } from 'lucide-react';
 import { EMAIL_HREF } from '../utils/email';
 
 const CAL_NAMESPACE = 'quick-chat';
@@ -83,16 +83,6 @@ const Contact = ({ lead = null }) => {
                     >
                         <Mail size={16} />
                         <span>Email me</span>
-                    </a>
-
-                    <a
-                        href="https://www.malt.fr/profile/vivienperrelle"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group inline-flex items-center justify-center space-x-2 px-6 py-3 border border-border-subtle text-sm text-primary hover:border-accent hover:text-accent transition-colors"
-                    >
-                        <span>Available for freelance on Malt</span>
-                        <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </a>
                 </div>
             </div>
