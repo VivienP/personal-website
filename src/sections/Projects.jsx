@@ -82,8 +82,6 @@ const projects = [
     }
 ];
 
-const INITIAL_COUNT = 6;
-
 const ProjectCard = ({ project }) => {
     const isInternal = project.link.startsWith('/');
     const hasLink = project.link !== "#";
@@ -128,38 +126,17 @@ const ProjectCard = ({ project }) => {
     );
 };
 
-const GRID = 'grid grid-cols-1 md:grid-cols-2 gap-8';
-
 const Projects = () => {
-    const featured = projects.slice(0, INITIAL_COUNT);
-    const rest = projects.slice(INITIAL_COUNT);
-
     return (
         <section id="projects" className="py-24 px-6 border-t border-border-subtle/30">
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-3xl md:text-4xl mb-12 text-primary">Selected Work</h2>
 
-                <div className={GRID}>
-                    {featured.map((project) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {projects.map((project) => (
                         <ProjectCard key={project.id} project={project} />
                     ))}
                 </div>
-
-                {rest.length > 0 && (
-                    <details className="group/more mt-12">
-                        <summary className="mx-auto w-fit cursor-pointer list-none px-6 py-2 border border-border-subtle text-sm text-primary hover:border-accent hover:text-accent transition-colors group-open/more:hidden [&::-webkit-details-marker]:hidden">
-                            Load more
-                        </summary>
-
-                        <div>
-                            <div className={`${GRID} mt-12`}>
-                                {rest.map((project) => (
-                                    <ProjectCard key={project.id} project={project} />
-                                ))}
-                            </div>
-                        </div>
-                    </details>
-                )}
             </div>
         </section>
     );
