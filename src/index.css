@@ -5,7 +5,13 @@
   --color-primary: #1A1A1A;
   --color-secondary: #5A5A5A;
   --color-border-subtle: #E5E0D8;
-  --color-accent: #3A2328;
+  /* Interactive ink (hover, focus, selection). Deliberately the same value as
+     --color-primary: the site is monochrome, so a hover state is carried by a
+     border, underline, fill or icon, never by a change of text colour alone. */
+  --color-accent: #1A1A1A;
+  /* Emphasis ink for editorial figures. Matches the colour hardcoded in the
+     static SVGs under public/epibudget/. */
+  --color-figure: #3A2328;
 
   /* Border for elements whose boundary carries the affordance (buttons, cards).
      3.55:1 on --color-cream, versus 1.27:1 for --color-border-subtle, which

@@ -9,7 +9,7 @@ const AuthorBio = ({ readNext = [] }) => (
         <div className="space-y-3">
             <h2 className="font-mono text-xs uppercase tracking-widest text-secondary">About the author</h2>
             <p className="text-sm text-secondary leading-relaxed max-w-2xl">
-                <strong className="text-primary font-medium">Vivien Perrelle</strong> is a Lyon-based scientific
+                <strong className="text-primary font-medium">Vivien Perrelle</strong> is a Paris-based scientific
                 software engineer and founder. He works on{' '}
                 <Link
                     to="/lab-automation-software-engineer"
@@ -47,7 +47,7 @@ const AuthorBio = ({ readNext = [] }) => (
                         <li key={to}>
                             <Link
                                 to={to}
-                                className="text-sm text-primary hover:text-accent transition-colors"
+                                className="text-sm text-primary underline decoration-transparent underline-offset-4 hover:decoration-accent transition-colors"
                             >
                                 {label}
                             </Link>

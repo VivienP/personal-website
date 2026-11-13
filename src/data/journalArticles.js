@@ -82,6 +82,9 @@ export const journalArticles = [
         title: "Trauma-Driven VS Purpose-Driven Entrepreneurship",
         slug: "trauma-vs-purpose",
         tag: "Entrepreneurship",
+        // Featured above the homepage list; `excerpt` is the card's one-line pitch.
+        featured: true,
+        excerpt: "There is a prevailing narrative in VC: the best founders are broken. But there is a second path: the Purpose-Driven Founder.",
         readingMinutes: 3,
         socialImage: "/social/journal/trauma-vs-purpose.jpg",
         socialImageWidth: 1200,

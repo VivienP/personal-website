@@ -202,8 +202,8 @@ const AllocationStrategiesDiagram = ({ maxWidthClass = 'max-w-full', number, tit
                                 onClick={() => setActiveKey(strategy.key)}
                                 className={`font-mono text-xs px-3 py-2 border cursor-pointer disabled:cursor-default disabled:opacity-60 ${
                                     isActive
-                                        ? 'border-accent bg-accent text-cream'
-                                        : 'border-border-strong text-primary hover:border-accent hover:text-accent'
+                                        ? 'border-figure bg-figure text-cream'
+                                        : 'border-border-strong text-primary hover:border-figure hover:text-figure'
                                 }`}
                             >
                                 {strategy.label}

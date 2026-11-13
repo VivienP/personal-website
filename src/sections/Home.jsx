@@ -9,8 +9,8 @@ import SEO from '../components/SEO';
 const Home = () => (
   <main>
     <SEO
-      title="Vivien Perrelle | Lab Automation & Scientific Software Engineer"
-      description="Fixed-scope software engineering for lab automation teams: workflow implementation, instrument/software integration, reliability and testing. PyLabRobot contributor."
+      title="Vivien Perrelle | AI Engineer & Founder"
+      description="AI engineer and founder with a background in biosensors and lab automation. Currently at Station F in Paris with the Pioneers program."
       url="/"
     />
     <Hero />

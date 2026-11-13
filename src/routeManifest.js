@@ -1,5 +1,5 @@
 export const routeDefinitions = [
-    { path: '/', lastmod: '2026-09-06', load: () => import('./sections/Home.jsx') },
+    { path: '/', lastmod: '2026-11-12', load: () => import('./sections/Home.jsx') },
     { path: '/journal/when-a-lab-command-says-succeeded', lastmod: '2026-08-30', load: () => import('./articles/WhenALabCommandSaysSucceeded.jsx') },
     { path: '/projects/epibudget', lastmod: '2026-08-13', load: () => import('./articles/projects/Epibudget.jsx') },
     { path: '/journal/epistasis-explained-best-variant-vs-best-experiment', lastmod: '2026-08-13', load: () => import('./articles/EpistasisExplained.jsx') },

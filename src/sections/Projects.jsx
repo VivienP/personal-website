@@ -1,21 +1,14 @@
 import React from 'react';
-import { ExternalLink } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const projects = [
     {
-        id: 15,
-        title: "LabBridge",
-        description: "Open-source software for experimental data, with replayable execution, traceable observations and tests for recovery after failures.",
-        tags: ["Lab Automation", "Reliability", "Open Source"],
-        link: "https://github.com/VivienP/labbridge",
-    },
-    {
-        id: 16,
-        title: "Lab Automation Log Audit",
-        description: "Reproducible audit of real Chemspeed and batch-distillation logs asking what a successful software command actually proves about physical execution.",
-        tags: ["Lab Automation", "Observability", "Evidence"],
-        link: "/journal/when-a-lab-command-says-succeeded",
+        id: 17,
+        title: "LocusLab",
+        description: "Investigating why small changes to automated lab methods can trigger extensive revalidation work, and how to reduce that burden.",
+        tags: ["Lab Automation", "Customer Discovery", "Startup"],
+        link: "https://locuslabhq.com",
     },
     {
         id: 14,
@@ -89,8 +82,6 @@ const projects = [
     }
 ];
 
-const INITIAL_COUNT = 6;
-
 const ProjectCard = ({ project }) => {
     const isInternal = project.link.startsWith('/');
     const hasLink = project.link !== "#";
@@ -100,9 +91,11 @@ const ProjectCard = ({ project }) => {
             <div className="space-y-4">
                 <div className="flex justify-between items-start">
                     <h3 className="text-xl text-primary group-hover:text-accent transition-colors">{project.title}</h3>
-                    {hasLink && (
-                        <ExternalLink size={18} className="text-secondary group-hover:text-primary transition-colors shrink-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" />
-                    )}
+                    {hasLink && (isInternal ? (
+                        <ArrowRight size={18} className="text-secondary group-hover:text-primary transition-colors shrink-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" />
+                    ) : (
+                        <ExternalLink size={18} className="text-secondary group-hover:text-primary transition-[color,opacity] shrink-0 opacity-100 md:opacity-50 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" />
+                    ))}
                 </div>
 
                 <p className="text-sm text-secondary leading-relaxed">
@@ -133,38 +126,17 @@ const ProjectCard = ({ project }) => {
     );
 };
 
-const GRID = 'grid grid-cols-1 md:grid-cols-2 gap-8';
-
 const Projects = () => {
-    const featured = projects.slice(0, INITIAL_COUNT);
-    const rest = projects.slice(INITIAL_COUNT);
-
     return (
         <section id="projects" className="py-24 px-6 border-t border-border-subtle/30">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-3xl md:text-4xl mb-12 text-primary">Selected Works</h2>
+                <h2 className="text-3xl md:text-4xl mb-12 text-primary">Selected Work</h2>
 
-                <div className={GRID}>
-                    {featured.map((project) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {projects.map((project) => (
                         <ProjectCard key={project.id} project={project} />
                     ))}
                 </div>
-
-                {rest.length > 0 && (
-                    <details className="group/more mt-12">
-                        <summary className="mx-auto w-fit cursor-pointer list-none px-6 py-2 border border-border-subtle text-sm text-primary hover:border-accent hover:text-accent transition-colors group-open/more:hidden [&::-webkit-details-marker]:hidden">
-                            Load more
-                        </summary>
-
-                        <div>
-                            <div className={`${GRID} mt-12`}>
-                                {rest.map((project) => (
-                                    <ProjectCard key={project.id} project={project} />
-                                ))}
-                            </div>
-                        </div>
-                    </details>
-                )}
             </div>
         </section>
     );

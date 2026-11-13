@@ -65,7 +65,7 @@ const SelectionPipelineDiagram = ({ maxWidthClass = 'max-w-full', number, title,
             </div>
 
             <p className="border-y border-border-subtle bg-border-subtle/20 px-4 py-3 text-sm text-primary text-center">
-                <span className="font-mono text-xs uppercase tracking-widest text-accent">Label boundary</span>
+                <span className="font-mono text-xs uppercase tracking-widest text-figure">Label boundary</span>
                 <span className="block mt-1">
                     Measured fitness is revealed only here, once the plate can no longer change.
                 </span>

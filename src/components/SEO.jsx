@@ -12,9 +12,9 @@ const DEFAULT_JSON_LD = {
             name: 'Vivien Perrelle',
             url: SITE_URL,
             image: `${SITE_URL}/me.png`,
-            jobTitle: 'Scientific Software Engineer — Laboratory Automation & AI for Science',
-            description: 'Scientific software engineer focused on laboratory automation, reliability and AI for Science. PyLabRobot contributor and builder of open-source scientific software.',
-            address: { '@type': 'PostalAddress', addressLocality: 'Lyon', addressCountry: 'FR' },
+            jobTitle: 'AI Engineer & Founder',
+            description: 'AI engineer and founder with a background in biosensors and lab automation. Currently at Station F in Paris with the Pioneers program.',
+            address: { '@type': 'PostalAddress', addressLocality: 'Paris', addressCountry: 'FR' },
             alumniOf: [
                 {
                     '@type': 'CollegeOrUniversity',
@@ -44,9 +44,9 @@ const DEFAULT_JSON_LD = {
             hasOccupation: [
                 {
                     '@type': 'Occupation',
-                    name: 'Scientific Software Engineer',
-                    description: 'Fixed-scope software engineering for laboratory automation and AI-for-science teams.',
-                    occupationLocation: { '@type': 'City', name: 'Lyon' },
+                    name: 'AI Engineer',
+                    description: 'AI engineering with a background in biosensors and lab automation.',
+                    occupationLocation: { '@type': 'City', name: 'Paris' },
                 },
                 {
                     '@type': 'Occupation',
@@ -75,8 +75,8 @@ const DEFAULT_JSON_LD = {
 };
 
 const defaults = {
-    title: 'Vivien Perrelle | Lab Automation & Scientific Software Engineer',
-    description: 'Fixed-scope software engineering for lab automation teams: workflow implementation, integration, reliability and testing.',
+    title: 'Vivien Perrelle | AI Engineer & Founder',
+    description: 'AI engineer and founder with a background in biosensors and lab automation. Currently at Station F in Paris with the Pioneers program.',
     image: `${SITE_URL}/me.png`,
 };
 

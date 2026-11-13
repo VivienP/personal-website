@@ -38,7 +38,7 @@ const Note = ({ children }) => (
 
 const GlucoseBiosensor = () => {
     return (
-        <ArticleLayout backTo="/journal" backLabel="Journal">
+        <ArticleLayout backTo="/journal" backLabel="Journal" width="narrow">
             <ArticleSEO
                 slug={SLUG}
                 title="How to Build a Wearable Glucose Biosensor | Vivien Perrelle"
@@ -69,7 +69,7 @@ const GlucoseBiosensor = () => {
             <div className="text-primary max-w-none space-y-16 font-normal leading-relaxed">
 
                 {/* Context */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <section className="space-y-6">
                     <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Context</h2>
                         <p>
@@ -82,7 +82,7 @@ const GlucoseBiosensor = () => {
                             Despite recent advances, commercial CGMs remain painful<Cite n={8} />. Minimally- or non-invasive technologies address this. The under-development K'Watch by PKvitality is a minimally-invasive, watch-based CGM<Cite n={9} /> whose micro-needles measure glucose in the dermal ISF, shallower than the nerve endings. It could become the world's first painless CGM — but no fully non-invasive CGM has been announced for commercialization yet.
                         </p>
                     </div>
-                    <Figure src={`${B}/kwatch-pkvitality.jpg`} alt="Illustration of the K'Watch from PKvitality" caption="Illustration of the K'Watch from PKvitality." />
+                    <Figure src={`${B}/kwatch-pkvitality.jpg`} size="medium" alt="Illustration of the K'Watch from PKvitality" caption="Illustration of the K'Watch from PKvitality." />
                 </section>
 
                 {/* Definitions callouts */}
@@ -96,9 +96,8 @@ const GlucoseBiosensor = () => {
                 </div>
 
                 {/* Skills & Opportunities */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <Figure src={`${B}/sweat-patch.jpg`} alt="The sweat patch handled with gloves" />
-                    <div className="space-y-6 order-first md:order-last">
+                <section className="space-y-6">
+                    <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Skills &amp; Opportunities</h2>
                         <p>
                             The first skill is <span className="font-medium text-primary">programming a server-client Bluetooth Low Energy (BLE) communication</span>. BLE has shown strong potential in wearables<Cite n={12} /> and is, with near-field communication (NFC), the most used technology for wireless transmission of analyzed data<Cite n={13} />. A DIY data-visualization display could reuse this communication solution.
@@ -107,10 +106,11 @@ const GlucoseBiosensor = () => {
                             The second skill is <span className="font-medium text-primary">electrochemical biosensing with screen-printed electrodes</span>. This tutorial presents a non-invasive way to measure human glucose in real time, introducing the basics, challenges, and opportunities of molecular biosensing. <span className="font-medium text-primary">Building this biosensor is a first experience of electrochemical on-skin biosensing and wearable technologies.</span>
                         </p>
                     </div>
+                    <Figure src={`${B}/sweat-patch.jpg`} alt="The sweat patch handled with gloves" />
                 </section>
 
                 {/* Requirements */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <section className="space-y-6">
                     <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Requirements</h2>
                         <p>This project involves several prerequisites:</p>
@@ -130,17 +130,17 @@ const GlucoseBiosensor = () => {
 
                 {/* Analytical chemistry notions */}
                 <section className="space-y-10">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <Figure src={`${B}/screen-printed-electrodes.png`} alt="Illustration of a screen-printed electrodes biosensor" caption="Illustration of a screen-printed electrodes biosensor from Zimmer&Peacock." />
-                        <div className="space-y-6 order-first md:order-last">
+                    <div className="space-y-6">
+                        <div className="space-y-6">
                             <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Analytical chemistry notions</h2>
                             <p>
                                 Zimmer&amp;Peacock develops and manufactures electrochemical biosensors. The ec-Flex is a Bluetooth-enabled wearable biosensor platform<Cite n={14} /> that processes and sends the biosensor measurements. The notions below explain how ZP biosensors and the ec-Flex work.
                             </p>
                         </div>
+                        <Figure src={`${B}/screen-printed-electrodes.png`} alt="Illustration of a screen-printed electrodes biosensor" caption="Illustration of a screen-printed electrodes biosensor from Zimmer&Peacock." />
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                    <div className="space-y-8">
                         <div className="space-y-3">
                             <h3 className="text-lg md:text-xl font-normal text-primary pt-2">Three-electrode system</h3>
                             <p>
@@ -155,7 +155,7 @@ const GlucoseBiosensor = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div className="space-y-6">
                         <div className="space-y-4">
                             <h3 className="text-lg md:text-xl font-normal text-primary pt-2">Enzyme-based</h3>
                             <p>
@@ -164,11 +164,11 @@ const GlucoseBiosensor = () => {
                         </div>
                         <div className="space-y-8">
                             <Figure src={`${B}/glucose-oxidation-reactions.png`} alt="Glucose oxidation and hydrogen peroxide oxidation reactions" caption="Glucose oxidation and hydrogen peroxide oxidation reactions." />
-                            <Figure src={`${B}/first-generation-principle.jpg`} alt="Operating principle of an enzyme-based first-generation glucose biosensor" caption={<>Operating principle of an enzyme-based first-generation glucose biosensor. From Rocchitta et al.<Cite n={18} /></>} />
+                            <Figure src={`${B}/first-generation-principle.jpg`} size="medium" alt="Operating principle of an enzyme-based first-generation glucose biosensor" caption={<>Operating principle of an enzyme-based first-generation glucose biosensor. From Rocchitta et al.<Cite n={18} /></>} />
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                    <div className="space-y-8">
                         <div className="space-y-3">
                             <h3 className="text-lg md:text-xl font-normal text-primary pt-2">Amperometry</h3>
                             <p>
@@ -197,9 +197,8 @@ const GlucoseBiosensor = () => {
                         <h3 className="text-lg md:text-xl font-normal text-primary pt-2">1. Hardware assembly</h3>
 
                         {/* 1.1 Battery */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                            <Video id="NaS_yNDVh0c" title="ZP — Soldering a battery for a wearable biosensor" caption="Soldering the battery to the ec-Flex." />
-                            <div className="space-y-5 order-first md:order-last">
+                        <div className="space-y-6">
+                            <div className="space-y-5">
                                 <h4 className="font-medium text-primary">1.1. Battery</h4>
                                 <p className="font-medium text-primary">A welding fume extractor, a mask, and thermal protective gloves are highly recommended to weld the battery to the ec-Flex.</p>
                                 <p>
@@ -212,10 +211,11 @@ const GlucoseBiosensor = () => {
                                     <li><span className="font-medium text-primary">Bend the battery</span> behind the ec-Flex, so it sits against the skin once the ec-Flex is worn.</li>
                                 </ul>
                             </div>
+                            <Video id="NaS_yNDVh0c" title="ZP — Soldering a battery for a wearable biosensor" caption="Soldering the battery to the ec-Flex." />
                         </div>
 
                         {/* 1.2 Microfluidic patch */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                        <div className="space-y-6">
                             <div className="space-y-5">
                                 <h4 className="font-medium text-primary">1.2. Microfluidic patch</h4>
                                 <p>The microfluidic patch ensures dynamic sweat circulation in the SPE sensing area.</p>
@@ -238,7 +238,7 @@ const GlucoseBiosensor = () => {
                             Download the Biosensor-to-smartwatch wireless communication project ZIP from <a href="https://github.com/DeVinci-Innovation-Center/Biosensor-to-smartwatch_wireless_communication" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">GitHub</a>. Extract it and open the project in your code editor, then import the required Python libraries. The <a href="https://pypi.org/project/bleak/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">Bleak library</a> is a GATT client.
                         </p>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                        <div className="space-y-6">
                             <div className="space-y-5">
                                 <h4 className="font-medium text-primary">In the <code className="font-mono text-sm">get_ecflex_charac.py</code> script</h4>
                                 <p>This establishes the Bluetooth client-server connection: the ec-Flex is the server, your device the client.</p>
@@ -306,7 +306,7 @@ const GlucoseBiosensor = () => {
                 </section>
 
                 {/* Conclusion */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <section className="space-y-6">
                     <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Conclusion</h2>
                         <p>
@@ -324,7 +324,7 @@ const GlucoseBiosensor = () => {
                             Wearable devices providing molecular-level information are still in their infancy<Cite n={26} />. Their potential affordability and accessibility fuel interest in personalized medicine<Cite n={27} /><Cite n={28} />. This tutorial aims to make these technologies more accessible and spark interest in their medical and well-being applications. <span className="font-medium text-primary">Wearable biosensing devices are a potential next frontier of wearable technology for fitness and individual and public-health monitoring<Cite n={29} />.</span>
                         </p>
                     </div>
-                    <Figure src={`${B}/watch-on-wrist.jpg`} alt="The finished smartwatch worn on a wrist" />
+                    <Figure src={`${B}/watch-on-wrist.jpg`} size="medium" alt="The finished smartwatch worn on a wrist" />
                 </section>
 
                 {/* References */}

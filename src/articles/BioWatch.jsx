@@ -7,7 +7,7 @@ import SEO from '../components/SEO';
 
 const BioWatch = () => {
     return (
-        <ArticleLayout backTo="/" backLabel="Back">
+        <ArticleLayout backTo="/" backLabel="Back" width="narrow">
             <SEO
                 title="BioWatch: A Smartwatch Prototype for Wearable Biosensors | Vivien Perrelle"
                 description="An open-source prototype smartwatch for the implementation of wearable biosensors, built during a master's degree research project at the Institute for Future Technologies."
@@ -79,8 +79,8 @@ const BioWatch = () => {
                             <ExternalLink size={14} />
                         </a>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-                        <Img src="/biowatch/biowatch-viewed-from-above.jpg" alt="BioWatch viewed from above" />
+                    <div className="space-y-6 pt-4">
+                        <div className="max-w-lg mx-auto"><Img src="/biowatch/biowatch-viewed-from-above.jpg" alt="BioWatch viewed from above" /></div>
                         <Img src="/biowatch/bioWatch-photo-white-box-profil.jpg" alt="BioWatch profile view" />
                     </div>
                 </section>
@@ -94,7 +94,7 @@ const BioWatch = () => {
                 </section>
 
                 {/* Related Works — text left, image right */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <section className="space-y-6">
                     <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Related Works</h2>
                         <p>
@@ -105,9 +105,8 @@ const BioWatch = () => {
                 </section>
 
                 {/* Contribution — image left, text right */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <Img src="/biowatch/biowatch-microneedles-module.jpg" alt="Microneedles module mounted on the BioWatch" />
-                    <div className="space-y-6 order-first md:order-last">
+                <section className="space-y-6">
+                    <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Contribution</h2>
                         <p>
                             <span className="font-medium text-primary">The BioWatch is a smartwatch prototype for developing wearable biosensors and real-time data visualization.</span> This electronic project aims to easily demonstrate proof of concept of smartwatch-integrated or wirelessly connected wearable biosensors. It allows rapid implementation and on-body demonstration of non-invasive (sweat) or minimally invasive (ISF) electrochemical biosensors. Beyond electrochemical sensors, BioWatch's contribution extends to the development and proof of concept of any wearable sensor connected to or implemented in a smartwatch.
@@ -116,10 +115,11 @@ const BioWatch = () => {
                             The BioWatch is also a learning platform for IoT technology for students at the Institute for Future Technologies. Master students are working on this project as part of their training to learn by developing new functionalities for the BioWatch.
                         </p>
                     </div>
+                    <Img src="/biowatch/biowatch-microneedles-module.jpg" alt="Microneedles module mounted on the BioWatch" />
                 </section>
 
                 {/* Functionalities — text left, image right */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <section className="space-y-6">
                     <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Functionalities</h2>
                         <p>
@@ -136,9 +136,8 @@ const BioWatch = () => {
                 </section>
 
                 {/* Hardware — image left, text right */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <Img src="/biowatch/biowatch-v1-v2-schemes.jpg" alt="BioWatch V1 and V2 exploded schemes" />
-                    <div className="space-y-6 order-first md:order-last">
+                <section className="space-y-6">
+                    <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Hardware</h2>
                         <p>
                             The display of the BioWatch is a <a href="https://www.waveshare.com/wiki/1.28inch_LCD_Module" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">1.28" round RGB LCD module from WaveShare</a> with an integrated GC9A01 driver. It communicates with <span className="font-medium text-primary">Serial Peripheral Interface (SPI)</span> bus protocol.
@@ -149,10 +148,11 @@ const BioWatch = () => {
                             <li>The <a href="https://github.com/DeVinci-Innovation-Center/BioWatch/tree/main/hardware/case_modelizations_V1" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">watch case</a> is modeled in CAD software and 3D printed with PLA. Magnets of 2 millimeters in diameter are integrated into the case. Thus, a sensor can easily be positioned, such as a micro-needle module.</li>
                         </ul>
                     </div>
+                    <Img src="/biowatch/biowatch-v1-v2-schemes.jpg" alt="BioWatch V1 and V2 exploded schemes" />
                 </section>
 
                 {/* PCB Design — text left, image right */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <section className="space-y-6">
                     <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">PCB Design</h2>
                         <p>
@@ -166,9 +166,8 @@ const BioWatch = () => {
                 </section>
 
                 {/* User Interface Design — image left, text right */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <Img src="/biowatch/biowatch-display-designs.jpg" alt="Four proposed display designs" />
-                    <div className="space-y-6 order-first md:order-last">
+                <section className="space-y-6">
+                    <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">User Interface Design</h2>
                         <p>
                             The display has been designed based on the preferences of diabetic patients. The BioWatch interface should ensure a great user experience for diabetes to monitor their glucose levels and for other patients to track health data. Three patients with type 1 diabetes, including two adults and one child, were consulted for their preferences. They reported wanting three pieces of information on the BioWatch:
@@ -182,10 +181,11 @@ const BioWatch = () => {
                             Based on this consultation, four designs were proposed to 30 healthy subjects who evaluated the designs based on aesthetics and intuitiveness. Design number 2 received the highest score.
                         </p>
                     </div>
+                    <div className="max-w-lg mx-auto"><Img src="/biowatch/biowatch-display-designs.jpg" alt="Four proposed display designs" /></div>
                 </section>
 
                 {/* Software — text left, image right */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <section className="space-y-6">
                     <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Software</h2>
                         <p>
@@ -199,20 +199,20 @@ const BioWatch = () => {
                 </section>
 
                 {/* Where it led — PKvitality */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="border border-border-subtle">
+                <section className="space-y-6">
+                    <div className="space-y-6">
+                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Where it led</h2>
+                        <p>
+                            The BioWatch prototype is what landed me an internship at <a href="https://www.pkvitality.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">PKvitality</a>, a 50-person startup that raised several million euros to build the first glucose-monitoring smartwatch for diabetics. I joined their R&D team as a research assistant, working on the same minimally-invasive biosensing technology the BioWatch had let me prototype.
+                        </p>
+                    </div>
+                    <div className="border border-border-subtle max-w-lg mx-auto">
                         <img
                             src="/pkvitality/pkvitality.jpg"
                             alt="Vivien Perrelle in front of the PKvitality stand: Continuous Glucose Monitoring in a Smartwatch"
                             loading="lazy"
                             className="w-full h-auto object-cover"
                         />
-                    </div>
-                    <div className="space-y-6 order-first md:order-last">
-                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Where it led</h2>
-                        <p>
-                            The BioWatch prototype is what landed me an internship at <a href="https://www.pkvitality.com/" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">PKvitality</a>, a 50-person startup that raised several million euros to build the first glucose-monitoring smartwatch for diabetics. I joined their R&D team as a research assistant, working on the same minimally-invasive biosensing technology the BioWatch had let me prototype.
-                        </p>
                     </div>
                 </section>
 
