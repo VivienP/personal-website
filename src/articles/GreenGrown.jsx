@@ -6,7 +6,7 @@ import SEO from '../components/SEO';
 
 const GreenGrown = () => {
     return (
-        <ArticleLayout backTo="/" backLabel="Back">
+        <ArticleLayout backTo="/" backLabel="Back" width="narrow">
             <SEO
                 title="Green-Grown: A Creative Plant-Stake Construction Game | Vivien Perrelle"
                 description="A modular, wood-based construction game that lets a climbing plant grow into a unique living shape. Designed, manufactured, and crowdfunded on Kickstarter."
@@ -40,7 +40,6 @@ const GreenGrown = () => {
                 </p>
             </header>
 
-            {/* YouTube — full width */}
             <div className="w-full aspect-video border border-border-subtle mb-16 bg-black">
                 <iframe
                     src="https://www.youtube.com/embed/MrNn01fSzkw"
@@ -54,45 +53,41 @@ const GreenGrown = () => {
                 />
             </div>
 
+            {/* One reading column: every heading, paragraph and photo shares the same
+                left and right edges, and a photo sits under the text it illustrates. */}
             <div className="text-primary max-w-none space-y-16 font-normal leading-relaxed">
 
                 {/* What is Green-Grown? */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6">
-                        <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">What is Green-Grown?</h2>
-                        <p>
-                            Green-Grown is <span className="font-medium text-primary">a creative wood-based construction game</span> that will help your plants grow! This construction is <span className="font-medium text-primary">a modular tree</span> with a trunk and 24 to 48 original branch pieces. Once assembled, the lacunar structure allows a climbing plant to grow and shape uniquely. Green-Grown then becomes <span className="font-medium text-primary">a living decorative and meaningful object</span>, where wood's nobility and nature's elegance blend perfectly.
-                        </p>
-                    </div>
-                    <Img src="/green-grown/5.jpeg" alt="Green-Grown structure detail" />
+                <section className="space-y-6">
+                    <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">What is Green-Grown?</h2>
+                    <p>
+                        Green-Grown is <span className="font-medium text-primary">a creative wood-based construction game</span> that will help your plants grow! This construction is <span className="font-medium text-primary">a modular tree</span> with a trunk and 24 to 48 original branch pieces. Once assembled, the lacunar structure allows a climbing plant to grow and shape uniquely. Green-Grown then becomes <span className="font-medium text-primary">a living decorative and meaningful object</span>, where wood's nobility and nature's elegance blend perfectly.
+                    </p>
+                    <Img src="/green-grown/5.jpeg" alt="Green-Grown structure detail" width={680} height={383} />
                 </section>
 
                 {/* How does it work? */}
                 <section className="space-y-10">
                     <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">How does it work?</h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-4">
-                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">
-                                1. Assemble your Green-Grown tree branch by branch.
-                            </h3>
-                            <p>
-                                Embed the two trunk pieces together thanks to the central slot. Then add the branches in the notches of your choice. Each trunk piece has 16 notches, and each branch has 4. A branch can fit in each notch with two different orientations. <span className="font-medium text-primary">So let your imagination run free!</span>
-                            </p>
-                        </div>
-                        <Img src="/green-grown/3-bis.jpg" alt="Assembling the Green-Grown tree branch by branch" />
+                    <div className="space-y-4">
+                        <h3 className="text-lg md:text-xl font-normal text-primary pt-2">
+                            1. Assemble your Green-Grown tree branch by branch.
+                        </h3>
+                        <p>
+                            Embed the two trunk pieces together thanks to the central slot. Then add the branches in the notches of your choice. Each trunk piece has 16 notches, and each branch has 4. A branch can fit in each notch with two different orientations. <span className="font-medium text-primary">So let your imagination run free!</span>
+                        </p>
+                        <Img src="/green-grown/3-bis.jpg" alt="Assembling the Green-Grown tree branch by branch" width={680} height={383} />
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <Img src="/green-grown/6-bis.jpg" alt="Green-Grown placed in a pot with a planted seed" />
-                        <div className="space-y-4 order-first md:order-last">
-                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">
-                                2. Put your Green-Grown in a pot, and plant a seed.
-                            </h3>
-                            <p>
-                                Once assembled, push the 4 feet of the tree into a pot of potting soil. Place the pot anywhere in your house: a bedroom, a living room, or even your terrace. Then <span className="font-medium text-primary">plant a seed of your favorite climbing plant</span>. The plant will grow according to your creation shape and the light of the day.
-                            </p>
-                        </div>
+                    <div className="space-y-4">
+                        <h3 className="text-lg md:text-xl font-normal text-primary pt-2">
+                            2. Put your Green-Grown in a pot, and plant a seed.
+                        </h3>
+                        <p>
+                            Once assembled, push the 4 feet of the tree into a pot of potting soil. Place the pot anywhere in your house: a bedroom, a living room, or even your terrace. Then <span className="font-medium text-primary">plant a seed of your favorite climbing plant</span>. The plant will grow according to your creation shape and the light of the day.
+                        </p>
+                        <Img src="/green-grown/6-bis.jpg" alt="Green-Grown placed in a pot with a planted seed" width={1344} height={756} />
                     </div>
                 </section>
 
@@ -100,31 +95,27 @@ const GreenGrown = () => {
                 <section className="space-y-10">
                     <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Design process</h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6">
-                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">An organic structure perfect for plant development</h3>
-                            <p>
-                                More than being made out of wood for an authentic construction game, we decided to go for a completely organic structure like a lacunar tree we iterated countless times. <span className="font-medium text-primary">The porosities that make up the structure are also inspired by nature.</span> They represent the shape of plant cells present in all flora. More than an aesthetic significance, it is mainly this shape that allows plants to grow easily on the structure.
-                            </p>
-                        </div>
-                        <Img src="/green-grown/7.jpg" alt="Organic, lacunar structure inspired by plant cells" />
+                    <div className="space-y-4">
+                        <h3 className="text-lg md:text-xl font-normal text-primary pt-2">An organic structure perfect for plant development</h3>
+                        <p>
+                            More than being made out of wood for an authentic construction game, we decided to go for a completely organic structure like a lacunar tree we iterated countless times. <span className="font-medium text-primary">The porosities that make up the structure are also inspired by nature.</span> They represent the shape of plant cells present in all flora. More than an aesthetic significance, it is mainly this shape that allows plants to grow easily on the structure.
+                        </p>
+                        <Img src="/green-grown/7.jpg" alt="Organic, lacunar structure inspired by plant cells" width={1080} height={720} />
                     </div>
 
-                    <div className="space-y-6">
+                    <div className="space-y-4">
                         <h3 className="text-lg md:text-xl font-normal text-primary pt-2">Shapes limited by creativity</h3>
                         <p>
                             We wanted an easy-to-use product that is accessible to young children and allows numerous complex shapes in the image of nature. The "L" shaped branches' and the multiple notches allow for countless structure possibilities. <span className="font-medium text-primary">Symmetrical or off-center, vertical or horizontal, orderly or chaotic.</span>
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <Img src="/green-grown/8.jpeg" alt="Different Green-Grown shape possibilities" />
-                        <div className="space-y-6 order-first md:order-last">
-                            <h3 className="text-lg md:text-xl font-normal text-primary pt-2">A new look at nature</h3>
-                            <p>
-                                Green-Grown is an educational, fun, and manual game that requires careful assembly. Once built, it is a personal and affective object that makes us aware of <span className="font-medium text-primary">the fragility of nature</span> and the need to take care of it. This atypical decorative object highlights the details of the plant world to draw our gaze to our environment again.
-                            </p>
-                        </div>
+                    <div className="space-y-4">
+                        <h3 className="text-lg md:text-xl font-normal text-primary pt-2">A new look at nature</h3>
+                        <p>
+                            Green-Grown is an educational, fun, and manual game that requires careful assembly. Once built, it is a personal and affective object that makes us aware of <span className="font-medium text-primary">the fragility of nature</span> and the need to take care of it. This atypical decorative object highlights the details of the plant world to draw our gaze to our environment again.
+                        </p>
+                        <Img src="/green-grown/8.jpeg" alt="Different Green-Grown shape possibilities" width={680} height={453} />
                     </div>
                 </section>
 
