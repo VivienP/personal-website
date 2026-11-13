@@ -66,6 +66,8 @@ const PKvitality = () => {
             <div className="w-full max-w-[600px] mx-auto overflow-hidden border border-border-subtle">
                 <img
                     src="/pkvitality/pkvitality.jpg"
+                    width={782}
+                    height={782}
                     alt="Vivien Perrelle in front of the PKvitality stand: Continuous Glucose Monitoring in a Smartwatch"
                     loading="lazy"
                     className="w-full h-auto object-cover"

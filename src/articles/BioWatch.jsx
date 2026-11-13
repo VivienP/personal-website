@@ -30,7 +30,7 @@ const BioWatch = () => {
             />
             <header className="mb-12 space-y-4">
                 <div className="flex items-center space-x-3 mb-2">
-                    <img src="/biowatch/apple-watch-icon.svg" alt="BioWatch Icon" className="w-8 h-8" />
+                    <img src="/biowatch/apple-watch-icon.svg" width={32} height={32} alt="BioWatch Icon" className="w-8 h-8" />
                     <span className="font-mono text-xs text-secondary tracking-widest uppercase">Biosensor · Electronics · Programming</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl text-primary leading-tight font-serif italic">
@@ -57,6 +57,8 @@ const BioWatch = () => {
             <div className="w-full overflow-hidden border border-border-subtle mb-12">
                 <img
                     src="/biowatch/biowatch-grand-angle.jpg"
+                    width={1920}
+                    height={774}
                     alt="BioWatch worn on a wrist"
                     className="w-full h-auto object-contain"
                 />
@@ -80,8 +82,8 @@ const BioWatch = () => {
                         </a>
                     </div>
                     <div className="space-y-6 pt-4">
-                        <div className="max-w-lg mx-auto"><Img src="/biowatch/biowatch-viewed-from-above.jpg" alt="BioWatch viewed from above" /></div>
-                        <Img src="/biowatch/bioWatch-photo-white-box-profil.jpg" alt="BioWatch profile view" />
+                        <div className="max-w-lg mx-auto"><Img src="/biowatch/biowatch-viewed-from-above.jpg" width={1067} height={1080} alt="BioWatch viewed from above" /></div>
+                        <Img src="/biowatch/bioWatch-photo-white-box-profil.jpg" width={1280} height={720} alt="BioWatch profile view" />
                     </div>
                 </section>
 
@@ -101,7 +103,7 @@ const BioWatch = () => {
                             Few works on watch-integrated biosensors and multianalyte measurement devices have been recently published. Kim et al. developed in 2018 a wearable and flexible patch that monitors two analytes in two different biofluids: alcohol in sweat and glucose in interstitial fluid (ISF)<Cite n={6} />. In 2022, Wang et al. presented a sweat cortisol sensor with an LCD screen that prints in real-time the measured concentrations<Cite n={7} />. Finally, the French company PKVitality (Paris, France) developed the K'Watch Glucose® and the K'Watch Athlete®, which can respectively monitor glucose and lactate levels thanks to minimally invasive biosensors<Cite n={8} />. Thus microneedles-based biosensors access the interstitial fluid without any sensation of pain or discomfort. The smartwatch tracks the wearer's glucose or lactate level in real-time for seven days before replacing the microneedles module with another one. The wearable seems promising in modularity and compatibility with all minimally-invasive electrochemical biosensors and multi-analyte measurements.
                         </p>
                     </div>
-                    <Img src="/biowatch/biowatch-related-works.jpg" alt="Related works: integrated biosensor devices" />
+                    <Img src="/biowatch/biowatch-related-works.jpg" width={1080} height={518} alt="Related works: integrated biosensor devices" />
                 </section>
 
                 {/* Contribution — image left, text right */}
@@ -115,7 +117,7 @@ const BioWatch = () => {
                             The BioWatch is also a learning platform for IoT technology for students at the Institute for Future Technologies. Master students are working on this project as part of their training to learn by developing new functionalities for the BioWatch.
                         </p>
                     </div>
-                    <Img src="/biowatch/biowatch-microneedles-module.jpg" alt="Microneedles module mounted on the BioWatch" />
+                    <Img src="/biowatch/biowatch-microneedles-module.jpg" width={663} height={474} alt="Microneedles module mounted on the BioWatch" />
                 </section>
 
                 {/* Functionalities — text left, image right */}
@@ -132,7 +134,7 @@ const BioWatch = () => {
                             <li>The device includes a rechargeable battery to ensure 3 hours of autonomy.</li>
                         </ul>
                     </div>
-                    <Img src="/biowatch/biowatch-characteristics.jpg" alt="BioWatch characteristics: OTA programming, Wi-Fi server-client connection" />
+                    <Img src="/biowatch/biowatch-characteristics.jpg" width={1280} height={720} alt="BioWatch characteristics: OTA programming, Wi-Fi server-client connection" />
                 </section>
 
                 {/* Hardware — image left, text right */}
@@ -148,7 +150,7 @@ const BioWatch = () => {
                             <li>The <a href="https://github.com/DeVinci-Innovation-Center/BioWatch/tree/main/hardware/case_modelizations_V1" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">watch case</a> is modeled in CAD software and 3D printed with PLA. Magnets of 2 millimeters in diameter are integrated into the case. Thus, a sensor can easily be positioned, such as a micro-needle module.</li>
                         </ul>
                     </div>
-                    <Img src="/biowatch/biowatch-v1-v2-schemes.jpg" alt="BioWatch V1 and V2 exploded schemes" />
+                    <Img src="/biowatch/biowatch-v1-v2-schemes.jpg" width={1080} height={608} alt="BioWatch V1 and V2 exploded schemes" />
                 </section>
 
                 {/* PCB Design — text left, image right */}
@@ -162,7 +164,7 @@ const BioWatch = () => {
                             UART pinout allows programming the ESP32. Seven digital pins are provided for programming the GC9A01 driver in SPI. A LiPo battery can power the chip via the pin reserved. A switch button allows to turn on and off the smartwatch. A charging circuitry similar to the Wemos battery shield enables charging the battery through the micro-USB connector.
                         </p>
                     </div>
-                    <Img src="/biowatch/biowatch-pcb-v2.jpg" alt="BioWatch V2 PCB with ESP32 and charging circuit" />
+                    <Img src="/biowatch/biowatch-pcb-v2.jpg" width={1080} height={515} alt="BioWatch V2 PCB with ESP32 and charging circuit" />
                 </section>
 
                 {/* User Interface Design — image left, text right */}
@@ -181,7 +183,7 @@ const BioWatch = () => {
                             Based on this consultation, four designs were proposed to 30 healthy subjects who evaluated the designs based on aesthetics and intuitiveness. Design number 2 received the highest score.
                         </p>
                     </div>
-                    <div className="max-w-lg mx-auto"><Img src="/biowatch/biowatch-display-designs.jpg" alt="Four proposed display designs" /></div>
+                    <div className="max-w-lg mx-auto"><Img src="/biowatch/biowatch-display-designs.jpg" width={813} height={808} alt="Four proposed display designs" /></div>
                 </section>
 
                 {/* Software — text left, image right */}
@@ -195,7 +197,7 @@ const BioWatch = () => {
                             The clock is synchronized with the network thanks to an NTP connection, allowing to display the time and date. The update frequency can be easily updated, between one second for pulse sensor applications and one minute for biosensors. The conversion of the measured data into coordinates on the screen is also easily adaptable. The BioWatch is thus compatible with all types of sensors implemented in I2C or connected wirelessly.
                         </p>
                     </div>
-                    <Img src="/biowatch/biowatch-display.jpg" alt="BioWatch display rendering the glucose history curve" />
+                    <Img src="/biowatch/biowatch-display.jpg" width={1008} height={720} alt="BioWatch display rendering the glucose history curve" />
                 </section>
 
                 {/* Where it led — PKvitality */}
@@ -209,6 +211,8 @@ const BioWatch = () => {
                     <div className="border border-border-subtle max-w-lg mx-auto">
                         <img
                             src="/pkvitality/pkvitality.jpg"
+                            width={782}
+                            height={782}
                             alt="Vivien Perrelle in front of the PKvitality stand: Continuous Glucose Monitoring in a Smartwatch"
                             loading="lazy"
                             className="w-full h-auto object-cover"

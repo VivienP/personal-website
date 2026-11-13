@@ -9,16 +9,25 @@ const AuthorBio = ({ readNext = [] }) => (
         <div className="space-y-3">
             <h2 className="font-mono text-xs uppercase tracking-widest text-secondary">About the author</h2>
             <p className="text-sm text-secondary leading-relaxed max-w-2xl">
-                <strong className="text-primary font-medium">Vivien Perrelle</strong> is a Paris-based scientific
-                software engineer and founder. He works on{' '}
+                <strong className="text-primary font-medium">Vivien Perrelle</strong> is an AI engineer and
+                founder with a background in biosensors and{' '}
                 <Link
                     to="/lab-automation-software-engineer"
                     className="text-primary border-b border-primary/40 hover:text-accent hover:border-accent transition-colors"
                 >
-                    laboratory automation
+                    lab automation
                 </Link>
-                {' '}and AI for science, and builds LocusLab, verification infrastructure for biology
-                research.{' '}
+                . He is at Station F with the Pioneers program. His current project,{' '}
+                <a
+                    href="https://locuslabhq.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary border-b border-primary/40 hover:text-accent hover:border-accent transition-colors"
+                >
+                    LocusLab
+                </a>
+                , investigates why small changes to automated lab methods can trigger extensive revalidation
+                work, and how to reduce that burden.{' '}
                 <a
                     href="https://www.linkedin.com/in/vivien-perrelle/"
                     target="_blank"

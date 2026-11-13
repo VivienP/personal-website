@@ -38,6 +38,8 @@ const AIForScienceIsBecomingInfrastructure = () => {
             <figure className="mb-16 -mx-6 md:mx-0 overflow-hidden md:rounded-lg border-y md:border border-border-subtle">
                 <img
                     src="/ai-for-science/loops-cover-small.jpg"
+                    width={1920}
+                    height={1080}
                     alt="Abstract visualisation of interconnected research loops — glowing rings and particles in motion — representing the feedback cycles at the core of AI-driven scientific discovery."
                     className="w-full h-auto object-cover"
                     loading="eager"
@@ -74,6 +76,8 @@ const AIForScienceIsBecomingInfrastructure = () => {
                     <figure className="my-8 not-prose">
                         <img
                             src="/ai-for-science/illustration-blog-science.jpg"
+                            width={702}
+                            height={639}
                             alt="2×2 matrix plotting cost of feedback (cheap to expensive) against fidelity (proxy to faithful): Code sits at cheap + faithful; Literature at cheap + indirect; Simulation at cheap + unfaithful; Wet-lab at costly + decisive; Patients at expensive + faithful."
                             className="h-auto rounded-lg border border-border-subtle mx-auto block max-w-[600px] w-full"
                             loading="lazy"
@@ -132,6 +136,8 @@ const AIForScienceIsBecomingInfrastructure = () => {
                     <figure className="my-8 not-prose">
                         <img
                             src="/ai-for-science/co-scientist.webp"
+                            width={720}
+                            height={405}
                             alt="Animation of the Co-Scientist hypothesis selection process: hypotheses are generated, critiqued, ranked, and evolved over successive rounds."
                             className="h-auto rounded-lg border border-border-subtle mx-auto block max-w-[800px] w-full"
                             loading="lazy"

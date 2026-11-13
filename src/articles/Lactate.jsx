@@ -67,6 +67,8 @@ const Lactate = () => {
                     </div>
                     <Figure
                         src={`${B}/microneedles-gold.jpg`}
+                        width={720}
+                        height={480}
                         alt="Microneedle array on the skin"
                         caption={<>Image from<Cite n={1} /></>}
                     />
@@ -99,7 +101,7 @@ const Lactate = () => {
                             The second is <span className="font-medium text-primary">electronic programming</span>. The tutorial uses a programmable analog front-end (AFE) board, the LMP91000, which provides a complete signal path between a sensor and a microcontroller and outputs a voltage proportional to the cell current — a first hands-on approach to an engineering development board.
                         </p>
                     </div>
-                    <Figure src={`${B}/setup-experiment.jpg`} alt="Experiment bench with stirrer, reagents and a laptop" />
+                    <Figure src={`${B}/setup-experiment.jpg`} width={960} height={540} alt="Experiment bench with stirrer, reagents and a laptop" />
                 </section>
 
                 {/* Requirements */}
@@ -127,7 +129,7 @@ const Lactate = () => {
                             <li>Iron wires for electronics</li>
                         </ul>
                     </div>
-                    <Figure src={`${B}/lox-molecule.jpg`} size="medium" alt="Representation of the lactate oxidase molecule" caption="Representation of the lactate oxidase molecule." />
+                    <Figure src={`${B}/lox-molecule.jpg`} width={623} height={603} size="medium" alt="Representation of the lactate oxidase molecule" caption="Representation of the lactate oxidase molecule." />
                 </section>
 
                 {/* Biosensor Principles */}
@@ -149,7 +151,7 @@ const Lactate = () => {
                                 </p>
                             </div>
                         </div>
-                        <Figure src={`${B}/immobilization-methods.jpg`} alt="Diagrams of enzyme immobilization methods" caption={<>Some methods used for enzyme immobilization. From<Cite n={12} />.</>} />
+                        <Figure src={`${B}/immobilization-methods.jpg`} width={936} height={702} alt="Diagrams of enzyme immobilization methods" caption={<>Some methods used for enzyme immobilization. From<Cite n={12} />.</>} />
                     </div>
 
                     <div className="space-y-6">
@@ -164,7 +166,7 @@ const Lactate = () => {
                                 This tutorial skips membrane design: its two functions are not required for in vitro testing, and the membrane also tends to reduce the biosensor's sensitivity.
                             </p>
                         </div>
-                        <Figure src={`${B}/biosensor-principles.gif`} alt="Animated illustration of the biosensor working principle through the skin" />
+                        <Figure src={`${B}/biosensor-principles.gif`} width={853} height={480} alt="Animated illustration of the biosensor working principle through the skin" />
                     </div>
                 </section>
 
@@ -194,8 +196,8 @@ const Lactate = () => {
                                 </Note>
                             </div>
                             <div className="space-y-8">
-                                <Figure src={`${B}/cleaning-coating-functionalization.jpg`} alt="Cleaning, dip coating and functionalization stages of the platinum wire" />
-                                <Figure src={`${B}/dip-coating-process.jpg`} alt="Stages of the dip coating process" caption={<>Stages of the dip coating process. From<Cite n={22} />.</>} />
+                                <Figure src={`${B}/cleaning-coating-functionalization.jpg`} width={1080} height={608} alt="Cleaning, dip coating and functionalization stages of the platinum wire" />
+                                <Figure src={`${B}/dip-coating-process.jpg`} width={850} height={440} alt="Stages of the dip coating process" caption={<>Stages of the dip coating process. From<Cite n={22} />.</>} />
                             </div>
                         </div>
 
@@ -217,7 +219,7 @@ const Lactate = () => {
                             <p><span className="font-medium text-primary">1.8. Wash the immobilized wire.</span> Remove the wire from the LOx solution and rinse it with PBS.</p>
                         </div>
 
-                        <Figure src={`${B}/lox-platinum-wire-closeup.jpg`} alt="Close-up of the lactate oxidase functionalized platinum wire" />
+                        <Figure src={`${B}/lox-platinum-wire-closeup.jpg`} width={1080} height={608} alt="Close-up of the lactate oxidase functionalized platinum wire" />
                     </div>
 
                     {/* 2. LMP91000 Programming */}
@@ -262,8 +264,8 @@ const Lactate = () => {
                                 </div>
                             </div>
                             <div className="space-y-8">
-                                <Figure src={`${B}/lmp91000-board.jpg`} alt="LMP91000 development board" />
-                                <Figure src={`${B}/lmp91000-scheme.jpg`} alt="Simplified application schematic of the LMP91000" caption={<>Simplified application schematic of the LMP91000. From<Cite n={25} />.</>} />
+                                <Figure src={`${B}/lmp91000-board.jpg`} width={701} height={389} alt="LMP91000 development board" />
+                                <Figure src={`${B}/lmp91000-scheme.jpg`} width={612} height={339} alt="Simplified application schematic of the LMP91000" caption={<>Simplified application schematic of the LMP91000. From<Cite n={25} />.</>} />
                             </div>
                         </div>
                     </div>
@@ -281,8 +283,8 @@ const Lactate = () => {
                                 <p><span className="font-medium text-primary">3.6. Characterize the sensor.</span> Plot the inputs against time, identify the injections, and compute the sensor's sensitivity and linearity.</p>
                             </div>
                             <div className="space-y-8">
-                                <Figure src={`${B}/Setup-top-view.jpg`} alt="Top view of the experimental setup" />
-                                <Figure src={`${B}/experiments-results.jpg`} alt="Chronoamperometry experiment results" />
+                                <Figure src={`${B}/Setup-top-view.jpg`} width={959} height={540} alt="Top view of the experimental setup" />
+                                <Figure src={`${B}/experiments-results.jpg`} width={1080} height={608} alt="Chronoamperometry experiment results" />
                             </div>
                         </div>
                     </div>
@@ -296,7 +298,7 @@ const Lactate = () => {
                             This tutorial designs a simple lactate biosensor from scratch using the most accessible equipment possible. The sensors built and tested perform poorly, likely because the non-optimized wiring lets in strong signal perturbations. Future work will test them with a commercial potentiostat. The platinum wire could also be replaced by micro-needles coated with platinum paste, which could then be integrated into the <Link to="/projects/biowatch" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">BioWatch</Link>.
                         </p>
                     </div>
-                    <Figure src={`${B}/microneedles-module.jpg`} alt="Microneedles module mounted on the BioWatch" />
+                    <Figure src={`${B}/microneedles-module.jpg`} width={663} height={474} alt="Microneedles module mounted on the BioWatch" />
                 </section>
 
                 {/* References */}

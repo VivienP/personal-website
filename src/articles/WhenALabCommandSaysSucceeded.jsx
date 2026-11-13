@@ -58,6 +58,8 @@ const WhenALabCommandSaysSucceeded = () => (
         <figure className="mb-16 -mx-6 md:mx-0 overflow-hidden md:rounded-lg border-y md:border border-border-subtle">
             <img
                 src="/lab-log-observability/cover.jpg"
+                width={1600}
+                height={900}
                 alt="Automated laboratory instrument operating above sample trays in a dark laboratory"
                 className="w-full h-auto object-cover"
                 loading="eager"
