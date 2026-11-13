@@ -15,7 +15,8 @@ const Hero = () => {
 
                         <p className="text-base text-primary leading-relaxed">
                             I’m an AI engineer and founder with a background in biosensors and lab automation.
-                            I’m at Station F in Paris with the{' '}
+                            <br />
+                            I’m at Station F with the{' '}
                             <a
                                 href="https://thepioneer.vc/"
                                 target="_blank"
