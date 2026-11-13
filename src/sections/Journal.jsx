@@ -21,7 +21,7 @@ export const JournalList = ({ showTags = false, headingLevel = 'h3', exclude = n
     </div>
 );
 
-// Same card vocabulary as the featured project in Selected Work.
+// Same card vocabulary as the cards in Selected Work.
 const FeaturedArticle = ({ article }) => (
     <Link
         to={`/journal/${article.slug}`}

@@ -6,10 +6,9 @@ const projects = [
     {
         id: 17,
         title: "LocusLab",
-        description: "An exploration of where software can make lab automation more reliable, starting from how teams review changes to automated methods. Teams with software engineers tend to build this in-house, and instrument vendors cover the compliance layer. My working hypothesis: the underserved problems sit in labs running routine automation without a software team.",
+        description: "Investigating why small changes to automated lab methods can trigger extensive revalidation work, and how to reduce that burden.",
         tags: ["Lab Automation", "Customer Discovery", "Startup"],
         link: "https://locuslabhq.com",
-        featured: true,
     },
     {
         id: 14,
@@ -83,8 +82,7 @@ const projects = [
     }
 ];
 
-// One full-width featured card plus a 2x2 block: no empty cell on the md+ grid.
-const INITIAL_COUNT = 5;
+const INITIAL_COUNT = 6;
 
 const ProjectCard = ({ project }) => {
     const isInternal = project.link.startsWith('/');
@@ -117,7 +115,7 @@ const ProjectCard = ({ project }) => {
         </>
     );
 
-    const className = `group border border-border-subtle p-6 hover:border-accent transition-colors duration-300 bg-transparent flex flex-col justify-between h-full${project.featured ? ' md:col-span-2' : ''}`;
+    const className = "group border border-border-subtle p-6 hover:border-accent transition-colors duration-300 bg-transparent flex flex-col justify-between h-full";
 
     if (!hasLink) {
         return <div className={className}>{inner}</div>;
