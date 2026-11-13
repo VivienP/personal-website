@@ -25,7 +25,7 @@ const Code = ({ children }) => (
 
 const SmartWatch = () => {
     return (
-        <ArticleLayout backTo="/journal" backLabel="Journal">
+        <ArticleLayout backTo="/journal" backLabel="Journal" width="narrow">
             <ArticleSEO
                 slug={SLUG}
                 title="How to Build a SmartWatch | Vivien Perrelle"
@@ -47,15 +47,8 @@ const SmartWatch = () => {
             <div className="text-primary max-w-none space-y-16 font-normal leading-relaxed">
 
                 {/* Lead — image left, intro right */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="overflow-hidden border border-border-subtle">
-                        <img
-                            src={`${B}/smartwatch-closeup.jpg`}
-                            alt="Close-up of the finished 3D-printed smartwatch"
-                            className="w-full h-auto object-contain"
-                        />
-                    </div>
-                    <div className="space-y-6 order-first md:order-last">
+                <section className="space-y-6">
+                    <div className="space-y-6">
                         <p className="text-base font-normal text-primary">
                             Wearable technologies are becoming ever more present in daily life. This tutorial shows how to build a smartwatch: it combines electronics (to program a liquid crystal display) and 3D printing (to make the watch case). It is a hands-on introduction to designing wearable technologies.
                         </p>
@@ -66,10 +59,17 @@ const SmartWatch = () => {
                             </a>
                         </div>
                     </div>
+                    <div className="overflow-hidden border border-border-subtle max-w-lg">
+                        <img
+                            src={`${B}/smartwatch-closeup.jpg`}
+                            alt="Close-up of the finished 3D-printed smartwatch"
+                            className="w-full h-auto object-contain"
+                        />
+                    </div>
                 </section>
 
                 {/* Context */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <section className="space-y-6">
                     <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Context</h2>
                         <p>
@@ -82,23 +82,23 @@ const SmartWatch = () => {
                             <span className="font-medium text-primary">Technological tools are increasingly within reach of individuals.</span> Prototyping platforms make electronics easy to program, and 3D printing allows tailor-made objects, so non-professionals can now build complex devices such as a smartwatch.
                         </p>
                     </div>
-                    <Figure src={`${B}/market-share.jpg`} alt="Smartwatch market share pie chart, 2020" caption="Smartwatch market share, Global, 2020. Source: Forbes." />
+                    <Figure src={`${B}/market-share.jpg`} className="max-w-lg" alt="Smartwatch market share pie chart, 2020" caption="Smartwatch market share, Global, 2020. Source: Forbes." />
                 </section>
 
                 {/* Skills & Opportunities */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <Figure src={`${B}/worn-on-wrist.jpg`} alt="The smartwatch worn on a wrist" />
-                    <div className="space-y-6 order-first md:order-last">
+                <section className="space-y-6">
+                    <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Skills &amp; Opportunities</h2>
                         <p>
                             The first skill is <span className="font-medium text-primary">programming LCD screens</span>, which lets you print images, videos, GIFs, and data. The second is <span className="font-medium text-primary">slicing 3D models</span>, the step that precedes any 3D print and lets you produce any object, such as a watch case. Building this smartwatch is a first approach to wearable technologies.
                         </p>
                         <Figure src={`${B}/worn-closeup.jpg`} alt="Close-up of the smartwatch on the wrist" />
                     </div>
+                    <Figure src={`${B}/worn-on-wrist.jpg`} alt="The smartwatch worn on a wrist" />
                 </section>
 
                 {/* Requirements */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <section className="space-y-6">
                     <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Requirements</h2>
                         <p>This project involves several prerequisites:</p>
@@ -123,11 +123,11 @@ const SmartWatch = () => {
                     {/* 1. LCD programming */}
                     <div className="space-y-6">
                         <h3 className="text-lg md:text-xl font-normal text-primary pt-2">1. LCD programming</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div className="space-y-6">
                             <p>
                                 The WaveShare 1.28" round LCD module embeds a <span className="font-medium text-primary">GC9A01 driver</span> and supports Raspberry Pi, Arduino, and STM32 boards. It uses the <span className="font-medium text-primary">Serial Peripheral Interface (SPI)</span> — a synchronous serial bus for short-distance communication, mostly in embedded systems. The GC9A01 datasheet is available <a href="https://www.waveshare.com/w/upload/5/5e/GC9A01A.pdf" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">here</a>.
                             </p>
-                            <Figure src={`${B}/lcd-module.jpg`} alt="1.28-inch round LCD module" caption="1.28″ round LCD module with the GC9A01 driver." />
+                            <Figure src={`${B}/lcd-module.jpg`} className="max-w-lg" alt="1.28-inch round LCD module" caption="1.28″ round LCD module with the GC9A01 driver." />
                         </div>
 
                         {/* 1.1 Hardware connexion */}
@@ -158,16 +158,16 @@ const SmartWatch = () => {
                                     </tbody>
                                 </table>
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start pt-2">
+                            <div className="space-y-8 pt-2">
                                 <Figure src={`${B}/arduino-wiring.jpg`} alt="LCD wired to an Arduino Uno" caption="Wiring the LCD to an Arduino Uno." />
-                                <Figure src={`${B}/wiring-color-code.png`} alt="Color code of the LCD wiring" caption="LCD wiring color code." />
+                                <Figure src={`${B}/wiring-color-code.png`} className="max-w-sm" alt="Color code of the LCD wiring" caption="LCD wiring color code." />
                             </div>
                         </div>
 
                         {/* 1.2 Software configuration */}
                         <div className="space-y-5">
                             <h4 className="font-medium text-primary">1.2. Software configuration</h4>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                            <div className="space-y-6">
                                 <div className="space-y-5">
                                     <p>
                                         <span className="font-medium text-primary">Install the GFX library.</span> For Arduino, download the ZIP from <a href="https://github.com/moononournation/Arduino_GFX" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">GitHub</a> (green "Code" button → "Download ZIP"). In the Arduino IDE, go to Sketch → Include Library → Add .ZIP Library… and select the downloaded ZIP.
@@ -188,9 +188,9 @@ const SmartWatch = () => {
                                         <p><span className="font-medium">Line numbers</span> help locate the lines to edit in the next steps. They are not required for the code to run.</p>
                                     </Note>
                                 </div>
-                                <div className="space-y-8 md:sticky md:top-24">
-                                    <Figure src={`${B}/ide-clock-example.jpg`} alt="Arduino IDE menu showing the Clock example" caption="Loading the Clock example from the GFX library." />
-                                    <Figure src={`${B}/gfx-code-edit.png`} alt="Editing the GFX example code" caption="Editing the data bus and display classes." />
+                                <div className="space-y-8">
+                                    <Figure src={`${B}/ide-clock-example.jpg`} className="max-w-sm" alt="Arduino IDE menu showing the Clock example" caption="Loading the Clock example from the GFX library." />
+                                    <Figure src={`${B}/gfx-code-edit.png`} className="max-w-lg" alt="Editing the GFX example code" caption="Editing the data bus and display classes." />
                                 </div>
                             </div>
                             <div className="space-y-5">
@@ -219,7 +219,7 @@ const SmartWatch = () => {
                     {/* 2. Case 3D printing */}
                     <div className="space-y-6">
                         <h3 className="text-lg md:text-xl font-normal text-primary pt-2">2. Case 3D printing</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                        <div className="space-y-6">
                             <div className="space-y-5">
                                 <p>
                                     <span className="font-medium text-primary">Download the STL file</span> <a href="https://s3.dvic.devinci.fr/public/Watch_case.STL" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">here</a>.
@@ -240,9 +240,9 @@ const SmartWatch = () => {
                                 <p><span className="font-medium text-primary">Save the G-code</span> on a flash drive (some printers read USB keys, others SD cards), plug it into the printer, and print the case.</p>
                                 <p><span className="font-medium text-primary">Carefully remove the supports</span> from the printed piece.</p>
                             </div>
-                            <div className="space-y-8 md:sticky md:top-24">
-                                <Figure src={`${B}/prusaslicer-settings.png`} alt="Slicing settings in PrusaSlicer" caption="Slicing settings in PrusaSlicer." />
-                                <Figure src={`${B}/assembly.jpg`} alt="The printed black case and components" caption="The 3D-printed case ready for assembly." />
+                            <div className="space-y-8">
+                                <Figure src={`${B}/prusaslicer-settings.png`} className="max-w-lg" alt="Slicing settings in PrusaSlicer" caption="Slicing settings in PrusaSlicer." />
+                                <Figure src={`${B}/assembly.jpg`} className="max-w-lg" alt="The printed black case and components" caption="The 3D-printed case ready for assembly." />
                             </div>
                         </div>
                     </div>
@@ -261,9 +261,8 @@ const SmartWatch = () => {
                 </section>
 
                 {/* Reproducibility */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <Figure src={`${B}/reproducibility.png`} alt="Reproducibility evaluation results" />
-                    <div className="space-y-6 order-first md:order-last">
+                <section className="space-y-6">
+                    <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Reproducibility</h2>
                         <p>
                             An evaluation tested the tutorial's reproducibility. A group of 5 people followed it, all using an Arduino Uno with the Arduino IDE to program the driver and a Prusa Mini with PrusaSlicer to print the case. Four were familiar with electronics, three with 3D printing.
@@ -275,10 +274,11 @@ const SmartWatch = () => {
                             Participants unanimously found the content educational, and all felt their electronics or 3D-slicing skills had improved — one even wanted to try another DIY wearable tutorial.
                         </p>
                     </div>
+                    <Figure src={`${B}/reproducibility.png`} alt="Reproducibility evaluation results" />
                 </section>
 
                 {/* Conclusion */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <section className="space-y-6">
                     <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Conclusion</h2>
                         <p>

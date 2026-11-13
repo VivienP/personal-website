@@ -7,7 +7,7 @@ import SEO from '../components/SEO';
 
 const MotionSuit = () => {
     return (
-        <ArticleLayout backTo="/" backLabel="Back">
+        <ArticleLayout backTo="/" backLabel="Back" width="narrow">
             <SEO
                 title="E-Textile Motion Suit: An Easy-to-Make E-Textile Platform | Vivien Perrelle"
                 description="An open-source, easy-to-make e-textile platform whose fully integrated fabric sensors detect touch, position, and deformation to capture a wearer's movements."
@@ -71,9 +71,8 @@ const MotionSuit = () => {
                 </section>
 
                 {/* What are e-textiles? */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                    <Img src="/catsuit/what-is-e-textiles.jpg" alt="Close-up of the e-textile garment with embroidered sensors and electronics" className="md:sticky md:top-24" />
-                    <div className="space-y-6 order-first md:order-last">
+                <section className="space-y-6">
+                    <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">What are e-textiles?</h2>
                         <p>
                             Smart textiles, electronic textiles, or e-textiles are fabrics infused with electronic components and functionality<Cite n={1} />. Their main applications are:
@@ -93,10 +92,11 @@ const MotionSuit = () => {
                             Despite this progress, e-textiles remain hard to reach for non-experts. Cost, comfort, durability, and the lack of learning platforms are still real barriers. Today the most accessible form of non-commercial e-textile lives in the cosplay and DIY community. Through collaboration, education, and standardization, e-textiles could become far more practical for students and beginners.
                         </p>
                     </div>
+                    <div className="max-w-sm"><Img src="/catsuit/what-is-e-textiles.jpg" alt="Close-up of the e-textile garment with embroidered sensors and electronics" /></div>
                 </section>
 
                 {/* Project Presentation */}
-                <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <section className="space-y-6">
                     <div className="space-y-6">
                         <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Project presentation</h2>
                         <p>
@@ -113,9 +113,8 @@ const MotionSuit = () => {
                 <section className="space-y-10">
                     <h2 className="text-2xl md:text-3xl font-normal text-primary pt-4 pb-2 border-b border-border-subtle">Project details</h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <Img src="/catsuit/overview.jpg" alt="The suit with stretch and crumpling sensors annotated" />
-                        <div className="space-y-6 order-first md:order-last">
+                    <div className="space-y-6">
+                        <div className="space-y-6">
                             <h3 className="text-lg md:text-xl font-normal text-primary pt-2">Architecture</h3>
                             <p>
                                 Mechanical movement sensors capture the wearer's motion. Three <a href="https://www.wemos.cc/en/latest/d1/d1_mini.html" target="_blank" rel="noopener noreferrer" className="underline decoration-border-subtle underline-offset-4 hover:decoration-accent transition-colors">ESP8266 Wemos Lolin D1 mini</a> microcontrollers (left, middle, and right) send this data to a server, which triggers audio-visual feedback whenever new information arrives.
@@ -126,10 +125,11 @@ const MotionSuit = () => {
                                 <li><span className="font-medium text-primary">Crumple sensors</span> at the ends of both sleeves measure the wearer's grip.</li>
                             </ul>
                         </div>
+                        <Img src="/catsuit/overview.jpg" alt="The suit with stretch and crumpling sensors annotated" />
                     </div>
 
                     {/* 1. Stretch sensors */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div className="space-y-6">
                         <div className="space-y-4">
                             <h3 className="text-lg md:text-xl font-normal text-primary pt-2">1. Stretch sensors</h3>
                             <p>
@@ -140,36 +140,36 @@ const MotionSuit = () => {
                     </div>
 
                     {/* 2. Crumple sensors */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <Img src="/catsuit/crumple-sensor-diagram.jpg" alt="Crumple sensor: circuit diagram and embroidered conductive pattern" />
-                        <div className="space-y-4 order-first md:order-last">
+                    <div className="space-y-6">
+                        <div className="space-y-4">
                             <h3 className="text-lg md:text-xl font-normal text-primary pt-2">2. Crumple sensors</h3>
                             <p>
                                 Here the conductive thread is sewn across an entire surface. When the fabric wrinkles, it folds onto itself and creates contact points that let the current short-circuit the pattern, so the resistance drops accordingly.
                             </p>
                         </div>
+                        <Img src="/catsuit/crumple-sensor-diagram.jpg" alt="Crumple sensor: circuit diagram and embroidered conductive pattern" />
                     </div>
 
                     {/* 3. LED interfaces */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div className="space-y-6">
                         <div className="space-y-4">
                             <h3 className="text-lg md:text-xl font-normal text-primary pt-2">3. LED interfaces</h3>
                             <p>
                                 The LEDs are off-the-shelf sewable sequins from Adafruit<Cite n={5} />, hand-sewn directly onto the sleeves and hood using the same process as the gyroscopic sensors. For now they are purely aesthetic, but they can easily be driven by the integrated GEMMA microcontrollers<Cite n={6} />.
                             </p>
                         </div>
-                        <Img src="/catsuit/led-interfaces.jpg" alt="Sewable LED sequins lit on the garment" />
+                        <div className="max-w-lg"><Img src="/catsuit/led-interfaces.jpg" alt="Sewable LED sequins lit on the garment" /></div>
                     </div>
 
                     {/* 4. Gyroscopic sensors */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <Img src="/catsuit/gyroscopic-sensor.jpg" alt="Wemos microcontroller and accelerometer embroidered onto the sleeve" />
-                        <div className="space-y-4 order-first md:order-last">
+                    <div className="space-y-6">
+                        <div className="space-y-4">
                             <h3 className="text-lg md:text-xl font-normal text-primary pt-2">4. Gyroscopic sensors</h3>
                             <p>
                                 An accelerometer measures linear, non-gravitational acceleration. Three off-the-shelf accelerometers from Adafruit record acceleration and speed in the shoulder and torso area<Cite n={7} />. The connector is hand-sketched, imported into DRAWings as a PNG, then vectorized, rescaled, and turned into an ISO 301 stitch. The sensor is finally embroidered upside-down with that stitch on the outer surface of the sleeve.
                             </p>
                         </div>
+                        <Img src="/catsuit/gyroscopic-sensor.jpg" alt="Wemos microcontroller and accelerometer embroidered onto the sleeve" />
                     </div>
                 </section>
 
