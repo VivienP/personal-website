@@ -95,6 +95,19 @@ test('every Journal page prerenders a large dedicated social card', () => {
     }
 });
 
+test('the home page prerenders a large social card that ships with the build', () => {
+    const page = pages.find((candidate) => candidate.route === '/');
+    assert.ok(page, '/ was not prerendered');
+
+    const image = `${SITE_URL}/social/home.jpg`;
+    assert.ok(page.html.includes(`<meta property="og:image" content="${image}"`));
+    assert.match(page.html, /<meta property="og:image:width" content="1200"\s*\/?>/);
+    assert.match(page.html, /<meta property="og:image:height" content="630"\s*\/?>/);
+    assert.match(page.html, /<meta name="twitter:card" content="summary_large_image"\s*\/?>/);
+    assert.ok(page.html.includes(`<meta name="twitter:image" content="${image}"`));
+    assert.ok(existsSync(join(DIST, 'social', 'home.jpg')), 'the home social card is missing from dist/');
+});
+
 test('every indexable route is reachable from another prerendered page', () => {
     // A route present in the sitemap but with no inbound <a href> anywhere is invisible
     // to a crawler following links. Three project routes were in exactly that state:
